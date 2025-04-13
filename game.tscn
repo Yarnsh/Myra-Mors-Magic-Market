@@ -1,0 +1,700 @@
+[gd_scene load_steps=52 format=3 uid="uid://b72aodvsrkkov"]
+
+[ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
+[ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
+[ext_resource type="Script" path="res://orders.gd" id="1_yxv0l"]
+[ext_resource type="PackedScene" uid="uid://c5qg7f6k7ni1b" path="res://UI/control_button.tscn" id="2_8lfdj"]
+[ext_resource type="Script" path="res://controls.gd" id="2_64ujj"]
+[ext_resource type="PackedScene" uid="uid://chtuhsyrj8mov" path="res://UI/prep_station.tscn" id="2_awp6u"]
+[ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="4_03d7b"]
+[ext_resource type="Script" path="res://task_manager.gd" id="5_25e1r"]
+[ext_resource type="Script" path="res://prep_stations.gd" id="5_fkrxk"]
+[ext_resource type="Texture2D" uid="uid://j0psqbhxj1rb" path="res://Images/PotionBottle.png" id="5_ra1w1"]
+[ext_resource type="Texture2D" uid="uid://dwgx2f1bwqvqu" path="res://Images/PotionBottleInner.png" id="6_kd4c3"]
+[ext_resource type="Script" path="res://potion_prep_task.gd" id="6_pprsc"]
+[ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="7_bdkoj"]
+[ext_resource type="Texture2D" uid="uid://bv43qfkcurnx8" path="res://Images/ControlButtonRed.png" id="10_idcwj"]
+[ext_resource type="Texture2D" uid="uid://bsalmnd1fenco" path="res://Images/ControlButtonGreen.png" id="11_sqpd8"]
+[ext_resource type="Texture2D" uid="uid://6ui0wov5lcgo" path="res://Images/ControlButtonBlue.png" id="12_55yik"]
+[ext_resource type="Texture2D" uid="uid://5i7g5soeherj" path="res://Images/ControlButtonYellow.png" id="13_wn1xy"]
+[ext_resource type="Script" path="res://pick_prep_station_task.gd" id="14_tj0ai"]
+[ext_resource type="Texture2D" uid="uid://mhxphfn5ksik" path="res://Images/PrepPotion.png" id="15_pjbpi"]
+[ext_resource type="Script" path="res://ponder_orb.gd" id="16_fc1b3"]
+[ext_resource type="Script" path="res://enchanting_prep_station_task.gd" id="17_iy7kc"]
+[ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="17_odv5c"]
+[ext_resource type="Texture2D" uid="uid://bgwl252ma3tia" path="res://Images/Cat.png" id="18_5j6g7"]
+[ext_resource type="Script" path="res://outside_prep_station_task.gd" id="18_46hdd"]
+[ext_resource type="Script" path="res://goblin_chore.gd" id="19_8nm8a"]
+[ext_resource type="Texture2D" uid="uid://dy86gmobxxywc" path="res://Images/Goblin.png" id="20_d4r1p"]
+[ext_resource type="Texture2D" uid="uid://dmt6hgadhlapf" path="res://Images/ControlButtonBlast.png" id="20_gbqrd"]
+[ext_resource type="Texture2D" uid="uid://q38t4ooy37di" path="res://Images/ControlButtonPonder.png" id="21_docjb"]
+[ext_resource type="Texture2D" uid="uid://dg3ctaidh8pxt" path="res://Images/ControlButtonDone.png" id="21_wlpc6"]
+
+[sub_resource type="Shortcut" id="Shortcut_o0ji4"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_3dgb5"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_d04vk"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_1lnft"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_efbce"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_55u44"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_kwd2u"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_joins"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_bcnjk"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_327pu"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_uwt4s"]
+resource_local_to_scene = true
+
+[sub_resource type="Shortcut" id="Shortcut_lvupr"]
+resource_local_to_scene = true
+
+[sub_resource type="Animation" id="Animation_857yp"]
+resource_name = "ItemAdded"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0921007, -0.138419, 0.111161, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("C2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0921007, -0.138419, 0.111161, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3p5o2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("C2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8al16"]
+_data = {
+"ItemAdded": SubResource("Animation_857yp"),
+"RESET": SubResource("Animation_3p5o2")
+}
+
+[sub_resource type="Animation" id="Animation_llcwc"]
+resource_name = "Ponder"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0921007, -0.138419, 0.111161, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lcviq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C1:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m01s7"]
+_data = {
+"Ponder": SubResource("Animation_llcwc"),
+"RESET": SubResource("Animation_lcviq")
+}
+
+[sub_resource type="Animation" id="Animation_e2mrf"]
+resource_name = "Dance"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2664, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(0.2, 0.2), Vector2(-0.2, 0.2), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -40), Vector2(0, 0), Vector2(0, -40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h3ech"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_f0kvb"]
+resource_name = "Die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1036, -696)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6c74w"]
+_data = {
+"Dance": SubResource("Animation_e2mrf"),
+"Die": SubResource("Animation_f0kvb"),
+"RESET": SubResource("Animation_h3ech")
+}
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkw1q")
+
+[node name="Orders" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -295.0
+offset_right = 300.0
+offset_bottom = 295.0
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_yxv0l")
+
+[node name="Order" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Order2" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 2
+
+[node name="Order3" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 3
+
+[node name="Order4" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 4
+
+[node name="Order5" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 5
+
+[node name="Order6" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 6
+
+[node name="Order7" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 7
+
+[node name="Order8" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 8
+
+[node name="Order9" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 9
+
+[node name="Order10" parent="Orders" instance=ExtResource("1_2ls0w")]
+layout_mode = 2
+size_flags_horizontal = 0
+idx = 0
+
+[node name="Controls" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -134.0
+offset_bottom = 134.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("2_64ujj")
+
+[node name="Label" type="Label" parent="Controls"]
+layout_mode = 2
+text = "Potion of Green"
+
+[node name="ItemList" type="GridContainer" parent="Controls"]
+layout_mode = 2
+columns = 3
+
+[node name="ControlButton" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_o0ji4")
+
+[node name="ControlButton2" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_3dgb5")
+
+[node name="ControlButton3" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_d04vk")
+
+[node name="ControlButton4" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_1lnft")
+
+[node name="ControlButton5" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_efbce")
+
+[node name="ControlButton6" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_55u44")
+
+[node name="ControlButton7" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_kwd2u")
+
+[node name="ControlButton8" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_joins")
+
+[node name="ControlButton9" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_bcnjk")
+
+[node name="ControlButton10" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_327pu")
+
+[node name="ControlButton11" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_uwt4s")
+
+[node name="ControlButton12" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+layout_mode = 2
+shortcut = SubResource("Shortcut_lvupr")
+
+[node name="PrepStations" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+alignment = 1
+script = ExtResource("5_fkrxk")
+
+[node name="PrepStation" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+
+[node name="PrepStation2" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+idx = 2
+
+[node name="PrepStation3" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+idx = 3
+
+[node name="PrepStation4" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+idx = 4
+
+[node name="PrepStation5" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+idx = 5
+
+[node name="PrepStation6" parent="PrepStations" instance=ExtResource("2_awp6u")]
+layout_mode = 2
+idx = 6
+
+[node name="Task" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("5_25e1r")
+
+[node name="PotionPrep" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("6_pprsc")
+r_texture = ExtResource("10_idcwj")
+g_texture = ExtResource("11_sqpd8")
+b_texture = ExtResource("12_55yik")
+y_texture = ExtResource("13_wn1xy")
+done_texture = ExtResource("21_wlpc6")
+prepped_icon = ExtResource("15_pjbpi")
+
+[node name="C1" type="Sprite2D" parent="Task/PotionPrep"]
+position = Vector2(7, -145)
+texture = ExtResource("4_03d7b")
+
+[node name="PotionRed" type="Node2D" parent="Task/PotionPrep"]
+position = Vector2(-237, -346)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionRed"]
+texture = ExtResource("5_ra1w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionRed"]
+modulate = Color(1, 0.287307, 0.225237, 1)
+texture = ExtResource("6_kd4c3")
+
+[node name="PotionBlue" type="Node2D" parent="Task/PotionPrep"]
+position = Vector2(-121, -480)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionBlue"]
+texture = ExtResource("5_ra1w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionBlue"]
+modulate = Color(2.88785e-06, 0.624564, 0.88871, 1)
+texture = ExtResource("6_kd4c3")
+
+[node name="PotionYellow" type="Node2D" parent="Task/PotionPrep"]
+position = Vector2(92, -476)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionYellow"]
+texture = ExtResource("5_ra1w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionYellow"]
+modulate = Color(0.936942, 0.745894, 1.15514e-06, 1)
+texture = ExtResource("6_kd4c3")
+
+[node name="PotionGreen" type="Node2D" parent="Task/PotionPrep"]
+position = Vector2(232, -337)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionGreen"]
+texture = ExtResource("5_ra1w1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionGreen"]
+modulate = Color(0.314395, 0.683018, 0, 1)
+texture = ExtResource("6_kd4c3")
+
+[node name="C2" type="Sprite2D" parent="Task/PotionPrep"]
+position = Vector2(7, -145)
+texture = ExtResource("7_bdkoj")
+
+[node name="CauldronAnim" type="AnimationPlayer" parent="Task/PotionPrep"]
+libraries = {
+"": SubResource("AnimationLibrary_8al16")
+}
+
+[node name="PonderOrb" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("16_fc1b3")
+control_texture = ExtResource("21_docjb")
+done_texture = ExtResource("21_wlpc6")
+
+[node name="C1" type="Sprite2D" parent="Task/PonderOrb"]
+position = Vector2(7, -314)
+texture = ExtResource("17_odv5c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/PonderOrb/C1"]
+position = Vector2(9.00001, -72)
+scale = Vector2(0.34419, 0.34419)
+texture = ExtResource("18_5j6g7")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/PonderOrb"]
+libraries = {
+"": SubResource("AnimationLibrary_m01s7")
+}
+
+[node name="GoblinChore" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("19_8nm8a")
+blast_texture = ExtResource("20_gbqrd")
+done_texture = ExtResource("21_wlpc6")
+
+[node name="G1" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(-262, -462)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G1"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G1/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="G2" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(206, -190)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G2"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G2/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="G3" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(216, -455)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G3"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G3/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="G4" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(-312, -203)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G4"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G4/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="G5" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(-71, -243)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G5"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G5/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="G6" type="Node2D" parent="Task/GoblinChore"]
+position = Vector2(28, -493)
+
+[node name="G" type="Sprite2D" parent="Task/GoblinChore/G6"]
+rotation = -6.28319
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("20_d4r1p")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/GoblinChore/G6/G"]
+libraries = {
+"": SubResource("AnimationLibrary_6c74w")
+}
+
+[node name="CauldronPrepStationTask" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("14_tj0ai")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Task/CauldronPrepStationTask"]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Task/CauldronPrepStationTask/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Task/CauldronPrepStationTask/CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/CauldronPrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Please choose what ingredients
+you want to prepare"
+horizontal_alignment = 1
+
+[node name="EnchantingPrepStationTask" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("17_iy7kc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Task/EnchantingPrepStationTask"]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Task/EnchantingPrepStationTask/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Task/EnchantingPrepStationTask/CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/EnchantingPrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Please choose what ingredients
+you want to prepare"
+horizontal_alignment = 1
+
+[node name="OutsidePrepStationTask" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("18_46hdd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Task/OutsidePrepStationTask"]
+visible = false
+
+[node name="CenterContainer" type="CenterContainer" parent="Task/OutsidePrepStationTask/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Task/OutsidePrepStationTask/CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Task/OutsidePrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Please choose what ingredients
+you want to prepare"
+horizontal_alignment = 1
+
+[connection signal="visibility_changed" from="Task/CauldronPrepStationTask" to="Task/CauldronPrepStationTask" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Task/EnchantingPrepStationTask" to="Task/EnchantingPrepStationTask" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Task/OutsidePrepStationTask" to="Task/OutsidePrepStationTask" method="_on_visibility_changed"]
