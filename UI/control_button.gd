@@ -18,5 +18,4 @@ func set_action(image: Texture2D, sc: String):
 	shortcut.events.append(shortcut_event)
 
 func _on_pressed() -> void:
-	print("Button: ", shortcut_label.text)
 	controls.button_pressed(shortcut_label.text)

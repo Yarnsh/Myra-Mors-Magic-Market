@@ -17,7 +17,6 @@ func reset_task():
 	cat.modulate.a = 0.0
 
 func take_input(sc : String):
-	print("Task input: ", sc)
 	if sc == "P":
 		anim.stop()
 		anim.play("Ponder")

@@ -14,6 +14,7 @@ var resources_needed = {}
 var available_time = 0
 var last_timer_len = 1000
 var was_cooking = false
+var last_quality = 0.0
 
 var current_patience = 10000
 var patience_done = 0
@@ -30,16 +31,15 @@ func _process(delta: float) -> void:
 	
 	if !is_free():
 		var p = 1.0 - (float(patience_done - Time.get_ticks_msec()) / float(current_patience))
-		print(p)
 		order_image.position = Vector2.RIGHT * (order_image_remove_offset * p)
 		if p >= 1.0:
-			complete_order()
+			complete_order(0.0)
 
 func _on_button_pressed() -> void:
 	# TODO: Holding Station optional tasks?
 	if was_cooking:
 		if !is_cooking():
-			complete_order()
+			complete_order(last_quality)
 	elif task != null and GameGlobals.current_task == null:
 		if GameGlobals.prep_stations.check_requirements(resources_needed):
 			GameGlobals.prep_stations.consume(resources_needed)
@@ -47,7 +47,7 @@ func _on_button_pressed() -> void:
 	elif resources_needed != null and resources_needed != {}:
 		if GameGlobals.prep_stations.check_requirements(resources_needed):
 			GameGlobals.prep_stations.consume(resources_needed)
-			complete_order()
+			complete_order(1.0)
 
 func is_cooking():
 	return Time.get_ticks_msec() < available_time
@@ -61,22 +61,25 @@ func set_order(order_def, patience):
 	patience_done = Time.get_ticks_msec() + patience
 
 func report_result(result):
-	# TODO: check for how well it was done
 	if "timer" in result:
 		available_time = Time.get_ticks_msec() + result["timer"]
 		last_timer_len = result["timer"]
 		was_cooking = true
+		last_quality = result.get("quality", 1.0)
 	else:
-		complete_order()
-	print("Order result: ", result)
+		complete_order(result.get("quality", 1.0))
 
-func complete_order():
+func complete_order(quality):
 	order_image.position = Vector2.RIGHT * order_image_remove_offset
 	if GameGlobals.task_manager.current_task_owner == self:
 		GameGlobals.task_manager.stop_task()
+	add_money(100 * quality)
 	task = null
 	resources_needed = {}
 	was_cooking = false
+
+func add_money(m):
+	GameGlobals.money += m
 
 func is_free():
 	return (resources_needed == null or resources_needed == {}) and task == null

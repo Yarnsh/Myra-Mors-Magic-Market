@@ -6,6 +6,8 @@ var controls = null
 var orders = null
 var prep_stations = null
 
+var money = 0
+
 # Order definitions
 var potion_order = {
 	"task": "",

@@ -44,11 +44,7 @@ func _on_button_pressed() -> void:
 			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["OutsidePrepStationTask"], self)
 
 func report_result(result):
-	# TODO: possibly check for messing it up for some effects?
-	# TODO: if result involves a timer, set one
-	print("PrepStation: ", name, ", ",result)
 	if result.get("quality", 1.0) < 1.0:
-		# TODO: visual for the prep failing
 		return
 	button.icon = result.get("icon", null)
 	resource_name = result.get("resource_name", "")

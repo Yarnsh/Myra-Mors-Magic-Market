@@ -51,7 +51,6 @@ func reset_task():
 	gobs_kill = 0
 
 func take_input(sc : String):
-	print("Task input: ", sc)
 	if sc == "G" and !g1:
 		anim1.play("Die")
 		g1 = true

@@ -30,7 +30,6 @@ func reset_task():
 	pg.show()
 
 func take_input(sc : String):
-	print("Task input: ", sc)
 	if sc == "B":
 		if pb.visible:
 			c_anim.stop()
