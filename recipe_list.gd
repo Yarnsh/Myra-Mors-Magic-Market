@@ -1,13 +1,18 @@
-extends PanelContainer
+extends Control
 
-# TODO: populate with available recipes (all for now)
-# TODO: listen to clicks on those recipes to select whatever the last clicked menu button should be
+@export var recipe_entry : PackedScene
+@onready var recipe_parent = $RecipeList/ScrollContainer/VBoxContainer
 
-# Called when the node enters the scene tree for the first time.
+var last_button = null
+
 func _ready() -> void:
-	pass # Replace with function body.
+	for key in GameGlobals.order_definitions.keys():
+		var r = recipe_entry.instantiate()
+		recipe_parent.add_child(r)
+		r.set_recipe(GameGlobals.order_definitions[key])
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func recipe_selected(recipe):
+	if last_button != null:
+		last_button.set_recipe(recipe)
+		hide()
+		last_button = null

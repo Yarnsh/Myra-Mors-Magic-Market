@@ -1,12 +1,16 @@
 extends Button
 
-# TODO: have this button bring up a recipe selection list, and change its icon when something is selected
+@onready var game_prep = $".."
+@export var default_icon : Texture2D
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+var selected_recipe = null
 
+func _on_pressed() -> void:
+	game_prep.open_recipe_list(self)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func set_recipe(recipe):
+	selected_recipe = recipe
+	if recipe == null:
+		icon = default_icon
+	else:
+		icon = recipe.get("icon", default_icon)

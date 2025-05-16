@@ -1,12 +1,15 @@
 extends Button
 
-# TODO: method to populate this with a recipe easily
-# TODO: report what recipe this is when clicked
+@onready var list_node = $"../../../.."
+@onready var label = $HBoxContainer/Label
+@onready var texture = $HBoxContainer/TextureRect
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+var our_recipe = null
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_pressed() -> void:
+	list_node.recipe_selected(our_recipe)
+
+func set_recipe(recipe):
+	our_recipe = recipe
+	label.text = recipe.get("name", "")
+	texture.texture = recipe.get("icon", null)

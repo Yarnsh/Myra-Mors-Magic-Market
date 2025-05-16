@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=5 format=3 uid="uid://d21scinhqdak3"]
 
-[ext_resource type="Texture2D" uid="uid://be0i4g088voi7" path="res://Images/EmptyMenuSelection.png" id="1_dp4i1"]
-[ext_resource type="Script" path="res://menu_selection.gd" id="2_2cee7"]
+[ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
+[ext_resource type="PackedScene" uid="uid://ba33jng1wkjf7" path="res://UI/menu_selection.tscn" id="2_viyhe"]
 [ext_resource type="Script" path="res://recipe_list.gd" id="3_k1xhs"]
-[ext_resource type="Script" path="res://recipe.gd" id="4_0lnk6"]
-[ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="5_3k3nv"]
+[ext_resource type="PackedScene" uid="uid://cwd4b1prnpuol" path="res://UI/recipe.tscn" id="4_3jlwk"]
 
 [node name="GamePrep" type="Control"]
 layout_mode = 3
@@ -13,15 +12,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ms05v")
 
-[node name="MenuSelection" type="Button" parent="."]
-custom_minimum_size = Vector2(136, 136)
+[node name="MenuSelection" parent="." instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_right = 136.0
-offset_bottom = 136.0
-icon = ExtResource("1_dp4i1")
-icon_alignment = 1
-script = ExtResource("2_2cee7")
 
 [node name="RecipeListPanel" type="Panel" parent="."]
 visible = false
@@ -31,6 +25,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_k1xhs")
+recipe_entry = ExtResource("4_3jlwk")
 
 [node name="RecipeList" type="PanelContainer" parent="RecipeListPanel"]
 layout_mode = 1
@@ -45,7 +41,6 @@ offset_right = 254.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_k1xhs")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="RecipeListPanel/RecipeList"]
 custom_minimum_size = Vector2(500, 500)
@@ -54,24 +49,3 @@ horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RecipeListPanel/RecipeList/ScrollContainer"]
 layout_mode = 2
-
-[node name="Recipe" type="Button" parent="RecipeListPanel/RecipeList/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(500, 64)
-layout_mode = 2
-script = ExtResource("4_0lnk6")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="RecipeListPanel/RecipeList/ScrollContainer/VBoxContainer/Recipe"]
-layout_mode = 1
-offset_right = 368.0
-offset_bottom = 64.0
-
-[node name="TextureRect" type="TextureRect" parent="RecipeListPanel/RecipeList/ScrollContainer/VBoxContainer/Recipe/HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-texture = ExtResource("5_3k3nv")
-expand_mode = 2
-
-[node name="Label" type="Label" parent="RecipeListPanel/RecipeList/ScrollContainer/VBoxContainer/Recipe/HBoxContainer"]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-text = "Wahudiewhfie"

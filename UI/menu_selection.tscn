@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba33jng1wkjf7"]
+
+[ext_resource type="Texture2D" uid="uid://be0i4g088voi7" path="res://Images/EmptyMenuSelection.png" id="1_rj8ha"]
+[ext_resource type="Script" path="res://menu_selection.gd" id="2_heusj"]
+
+[node name="MenuSelection" type="Button"]
+custom_minimum_size = Vector2(136, 136)
+offset_right = 136.0
+offset_bottom = 136.0
+icon = ExtResource("1_rj8ha")
+icon_alignment = 1
+script = ExtResource("2_heusj")
+default_icon = ExtResource("1_rj8ha")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

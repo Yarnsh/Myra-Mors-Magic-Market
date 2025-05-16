@@ -10,16 +10,19 @@ var money = 0
 
 # Order definitions
 var potion_order = {
+	"name": "Potion",
 	"task": "",
 	"requirements": {"potion": 1},
 	"icon": load("res://Images/PotionOrder.png")
 }
 var ponder_order = {
+	"name": "Future Reading",
 	"task": "PonderOrb",
 	"requirements": {},
 	"icon": load("res://Images/PonderOrbOrder.png")
 }
 var goblin_chore = {
+	"name": "Goblins are about",
 	"task": "GoblinChore",
 	"requirements": {},
 	"icon": load("res://Images/GoblinChoreOrder.png")

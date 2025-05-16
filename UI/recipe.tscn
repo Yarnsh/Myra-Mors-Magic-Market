@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwd4b1prnpuol"]
+
+[ext_resource type="Script" path="res://recipe.gd" id="1_3b2bj"]
+[ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="2_kw1je"]
+
+[node name="Recipe" type="Button"]
+custom_minimum_size = Vector2(500, 64)
+script = ExtResource("1_3b2bj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 368.0
+offset_bottom = 64.0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("2_kw1je")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Wahudiewhfie"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
