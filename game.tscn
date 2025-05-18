@@ -436,6 +436,7 @@ offset_bottom = 40.0
 grow_horizontal = 2
 alignment = 1
 script = ExtResource("5_fkrxk")
+prep_station_prefab = ExtResource("2_awp6u")
 
 [node name="PrepStation" parent="PrepStations" instance=ExtResource("2_awp6u")]
 layout_mode = 2

@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+@export var prep_station_prefab : PackedScene
+
 func _ready() -> void:
 	GameGlobals.prep_stations = self
 
@@ -27,3 +29,10 @@ func _compare(req : Dictionary, consume : bool):
 func clear():
 	for c in get_children():
 		c.clear()
+		remove_child(c)
+		c.queue_free()
+	
+	for i in range(GameGlobals.prep_station_count):
+		var c = prep_station_prefab.instantiate()
+		c.idx = i+1
+		add_child(c)

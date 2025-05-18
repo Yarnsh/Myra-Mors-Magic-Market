@@ -8,6 +8,16 @@ var price = 0
 var callback = null
 
 func set_item(def):
+	if def.get("sold_out", false):
+		price = 0
+		price_label.text = ""
+		title_label.text = "SOLD OUT"
+		button.icon = null # TODO: sold out graphic
+		callback = null
+		button.disabled = true
+		return
+	
+	button.disabled = false
 	price = def.get("price", 0)
 	price_label.text = "$" + str(float(price) / 100.0).pad_decimals(2)
 	title_label.text = def.get("title", "Mysterious...")
