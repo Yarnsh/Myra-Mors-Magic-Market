@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3kg1k2pgvli"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
+[ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
+[ext_resource type="PackedScene" uid="uid://d21scinhqdak3" path="res://game_prep.tscn" id="3_itfp7"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mr2kt")
+
+[node name="Game" parent="." instance=ExtResource("2_bltpj")]
+visible = false
+layout_mode = 1
+
+[node name="GamePrep" parent="." instance=ExtResource("3_itfp7")]
+layout_mode = 1

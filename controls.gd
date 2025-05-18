@@ -19,6 +19,5 @@ func apply_control(position : int, text : String, image : Texture2D):
 	button_parent.get_child(position).set_action(image, text)
 
 func button_pressed(key : String):
-	print("button_pressed: ", key)
 	if GameGlobals.current_task != null:
 		GameGlobals.current_task.take_input(key)

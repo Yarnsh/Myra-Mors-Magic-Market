@@ -1,6 +1,6 @@
 extends Button
 
-@onready var game_prep = $".."
+@onready var game_prep = $"../.."
 @export var default_icon : Texture2D
 
 var selected_recipe = null

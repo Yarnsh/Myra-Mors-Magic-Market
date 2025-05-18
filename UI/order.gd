@@ -77,6 +77,7 @@ func complete_order(quality):
 	task = null
 	resources_needed = {}
 	was_cooking = false
+	order_image.texture = null
 
 func add_money(m):
 	GameGlobals.money += m

@@ -5,6 +5,11 @@ extends VBoxContainer
 func _ready() -> void:
 	GameGlobals.orders = self
 
+func clear():
+	for c in get_children():
+		if !c.is_free():
+			c.complete_order(0.0)
+
 func has_free_space():
 	for c in get_children():
 		if c.is_free():

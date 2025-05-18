@@ -12,4 +12,5 @@ func _on_pressed() -> void:
 func set_recipe(recipe):
 	our_recipe = recipe
 	label.text = recipe.get("name", "")
+	# TODO: use a square recipe icon of some kind
 	texture.texture = recipe.get("icon", null)

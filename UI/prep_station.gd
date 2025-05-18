@@ -69,6 +69,12 @@ func take_resource(count):
 		return count + resource_count
 	return count
 
+func clear():
+	resource_count = 0
+	resource_label.text = ""
+	button.icon = default_image
+	timer.visible = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(str(idx)) and Input.is_key_pressed(KEY_TAB):
 		_on_button_pressed()

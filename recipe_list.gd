@@ -6,6 +6,8 @@ extends Control
 var last_button = null
 
 func _ready() -> void:
+	# TODO: gray out already selected recipes
+	# TODO: give option to set selection to nothing
 	for key in GameGlobals.order_definitions.keys():
 		var r = recipe_entry.instantiate()
 		recipe_parent.add_child(r)

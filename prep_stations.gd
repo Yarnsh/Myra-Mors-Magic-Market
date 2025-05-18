@@ -23,3 +23,7 @@ func _compare(req : Dictionary, consume : bool):
 				if req_copy[c.resource_name] <= 0:
 					req_copy.erase(c.resource_name)
 	return req_copy == {}
+
+func clear():
+	for c in get_children():
+		c.clear()

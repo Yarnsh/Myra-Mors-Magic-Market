@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=54 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://controls.gd" id="2_64ujj"]
 [ext_resource type="PackedScene" uid="uid://chtuhsyrj8mov" path="res://UI/prep_station.tscn" id="2_awp6u"]
 [ext_resource type="Script" path="res://moneyUi.gd" id="2_he6hb"]
+[ext_resource type="Script" path="res://time_display.gd" id="3_nvquv"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="4_03d7b"]
 [ext_resource type="Script" path="res://task_manager.gd" id="5_25e1r"]
 [ext_resource type="Script" path="res://prep_stations.gd" id="5_fkrxk"]
@@ -292,6 +293,20 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "$0.00"
 horizontal_alignment = 2
+clip_text = true
+
+[node name="Time" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+offset_right = 300.0
+offset_bottom = 100.0
+script = ExtResource("3_nvquv")
+
+[node name="Label" type="Label" parent="Time"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "8:00 pm"
+horizontal_alignment = 1
 clip_text = true
 
 [node name="Orders" type="VBoxContainer" parent="."]

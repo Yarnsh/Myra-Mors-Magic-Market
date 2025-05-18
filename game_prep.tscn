@@ -14,8 +14,52 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ms05v")
 
-[node name="MenuSelection" parent="." instance=ExtResource("2_viyhe")]
+[node name="Selections" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MenuSelection" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
+offset_left = 245.0
+offset_top = 70.0
+offset_right = 381.0
+offset_bottom = 206.0
+
+[node name="MenuSelection2" parent="Selections" instance=ExtResource("2_viyhe")]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 117.0
+offset_right = 704.0
+offset_bottom = 253.0
+
+[node name="MenuSelection3" parent="Selections" instance=ExtResource("2_viyhe")]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 176.0
+offset_right = 987.0
+offset_bottom = 312.0
+
+[node name="MenuSelection4" parent="Selections" instance=ExtResource("2_viyhe")]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 312.0
+offset_right = 372.0
+offset_bottom = 448.0
+
+[node name="MenuSelection5" parent="Selections" instance=ExtResource("2_viyhe")]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 369.0
+offset_right = 666.0
+offset_bottom = 505.0
+
+[node name="MenuSelection6" parent="Selections" instance=ExtResource("2_viyhe")]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 429.0
+offset_right = 974.0
+offset_bottom = 565.0
 
 [node name="RecipeListPanel" type="Panel" parent="."]
 visible = false
@@ -49,3 +93,14 @@ horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RecipeListPanel/RecipeList/ScrollContainer"]
 layout_mode = 2
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 589.0
+offset_right = 1151.0
+offset_bottom = 693.0
+theme_override_font_sizes/font_size = 70
+text = "START"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
