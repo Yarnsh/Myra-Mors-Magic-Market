@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=52 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5qg7f6k7ni1b" path="res://UI/control_button.tscn" id="2_8lfdj"]
 [ext_resource type="Script" path="res://controls.gd" id="2_64ujj"]
 [ext_resource type="PackedScene" uid="uid://chtuhsyrj8mov" path="res://UI/prep_station.tscn" id="2_awp6u"]
-[ext_resource type="Script" path="res://moneyUi.gd" id="2_he6hb"]
+[ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="2_chaep"]
 [ext_resource type="Script" path="res://time_display.gd" id="3_nvquv"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="4_03d7b"]
 [ext_resource type="Script" path="res://task_manager.gd" id="5_25e1r"]
@@ -22,10 +22,8 @@
 [ext_resource type="Script" path="res://pick_prep_station_task.gd" id="14_tj0ai"]
 [ext_resource type="Texture2D" uid="uid://mhxphfn5ksik" path="res://Images/PrepPotion.png" id="15_pjbpi"]
 [ext_resource type="Script" path="res://ponder_orb.gd" id="16_fc1b3"]
-[ext_resource type="Script" path="res://enchanting_prep_station_task.gd" id="17_iy7kc"]
 [ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="17_odv5c"]
 [ext_resource type="Texture2D" uid="uid://bgwl252ma3tia" path="res://Images/Cat.png" id="18_5j6g7"]
-[ext_resource type="Script" path="res://outside_prep_station_task.gd" id="18_46hdd"]
 [ext_resource type="Script" path="res://goblin_chore.gd" id="19_8nm8a"]
 [ext_resource type="Texture2D" uid="uid://dy86gmobxxywc" path="res://Images/Goblin.png" id="20_d4r1p"]
 [ext_resource type="Texture2D" uid="uid://dmt6hgadhlapf" path="res://Images/ControlButtonBlast.png" id="20_gbqrd"]
@@ -277,23 +275,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pkw1q")
 
-[node name="Money" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(300, 100)
+[node name="Money" parent="." instance=ExtResource("2_chaep")]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-script = ExtResource("2_he6hb")
-
-[node name="Label" type="Label" parent="Money"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "$0.00"
-horizontal_alignment = 2
-clip_text = true
+offset_left = -300.0
+offset_bottom = 100.0
 
 [node name="Time" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(300, 100)
@@ -657,78 +642,28 @@ libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
 
-[node name="CauldronPrepStationTask" type="Node2D" parent="Task"]
+[node name="PrepStationTask" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("14_tj0ai")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Task/CauldronPrepStationTask"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Task/PrepStationTask"]
 visible = false
 
-[node name="CenterContainer" type="CenterContainer" parent="Task/CauldronPrepStationTask/CanvasLayer"]
+[node name="CenterContainer" type="CenterContainer" parent="Task/PrepStationTask/CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="Task/CauldronPrepStationTask/CanvasLayer/CenterContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="Task/PrepStationTask/CanvasLayer/CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Task/CauldronPrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Please choose what ingredients
-you want to prepare"
-horizontal_alignment = 1
-
-[node name="EnchantingPrepStationTask" type="Node2D" parent="Task"]
-visible = false
-script = ExtResource("17_iy7kc")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Task/EnchantingPrepStationTask"]
-visible = false
-
-[node name="CenterContainer" type="CenterContainer" parent="Task/EnchantingPrepStationTask/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Task/EnchantingPrepStationTask/CanvasLayer/CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Task/EnchantingPrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
+[node name="Label" type="Label" parent="Task/PrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Please choose what ingredients
 you want to prepare"
 horizontal_alignment = 1
 
-[node name="OutsidePrepStationTask" type="Node2D" parent="Task"]
-visible = false
-script = ExtResource("18_46hdd")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Task/OutsidePrepStationTask"]
-visible = false
-
-[node name="CenterContainer" type="CenterContainer" parent="Task/OutsidePrepStationTask/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Task/OutsidePrepStationTask/CanvasLayer/CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Task/OutsidePrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Please choose what ingredients
-you want to prepare"
-horizontal_alignment = 1
-
-[connection signal="visibility_changed" from="Task/CauldronPrepStationTask" to="Task/CauldronPrepStationTask" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="Task/EnchantingPrepStationTask" to="Task/EnchantingPrepStationTask" method="_on_visibility_changed"]
-[connection signal="visibility_changed" from="Task/OutsidePrepStationTask" to="Task/OutsidePrepStationTask" method="_on_visibility_changed"]
+[connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]

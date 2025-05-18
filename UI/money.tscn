@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://0l0fa8uw6m3t"]
+
+[ext_resource type="Script" path="res://moneyUi.gd" id="1_s7uuy"]
+
+[node name="Money" type="PanelContainer"]
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("1_s7uuy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "$0.00"
+horizontal_alignment = 2
+clip_text = true

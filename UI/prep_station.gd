@@ -1,9 +1,6 @@
 extends VBoxContainer
 
-enum PREP_TYPE {PREP_CAULDRON, PREP_ENCHANTING, PREP_OUTSIDE}
-
 @export var idx = 1
-@export var prep_type : PREP_TYPE
 @export var default_image : Texture2D
 
 @onready var label = $Label/Label
@@ -20,12 +17,6 @@ var last_timer_len = 1000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = str(idx)
-	if prep_type == PREP_TYPE.PREP_CAULDRON:
-		label.text = label.text + " C"
-	elif prep_type == PREP_TYPE.PREP_ENCHANTING:
-		label.text = label.text + " E"
-	elif prep_type == PREP_TYPE.PREP_OUTSIDE:
-		label.text = label.text + " O"
 	button.icon = default_image
 	resource_label.text = ""
 
@@ -36,12 +27,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	if GameGlobals.current_task == null and resource_count <= 0:
-		if prep_type == PREP_TYPE.PREP_CAULDRON:
-			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["CauldronPrepStationTask"], self)
-		elif prep_type == PREP_TYPE.PREP_ENCHANTING:
-			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["EnchantingPrepStationTask"], self)
-		elif prep_type == PREP_TYPE.PREP_OUTSIDE:
-			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["OutsidePrepStationTask"], self)
+		GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["PrepStationTask"], self)
 
 func report_result(result):
 	if result.get("quality", 1.0) < 1.0:

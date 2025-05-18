@@ -2,9 +2,11 @@ extends Control
 
 @onready var game = $Game
 @onready var prep = $GamePrep
+@onready var shop = $Upgrades
 
 func start_game(orders):
 	prep.hide()
+	shop.hide()
 	game.reset()
 	game.set_orders(orders)
 	game.start()
@@ -12,6 +14,17 @@ func start_game(orders):
 
 func complete_game():
 	game.hide()
+	shop.hide()
 	game.stop()
 	game.reset()
+	prep.show()
+
+func open_shop():
+	prep.hide()
+	game.hide()
+	shop.show()
+
+func close_shop():
+	game.hide()
+	shop.hide()
 	prep.show()

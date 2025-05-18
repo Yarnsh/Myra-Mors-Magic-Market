@@ -15,4 +15,5 @@ func _on_start_button_pressed() -> void:
 			orders.append(c.selected_recipe)
 	main.start_game(orders)
 
-# TODO: de/serialize selected recipes for convenient resets
+func _on_shop_button_pressed() -> void:
+	main.open_shop()
