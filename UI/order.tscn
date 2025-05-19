@@ -19,6 +19,8 @@ offset_top = -21.5
 offset_right = 178.0
 offset_bottom = 21.5
 grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
 script = ExtResource("1_5jweg")
 
 [node name="BG" type="TextureRect" parent="."]

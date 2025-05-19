@@ -8,6 +8,7 @@ var prep_stations = null
 
 var money = 0
 var prep_station_count = 1
+var orders_count = 2
 
 # Order definitions
 var potion_order = {

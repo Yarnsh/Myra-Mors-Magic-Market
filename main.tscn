@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
 [ext_resource type="PackedScene" uid="uid://d21scinhqdak3" path="res://game_prep.tscn" id="3_itfp7"]
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="4_evu2u"]
-[ext_resource type="Script" path="res://shop_item.gd" id="5_kbjhp"]
 [ext_resource type="Script" path="res://moneyUi.gd" id="5_xxa4t"]
+[ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="6_b7h4t"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -51,43 +51,17 @@ text = "$0.00"
 horizontal_alignment = 2
 clip_text = true
 
-[node name="ShopItem" type="Control" parent="Upgrades"]
-layout_mode = 1
-anchors_preset = 0
-script = ExtResource("5_kbjhp")
+[node name="ShopItem" parent="Upgrades" instance=ExtResource("6_b7h4t")]
+offset_left = 159.0
+offset_top = 251.0
+offset_right = 159.0
+offset_bottom = 251.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Upgrades/ShopItem"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 122.0
-offset_top = 99.0
-offset_right = 258.0
-offset_bottom = 305.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="Upgrades/ShopItem/VBoxContainer"]
-custom_minimum_size = Vector2(136, 136)
-layout_mode = 2
-size_flags_horizontal = 4
-icon_alignment = 1
-expand_icon = true
-
-[node name="Label" type="Label" parent="Upgrades/ShopItem/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "Mysterious..."
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Upgrades/ShopItem/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = "$3.50"
-horizontal_alignment = 1
+[node name="ShopItem2" parent="Upgrades" instance=ExtResource("6_b7h4t")]
+offset_left = 473.0
+offset_top = 177.0
+offset_right = 473.0
+offset_bottom = 177.0
 
 [node name="CloseShop" type="Button" parent="Upgrades"]
 layout_mode = 0
@@ -98,5 +72,4 @@ offset_bottom = 706.0
 theme_override_font_sizes/font_size = 40
 text = "ENOUGH SHOPPING"
 
-[connection signal="pressed" from="Upgrades/ShopItem/VBoxContainer/Button" to="Upgrades/ShopItem" method="_on_button_pressed"]
 [connection signal="pressed" from="Upgrades/CloseShop" to="Upgrades" method="_on_close_shop_pressed"]

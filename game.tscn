@@ -305,54 +305,45 @@ offset_bottom = 295.0
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_yxv0l")
+order_slot_prefab = ExtResource("1_2ls0w")
 
 [node name="Order" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 
 [node name="Order2" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 2
 
 [node name="Order3" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 3
 
 [node name="Order4" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 4
 
 [node name="Order5" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 5
 
 [node name="Order6" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 6
 
 [node name="Order7" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 7
 
 [node name="Order8" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 8
 
 [node name="Order9" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 9
 
 [node name="Order10" parent="Orders" instance=ExtResource("1_2ls0w")]
 layout_mode = 2
-size_flags_horizontal = 0
 idx = 0
 
 [node name="Controls" type="VBoxContainer" parent="."]
