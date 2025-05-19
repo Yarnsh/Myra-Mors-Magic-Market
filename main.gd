@@ -18,6 +18,7 @@ func complete_game():
 	game.stop()
 	game.reset()
 	prep.show()
+	prep.populate_recipes()
 
 func open_shop():
 	prep.hide()
@@ -28,3 +29,4 @@ func close_shop():
 	game.hide()
 	shop.hide()
 	prep.show()
+	prep.populate_recipes()

@@ -25,6 +25,7 @@ func stop():
 
 func set_orders(orders):
 	order_list = orders
+	order_list.append_array(GameGlobals.current_chores)
 
 func trigger_complete():
 	main.complete_game()

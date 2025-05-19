@@ -61,6 +61,24 @@ offset_top = 429.0
 offset_right = 974.0
 offset_bottom = 565.0
 
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 934.0
+offset_top = 589.0
+offset_right = 1151.0
+offset_bottom = 693.0
+theme_override_font_sizes/font_size = 70
+text = "START"
+
+[node name="ShopButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 600.0
+offset_right = 328.0
+offset_bottom = 704.0
+theme_override_font_sizes/font_size = 70
+text = "SHOP"
+
 [node name="RecipeListPanel" type="Panel" parent="."]
 visible = false
 layout_mode = 1
@@ -93,24 +111,6 @@ horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="RecipeListPanel/RecipeList/ScrollContainer"]
 layout_mode = 2
-
-[node name="StartButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 934.0
-offset_top = 589.0
-offset_right = 1151.0
-offset_bottom = 693.0
-theme_override_font_sizes/font_size = 70
-text = "START"
-
-[node name="ShopButton" type="Button" parent="."]
-layout_mode = 0
-offset_left = 111.0
-offset_top = 600.0
-offset_right = 328.0
-offset_bottom = 704.0
-theme_override_font_sizes/font_size = 70
-text = "SHOP"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]

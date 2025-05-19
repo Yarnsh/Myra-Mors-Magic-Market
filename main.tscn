@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr3kg1k2pgvli"]
+[gd_scene load_steps=5 format=3 uid="uid://dr3kg1k2pgvli"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
 [ext_resource type="PackedScene" uid="uid://d21scinhqdak3" path="res://game_prep.tscn" id="3_itfp7"]
-[ext_resource type="Script" path="res://upgrades_shop.gd" id="4_evu2u"]
-[ext_resource type="Script" path="res://moneyUi.gd" id="5_xxa4t"]
-[ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="6_b7h4t"]
+[ext_resource type="PackedScene" uid="uid://b4a1ay8nyjqtr" path="res://UI/upgrades.tscn" id="4_3x4v4"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -23,53 +21,6 @@ layout_mode = 1
 [node name="GamePrep" parent="." instance=ExtResource("3_itfp7")]
 layout_mode = 1
 
-[node name="Upgrades" type="Control" parent="."]
+[node name="Upgrades" parent="." instance=ExtResource("4_3x4v4")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("4_evu2u")
-
-[node name="Money" type="PanelContainer" parent="Upgrades"]
-custom_minimum_size = Vector2(300, 100)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -300.0
-offset_bottom = 100.0
-grow_horizontal = 0
-script = ExtResource("5_xxa4t")
-
-[node name="Label" type="Label" parent="Upgrades/Money"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "$0.00"
-horizontal_alignment = 2
-clip_text = true
-
-[node name="ShopItem" parent="Upgrades" instance=ExtResource("6_b7h4t")]
-offset_left = 159.0
-offset_top = 251.0
-offset_right = 159.0
-offset_bottom = 251.0
-
-[node name="ShopItem2" parent="Upgrades" instance=ExtResource("6_b7h4t")]
-offset_left = 473.0
-offset_top = 177.0
-offset_right = 473.0
-offset_bottom = 177.0
-
-[node name="CloseShop" type="Button" parent="Upgrades"]
-layout_mode = 0
-offset_left = 862.0
-offset_top = 643.0
-offset_right = 1260.0
-offset_bottom = 706.0
-theme_override_font_sizes/font_size = 40
-text = "ENOUGH SHOPPING"
-
-[connection signal="pressed" from="Upgrades/CloseShop" to="Upgrades" method="_on_close_shop_pressed"]

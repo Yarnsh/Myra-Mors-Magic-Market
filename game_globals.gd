@@ -6,9 +6,11 @@ var controls = null
 var orders = null
 var prep_stations = null
 
-var money = 0
+var money = 50
 var prep_station_count = 1
 var orders_count = 2
+
+var unlocked_recipes = []
 
 # Order definitions
 var potion_order = {
@@ -35,3 +37,7 @@ var order_definitions = {
 	"ponder": ponder_order,
 	"goblin": goblin_chore
 }
+
+var current_chores = [
+	goblin_chore
+]
