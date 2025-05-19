@@ -17,7 +17,9 @@ var potion_order = {
 	"name": "Potion",
 	"task": "",
 	"requirements": {"potion": 1},
-	"icon": load("res://Images/PotionOrder.png")
+	"icon": load("res://Images/PotionOrder.png"),
+	"prep_key": "P",
+	"prep_task": "PotionPrep"
 }
 var ponder_order = {
 	"name": "Future Reading",
