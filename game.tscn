@@ -1,19 +1,25 @@
-[gd_scene load_steps=52 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=59 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
 [ext_resource type="Script" path="res://orders.gd" id="1_yxv0l"]
 [ext_resource type="PackedScene" uid="uid://c5qg7f6k7ni1b" path="res://UI/control_button.tscn" id="2_8lfdj"]
 [ext_resource type="Script" path="res://controls.gd" id="2_64ujj"]
+[ext_resource type="Texture2D" uid="uid://cffe80onnpla4" path="res://Images/outside.png" id="2_488w4"]
 [ext_resource type="PackedScene" uid="uid://chtuhsyrj8mov" path="res://UI/prep_station.tscn" id="2_awp6u"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="2_chaep"]
+[ext_resource type="Texture2D" uid="uid://dqwfmbagikixv" path="res://Images/store_back.png" id="2_xxfua"]
+[ext_resource type="Script" path="res://moon_spin.gd" id="3_jkhq4"]
 [ext_resource type="Script" path="res://time_display.gd" id="3_nvquv"]
+[ext_resource type="Texture2D" uid="uid://c4ij7553dcdk0" path="res://Images/tabletop.png" id="3_r7l8o"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="4_03d7b"]
+[ext_resource type="Texture2D" uid="uid://codm0ho1ll80k" path="res://Images/moon.png" id="4_h47rm"]
 [ext_resource type="Script" path="res://task_manager.gd" id="5_25e1r"]
 [ext_resource type="Script" path="res://prep_stations.gd" id="5_fkrxk"]
 [ext_resource type="Texture2D" uid="uid://j0psqbhxj1rb" path="res://Images/PotionBottle.png" id="5_ra1w1"]
 [ext_resource type="Texture2D" uid="uid://dwgx2f1bwqvqu" path="res://Images/PotionBottleInner.png" id="6_kd4c3"]
 [ext_resource type="Script" path="res://potion_prep_task.gd" id="6_pprsc"]
+[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="6_t60w7"]
 [ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="7_bdkoj"]
 [ext_resource type="Texture2D" uid="uid://bv43qfkcurnx8" path="res://Images/ControlButtonRed.png" id="10_idcwj"]
 [ext_resource type="Texture2D" uid="uid://bsalmnd1fenco" path="res://Images/ControlButtonGreen.png" id="11_sqpd8"]
@@ -29,6 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://dmt6hgadhlapf" path="res://Images/ControlButtonBlast.png" id="20_gbqrd"]
 [ext_resource type="Texture2D" uid="uid://q38t4ooy37di" path="res://Images/ControlButtonPonder.png" id="21_docjb"]
 [ext_resource type="Texture2D" uid="uid://dg3ctaidh8pxt" path="res://Images/ControlButtonDone.png" id="21_wlpc6"]
+[ext_resource type="Script" path="res://task_text.gd" id="30_lnv00"]
 
 [sub_resource type="Shortcut" id="Shortcut_o0ji4"]
 resource_local_to_scene = true
@@ -275,33 +282,85 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pkw1q")
 
+[node name="OutdoorVisuals" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Outside" type="TextureRect" parent="OutdoorVisuals"]
+layout_mode = 0
+offset_left = 591.0
+offset_top = 94.0
+offset_right = 807.0
+offset_bottom = 367.0
+texture = ExtResource("2_488w4")
+
+[node name="MoonSpin" type="Control" parent="OutdoorVisuals"]
+anchors_preset = 0
+offset_left = 701.0
+offset_top = 425.0
+offset_right = 741.0
+offset_bottom = 465.0
+rotation = -0.785398
+script = ExtResource("3_jkhq4")
+
+[node name="Moon" type="TextureRect" parent="OutdoorVisuals/MoonSpin"]
+layout_mode = 0
+offset_left = -64.9793
+offset_top = -356.963
+offset_right = 67.0207
+offset_bottom = -224.963
+texture = ExtResource("4_h47rm")
+
+[node name="IndoorVisuals" type="Control" parent="."]
+modulate = Color(0.340647, 0.511436, 0.667477, 1)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="TextureRect" parent="IndoorVisuals"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_xxfua")
+
+[node name="Table" type="TextureRect" parent="IndoorVisuals"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("3_r7l8o")
+
 [node name="Money" parent="." instance=ExtResource("2_chaep")]
+custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
-offset_left = -300.0
+offset_left = -200.0
 offset_bottom = 100.0
 
 [node name="Time" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(300, 100)
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
-offset_right = 300.0
-offset_bottom = 100.0
+offset_right = 200.0
+offset_bottom = 61.0
 script = ExtResource("3_nvquv")
 
 [node name="Label" type="Label" parent="Time"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 40
 text = "8:00 pm"
 horizontal_alignment = 1
 clip_text = true
+
+[node name="MetalBorder" parent="Time" instance=ExtResource("6_t60w7")]
+layout_mode = 2
 
 [node name="Orders" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -295.0
-offset_right = 300.0
-offset_bottom = 295.0
+offset_top = -199.0
+offset_right = 178.0
+offset_bottom = 267.0
 grow_vertical = 2
 alignment = 1
 script = ExtResource("1_yxv0l")
@@ -346,75 +405,88 @@ idx = 9
 layout_mode = 2
 idx = 0
 
-[node name="Controls" type="VBoxContainer" parent="."]
+[node name="Controls" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -248.0
-offset_top = -134.0
-offset_bottom = 134.0
+offset_left = -188.0
+offset_top = -100.5
+offset_bottom = 178.5
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Controls" type="VBoxContainer" parent="Controls/MarginContainer"]
+layout_mode = 2
 script = ExtResource("2_64ujj")
 
-[node name="Label" type="Label" parent="Controls"]
+[node name="Label" type="Label" parent="Controls/MarginContainer/Controls"]
 layout_mode = 2
 text = "Potion of Green"
 
-[node name="ItemList" type="GridContainer" parent="Controls"]
+[node name="ItemList" type="GridContainer" parent="Controls/MarginContainer/Controls"]
 layout_mode = 2
 columns = 3
 
-[node name="ControlButton" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_o0ji4")
 
-[node name="ControlButton2" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton2" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_3dgb5")
 
-[node name="ControlButton3" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton3" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_d04vk")
 
-[node name="ControlButton4" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton4" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_1lnft")
 
-[node name="ControlButton5" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton5" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_efbce")
 
-[node name="ControlButton6" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton6" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_55u44")
 
-[node name="ControlButton7" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton7" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_kwd2u")
 
-[node name="ControlButton8" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton8" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_joins")
 
-[node name="ControlButton9" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton9" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_bcnjk")
 
-[node name="ControlButton10" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton10" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_327pu")
 
-[node name="ControlButton11" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton11" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_uwt4s")
 
-[node name="ControlButton12" parent="Controls/ItemList" instance=ExtResource("2_8lfdj")]
+[node name="ControlButton12" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
 shortcut = SubResource("Shortcut_lvupr")
+
+[node name="MetalBorder" parent="Controls" instance=ExtResource("6_t60w7")]
+layout_mode = 2
 
 [node name="PrepStations" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -532,6 +604,7 @@ libraries = {
 
 [node name="PonderOrb" type="Node2D" parent="Task"]
 visible = false
+position = Vector2(-5, 89)
 script = ExtResource("16_fc1b3")
 control_texture = ExtResource("21_docjb")
 done_texture = ExtResource("21_wlpc6")
@@ -552,6 +625,7 @@ libraries = {
 
 [node name="GoblinChore" type="Node2D" parent="Task"]
 visible = false
+position = Vector2(43, 83)
 script = ExtResource("19_8nm8a")
 blast_texture = ExtResource("20_gbqrd")
 done_texture = ExtResource("21_wlpc6")
@@ -657,5 +731,28 @@ theme_override_font_sizes/font_size = 30
 text = "Please choose what ingredients
 you want to prepare"
 horizontal_alignment = 1
+
+[node name="TaskText" type="PanelContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(571, 141)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -285.5
+offset_top = -141.0
+offset_right = 285.5
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("30_lnv00")
+
+[node name="Label" type="Label" parent="TaskText"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Test"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]

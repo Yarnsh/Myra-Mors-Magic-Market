@@ -5,6 +5,7 @@ var tbo_variation = 5000
 @onready var next_order = Time.get_ticks_msec() + 4000
 @onready var main = $".."
 @onready var timer = $Time
+@onready var text_popup = $TaskText
 
 var order_list = []
 
@@ -40,5 +41,5 @@ func _process(delta: float) -> void:
 		
 		next_order = next_order + time_between_orders + ((-tbo_variation/2) + randi_range(0, tbo_variation))
 	
-	if timer.t >= 30.0:
+	if timer.t >= 360.0:
 		trigger_complete()

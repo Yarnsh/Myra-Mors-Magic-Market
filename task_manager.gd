@@ -2,6 +2,7 @@ extends Control
 
 var task_map = {}
 var current_task_owner = null
+@onready var game = $".."
 
 func _ready() -> void:
 	GameGlobals.task_manager = self
@@ -25,6 +26,7 @@ func report_result(result):
 
 func stop_task():
 	if GameGlobals.current_task != null:
+		game.text_popup.remove()
 		GameGlobals.controls.clear_controls()
 		GameGlobals.current_task.reset_task()
 		GameGlobals.current_task.hide()

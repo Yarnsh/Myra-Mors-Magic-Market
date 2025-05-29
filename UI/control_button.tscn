@@ -7,11 +7,12 @@
 resource_local_to_scene = true
 
 [node name="ControlButton" type="Button"]
-custom_minimum_size = Vector2(76, 60)
+custom_minimum_size = Vector2(60, 60)
 disabled = true
 shortcut = SubResource("Shortcut_0lk6a")
 shortcut_in_tooltip = false
 icon = ExtResource("1_jlvii")
+expand_icon = true
 script = ExtResource("2_y3qwe")
 
 [node name="Label" type="Label" parent="."]

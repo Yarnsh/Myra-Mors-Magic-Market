@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp8u1k11qmcbo"]
+
+[ext_resource type="Texture2D" uid="uid://ls2emldcv303" path="res://Images/border.png" id="1_2mvqy"]
+
+[node name="MetalBorder" type="NinePatchRect"]
+texture = ExtResource("1_2mvqy")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

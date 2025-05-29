@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var label = $Label
+@onready var label = $MarginContainer/Label
 var current = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
