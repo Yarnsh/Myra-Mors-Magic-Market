@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=21 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="6_3ipyr"]
 [ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
 [ext_resource type="Script" path="res://start_button.gd" id="8_sumxp"]
+[ext_resource type="Script" path="res://UI/upgrade_text.gd" id="9_8gfns"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axxlx"]
 
@@ -64,23 +65,26 @@ layout_mode = 1
 offset_left = -300.0
 offset_bottom = 100.0
 
-[node name="ShopItem" parent="." instance=ExtResource("3_ftk5n")]
+[node name="WinCondition" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 218.0
 offset_top = 112.0
 offset_right = 218.0
 offset_bottom = 112.0
 
-[node name="ShopItem2" parent="." instance=ExtResource("3_ftk5n")]
-offset_left = 485.0
-offset_top = 268.0
-offset_right = 485.0
-offset_bottom = 268.0
+[node name="Label" parent="WinCondition" index="1"]
+text = "Win"
 
-[node name="Recipe1" parent="." instance=ExtResource("3_ftk5n")]
-offset_left = 222.0
-offset_top = 267.0
-offset_right = 222.0
-offset_bottom = 267.0
+[node name="ShopSpace" parent="." instance=ExtResource("3_ftk5n")]
+offset_left = 484.0
+offset_top = 121.0
+offset_right = 484.0
+offset_bottom = 121.0
+
+[node name="PrepStation" parent="." instance=ExtResource("3_ftk5n")]
+offset_left = 480.0
+offset_top = 280.0
+offset_right = 480.0
+offset_bottom = 280.0
 
 [node name="CrystalBall" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 637.0
@@ -96,17 +100,17 @@ offset_bottom = 49.0
 icon = ExtResource("6_3ipyr")
 
 [node name="Label" parent="CrystalBall" index="1"]
-offset_left = -60.0
+offset_left = -140.0
 offset_top = 18.0
-offset_right = 76.0
-offset_bottom = 47.0
+offset_right = 160.0
+offset_bottom = 61.0
 text = "Crystal Ball"
 
 [node name="Label2" parent="CrystalBall" index="2"]
-offset_left = -60.0
+offset_left = -140.0
 offset_top = 51.0
-offset_right = 76.0
-offset_bottom = 80.0
+offset_right = 160.0
+offset_bottom = 94.0
 
 [node name="Sold" parent="CrystalBall" index="3"]
 offset_left = -89.0
@@ -137,8 +141,49 @@ icon_alignment = 1
 expand_icon = true
 script = ExtResource("8_sumxp")
 
+[node name="Text" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_8gfns")
+
+[node name="ItemExplainer" type="PanelContainer" parent="Text"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 414.0
+offset_right = 539.0
+offset_bottom = 534.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="Text/ItemExplainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Buy" type="Button" parent="Text"]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 478.0
+offset_right = 531.0
+offset_bottom = 528.0
+theme_override_font_sizes/font_size = 30
+text = "Buy!"
+
 [connection signal="mouse_entered" from="CloseShop" to="CloseShop" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CloseShop" to="CloseShop" method="_on_mouse_exited"]
 [connection signal="pressed" from="CloseShop" to="." method="_on_close_shop_pressed"]
+[connection signal="pressed" from="Text/Buy" to="Text" method="_on_buy_pressed"]
 
+[editable path="WinCondition"]
+[editable path="ShopSpace"]
+[editable path="PrepStation"]
 [editable path="CrystalBall"]

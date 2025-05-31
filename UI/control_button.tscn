@@ -8,6 +8,7 @@ resource_local_to_scene = true
 
 [node name="ControlButton" type="Button"]
 custom_minimum_size = Vector2(60, 60)
+focus_mode = 0
 disabled = true
 shortcut = SubResource("Shortcut_0lk6a")
 shortcut_in_tooltip = false

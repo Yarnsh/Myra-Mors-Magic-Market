@@ -27,11 +27,12 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-offset_left = -68.0
-offset_top = 37.0
-offset_right = 68.0
-offset_bottom = 66.0
+offset_left = -153.0
+offset_top = 36.0
+offset_right = 147.0
+offset_bottom = 79.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("2_ihkne")
@@ -40,11 +41,12 @@ text = "Mysterious..."
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-offset_left = -68.0
-offset_top = 70.0
-offset_right = 68.0
-offset_bottom = 99.0
+offset_left = -154.0
+offset_top = 73.0
+offset_right = 146.0
+offset_bottom = 116.0
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("2_ihkne")
 theme_override_font_sizes/font_size = 45
