@@ -1,10 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=20 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="2_kmo21"]
 [ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="3_ftk5n"]
 [ext_resource type="Texture2D" uid="uid://c1ucdb83635ju" path="res://Images/upgrade_table.png" id="3_vrta6"]
+[ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="6_3ipyr"]
+[ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
+[ext_resource type="Script" path="res://start_button.gd" id="8_sumxp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_axxlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x4vyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ty6n7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cibjm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thdj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_px2lf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0usur"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_78leo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qnp3g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1leno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ymvi3"]
 
 [node name="Upgrades" type="Control"]
 layout_mode = 3
@@ -21,12 +46,14 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="BG" type="TextureRect" parent="Visuals"]
+modulate = Color(0.796243, 0.796243, 0.796243, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_71xr7")
 
 [node name="Table" type="TextureRect" parent="Visuals"]
+modulate = Color(0.775063, 0.775063, 0.775063, 1)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -44,30 +71,74 @@ offset_right = 218.0
 offset_bottom = 112.0
 
 [node name="ShopItem2" parent="." instance=ExtResource("3_ftk5n")]
-offset_left = 481.0
-offset_top = 111.0
-offset_right = 481.0
-offset_bottom = 111.0
+offset_left = 485.0
+offset_top = 268.0
+offset_right = 485.0
+offset_bottom = 268.0
 
 [node name="Recipe1" parent="." instance=ExtResource("3_ftk5n")]
-offset_left = 327.0
-offset_top = 271.0
-offset_right = 327.0
-offset_bottom = 271.0
+offset_left = 222.0
+offset_top = 267.0
+offset_right = 222.0
+offset_bottom = 267.0
 
-[node name="Recipe2" parent="." instance=ExtResource("3_ftk5n")]
-offset_left = 478.0
+[node name="CrystalBall" parent="." instance=ExtResource("3_ftk5n")]
+offset_left = 637.0
 offset_top = 434.0
-offset_right = 478.0
+offset_right = 637.0
 offset_bottom = 434.0
+
+[node name="Button" parent="CrystalBall" index="0"]
+offset_left = -58.0
+offset_top = -87.0
+offset_right = 78.0
+offset_bottom = 49.0
+icon = ExtResource("6_3ipyr")
+
+[node name="Label" parent="CrystalBall" index="1"]
+offset_left = -60.0
+offset_top = 18.0
+offset_right = 76.0
+offset_bottom = 47.0
+text = "Crystal Ball"
+
+[node name="Label2" parent="CrystalBall" index="2"]
+offset_left = -60.0
+offset_top = 51.0
+offset_right = 76.0
+offset_bottom = 80.0
+
+[node name="Sold" parent="CrystalBall" index="3"]
+offset_left = -89.0
+offset_top = -9.0
+offset_right = 106.0
+offset_bottom = 51.0
 
 [node name="CloseShop" type="Button" parent="."]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 475.0
-offset_right = 956.0
-offset_bottom = 538.0
+offset_left = 12.0
+offset_top = -1.0
+offset_right = 142.0
+offset_bottom = 81.0
 theme_override_font_sizes/font_size = 40
-text = "ENOUGH SHOPPING"
+theme_override_styles/focus = SubResource("StyleBoxEmpty_axxlx")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_x4vyi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ty6n7")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_cibjm")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_thdj4")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_px2lf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0usur")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_78leo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qnp3g")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1leno")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ymvi3")
+icon = ExtResource("7_y00v8")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("8_sumxp")
 
+[connection signal="mouse_entered" from="CloseShop" to="CloseShop" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CloseShop" to="CloseShop" method="_on_mouse_exited"]
 [connection signal="pressed" from="CloseShop" to="." method="_on_close_shop_pressed"]
+
+[editable path="CrystalBall"]

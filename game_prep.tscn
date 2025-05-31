@@ -1,9 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=34 format=3 uid="uid://d21scinhqdak3"]
 
 [ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
+[ext_resource type="Texture2D" uid="uid://cv81c1ftch37c" path="res://Images/chalkboard.png" id="2_kdbt2"]
 [ext_resource type="PackedScene" uid="uid://ba33jng1wkjf7" path="res://UI/menu_selection.tscn" id="2_viyhe"]
 [ext_resource type="Script" path="res://recipe_list.gd" id="3_k1xhs"]
+[ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="3_y5kkl"]
 [ext_resource type="PackedScene" uid="uid://cwd4b1prnpuol" path="res://UI/recipe.tscn" id="4_3jlwk"]
+[ext_resource type="Texture2D" uid="uid://bcy3ufd6bvnh5" path="res://Images/open.png" id="4_t1sie"]
+[ext_resource type="Script" path="res://start_button.gd" id="5_70gco"]
+[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="5_aaasl"]
+[ext_resource type="Script" path="res://shop_button.gd" id="7_1jt6v"]
+[ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="7_lyyna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckwu0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8uyr8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d8ble"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mnkk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kly0v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oaogj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0snw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ps4ot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_co3d0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pgmrl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_khuvg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gu8w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ol03i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q8dnw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bfkw7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7t07e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_goqe1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lae7n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_goa1o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f3mrp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iss46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pfgme"]
 
 [node name="GamePrep" type="Control"]
 layout_mode = 3
@@ -14,6 +65,30 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ms05v")
 
+[node name="Visuals" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Chalkboard" type="TextureRect" parent="Visuals"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 25.0
+offset_right = 786.0
+offset_bottom = 471.0
+scale = Vector2(0.937655, 0.937655)
+texture = ExtResource("2_kdbt2")
+
+[node name="ShopSign" type="TextureRect" parent="Visuals"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 397.0
+offset_right = 374.0
+offset_bottom = 634.0
+scale = Vector2(0.937655, 0.937655)
+texture = ExtResource("3_y5kkl")
+expand_mode = 1
+
 [node name="Selections" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
@@ -21,63 +96,98 @@ offset_bottom = 40.0
 
 [node name="MenuSelection" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 44.0
-offset_right = 188.0
-offset_bottom = 180.0
+offset_left = 151.0
+offset_top = 75.0
+offset_right = 251.0
+offset_bottom = 175.0
 
 [node name="MenuSelection2" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 289.0
-offset_top = 49.0
-offset_right = 425.0
-offset_bottom = 185.0
+offset_left = 353.0
+offset_top = 74.0
+offset_right = 453.0
+offset_bottom = 174.0
 
 [node name="MenuSelection3" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 558.0
-offset_top = 55.0
-offset_right = 694.0
-offset_bottom = 191.0
+offset_left = 550.0
+offset_top = 75.0
+offset_right = 650.0
+offset_bottom = 175.0
 
 [node name="MenuSelection4" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 257.0
-offset_right = 296.0
-offset_bottom = 393.0
+offset_left = 148.0
+offset_top = 256.0
+offset_right = 248.0
+offset_bottom = 356.0
 
 [node name="MenuSelection5" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 390.0
-offset_top = 278.0
-offset_right = 526.0
-offset_bottom = 414.0
+offset_left = 350.0
+offset_top = 255.0
+offset_right = 450.0
+offset_bottom = 355.0
 
 [node name="MenuSelection6" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 636.0
-offset_top = 289.0
-offset_right = 772.0
-offset_bottom = 425.0
+offset_left = 547.0
+offset_top = 256.0
+offset_right = 647.0
+offset_bottom = 356.0
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 738.0
-offset_top = 436.0
-offset_right = 955.0
-offset_bottom = 540.0
-theme_override_font_sizes/font_size = 70
-text = "START"
+offset_left = 732.0
+offset_top = 3.0
+offset_right = 980.0
+offset_bottom = 141.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ckwu0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_8uyr8")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_d8ble")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2mnkk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_kly0v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_oaogj")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q0snw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_ps4ot")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_co3d0")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_pgmrl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_khuvg")
+icon = ExtResource("4_t1sie")
+script = ExtResource("5_70gco")
 
-[node name="ShopButton" type="Button" parent="."]
+[node name="ShopButton" type="Button" parent="." node_paths=PackedStringArray("bg")]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 428.0
-offset_right = 237.0
-offset_bottom = 532.0
-theme_override_font_sizes/font_size = 70
-text = "SHOP"
+offset_left = 57.0
+offset_top = 409.0
+offset_right = 326.0
+offset_bottom = 480.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("7_lyyna")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7gu8w")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_ol03i")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q8dnw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_bfkw7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7t07e")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_goqe1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lae7n")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_goa1o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_f3mrp")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_iss46")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_pfgme")
+text = "UPGRADE
+SHOP"
+expand_icon = true
+script = ExtResource("7_1jt6v")
+bg = NodePath("../Visuals/ShopSign")
 
 [node name="RecipeListPanel" type="Panel" parent="."]
 visible = false
@@ -112,5 +222,12 @@ horizontal_scroll_mode = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="RecipeListPanel/RecipeList/ScrollContainer"]
 layout_mode = 2
 
+[node name="MetalBorder" parent="RecipeListPanel/RecipeList" instance=ExtResource("5_aaasl")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="StartButton" to="StartButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="StartButton" to="StartButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="ShopButton" to="ShopButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ShopButton" to="ShopButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]

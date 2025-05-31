@@ -24,11 +24,10 @@ func _ready() -> void:
 			"callback": Callable.create(self, "buy_crystal_ball")
 		}
 	)
-	$Recipe2.set_item(
+	$CrystalBall.set_item(
 		{
-			"title": "Potion Recipe",
-			"price": 1000,
-			"callback": Callable.create(self, "buy_potion_recipe")
+			"price": 10,
+			"callback": Callable.create(self, "buy_crystal_ball")
 		}
 	)
 
@@ -44,11 +43,11 @@ func buy_shop_space():
 
 func buy_crystal_ball():
 	GameGlobals.unlocked_recipes.append("ponder")
-	$Recipe1.set_item({"sold_out": true})
+	$CrystalBall.set_item({"sold_out": true})
 
 func buy_potion_recipe():
 	GameGlobals.unlocked_recipes.append("potion")
-	$Recipe2.set_item({"sold_out": true})
+	$Recipe1.set_item({"sold_out": true})
 
 func _on_close_shop_pressed() -> void:
 	main.close_shop()

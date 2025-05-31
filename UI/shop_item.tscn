@@ -1,43 +1,77 @@
-[gd_scene load_steps=2 format=3 uid="uid://cap511ut66dq6"]
+[gd_scene load_steps=6 format=3 uid="uid://cap511ut66dq6"]
 
 [ext_resource type="Script" path="res://shop_item.gd" id="1_aic2a"]
+[ext_resource type="FontFile" uid="uid://bmmdc3tl55d1j" path="res://Fonts/Handwritten.ttf" id="2_ihkne"]
+[ext_resource type="Texture2D" uid="uid://dm82pvf4ellf6" path="res://Images/sign.png" id="3_v3i2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jxebn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73knd"]
 
 [node name="ShopItem" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_aic2a")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(136, 136)
+layout_mode = 2
 offset_left = -68.0
 offset_top = -103.0
 offset_right = 68.0
-offset_bottom = 103.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(136, 136)
-layout_mode = 2
+offset_bottom = 33.0
 size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jxebn")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_73knd")
 icon_alignment = 1
 expand_icon = true
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+offset_left = -68.0
+offset_top = 37.0
+offset_right = 68.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_ihkne")
+theme_override_font_sizes/font_size = 45
 text = "Mysterious..."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="."]
 layout_mode = 2
-theme_override_font_sizes/font_size = 22
+offset_left = -68.0
+offset_top = 70.0
+offset_right = 68.0
+offset_bottom = 99.0
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_ihkne")
+theme_override_font_sizes/font_size = 45
 text = "$3.50"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="Sold" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -92.0
+offset_top = -45.0
+offset_right = 103.0
+offset_bottom = 15.0
+texture = ExtResource("3_v3i2j")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Sold"]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 178.0
+offset_bottom = 56.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/font = ExtResource("2_ihkne")
+theme_override_font_sizes/font_size = 45
+text = "SOLD OUT"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
