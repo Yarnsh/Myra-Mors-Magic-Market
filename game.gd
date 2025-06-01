@@ -8,6 +8,7 @@ var tbo_variation = 5000
 @onready var text_popup = $TaskText
 
 var order_list = []
+var recipes_list = []
 
 func reset():
 	next_order = Time.get_ticks_msec() + 4000
@@ -24,8 +25,13 @@ func start():
 func stop():
 	set_process(false)
 
-func set_orders(orders):
-	order_list = orders
+func set_recipes(recipes):
+	recipes_list = recipes
+	recipes_list.append_array(GameGlobals.current_chores) # in case we need prep stations for future chores
+	order_list = []
+	for r in recipes:
+		if "task" in r:
+			order_list.append(r)
 	order_list.append_array(GameGlobals.current_chores)
 
 func trigger_complete():

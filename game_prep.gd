@@ -20,11 +20,11 @@ func open_recipe_list(rb, recipe):
 	recipe_list_ui.show()
 
 func _on_start_button_pressed() -> void:
-	var orders = []
+	var recipes = []
 	for c in selections.get_children():
 		if c.selected_recipe != null:
-			orders.append(c.selected_recipe)
-	main.start_game(orders)
+			recipes.append(c.selected_recipe)
+	main.start_game(recipes)
 
 func _on_shop_button_pressed() -> void:
 	main.open_shop()

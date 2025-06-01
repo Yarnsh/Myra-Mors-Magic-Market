@@ -8,7 +8,7 @@ func apply_controls():
 	GameGlobals.controls.set_nice_name("Prepare")
 	
 	var i = 0
-	for o in game.order_list:
+	for o in game.recipes_list:
 		if "prep_key" in o:
 			GameGlobals.controls.apply_control(i, o["prep_key"], o.get("prep_icon", control_texture))
 			i += 1
@@ -23,7 +23,7 @@ func take_input(sc : String):
 		GameGlobals.task_manager.stop_task()
 		return
 	
-	for o in game.order_list:
+	for o in game.recipes_list:
 		if o.get("prep_key", "NOT A KEY") == sc:
 			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map[o.get("prep_task", "PotionPrep")], GameGlobals.task_manager.current_task_owner)
 			break

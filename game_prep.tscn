@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=36 format=3 uid="uid://d21scinhqdak3"]
 
 [ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
 [ext_resource type="Texture2D" uid="uid://cv81c1ftch37c" path="res://Images/chalkboard.png" id="2_kdbt2"]
 [ext_resource type="PackedScene" uid="uid://ba33jng1wkjf7" path="res://UI/menu_selection.tscn" id="2_viyhe"]
 [ext_resource type="Script" path="res://recipe_list.gd" id="3_k1xhs"]
+[ext_resource type="FontFile" uid="uid://s2f6gbid3fis" path="res://Fonts/Chalk-Regular.ttf" id="3_n17j6"]
 [ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="3_y5kkl"]
 [ext_resource type="PackedScene" uid="uid://cwd4b1prnpuol" path="res://UI/recipe.tscn" id="4_3jlwk"]
 [ext_resource type="Texture2D" uid="uid://bcy3ufd6bvnh5" path="res://Images/open.png" id="4_t1sie"]
@@ -81,6 +82,16 @@ offset_bottom = 471.0
 scale = Vector2(0.937655, 0.937655)
 texture = ExtResource("2_kdbt2")
 
+[node name="Label" type="Label" parent="Visuals/Chalkboard"]
+layout_mode = 0
+offset_left = 68.2554
+offset_top = 29.8617
+offset_right = 314.255
+offset_bottom = 84.8617
+theme_override_fonts/font = ExtResource("3_n17j6")
+theme_override_font_sizes/font_size = 40
+text = "Today's Menu"
+
 [node name="ShopSign" type="TextureRect" parent="Visuals"]
 layout_mode = 0
 offset_left = 9.0
@@ -98,45 +109,45 @@ offset_bottom = 40.0
 
 [node name="MenuSelection" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 151.0
-offset_top = 75.0
-offset_right = 251.0
-offset_bottom = 175.0
+offset_left = 150.0
+offset_top = 106.0
+offset_right = 250.0
+offset_bottom = 206.0
 
 [node name="MenuSelection2" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 353.0
-offset_top = 74.0
-offset_right = 453.0
-offset_bottom = 174.0
+offset_left = 352.0
+offset_top = 105.0
+offset_right = 452.0
+offset_bottom = 205.0
 
 [node name="MenuSelection3" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 550.0
-offset_top = 75.0
-offset_right = 650.0
-offset_bottom = 175.0
+offset_left = 549.0
+offset_top = 106.0
+offset_right = 649.0
+offset_bottom = 206.0
 
 [node name="MenuSelection4" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 256.0
-offset_right = 248.0
-offset_bottom = 356.0
+offset_left = 149.0
+offset_top = 273.0
+offset_right = 249.0
+offset_bottom = 373.0
 
 [node name="MenuSelection5" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 350.0
-offset_top = 255.0
-offset_right = 450.0
-offset_bottom = 355.0
+offset_left = 351.0
+offset_top = 272.0
+offset_right = 451.0
+offset_bottom = 372.0
 
 [node name="MenuSelection6" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 256.0
-offset_right = 647.0
-offset_bottom = 356.0
+offset_left = 548.0
+offset_top = 273.0
+offset_right = 648.0
+offset_bottom = 373.0
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0

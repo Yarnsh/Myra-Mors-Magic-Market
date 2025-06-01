@@ -58,6 +58,11 @@ func buy_crystal_ball():
 	$CrystalBall.set_item({"sold_out": true})
 	text.hide()
 
+func buy_charge_crystal():
+	GameGlobals.unlocked_recipes.append("crystal")
+	$TODO.set_item({"sold_out": true})
+	text.hide()
+
 func _on_close_shop_pressed() -> void:
 	main.close_shop()
 	text.hide()

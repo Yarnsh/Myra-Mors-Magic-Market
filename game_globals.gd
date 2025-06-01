@@ -28,6 +28,14 @@ var ponder_order = {
 	"icon": load("res://Images/PonderOrbOrder.png"),
 	"description": "Predict their future, aim for some good news for a big tip!"
 }
+var crystal_recipe = {
+	"name": "Pre-charged Crystals",
+	"requirements": {},
+	"icon": load("res://Images/PonderOrbOrder.png"),
+	"prep_key": "C",
+	"prep_task": "ChargeCrystals",
+	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever order they came in for!"
+}
 var goblin_chore = {
 	"name": "Goblins are about",
 	"task": "GoblinChore",
@@ -38,6 +46,7 @@ var goblin_chore = {
 var order_definitions = {
 	"potion": potion_order,
 	"ponder": ponder_order,
+	"crystal": crystal_recipe,
 	"goblin": goblin_chore
 }
 
@@ -48,3 +57,8 @@ var current_chores = [
 func _input(event: InputEvent) -> void:
 	if event.is_action("DEV_MONEY"):
 		money += 10000
+	if event.is_action("DEV_UNLOCK"):
+		prep_station_count = 6
+		orders_count = 10
+		for r in order_definitions.keys():
+			unlocked_recipes.append(r)

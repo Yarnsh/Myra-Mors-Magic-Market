@@ -4,11 +4,11 @@ extends Control
 @onready var prep = $GamePrep
 @onready var shop = $Upgrades
 
-func start_game(orders):
+func start_game(recipes):
 	prep.hide()
 	shop.hide()
 	game.reset()
-	game.set_orders(orders)
+	game.set_recipes(recipes)
 	game.start()
 	game.show()
 

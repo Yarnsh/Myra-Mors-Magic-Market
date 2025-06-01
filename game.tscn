@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=67 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -42,6 +42,8 @@
 [ext_resource type="Texture2D" uid="uid://dh8afr1wnrl3i" path="res://Images/riki.png" id="34_k8h2u"]
 [ext_resource type="Texture2D" uid="uid://75e637die7hu" path="res://Images/cleffa.png" id="35_7qkoj"]
 [ext_resource type="Texture2D" uid="uid://dp4gkbykk2br3" path="res://Images/evilcat.png" id="36_wpxyv"]
+[ext_resource type="Script" path="res://charge_crystals_task.gd" id="38_qmax6"]
+[ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="39_000hw"]
 
 [sub_resource type="Shortcut" id="Shortcut_o0ji4"]
 resource_local_to_scene = true
@@ -669,6 +671,21 @@ scale = Vector2(0.653066, 0.653065)
 texture = ExtResource("34_k8h2u")
 
 [node name="Anim" type="AnimationPlayer" parent="Task/PonderOrb"]
+libraries = {
+"": SubResource("AnimationLibrary_m01s7")
+}
+
+[node name="ChargeCrystals" type="Node2D" parent="Task"]
+visible = false
+position = Vector2(-5, 89)
+script = ExtResource("38_qmax6")
+
+[node name="C1" type="Sprite2D" parent="Task/ChargeCrystals"]
+position = Vector2(10, -319.866)
+scale = Vector2(0.820895, 0.820895)
+texture = ExtResource("39_000hw")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/ChargeCrystals"]
 libraries = {
 "": SubResource("AnimationLibrary_m01s7")
 }
