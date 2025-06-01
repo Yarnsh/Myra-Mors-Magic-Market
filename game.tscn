@@ -609,6 +609,7 @@ libraries = {
 }
 
 [node name="PonderOrb" type="Node2D" parent="Task"]
+visible = false
 position = Vector2(-5, 89)
 script = ExtResource("16_fc1b3")
 control_texture = ExtResource("21_docjb")
