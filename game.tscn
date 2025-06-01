@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=65 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -36,6 +36,12 @@
 [ext_resource type="Texture2D" uid="uid://q38t4ooy37di" path="res://Images/ControlButtonPonder.png" id="21_docjb"]
 [ext_resource type="Texture2D" uid="uid://dg3ctaidh8pxt" path="res://Images/ControlButtonDone.png" id="21_wlpc6"]
 [ext_resource type="Script" path="res://task_text.gd" id="30_lnv00"]
+[ext_resource type="Texture2D" uid="uid://bk0yc8e5euijw" path="res://Images/skeleton.png" id="32_clslq"]
+[ext_resource type="Texture2D" uid="uid://bhsw4t4r6a6om" path="res://Images/mudkip.png" id="33_6sdsg"]
+[ext_resource type="Texture2D" uid="uid://coh2v41ujrocw" path="res://Images/myradying.png" id="33_s623n"]
+[ext_resource type="Texture2D" uid="uid://dh8afr1wnrl3i" path="res://Images/riki.png" id="34_k8h2u"]
+[ext_resource type="Texture2D" uid="uid://75e637die7hu" path="res://Images/cleffa.png" id="35_7qkoj"]
+[ext_resource type="Texture2D" uid="uid://dp4gkbykk2br3" path="res://Images/evilcat.png" id="36_wpxyv"]
 
 [sub_resource type="Shortcut" id="Shortcut_o0ji4"]
 resource_local_to_scene = true
@@ -603,7 +609,6 @@ libraries = {
 }
 
 [node name="PonderOrb" type="Node2D" parent="Task"]
-visible = false
 position = Vector2(-5, 89)
 script = ExtResource("16_fc1b3")
 control_texture = ExtResource("21_docjb")
@@ -614,9 +619,53 @@ position = Vector2(7, -314)
 texture = ExtResource("17_odv5c")
 
 [node name="Sprite2D" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
 position = Vector2(9.00001, -72)
 scale = Vector2(0.34419, 0.34419)
 texture = ExtResource("18_5j6g7")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(3.99999, -62)
+scale = Vector2(0.318652, 0.318652)
+texture = ExtResource("32_clslq")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(1, -58)
+scale = Vector2(0.563977, 0.563977)
+texture = ExtResource("33_s623n")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(1.00001, -61)
+scale = Vector2(0.554131, 0.554131)
+texture = ExtResource("33_6sdsg")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(-1.00002, -61)
+scale = Vector2(0.347488, 0.347488)
+texture = ExtResource("35_7qkoj")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(2.00002, -64)
+scale = Vector2(0.796932, 0.796932)
+texture = ExtResource("36_wpxyv")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Task/PonderOrb/C1"]
+visible = false
+modulate = Color(1, 1, 1, 0.776471)
+position = Vector2(7.00001, -67)
+scale = Vector2(0.653066, 0.653065)
+texture = ExtResource("34_k8h2u")
 
 [node name="Anim" type="AnimationPlayer" parent="Task/PonderOrb"]
 libraries = {

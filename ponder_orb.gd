@@ -4,7 +4,9 @@ extends Node2D
 @export var done_texture : Texture2D
 
 @onready var anim = $Anim
-@onready var cat = $C1/Sprite2D
+@onready var sprites_parent = $C1
+var selected = -1
+const good_list = [0, 3, 6]
 
 func apply_controls():
 	GameGlobals.controls.clear_controls()
@@ -14,15 +16,32 @@ func apply_controls():
 
 func reset_task():
 	anim.play("RESET")
-	cat.modulate.a = 0.0
+	selected = -1
+	for c in sprites_parent.get_children():
+		c.hide()
 
 func take_input(sc : String):
 	if sc == "P":
 		anim.stop()
 		anim.play("Ponder")
-		cat.modulate.a = min(1.0, cat.modulate.a + 0.2)
+		if selected < 0:
+			selected = randi_range(0, len(sprites_parent.get_children())-1)
+		else:
+			selected = (selected + 1) % len(sprites_parent.get_children())
+		var i = 0
+		for c in sprites_parent.get_children():
+			if i == selected:
+				c.show()
+			else:
+				c.hide()
+			i += 1
 	elif sc == "Enter":
+		var q = 0.0
+		if selected >= 0:
+			q = 0.5
+		if selected in good_list:
+			q = 1.0
 		GameGlobals.task_manager.report_result({
-			"quality": cat.modulate.a
+			"quality": q
 		})
 		GameGlobals.task_manager.stop_task()
