@@ -7,7 +7,7 @@ extends Button
 var selected_recipe = null
 
 func _on_pressed() -> void:
-	game_prep.open_recipe_list(self)
+	game_prep.open_recipe_list(self, selected_recipe)
 
 func set_recipe(recipe):
 	selected_recipe = recipe

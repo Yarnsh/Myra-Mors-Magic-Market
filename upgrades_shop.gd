@@ -43,24 +43,19 @@ func win():
 func buy_prep_station():
 	GameGlobals.prep_station_count += 1
 	if GameGlobals.prep_station_count >= 1:
-		$ShopItem.set_item({"sold_out": true})
+		$PrepStation.set_item({"sold_out": true})
 		text.hide()
 		# TODO: play a cutscene, and enable access to the back room
 
 func buy_shop_space():
 	GameGlobals.orders_count += 1
 	if GameGlobals.orders_count >= 5:
-		$ShopItem2.set_item({"sold_out": true})
+		$ShopSpace.set_item({"sold_out": true})
 		text.hide()
 
 func buy_crystal_ball():
 	GameGlobals.unlocked_recipes.append("ponder")
 	$CrystalBall.set_item({"sold_out": true})
-	text.hide()
-
-func buy_potion_recipe():
-	GameGlobals.unlocked_recipes.append("potion")
-	$Recipe1.set_item({"sold_out": true})
 	text.hide()
 
 func _on_close_shop_pressed() -> void:

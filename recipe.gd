@@ -1,6 +1,6 @@
 extends Button
 
-@onready var list_node = $"../../../.."
+@onready var list_node = $"../../../../.."
 @onready var label = $HBoxContainer/Label
 @onready var texture = $HBoxContainer/TextureRect
 

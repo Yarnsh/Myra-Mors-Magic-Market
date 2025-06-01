@@ -3,9 +3,10 @@ extends PanelContainer
 @onready var label = $Label
 
 var t = 0.0
+var time_speed = 2.0
 
 func _process(delta: float) -> void:
-	t += delta
+	t += delta * time_speed
 	var m = int(t) % 60
 	var h = (int(t) / 60) % 24
 	var half = "am"

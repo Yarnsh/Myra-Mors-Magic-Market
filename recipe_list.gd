@@ -1,9 +1,12 @@
 extends Control
 
 @export var recipe_entry : PackedScene
-@onready var recipe_parent = $RecipeList/ScrollContainer/VBoxContainer
+@onready var recipe_parent = $HBoxContainer/RecipeList/ScrollContainer/VBoxContainer
+@onready var desc_label = $HBoxContainer/Desc/Desc/MarginContainer/Label
+@onready var desc_image = $HBoxContainer/Desc/TextureRect
 
 var last_button = null
+var last_recipe = null
 
 func _ready() -> void:
 	populate_recipes()
@@ -26,13 +29,22 @@ func update_selected_recipes(orders):
 	for c in recipe_parent.get_children():
 		if c.our_recipe == null:
 			continue
-		if c.our_recipe in orders:
+		if c.our_recipe in orders and last_recipe != c.our_recipe:
 			c.disabled = true
 		else:
 			c.disabled = false
 
 func recipe_selected(recipe):
+	last_recipe = recipe
+	if recipe == null:
+		desc_label.text = "Pick what you want to sell today"
+		desc_image.texture = null
+	else:
+		desc_label.text = recipe.get("description", "Pick what you want to sell today")
+		desc_image.texture = recipe.get("icon", null)
+
+func _on_select_pressed() -> void:
 	if last_button != null:
-		last_button.set_recipe(recipe)
+		last_button.set_recipe(last_recipe)
 		hide()
 		last_button = null

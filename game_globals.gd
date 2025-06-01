@@ -7,7 +7,7 @@ var orders = null
 var prep_stations = null
 
 var money = 50
-var prep_station_count = 1
+var prep_station_count = 0
 var orders_count = 2
 
 var unlocked_recipes = []
@@ -25,7 +25,8 @@ var ponder_order = {
 	"name": "Future Reading",
 	"task": "PonderOrb",
 	"requirements": {},
-	"icon": load("res://Images/PonderOrbOrder.png")
+	"icon": load("res://Images/PonderOrbOrder.png"),
+	"description": "Predict their future, aim for some good news for a big tip!"
 }
 var goblin_chore = {
 	"name": "Goblins are about",
@@ -43,3 +44,7 @@ var order_definitions = {
 var current_chores = [
 	goblin_chore
 ]
+
+func _input(event: InputEvent) -> void:
+	if event.is_action("DEV_MONEY"):
+		money += 10000

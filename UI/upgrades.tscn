@@ -64,6 +64,7 @@ texture = ExtResource("3_vrta6")
 layout_mode = 1
 offset_left = -300.0
 offset_bottom = 100.0
+digits = 7
 
 [node name="WinCondition" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 218.0
