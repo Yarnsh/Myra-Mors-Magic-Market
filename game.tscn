@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=73 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -44,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://dp4gkbykk2br3" path="res://Images/evilcat.png" id="36_wpxyv"]
 [ext_resource type="Script" path="res://charge_crystals_task.gd" id="38_qmax6"]
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="39_000hw"]
+[ext_resource type="Texture2D" uid="uid://ossjbfqaoaf" path="res://Images/CrystalPrep.png" id="39_uwol7"]
+[ext_resource type="Texture2D" uid="uid://8wvs8u06wey4" path="res://Images/shine.png" id="40_sprrn"]
 
 [sub_resource type="Shortcut" id="Shortcut_o0ji4"]
 resource_local_to_scene = true
@@ -177,6 +179,61 @@ tracks/0/keys = {
 _data = {
 "Ponder": SubResource("Animation_llcwc"),
 "RESET": SubResource("Animation_lcviq")
+}
+
+[sub_resource type="Animation" id="Animation_dcpt1"]
+resource_name = "shining"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.3996, 0.5328),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895)]
+}
+
+[sub_resource type="Animation" id="Animation_qtnpv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="Animation" id="Animation_jokdp"]
+resource_name = "Ponder"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("C2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0999, 0.2997),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckc58"]
+_data = {
+"Ponder": SubResource("Animation_jokdp"),
+"RESET": SubResource("Animation_qtnpv"),
+"shining": SubResource("Animation_dcpt1")
 }
 
 [sub_resource type="Animation" id="Animation_e2mrf"]
@@ -676,9 +733,16 @@ libraries = {
 }
 
 [node name="ChargeCrystals" type="Node2D" parent="Task"]
-visible = false
 position = Vector2(-5, 89)
 script = ExtResource("38_qmax6")
+control_texture = ExtResource("39_uwol7")
+done_texture = ExtResource("39_uwol7")
+prepped_icon = ExtResource("39_uwol7")
+
+[node name="C2" type="Sprite2D" parent="Task/ChargeCrystals"]
+position = Vector2(10, -319.866)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("40_sprrn")
 
 [node name="C1" type="Sprite2D" parent="Task/ChargeCrystals"]
 position = Vector2(10, -319.866)
@@ -688,6 +752,11 @@ texture = ExtResource("39_000hw")
 [node name="Anim" type="AnimationPlayer" parent="Task/ChargeCrystals"]
 libraries = {
 "": SubResource("AnimationLibrary_m01s7")
+}
+
+[node name="Anim2" type="AnimationPlayer" parent="Task/ChargeCrystals"]
+libraries = {
+"": SubResource("AnimationLibrary_ckc58")
 }
 
 [node name="GoblinChore" type="Node2D" parent="Task"]

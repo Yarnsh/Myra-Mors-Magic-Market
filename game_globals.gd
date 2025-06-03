@@ -18,6 +18,7 @@ var potion_order = {
 	"task": "",
 	"requirements": {"potion": 1},
 	"icon": load("res://Images/PotionOrder.png"),
+	"prep_icon": load("res://Images/Cauldron.png"),
 	"prep_key": "P",
 	"prep_task": "PotionPrep"
 }
@@ -31,7 +32,8 @@ var ponder_order = {
 var crystal_recipe = {
 	"name": "Pre-charged Crystals",
 	"requirements": {},
-	"icon": load("res://Images/PonderOrbOrder.png"),
+	"icon": load("res://Images/crystal.png"),
+	"prep_icon": load("res://Images/crystal.png"),
 	"prep_key": "C",
 	"prep_task": "ChargeCrystals",
 	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever order they came in for!"
@@ -43,11 +45,10 @@ var goblin_chore = {
 	"icon": load("res://Images/GoblinChoreOrder.png")
 }
 
-var order_definitions = {
+var recipe_definitions = {
 	"potion": potion_order,
 	"ponder": ponder_order,
 	"crystal": crystal_recipe,
-	"goblin": goblin_chore
 }
 
 var current_chores = [
@@ -60,5 +61,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("DEV_UNLOCK"):
 		prep_station_count = 6
 		orders_count = 10
-		for r in order_definitions.keys():
-			unlocked_recipes.append(r)
+		for r in recipe_definitions.keys():
+			if r not in unlocked_recipes:
+				unlocked_recipes.append(r)

@@ -292,6 +292,7 @@ offset_top = 21.0
 offset_right = 100.0
 offset_bottom = 221.0
 grow_horizontal = 2
+expand_mode = 2
 
 [connection signal="mouse_entered" from="StartButton" to="StartButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="StartButton" to="StartButton" method="_on_mouse_exited"]

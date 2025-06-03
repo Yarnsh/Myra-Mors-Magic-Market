@@ -77,6 +77,7 @@ func take_input(sc : String):
 		gobs_kill += 1
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
-			"quality": float(gobs_kill)/6.0
+			"quality": float(gobs_kill)/6.0,
+			"chore": true
 		})
 		GameGlobals.task_manager.stop_task()

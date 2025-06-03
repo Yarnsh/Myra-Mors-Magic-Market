@@ -87,5 +87,6 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_b342i")
+expand_mode = 4
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

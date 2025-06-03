@@ -19,7 +19,7 @@ func populate_recipes():
 	for key in GameGlobals.unlocked_recipes:
 		var r = recipe_entry.instantiate()
 		recipe_parent.add_child(r)
-		r.set_recipe(GameGlobals.order_definitions[key])
+		r.set_recipe(GameGlobals.recipe_definitions[key])
 	
 	var r = recipe_entry.instantiate()
 	recipe_parent.add_child(r)
