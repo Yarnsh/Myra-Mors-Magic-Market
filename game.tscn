@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=64 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -46,42 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="39_000hw"]
 [ext_resource type="Texture2D" uid="uid://ossjbfqaoaf" path="res://Images/CrystalPrep.png" id="39_uwol7"]
 [ext_resource type="Texture2D" uid="uid://8wvs8u06wey4" path="res://Images/shine.png" id="40_sprrn"]
-
-[sub_resource type="Shortcut" id="Shortcut_o0ji4"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_3dgb5"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_d04vk"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_1lnft"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_efbce"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_55u44"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_kwd2u"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_joins"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_bcnjk"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_327pu"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_uwt4s"]
-resource_local_to_scene = true
-
-[sub_resource type="Shortcut" id="Shortcut_lvupr"]
-resource_local_to_scene = true
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -181,10 +145,9 @@ _data = {
 "RESET": SubResource("Animation_lcviq")
 }
 
-[sub_resource type="Animation" id="Animation_dcpt1"]
-resource_name = "shining"
-length = 0.6
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_jokdp"]
+resource_name = "Ponder"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -192,10 +155,10 @@ tracks/0/path = NodePath("C2:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.3996, 0.5328),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.0999, 0.2997),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895)]
+"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.1, 0.1)]
 }
 
 [sub_resource type="Animation" id="Animation_qtnpv"]
@@ -213,9 +176,10 @@ tracks/0/keys = {
 "values": [Vector2(0.1, 0.1)]
 }
 
-[sub_resource type="Animation" id="Animation_jokdp"]
-resource_name = "Ponder"
-length = 0.3
+[sub_resource type="Animation" id="Animation_dcpt1"]
+resource_name = "shining"
+length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -223,10 +187,10 @@ tracks/0/path = NodePath("C2:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0999, 0.2997),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1332, 0.2664, 0.3996, 0.5328),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.1, 0.1), Vector2(0.5, 0.5), Vector2(0.1, 0.1)]
+"values": [Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895), Vector2(0.7, 0.7), Vector2(0.820895, 0.820895)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ckc58"]
@@ -338,6 +302,138 @@ _data = {
 "RESET": SubResource("Animation_h3ech")
 }
 
+[sub_resource type="Animation" id="Animation_x407p"]
+resource_name = "StartGame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrepStations:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(227, -96), Vector2(227, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controls:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2664, 0.5994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(972, 153.5), Vector2(740, 153.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Orders:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3663, 0.6993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 71), Vector2(0, 71)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Time:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1665, 0.4995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-208, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Money:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4662, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(968, 0), Vector2(760, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5anl1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrepStations:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(227, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controls:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(740, 153.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Orders:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 71)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Time:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Money:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(760, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e4aq7"]
+_data = {
+"RESET": SubResource("Animation_5anl1"),
+"StartGame": SubResource("Animation_x407p")
+}
+
 [node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -405,7 +501,7 @@ offset_bottom = 100.0
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 1
 offset_right = 200.0
-offset_bottom = 61.0
+offset_bottom = 64.0
 script = ExtResource("3_nvquv")
 
 [node name="Label" type="Label" parent="Time"]
@@ -477,9 +573,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -188.0
-offset_top = -100.5
-offset_bottom = 178.5
+offset_left = -220.0
+offset_top = -116.5
+offset_bottom = 194.5
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -504,51 +600,39 @@ columns = 3
 
 [node name="ControlButton" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_o0ji4")
 
 [node name="ControlButton2" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_3dgb5")
 
 [node name="ControlButton3" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_d04vk")
 
 [node name="ControlButton4" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_1lnft")
 
 [node name="ControlButton5" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_efbce")
 
 [node name="ControlButton6" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_55u44")
 
 [node name="ControlButton7" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_kwd2u")
 
 [node name="ControlButton8" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_joins")
 
 [node name="ControlButton9" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_bcnjk")
 
 [node name="ControlButton10" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_327pu")
 
 [node name="ControlButton11" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_uwt4s")
 
 [node name="ControlButton12" parent="Controls/MarginContainer/Controls/ItemList" instance=ExtResource("2_8lfdj")]
 layout_mode = 2
-shortcut = SubResource("Shortcut_lvupr")
 
 [node name="MetalBorder" parent="Controls" instance=ExtResource("6_t60w7")]
 layout_mode = 2
@@ -558,8 +642,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+offset_left = -253.0
+offset_right = 253.0
 offset_bottom = 40.0
 grow_horizontal = 2
 alignment = 1
@@ -733,6 +817,7 @@ libraries = {
 }
 
 [node name="ChargeCrystals" type="Node2D" parent="Task"]
+visible = false
 position = Vector2(-5, 89)
 script = ExtResource("38_qmax6")
 control_texture = ExtResource("39_uwol7")
@@ -890,5 +975,10 @@ theme_override_font_sizes/font_size = 25
 text = "Test"
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e4aq7")
+}
 
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]

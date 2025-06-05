@@ -4,10 +4,11 @@ extends VBoxContainer
 @export var default_image : Texture2D
 
 @onready var label = $Label/Label
-@onready var resource_label = $Button/Label
-@onready var button = $Button
-@onready var timer = $Button/Timer
-@onready var timer_rot = $Button/Timer/Rotator
+@onready var resource_label = $Wiggler/Wiggler/Button/Label
+@onready var button = $Wiggler/Wiggler/Button
+@onready var timer = $Wiggler/Wiggler/Button/Timer
+@onready var timer_rot = $Wiggler/Wiggler/Button/Timer/Rotator
+@onready var anim = $AnimationPlayer
 
 var resource_name = ""
 var resource_count = 0
@@ -28,8 +29,10 @@ func _process(delta: float) -> void:
 func _on_button_pressed() -> void:
 	if GameGlobals.current_task == null and resource_count <= 0:
 		GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map["PrepStationTask"], self)
+		anim.play("Bob")
 
 func report_result(result):
+	anim.play("RESET")
 	if result.get("quality", 1.0) < 1.0:
 		return
 	button.icon = result.get("icon", null)
@@ -44,6 +47,7 @@ func is_cooking():
 	return Time.get_ticks_msec() < available_time
 
 func take_resource(count):
+	anim.play("Wiggle")
 	resource_count -= count
 	if resource_count <= 0:
 		resource_label.text = ""

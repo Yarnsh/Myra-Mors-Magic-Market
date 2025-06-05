@@ -6,6 +6,7 @@ var tbo_variation = 5000
 @onready var main = $".."
 @onready var timer = $Time
 @onready var text_popup = $TaskText
+@onready var anim = $AnimationPlayer
 
 var order_list = []
 var recipes_list = []
@@ -21,6 +22,7 @@ func reset():
 
 func start():
 	set_process(true)
+	anim.play("StartGame")
 
 func stop():
 	set_process(false)

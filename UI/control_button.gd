@@ -1,7 +1,8 @@
 extends Button
 
-@onready var controls = $"../.."
+@onready var controls = $"../../.."
 @onready var shortcut_label = $Label
+@onready var anim = $AnimationPlayer
 
 func clear():
 	disabled = true
@@ -18,4 +19,5 @@ func set_action(image: Texture2D, sc: String):
 	shortcut.events.append(shortcut_event)
 
 func _on_pressed() -> void:
+	anim.play("Pressed")
 	controls.button_pressed(shortcut_label.text)

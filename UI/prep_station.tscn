@@ -1,10 +1,76 @@
-[gd_scene load_steps=6 format=3 uid="uid://chtuhsyrj8mov"]
+[gd_scene load_steps=10 format=3 uid="uid://chtuhsyrj8mov"]
 
 [ext_resource type="Script" path="res://UI/prep_station.gd" id="1_6l65l"]
 [ext_resource type="Texture2D" uid="uid://wuoo1yciikkr" path="res://Images/PrepLabel.png" id="1_414js"]
 [ext_resource type="Texture2D" uid="uid://dfllnviep4uo0" path="res://Images/EmptyPrepStation.png" id="2_axp88"]
 [ext_resource type="Texture2D" uid="uid://qdfiubuy2kek" path="res://Images/TimerBack.png" id="4_ry43u"]
 [ext_resource type="Texture2D" uid="uid://dn318w5jhljwy" path="res://Images/TimerFront.png" id="5_b342i"]
+
+[sub_resource type="Animation" id="Animation_yta5x"]
+resource_name = "Wiggle"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wiggler/Wiggler:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333, 0.1332, 0.2997),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.436332, -0.349066, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v2fev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wiggler/Wiggler:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Wiggler/Wiggler:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 22)]
+}
+
+[sub_resource type="Animation" id="Animation_adcf7"]
+resource_name = "Bob"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wiggler/Wiggler:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.7659),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(40, 22), Vector2(40, 27), Vector2(40, 20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lu2bn"]
+_data = {
+"Bob": SubResource("Animation_adcf7"),
+"RESET": SubResource("Animation_v2fev"),
+"Wiggle": SubResource("Animation_yta5x")
+}
 
 [node name="PrepStation" type="VBoxContainer"]
 alignment = 1
@@ -30,13 +96,34 @@ theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="."]
+[node name="Wiggler" type="Control" parent="."]
 layout_mode = 2
+
+[node name="Wiggler" type="Control" parent="Wiggler"]
+anchors_preset = 0
+offset_left = 40.0
+offset_top = 22.0
+offset_right = 40.0
+offset_bottom = 22.0
+
+[node name="Button" type="Button" parent="Wiggler/Wiggler"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -25.5
+offset_right = 40.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 0
 shortcut_in_tooltip = false
 icon = ExtResource("2_axp88")
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="Wiggler/Wiggler/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +135,7 @@ text = "4"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Timer" type="TextureRect" parent="Button"]
+[node name="Timer" type="TextureRect" parent="Wiggler/Wiggler/Button"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 3
@@ -62,7 +149,7 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("4_ry43u")
 
-[node name="Rotator" type="Control" parent="Button/Timer"]
+[node name="Rotator" type="Control" parent="Wiggler/Wiggler/Button/Timer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -72,7 +159,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Button/Timer/Rotator"]
+[node name="TextureRect" type="TextureRect" parent="Wiggler/Wiggler/Button/Timer/Rotator"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -89,4 +176,9 @@ grow_vertical = 2
 texture = ExtResource("5_b342i")
 expand_mode = 4
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lu2bn")
+}
+
+[connection signal="pressed" from="Wiggler/Wiggler/Button" to="." method="_on_button_pressed"]
