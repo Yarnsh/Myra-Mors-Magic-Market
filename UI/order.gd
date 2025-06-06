@@ -1,10 +1,11 @@
 extends PanelContainer
 
-@onready var order_image = $CurrentOrder
+@onready var order_image = $COControl/CurrentOrder
 @onready var label = $Number/Label
 @onready var button = $Button
 @onready var timer = $Button/Timer
 @onready var timer_rot = $Button/Timer/Rotator
+@onready var anim = $AnimationPlayer
 @export var idx = 1
 
 @onready var order_image_remove_offset = -$BG.size.x + $Number.size.x
@@ -16,6 +17,7 @@ var last_timer_len = 1000
 var was_cooking = false
 var last_result = {}
 
+const MOVE_PATIENCE = 5000
 var current_patience = 10000
 var patience_done = 0
 
@@ -30,7 +32,7 @@ func _process(delta: float) -> void:
 	timer_rot.rotation = (PI + PI/2.0) * t
 	
 	if !is_free():
-		var p = 1.0 - (float(patience_done - Time.get_ticks_msec()) / float(current_patience))
+		var p = max(0.0, 1.0 - (float(patience_done - Time.get_ticks_msec()) / MOVE_PATIENCE))
 		order_image.position = Vector2.RIGHT * (order_image_remove_offset * p)
 		if p >= 1.0:
 			complete_order({"failed": true})
@@ -44,6 +46,7 @@ func _on_button_pressed() -> void:
 		if GameGlobals.prep_stations.check_requirements(resources_needed):
 			GameGlobals.prep_stations.consume(resources_needed)
 			GameGlobals.task_manager.start_task(task, self)
+			anim.play("Wobble")
 	elif resources_needed != null and resources_needed != {}:
 		if GameGlobals.prep_stations.check_requirements(resources_needed):
 			GameGlobals.prep_stations.consume(resources_needed)
@@ -70,6 +73,7 @@ func report_result(result):
 		complete_order(result)
 
 func complete_order(result):
+	anim.play("RESET")
 	order_image.position = Vector2.RIGHT * order_image_remove_offset
 	if GameGlobals.task_manager.current_task_owner == self:
 		GameGlobals.task_manager.stop_task()

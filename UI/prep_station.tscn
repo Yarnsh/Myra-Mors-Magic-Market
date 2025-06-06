@@ -6,20 +6,20 @@
 [ext_resource type="Texture2D" uid="uid://qdfiubuy2kek" path="res://Images/TimerBack.png" id="4_ry43u"]
 [ext_resource type="Texture2D" uid="uid://dn318w5jhljwy" path="res://Images/TimerFront.png" id="5_b342i"]
 
-[sub_resource type="Animation" id="Animation_yta5x"]
-resource_name = "Wiggle"
-length = 0.3
+[sub_resource type="Animation" id="Animation_adcf7"]
+resource_name = "Bob"
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Wiggler/Wiggler:rotation")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Wiggler/Wiggler:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333, 0.1332, 0.2997),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.333, 0.7659),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.436332, -0.349066, 0.0]
+"values": [Vector2(40, 22), Vector2(40, 27), Vector2(40, 20)]
 }
 
 [sub_resource type="Animation" id="Animation_v2fev"]
@@ -49,20 +49,20 @@ tracks/1/keys = {
 "values": [Vector2(40, 22)]
 }
 
-[sub_resource type="Animation" id="Animation_adcf7"]
-resource_name = "Bob"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_yta5x"]
+resource_name = "Wiggle"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Wiggler/Wiggler:position")
-tracks/0/interp = 2
+tracks/0/path = NodePath("Wiggler/Wiggler:rotation")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333, 0.7659),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0333, 0.1332, 0.2997),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(40, 22), Vector2(40, 27), Vector2(40, 20)]
+"values": [0.0, 0.436332, -0.349066, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lu2bn"]

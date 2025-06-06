@@ -302,69 +302,6 @@ _data = {
 "RESET": SubResource("Animation_h3ech")
 }
 
-[sub_resource type="Animation" id="Animation_x407p"]
-resource_name = "StartGame"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PrepStations:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(227, -96), Vector2(227, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Controls:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.2664, 0.5994),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(972, 153.5), Vector2(740, 153.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Orders:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.3663, 0.6993),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-192, 71), Vector2(0, 71)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Time:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.1665, 0.4995),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-208, 0), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Money:position")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.4662, 0.7992),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(968, 0), Vector2(760, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_5anl1"]
 length = 0.001
 tracks/0/type = "value"
@@ -426,6 +363,69 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(760, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x407p"]
+resource_name = "StartGame"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PrepStations:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(227, -96), Vector2(227, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Controls:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2664, 0.5994),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(972, 153.5), Vector2(740, 153.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Orders:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3663, 0.6993),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-192, 71), Vector2(0, 71)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Time:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1665, 0.4995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-208, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Money:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.4662, 0.7992),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(968, 0), Vector2(760, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e4aq7"]
