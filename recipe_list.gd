@@ -43,7 +43,7 @@ func recipe_selected(recipe):
 		desc_label.text = recipe.get("description", "Pick what you want to sell today")
 		desc_image.texture = recipe.get("icon", null)
 
-func _on_select_pressed() -> void:
+func select_pressed() -> void:
 	if last_button != null:
 		last_button.set_recipe(last_recipe)
 		hide()

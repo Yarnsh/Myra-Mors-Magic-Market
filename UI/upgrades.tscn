@@ -170,19 +170,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Buy" type="Button" parent="Text"]
-layout_mode = 0
-offset_left = 460.0
-offset_top = 478.0
-offset_right = 531.0
-offset_bottom = 528.0
-theme_override_font_sizes/font_size = 30
-text = "Buy!"
-
 [connection signal="mouse_entered" from="CloseShop" to="CloseShop" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CloseShop" to="CloseShop" method="_on_mouse_exited"]
 [connection signal="pressed" from="CloseShop" to="." method="_on_close_shop_pressed"]
-[connection signal="pressed" from="Text/Buy" to="Text" method="_on_buy_pressed"]
 
 [editable path="WinCondition"]
 [editable path="ShopSpace"]

@@ -270,17 +270,6 @@ autowrap_mode = 2
 [node name="MetalBorder" parent="RecipeListPanel/HBoxContainer/Desc/Desc" instance=ExtResource("5_aaasl")]
 layout_mode = 2
 
-[node name="Select" type="Button" parent="RecipeListPanel/HBoxContainer/Desc"]
-layout_mode = 2
-offset_left = 276.0
-offset_top = 466.0
-offset_right = 384.0
-offset_bottom = 523.0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 35
-text = "Select"
-
 [node name="TextureRect" type="TextureRect" parent="RecipeListPanel/HBoxContainer/Desc"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
@@ -300,4 +289,3 @@ expand_mode = 2
 [connection signal="mouse_entered" from="ShopButton" to="ShopButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ShopButton" to="ShopButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="RecipeListPanel/HBoxContainer/Desc/Select" to="RecipeListPanel" method="_on_select_pressed"]

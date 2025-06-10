@@ -7,6 +7,9 @@ extends Button
 var our_recipe = null
 
 func _on_pressed() -> void:
+	list_node.select_pressed()
+
+func _on_mouse_entered() -> void:
 	list_node.recipe_selected(our_recipe)
 
 func set_recipe(recipe):

@@ -76,4 +76,5 @@ theme_override_font_sizes/font_size = 45
 text = "SOLD OUT"
 horizontal_alignment = 1
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

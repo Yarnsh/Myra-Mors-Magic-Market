@@ -30,4 +30,11 @@ func set_item(def):
 	callback = def.get("callback", null)
 
 func _on_button_pressed() -> void:
+	if last_def != null:
+		if GameGlobals.money >= last_def.get("price", 0):
+			GameGlobals.money -= last_def.get("price", 0)
+			if last_def.get("callback", null) != null:
+				last_def["callback"].call()
+
+func _on_button_mouse_entered() -> void:
 	get_parent().text.item_selected(last_def)
