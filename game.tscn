@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=71 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -46,6 +46,9 @@
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="39_000hw"]
 [ext_resource type="Texture2D" uid="uid://ossjbfqaoaf" path="res://Images/CrystalPrep.png" id="39_uwol7"]
 [ext_resource type="Texture2D" uid="uid://8wvs8u06wey4" path="res://Images/shine.png" id="40_sprrn"]
+[ext_resource type="Script" path="res://gongtask.gd" id="46_4y0rq"]
+[ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="46_v7jpx"]
+[ext_resource type="Texture2D" uid="uid://c5kg2he80ghyo" path="res://Images/gonghammer.png" id="47_aw74y"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -300,6 +303,85 @@ _data = {
 "Dance": SubResource("Animation_e2mrf"),
 "Die": SubResource("Animation_f0kvb"),
 "RESET": SubResource("Animation_h3ech")
+}
+
+[sub_resource type="Animation" id="Animation_hvwoj"]
+resource_name = "Ding"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gong:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0331667, 0.0665, 0.0998333, 0.166433, 0.2331, 0.333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(94, -251), Vector2(107, -255), Vector2(90, -240), Vector2(83, -251), Vector2(97, -240), Vector2(98, -251), Vector2(81, -234), Vector2(94, -251)]
+}
+
+[sub_resource type="Animation" id="Animation_v74wu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gong:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(94, -251)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gong:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.715, 0.715)]
+}
+
+[sub_resource type="Animation" id="Animation_e0lwe"]
+resource_name = "Bong"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gong:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0331667, 0.0665, 0.0998333, 0.1332, 0.1665, 0.1998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(94, -251), Vector2(107, -255), Vector2(90, -240), Vector2(83, -251), Vector2(97, -240), Vector2(98, -251), Vector2(81, -234)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gong:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1332, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rfro"]
+_data = {
+"Bong": SubResource("Animation_e0lwe"),
+"Ding": SubResource("Animation_hvwoj"),
+"RESET": SubResource("Animation_v74wu")
 }
 
 [sub_resource type="Animation" id="Animation_5anl1"]
@@ -952,6 +1034,27 @@ theme_override_font_sizes/font_size = 30
 text = "Please choose what ingredients
 you want to prepare"
 horizontal_alignment = 1
+
+[node name="Gong" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("46_4y0rq")
+
+[node name="Gong" type="Sprite2D" parent="Task/Gong"]
+position = Vector2(94, -251)
+scale = Vector2(0.715, 0.715)
+texture = ExtResource("46_v7jpx")
+
+[node name="Hammer" type="Sprite2D" parent="Task/Gong"]
+position = Vector2(-83, -200)
+rotation = -2.63025
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("47_aw74y")
+offset = Vector2(-306.667, 248.889)
+
+[node name="Anim" type="AnimationPlayer" parent="Task/Gong"]
+libraries = {
+"": SubResource("AnimationLibrary_7rfro")
+}
 
 [node name="TaskText" type="PanelContainer" parent="."]
 visible = false

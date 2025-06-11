@@ -18,7 +18,7 @@ func apply_controls():
 func reset_task():
 	pass
 
-func take_input(sc : String):
+func take_input(sc : String, release = false):
 	if sc == "Enter":
 		GameGlobals.task_manager.stop_task()
 		return

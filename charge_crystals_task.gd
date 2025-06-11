@@ -18,7 +18,7 @@ func reset_task():
 	anim.play("RESET")
 	charge = 0
 
-func take_input(sc : String):
+func take_input(sc : String, release = false):
 	if sc == "C":
 		anim.stop()
 		anim.play("Ponder")

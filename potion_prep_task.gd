@@ -29,7 +29,7 @@ func reset_task():
 	py.show()
 	pg.show()
 
-func take_input(sc : String):
+func take_input(sc : String, release = false):
 	if sc == "B":
 		if pb.visible:
 			c_anim.stop()

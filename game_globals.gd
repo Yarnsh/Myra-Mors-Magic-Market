@@ -38,6 +38,13 @@ var crystal_recipe = {
 	"prep_task": "ChargeCrystals",
 	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever order they came in for!"
 }
+var gong_order = {
+	"name": "Scare Spirits",
+	"task": "Gong",
+	"requirements": {},
+	"icon": load("res://Images/PonderOrbOrder.png"),
+	"description": "BONG!!!"
+}
 var goblin_chore = {
 	"name": "Goblins are about",
 	"task": "GoblinChore",
@@ -49,6 +56,7 @@ var recipe_definitions = {
 	"potion": potion_order,
 	"ponder": ponder_order,
 	"crystal": crystal_recipe,
+	"gong": gong_order
 }
 
 var current_chores = [

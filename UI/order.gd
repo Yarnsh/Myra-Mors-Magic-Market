@@ -44,6 +44,8 @@ func _process(delta: float) -> void:
 	
 	if !is_free():
 		var p = max(0.0, 1.0 - (float(patience_done - Time.get_ticks_msec()) / MOVE_PATIENCE))
+		if GameGlobals.task_manager.current_task_owner == self:
+			p = 0.0
 		order_image.position = Vector2.RIGHT * (order_image_remove_offset * p)
 		if p >= 1.0:
 			complete_order({"failed": true})

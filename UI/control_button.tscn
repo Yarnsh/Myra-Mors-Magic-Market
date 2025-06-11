@@ -57,6 +57,7 @@ offset_right = 60.0
 offset_bottom = 60.0
 focus_mode = 0
 disabled = true
+action_mode = 0
 shortcut = SubResource("Shortcut_0lk6a")
 shortcut_in_tooltip = false
 icon = ExtResource("1_jlvii")
@@ -79,4 +80,5 @@ libraries = {
 "": SubResource("AnimationLibrary_wvs18")
 }
 
+[connection signal="button_up" from="ControlButton" to="ControlButton" method="_on_button_up"]
 [connection signal="pressed" from="ControlButton" to="ControlButton" method="_on_pressed"]

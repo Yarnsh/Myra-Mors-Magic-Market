@@ -20,7 +20,7 @@ func reset_task():
 	for c in sprites_parent.get_children():
 		c.hide()
 
-func take_input(sc : String):
+func take_input(sc : String, release = false):
 	if sc == "P":
 		anim.stop()
 		anim.play("Ponder")

@@ -21,3 +21,7 @@ func apply_control(position : int, text : String, image : Texture2D):
 func button_pressed(key : String):
 	if GameGlobals.current_task != null:
 		GameGlobals.current_task.take_input(key)
+
+func button_released(key : String):
+	if GameGlobals.current_task != null:
+		GameGlobals.current_task.take_input(key, true)

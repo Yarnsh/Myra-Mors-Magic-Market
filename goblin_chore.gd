@@ -50,7 +50,7 @@ func reset_task():
 	g6 = false
 	gobs_kill = 0
 
-func take_input(sc : String):
+func take_input(sc : String, release = false):
 	if sc == "G" and !g1:
 		anim1.play("Die")
 		g1 = true
