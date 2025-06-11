@@ -4,6 +4,7 @@
 - Draw one of those paper ward charms (mash 2 buttons back and forth)
 - Bang a big gong (Hold button long enough, release)
 - Prepare incense (Double tap a few buttons) (Will prepare a resource that is used on a timer to grant a buff)
+- Witch hat repair (Press some subset of things)
 
 ### Chores
 - Put out fire (Hold button)
