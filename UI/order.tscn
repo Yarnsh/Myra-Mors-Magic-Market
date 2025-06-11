@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://3u78vhk3a1gd"]
+[gd_scene load_steps=17 format=3 uid="uid://3u78vhk3a1gd"]
 
 [ext_resource type="Script" path="res://UI/order.gd" id="1_5jweg"]
 [ext_resource type="Texture2D" uid="uid://dgwdi3oaevnq7" path="res://Images/OrderBG.png" id="2_0wwus"]
@@ -7,11 +7,50 @@
 [ext_resource type="Texture2D" uid="uid://dn318w5jhljwy" path="res://Images/TimerFront.png" id="5_ssqk4"]
 [ext_resource type="Texture2D" uid="uid://cvic0t8wq4t0e" path="res://Images/check.png" id="6_s1skx"]
 [ext_resource type="Texture2D" uid="uid://bsidny7vogw6u" path="res://Images/cross.png" id="7_ewsi3"]
+[ext_resource type="Script" path="res://UI/autoplay_anim.gd" id="7_mv36o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vq1tw"]
 
 [sub_resource type="Shortcut" id="Shortcut_jbxe6"]
 resource_local_to_scene = true
+
+[sub_resource type="Animation" id="Animation_0nbgw"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2664, 0.4995),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(138, 3), Vector2(138, -8), Vector2(138, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_u8jyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyxfr"]
+_data = {
+"RESET": SubResource("Animation_u8jyw"),
+"default": SubResource("Animation_0nbgw")
+}
 
 [sub_resource type="Animation" id="Animation_5vc2m"]
 length = 0.001
@@ -160,6 +199,12 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("6_s1skx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button/Check"]
+libraries = {
+"": SubResource("AnimationLibrary_qyxfr")
+}
+script = ExtResource("7_mv36o")
 
 [node name="Cross" type="TextureRect" parent="Button"]
 texture_filter = 1
