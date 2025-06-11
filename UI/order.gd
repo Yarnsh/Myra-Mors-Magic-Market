@@ -5,6 +5,8 @@ extends PanelContainer
 @onready var button = $Button
 @onready var timer = $Button/Timer
 @onready var timer_rot = $Button/Timer/Rotator
+@onready var check = $Button/Check
+@onready var cross = $Button/Cross
 @onready var anim = $AnimationPlayer
 @export var idx = 1
 
@@ -24,12 +26,21 @@ var patience_done = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = str(idx)
+	check.hide()
 	order_image.position = Vector2.RIGHT * order_image_remove_offset # this just doesnt work for some reason
 
 func _process(delta: float) -> void:
 	timer.visible = is_cooking()
 	var t = 1.0 - (float(available_time - Time.get_ticks_msec()) / float(last_timer_len))
 	timer_rot.rotation = (PI + PI/2.0) * t
+	
+	if !is_free() and !is_cooking() and resources_needed != {}:
+		var good = GameGlobals.prep_stations.check_requirements(resources_needed)
+		check.visible = good
+		cross.visible = !good
+	else:
+		check.visible = false
+		cross.visible = false
 	
 	if !is_free():
 		var p = max(0.0, 1.0 - (float(patience_done - Time.get_ticks_msec()) / MOVE_PATIENCE))
