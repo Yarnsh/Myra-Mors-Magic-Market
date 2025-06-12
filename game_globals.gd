@@ -45,6 +45,13 @@ var gong_order = {
 	"icon": load("res://Images/PonderOrbOrder.png"),
 	"description": "BONG!!!"
 }
+var slip_order = {
+	"name": "Draw Senjafuda",
+	"task": "Senjafuda",
+	"requirements": {},
+	"icon": load("res://Images/PonderOrbOrder.png"),
+	"description": "Draw the weeb paper, get the weeb money"
+}
 var goblin_chore = {
 	"name": "Goblins are about",
 	"task": "GoblinChore",
@@ -56,7 +63,8 @@ var recipe_definitions = {
 	"potion": potion_order,
 	"ponder": ponder_order,
 	"crystal": crystal_recipe,
-	"gong": gong_order
+	"gong": gong_order,
+	"slip": slip_order
 }
 
 var current_chores = [

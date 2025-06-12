@@ -28,5 +28,8 @@ func take_input(sc : String, release = false):
 			GameGlobals.task_manager.start_task(GameGlobals.task_manager.task_map[o.get("prep_task", "PotionPrep")], GameGlobals.task_manager.current_task_owner)
 			break
 
+func release_input(sc : String):
+	pass
+
 func _on_visibility_changed() -> void:
 	$CanvasLayer.visible = visible

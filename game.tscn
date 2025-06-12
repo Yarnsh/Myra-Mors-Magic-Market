@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=87 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -49,6 +49,14 @@
 [ext_resource type="Script" path="res://gongtask.gd" id="46_4y0rq"]
 [ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="46_v7jpx"]
 [ext_resource type="Texture2D" uid="uid://c5kg2he80ghyo" path="res://Images/gonghammer.png" id="47_aw74y"]
+[ext_resource type="Script" path="res://senjafuda.gd" id="49_6l8ws"]
+[ext_resource type="Texture2D" uid="uid://cp65qd288pgnw" path="res://Images/slip.png" id="50_er2im"]
+[ext_resource type="Texture2D" uid="uid://bvpeut3yfk37k" path="res://Images/slip_1_1.png" id="51_k2l0l"]
+[ext_resource type="Texture2D" uid="uid://vt5pd2304d06" path="res://Images/slip_1_2.png" id="52_lbei2"]
+[ext_resource type="Texture2D" uid="uid://blxgl3plsguth" path="res://Images/slip_1_3.png" id="53_7bwkw"]
+[ext_resource type="Texture2D" uid="uid://bjs2snra0pgiv" path="res://Images/slip_1_4.png" id="54_hs7b0"]
+[ext_resource type="Texture2D" uid="uid://dwhw423oiox7x" path="res://Images/slip_1_5.png" id="55_wcxvk"]
+[ext_resource type="Texture2D" uid="uid://ct1ertpg0t8y3" path="res://Images/brush.png" id="56_eobwl"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -382,6 +390,272 @@ _data = {
 "Bong": SubResource("Animation_e0lwe"),
 "Ding": SubResource("Animation_hvwoj"),
 "RESET": SubResource("Animation_v74wu")
+}
+
+[sub_resource type="Animation" id="Animation_kkso6"]
+resource_name = "1"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.1998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.193994, 0.205567, 0.198492]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-169, -582), Vector2(77, -534)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_a5xxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.193994]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-169, -582)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_61xve"]
+resource_name = "2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0999, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.198492, -0.375592, -0.366519]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(77, -534), Vector2(-124, -423)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjw4m"]
+resource_name = "3"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.366519, 0.314159, 0.322814]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-124, -423), Vector2(106, -376)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hi23y"]
+resource_name = "4"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1332, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.322814, -0.443455, -0.443455]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(106, -376), Vector2(-131, -357)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7af76"]
+resource_name = "5"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.443455, 0.399807]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-131, -357), Vector2(190, -626)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jil34"]
+resource_name = "Wrong"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Slip:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0771463, -0.0762797, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_coilb"]
+_data = {
+"1": SubResource("Animation_kkso6"),
+"2": SubResource("Animation_61xve"),
+"3": SubResource("Animation_xjw4m"),
+"4": SubResource("Animation_hi23y"),
+"5": SubResource("Animation_7af76"),
+"RESET": SubResource("Animation_a5xxi"),
+"Wrong": SubResource("Animation_jil34")
 }
 
 [sub_resource type="Animation" id="Animation_5anl1"]
@@ -1054,6 +1328,45 @@ offset = Vector2(-306.667, 248.889)
 [node name="Anim" type="AnimationPlayer" parent="Task/Gong"]
 libraries = {
 "": SubResource("AnimationLibrary_7rfro")
+}
+
+[node name="Senjafuda" type="Node2D" parent="Task"]
+script = ExtResource("49_6l8ws")
+
+[node name="Slip" type="Sprite2D" parent="Task/Senjafuda"]
+position = Vector2(-2, -277)
+scale = Vector2(0.592593, 0.592593)
+texture = ExtResource("50_er2im")
+
+[node name="S1" type="Sprite2D" parent="Task/Senjafuda/Slip"]
+visible = false
+texture = ExtResource("51_k2l0l")
+
+[node name="S2" type="Sprite2D" parent="Task/Senjafuda/Slip"]
+visible = false
+texture = ExtResource("52_lbei2")
+
+[node name="S3" type="Sprite2D" parent="Task/Senjafuda/Slip"]
+visible = false
+texture = ExtResource("53_7bwkw")
+
+[node name="S4" type="Sprite2D" parent="Task/Senjafuda/Slip"]
+visible = false
+texture = ExtResource("54_hs7b0")
+
+[node name="S5" type="Sprite2D" parent="Task/Senjafuda/Slip"]
+visible = false
+texture = ExtResource("55_wcxvk")
+
+[node name="Brush" type="Sprite2D" parent="Task/Senjafuda"]
+position = Vector2(-169, -582)
+rotation = -0.193994
+scale = Vector2(0.63961, 0.63961)
+texture = ExtResource("56_eobwl")
+
+[node name="Anim" type="AnimationPlayer" parent="Task/Senjafuda"]
+libraries = {
+"": SubResource("AnimationLibrary_coilb")
 }
 
 [node name="TaskText" type="PanelContainer" parent="."]

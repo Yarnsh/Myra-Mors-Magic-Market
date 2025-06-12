@@ -24,4 +24,4 @@ func button_pressed(key : String):
 
 func button_released(key : String):
 	if GameGlobals.current_task != null:
-		GameGlobals.current_task.take_input(key, true)
+		GameGlobals.current_task.release_input(key)

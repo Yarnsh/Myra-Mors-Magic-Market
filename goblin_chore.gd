@@ -81,3 +81,6 @@ func take_input(sc : String, release = false):
 			"chore": true
 		})
 		GameGlobals.task_manager.stop_task()
+
+func release_input(sc : String):
+	pass

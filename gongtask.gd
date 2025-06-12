@@ -13,7 +13,7 @@ var holding = false
 func apply_controls():
 	GameGlobals.controls.clear_controls()
 	GameGlobals.controls.set_nice_name("Bong the Gong")
-	GameGlobals.controls.apply_control(0, "G", control_texture)
+	GameGlobals.controls.apply_control(4, "G", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
 
 func reset_task():
@@ -22,24 +22,25 @@ func reset_task():
 	strength = 0.0
 	holding = false
 
-func take_input(sc : String, release = false):
+func take_input(sc : String):
 	if sc == "G":
-		if !release:
-			holding = true
-		else:
-			if holding:
-				q = max(q, strength)
-				holding = false
-				if strength < 1.0 and q < 1.0:
-					anim.stop()
-					anim.play("Ding")
-				else:
-					anim.play("Bong")
+		holding = true
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
 			"quality": q
 		})
 		GameGlobals.task_manager.stop_task()
+
+func release_input(sc : String):
+	if sc == "G":
+		if holding:
+			q = max(q, strength)
+			holding = false
+			if strength < 1.0 and q < 1.0:
+				anim.stop()
+				anim.play("Ding")
+			else:
+				anim.play("Bong")
 
 func _process(delta: float) -> void:
 	if holding:
