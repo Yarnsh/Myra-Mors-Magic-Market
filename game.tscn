@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=95 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -57,6 +57,10 @@
 [ext_resource type="Texture2D" uid="uid://bjs2snra0pgiv" path="res://Images/slip_1_4.png" id="54_hs7b0"]
 [ext_resource type="Texture2D" uid="uid://dwhw423oiox7x" path="res://Images/slip_1_5.png" id="55_wcxvk"]
 [ext_resource type="Texture2D" uid="uid://ct1ertpg0t8y3" path="res://Images/brush.png" id="56_eobwl"]
+[ext_resource type="Script" path="res://incense.gd" id="57_y2b27"]
+[ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="58_gr2lp"]
+[ext_resource type="Texture2D" uid="uid://dopd18r7apwvg" path="res://Images/Incense.png" id="59_l3qfl"]
+[ext_resource type="Texture2D" uid="uid://csxn6t1r347u3" path="res://Images/IncenseBurning.png" id="60_qcdxv"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -313,6 +317,35 @@ _data = {
 "RESET": SubResource("Animation_h3ech")
 }
 
+[sub_resource type="Animation" id="Animation_e0lwe"]
+resource_name = "Bong"
+length = 0.25
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gong:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0331667, 0.0665, 0.0998333, 0.1332, 0.1665, 0.1998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(94, -251), Vector2(107, -255), Vector2(90, -240), Vector2(83, -251), Vector2(97, -240), Vector2(98, -251), Vector2(81, -234)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gong:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1332, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715)]
+}
+
 [sub_resource type="Animation" id="Animation_hvwoj"]
 resource_name = "Ding"
 length = 0.5
@@ -354,35 +387,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.715, 0.715)]
-}
-
-[sub_resource type="Animation" id="Animation_e0lwe"]
-resource_name = "Bong"
-length = 0.25
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Gong:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0331667, 0.0665, 0.0998333, 0.1332, 0.1665, 0.1998),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(94, -251), Vector2(107, -255), Vector2(90, -240), Vector2(83, -251), Vector2(97, -240), Vector2(98, -251), Vector2(81, -234)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Gong:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.1332, 0.2, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715), Vector2(0.8, 0.8), Vector2(0.715, 0.715)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7rfro"]
@@ -430,45 +434,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0771463, -0.0762797, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_a5xxi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Brush:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.193994]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Brush:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-169, -582)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Slip:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_61xve"]
@@ -631,6 +596,45 @@ tracks/2/keys = {
 "values": [0.0, 0.0771463, -0.0762797, 0.0]
 }
 
+[sub_resource type="Animation" id="Animation_a5xxi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.193994]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Brush:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-169, -582)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slip:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_jil34"]
 resource_name = "Wrong"
 length = 0.2
@@ -657,6 +661,23 @@ _data = {
 "RESET": SubResource("Animation_a5xxi"),
 "Wrong": SubResource("Animation_jil34")
 }
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nlpgg"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -98, 0)
+tangential_accel_min = -30.1
+tangential_accel_max = 27.96
+
+[sub_resource type="Gradient" id="Gradient_lsypw"]
+colors = PackedColorArray(0.703808, 0.703808, 0.703808, 0, 0.776471, 0.776471, 0.776471, 0.176471)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0qkc0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gro4u"]
+width = 32
+height = 32
+color_ramp = SubResource("Gradient_lsypw")
+noise = SubResource("FastNoiseLite_0qkc0")
 
 [sub_resource type="Animation" id="Animation_5anl1"]
 length = 0.001
@@ -1177,7 +1198,7 @@ visible = false
 position = Vector2(-5, 89)
 script = ExtResource("38_qmax6")
 control_texture = ExtResource("39_uwol7")
-done_texture = ExtResource("39_uwol7")
+done_texture = ExtResource("21_wlpc6")
 prepped_icon = ExtResource("39_uwol7")
 
 [node name="C2" type="Sprite2D" parent="Task/ChargeCrystals"]
@@ -1312,6 +1333,7 @@ horizontal_alignment = 1
 [node name="Gong" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("46_4y0rq")
+done_texture = ExtResource("21_wlpc6")
 
 [node name="Gong" type="Sprite2D" parent="Task/Gong"]
 position = Vector2(94, -251)
@@ -1331,7 +1353,9 @@ libraries = {
 }
 
 [node name="Senjafuda" type="Node2D" parent="Task"]
+visible = false
 script = ExtResource("49_6l8ws")
+done_texture = ExtResource("21_wlpc6")
 
 [node name="Slip" type="Sprite2D" parent="Task/Senjafuda"]
 position = Vector2(-2, -277)
@@ -1368,6 +1392,78 @@ texture = ExtResource("56_eobwl")
 libraries = {
 "": SubResource("AnimationLibrary_coilb")
 }
+
+[node name="Incense" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("57_y2b27")
+
+[node name="Pot" type="Sprite2D" parent="Task/Incense"]
+position = Vector2(4, -162)
+scale = Vector2(0.658416, 0.658416)
+texture = ExtResource("58_gr2lp")
+
+[node name="I1" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(-95, -252)
+rotation = -0.27811
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("59_l3qfl")
+
+[node name="I2" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(4, -245)
+rotation = -0.00155678
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("59_l3qfl")
+
+[node name="I3" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(113, -249)
+rotation = 0.372493
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("59_l3qfl")
+
+[node name="IB1" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(-95, -252)
+rotation = -0.27811
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("60_qcdxv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Task/Incense/IB1"]
+position = Vector2(2.12912, -163.44)
+process_material = SubResource("ParticleProcessMaterial_nlpgg")
+texture = SubResource("NoiseTexture2D_gro4u")
+
+[node name="IB2" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(4, -245)
+rotation = -0.00155678
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("60_qcdxv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Task/Incense/IB2"]
+position = Vector2(0.953178, -162.674)
+rotation = -0.398825
+scale = Vector2(1.04393, 0.979422)
+skew = 0.209942
+process_material = SubResource("ParticleProcessMaterial_nlpgg")
+texture = SubResource("NoiseTexture2D_gro4u")
+
+[node name="IB3" type="Sprite2D" parent="Task/Incense"]
+visible = false
+position = Vector2(113, -249)
+rotation = 0.372493
+scale = Vector2(1.27778, 0.860606)
+texture = ExtResource("60_qcdxv")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Task/Incense/IB3"]
+position = Vector2(-2.89215, -164.243)
+rotation = -0.846408
+scale = Vector2(1.20076, 0.894188)
+skew = 0.37269
+process_material = SubResource("ParticleProcessMaterial_nlpgg")
+texture = SubResource("NoiseTexture2D_gro4u")
 
 [node name="TaskText" type="PanelContainer" parent="."]
 visible = false

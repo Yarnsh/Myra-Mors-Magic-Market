@@ -38,6 +38,15 @@ var crystal_recipe = {
 	"prep_task": "ChargeCrystals",
 	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever order they came in for!"
 }
+var incense_recipe = {
+	"name": "Incense Burning",
+	"requirements": {},
+	"icon": load("res://Images/IncensePot.png"),
+	"prep_icon": load("res://Images/IncensePot.png"),
+	"prep_key": "I",
+	"prep_task": "Incense",
+	"description": "Light incense to make the store smell nice. While it is burning successful sales greatly increase vibe!"
+}
 var gong_order = {
 	"name": "Scare Spirits",
 	"task": "Gong",
@@ -64,7 +73,8 @@ var recipe_definitions = {
 	"ponder": ponder_order,
 	"crystal": crystal_recipe,
 	"gong": gong_order,
-	"slip": slip_order
+	"slip": slip_order,
+	"incense": incense_recipe
 }
 
 var current_chores = [

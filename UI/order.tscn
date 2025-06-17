@@ -14,6 +14,21 @@
 [sub_resource type="Shortcut" id="Shortcut_jbxe6"]
 resource_local_to_scene = true
 
+[sub_resource type="Animation" id="Animation_u8jyw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(138, 3)]
+}
+
 [sub_resource type="Animation" id="Animation_0nbgw"]
 resource_name = "default"
 length = 0.5
@@ -29,21 +44,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(138, 3), Vector2(138, -8), Vector2(138, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_u8jyw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(138, 3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qyxfr"]
