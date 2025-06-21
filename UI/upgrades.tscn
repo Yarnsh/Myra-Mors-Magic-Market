@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=24 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="3_ftk5n"]
 [ext_resource type="Texture2D" uid="uid://c1ucdb83635ju" path="res://Images/upgrade_table.png" id="3_vrta6"]
 [ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="6_3ipyr"]
+[ext_resource type="Texture2D" uid="uid://cogca7oy2gk7p" path="res://Images/trophy.png" id="6_m82dd"]
+[ext_resource type="Texture2D" uid="uid://b4ms8fxa11p8s" path="res://Images/shopspace.png" id="7_v8lvu"]
 [ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
+[ext_resource type="Texture2D" uid="uid://bs8nlumpj20n2" path="res://Images/prepstation.png" id="8_5y7n3"]
 [ext_resource type="Script" path="res://start_button.gd" id="8_sumxp"]
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="9_8gfns"]
 
@@ -72,6 +75,11 @@ offset_top = 112.0
 offset_right = 218.0
 offset_bottom = 112.0
 
+[node name="Button" parent="WinCondition" index="0"]
+offset_top = -92.0
+offset_bottom = 44.0
+icon = ExtResource("6_m82dd")
+
 [node name="Label" parent="WinCondition" index="1"]
 text = "Win"
 
@@ -81,11 +89,38 @@ offset_top = 121.0
 offset_right = 484.0
 offset_bottom = 121.0
 
+[node name="Button" parent="ShopSpace" index="0"]
+offset_left = -70.0
+offset_top = -69.0
+offset_right = 66.0
+offset_bottom = 67.0
+icon = ExtResource("7_v8lvu")
+
 [node name="PrepStation" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 480.0
 offset_top = 280.0
 offset_right = 480.0
 offset_bottom = 280.0
+
+[node name="Button" parent="PrepStation" index="0"]
+offset_left = -70.0
+offset_top = -58.0
+offset_right = 66.0
+offset_bottom = 78.0
+icon = ExtResource("8_5y7n3")
+
+[node name="PaintSet" parent="." instance=ExtResource("3_ftk5n")]
+offset_left = 268.0
+offset_top = 280.0
+offset_right = 268.0
+offset_bottom = 280.0
+
+[node name="Button" parent="PaintSet" index="0"]
+offset_left = -70.0
+offset_top = -58.0
+offset_right = 66.0
+offset_bottom = 78.0
+icon = ExtResource("8_5y7n3")
 
 [node name="CrystalBall" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 637.0
@@ -177,4 +212,5 @@ autowrap_mode = 2
 [editable path="WinCondition"]
 [editable path="ShopSpace"]
 [editable path="PrepStation"]
+[editable path="PaintSet"]
 [editable path="CrystalBall"]

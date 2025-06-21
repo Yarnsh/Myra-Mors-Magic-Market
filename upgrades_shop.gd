@@ -36,6 +36,14 @@ func _ready() -> void:
 			"description": "Read people's fortunes for money\nCustomers will leave hefty tips for good news"
 		}
 	)
+	$PaintSet.set_item(
+		{
+			"title": "Paint Set",
+			"price": 10,
+			"callback": Callable.create(self, "buy_paint_set"),
+			"description": "Draw paper charms for customers\nPeople love these cheap soveneirs, selling this will attract a lot of customers"
+		}
+	)
 
 func win():
 	print("You would win now")
@@ -61,6 +69,16 @@ func buy_crystal_ball():
 func buy_charge_crystal():
 	GameGlobals.unlocked_recipes.append("crystal")
 	$TODO.set_item({"sold_out": true})
+	text.hide()
+
+func buy_gong():
+	GameGlobals.unlocked_recipes.append("gong")
+	$TODO.set_item({"sold_out": true})
+	text.hide()
+
+func buy_paint_set():
+	GameGlobals.unlocked_recipes.append("slip")
+	$PaintSet.set_item({"sold_out": true})
 	text.hide()
 
 func _on_close_shop_pressed() -> void:
