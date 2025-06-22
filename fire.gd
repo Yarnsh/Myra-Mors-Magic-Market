@@ -34,7 +34,8 @@ func take_input(sc : String):
 		anim.play("sprayed")
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
-			"quality": 1.0 - strength
+			"quality": 1.0 - strength,
+			"chore": true
 		})
 		GameGlobals.task_manager.stop_task()
 

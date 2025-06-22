@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=123 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -63,7 +63,16 @@
 [ext_resource type="Script" path="res://incense.gd" id="57_y2b27"]
 [ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="58_gr2lp"]
 [ext_resource type="Texture2D" uid="uid://dopd18r7apwvg" path="res://Images/Incense.png" id="59_l3qfl"]
+[ext_resource type="Script" path="res://taxes.gd" id="60_3qutf"]
 [ext_resource type="Texture2D" uid="uid://csxn6t1r347u3" path="res://Images/IncenseBurning.png" id="60_qcdxv"]
+[ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="61_dxrcy"]
+[ext_resource type="Texture2D" uid="uid://d0ennqfh0oldk" path="res://Images/nameLine.png" id="61_k6kxt"]
+[ext_resource type="Texture2D" uid="uid://dbijadrj8ujph" path="res://Images/dateLine.png" id="62_68iwj"]
+[ext_resource type="Texture2D" uid="uid://b3cd18xck5yao" path="res://Images/legalese.png" id="63_7g5bk"]
+[ext_resource type="Texture2D" uid="uid://0cax1n2legox" path="res://Images/signatureLine.png" id="63_gypxw"]
+[ext_resource type="Texture2D" uid="uid://cf6qbu17pfe1r" path="res://Images/nameWrite.png" id="64_b2qdu"]
+[ext_resource type="Texture2D" uid="uid://dyndmbq7qs4ru" path="res://Images/dateWrite.png" id="65_b525v"]
+[ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -1488,6 +1497,7 @@ libraries = {
 }
 
 [node name="Fire" type="Node2D" parent="Task"]
+visible = false
 script = ExtResource("49_58ph3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Task/Fire"]
@@ -1570,6 +1580,52 @@ texture = ExtResource("56_eobwl")
 libraries = {
 "": SubResource("AnimationLibrary_coilb")
 }
+
+[node name="Taxes" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("60_3qutf")
+line1 = ExtResource("61_k6kxt")
+line2 = ExtResource("62_68iwj")
+line3 = ExtResource("63_gypxw")
+write1 = ExtResource("64_b2qdu")
+write2 = ExtResource("65_b525v")
+write3 = ExtResource("66_sv5dc")
+
+[node name="Paper" type="Sprite2D" parent="Task/Taxes"]
+position = Vector2(-2, -269)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("61_dxrcy")
+
+[node name="S1" type="Sprite2D" parent="Task/Taxes/Paper"]
+position = Vector2(0, 186.667)
+texture = ExtResource("62_68iwj")
+
+[node name="W1" type="Sprite2D" parent="Task/Taxes/Paper/S1"]
+position = Vector2(43.3334, -18.3333)
+
+[node name="S2" type="Sprite2D" parent="Task/Taxes/Paper"]
+position = Vector2(0, 240)
+texture = ExtResource("62_68iwj")
+
+[node name="W2" type="Sprite2D" parent="Task/Taxes/Paper/S2"]
+position = Vector2(43.3334, -18.3333)
+
+[node name="S3" type="Sprite2D" parent="Task/Taxes/Paper"]
+position = Vector2(0, 293.333)
+texture = ExtResource("62_68iwj")
+
+[node name="W3" type="Sprite2D" parent="Task/Taxes/Paper/S3"]
+position = Vector2(43.3334, -18.3333)
+
+[node name="Text" type="Sprite2D" parent="Task/Taxes/Paper"]
+position = Vector2(-3.33331, 0)
+texture = ExtResource("63_7g5bk")
+
+[node name="Brush" type="Sprite2D" parent="Task/Taxes"]
+position = Vector2(-169, -582)
+rotation = -0.193994
+scale = Vector2(0.63961, 0.63961)
+texture = ExtResource("56_eobwl")
 
 [node name="Incense" type="Node2D" parent="Task"]
 visible = false
