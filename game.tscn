@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=114 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -496,6 +496,45 @@ initial_velocity_min = 200.0
 initial_velocity_max = 200.0
 tangential_accel_min = -30.1
 tangential_accel_max = 27.96
+
+[sub_resource type="Animation" id="Animation_osw70"]
+resource_name = "sprayed"
+length = 0.2
+loop_mode = 1
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0305844, 0.0639178, 0.0945022, 0.126448, 0.15842, 0.184814),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -174), Vector2(15, -167), Vector2(-25, -175), Vector2(-22, -169), Vector2(-9, -175), Vector2(31, -174), Vector2(31, -162)]
+}
+
+[sub_resource type="Animation" id="Animation_q80nw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -174)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmy88"]
+_data = {
+"RESET": SubResource("Animation_q80nw"),
+"sprayed": SubResource("Animation_osw70")
+}
 
 [sub_resource type="Animation" id="Animation_kkso6"]
 resource_name = "1"
@@ -1449,11 +1488,10 @@ libraries = {
 }
 
 [node name="Fire" type="Node2D" parent="Task"]
-visible = false
 script = ExtResource("49_58ph3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Task/Fire"]
-position = Vector2(14, -177)
+position = Vector2(1, -174)
 scale = Vector2(0.733184, 0.733184)
 texture = ExtResource("50_fibly")
 
@@ -1463,7 +1501,7 @@ position = Vector2(1.99999, -242)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_rb4gu")
 autoplay = "default"
-frame_progress = 0.178148
+frame_progress = 0.615835
 offset = Vector2(0, -20)
 
 [node name="Smoke" type="GPUParticles2D" parent="Task/Fire"]
@@ -1486,6 +1524,11 @@ process_material = SubResource("ParticleProcessMaterial_462a8")
 texture = SubResource("NoiseTexture2D_pc4xj")
 lifetime = 0.5
 preprocess = 0.5
+
+[node name="Anim" type="AnimationPlayer" parent="Task/Fire"]
+libraries = {
+"": SubResource("AnimationLibrary_qmy88")
+}
 
 [node name="Senjafuda" type="Node2D" parent="Task"]
 visible = false

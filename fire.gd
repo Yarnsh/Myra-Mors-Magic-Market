@@ -5,6 +5,7 @@ extends Node2D
 @onready var water = $Water
 @onready var water2 = $Water2
 @onready var smoke = $Smoke
+@onready var anim = $Anim
 
 @export var control_texture : Texture2D
 @export var done_texture : Texture2D
@@ -30,6 +31,7 @@ func reset_task():
 func take_input(sc : String):
 	if sc == "W":
 		holding = true
+		anim.play("sprayed")
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
 			"quality": 1.0 - strength
@@ -40,6 +42,7 @@ func release_input(sc : String):
 	if sc == "W":
 		if holding:
 			holding = false
+			anim.play("RESET")
 
 func _process(delta: float) -> void:
 	if holding:
