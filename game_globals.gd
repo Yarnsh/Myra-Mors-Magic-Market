@@ -67,6 +67,12 @@ var goblin_chore = {
 	"requirements": {},
 	"icon": load("res://Images/GoblinChoreOrder.png")
 }
+var fire_chore = {
+	"name": "Myra is on fire",
+	"task": "Fire",
+	"requirements": {},
+	"icon": load("res://Images/fire.png")
+}
 
 var recipe_definitions = {
 	"potion": potion_order,
@@ -78,7 +84,8 @@ var recipe_definitions = {
 }
 
 var current_chores = [
-	goblin_chore
+	goblin_chore,
+	fire_chore
 ]
 
 func _input(event: InputEvent) -> void:

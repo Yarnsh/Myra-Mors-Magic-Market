@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=111 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -50,7 +50,10 @@
 [ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="46_v7jpx"]
 [ext_resource type="Texture2D" uid="uid://c5kg2he80ghyo" path="res://Images/gonghammer.png" id="47_aw74y"]
 [ext_resource type="Script" path="res://senjafuda.gd" id="49_6l8ws"]
+[ext_resource type="Texture2D" uid="uid://bq7w0nphpvugc" path="res://Images/fire.png" id="49_8cp8x"]
+[ext_resource type="Script" path="res://fire.gd" id="49_58ph3"]
 [ext_resource type="Texture2D" uid="uid://cp65qd288pgnw" path="res://Images/slip.png" id="50_er2im"]
+[ext_resource type="Texture2D" uid="uid://ccaur1a66noiu" path="res://Images/myra.png" id="50_fibly"]
 [ext_resource type="Texture2D" uid="uid://bvpeut3yfk37k" path="res://Images/slip_1_1.png" id="51_k2l0l"]
 [ext_resource type="Texture2D" uid="uid://vt5pd2304d06" path="res://Images/slip_1_2.png" id="52_lbei2"]
 [ext_resource type="Texture2D" uid="uid://blxgl3plsguth" path="res://Images/slip_1_3.png" id="53_7bwkw"]
@@ -396,6 +399,104 @@ _data = {
 "RESET": SubResource("Animation_v74wu")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjxlr"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(3, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fq37y"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(44, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gttru"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(85, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgt13"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(126, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w12f0"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(167, 0, 41, 63)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_168t3"]
+atlas = ExtResource("49_8cp8x")
+region = Rect2(208, 0, 41, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rb4gu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjxlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fq37y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gttru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgt13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w12f0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_168t3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o0any"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -98, 0)
+tangential_accel_min = -30.1
+tangential_accel_max = 27.96
+
+[sub_resource type="Gradient" id="Gradient_lsypw"]
+colors = PackedColorArray(0.703808, 0.703808, 0.703808, 0, 0.703808, 0.703808, 0.703808, 0.313726)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0qkc0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qxddi"]
+width = 32
+height = 32
+color_ramp = SubResource("Gradient_lsypw")
+noise = SubResource("FastNoiseLite_0qkc0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2ly34"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 3.0
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = -30.1
+tangential_accel_max = 27.96
+
+[sub_resource type="Gradient" id="Gradient_1yqeq"]
+colors = PackedColorArray(0.703808, 0.703808, 0.703808, 0, 0.501961, 0.909804, 0.980392, 0.588235)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_pc4xj"]
+width = 64
+height = 64
+color_ramp = SubResource("Gradient_1yqeq")
+noise = SubResource("FastNoiseLite_0qkc0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_462a8"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+tangential_accel_min = -30.1
+tangential_accel_max = 27.96
+
 [sub_resource type="Animation" id="Animation_kkso6"]
 resource_name = "1"
 length = 0.2
@@ -667,11 +768,6 @@ particle_flag_disable_z = true
 gravity = Vector3(0, -98, 0)
 tangential_accel_min = -30.1
 tangential_accel_max = 27.96
-
-[sub_resource type="Gradient" id="Gradient_lsypw"]
-colors = PackedColorArray(0.703808, 0.703808, 0.703808, 0, 0.776471, 0.776471, 0.776471, 0.176471)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0qkc0"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gro4u"]
 width = 32
@@ -1351,6 +1447,45 @@ offset = Vector2(-306.667, 248.889)
 libraries = {
 "": SubResource("AnimationLibrary_7rfro")
 }
+
+[node name="Fire" type="Node2D" parent="Task"]
+visible = false
+script = ExtResource("49_58ph3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Task/Fire"]
+position = Vector2(14, -177)
+scale = Vector2(0.733184, 0.733184)
+texture = ExtResource("50_fibly")
+
+[node name="S1" type="AnimatedSprite2D" parent="Task/Fire"]
+texture_filter = 1
+position = Vector2(1.99999, -242)
+scale = Vector2(6, 6)
+sprite_frames = SubResource("SpriteFrames_rb4gu")
+autoplay = "default"
+frame_progress = 0.178148
+offset = Vector2(0, -20)
+
+[node name="Smoke" type="GPUParticles2D" parent="Task/Fire"]
+position = Vector2(-3, -271)
+amount = 4
+process_material = SubResource("ParticleProcessMaterial_o0any")
+texture = SubResource("NoiseTexture2D_qxddi")
+
+[node name="Water" type="GPUParticles2D" parent="Task/Fire"]
+position = Vector2(-3, 40)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_2ly34")
+texture = SubResource("NoiseTexture2D_pc4xj")
+lifetime = 0.5
+preprocess = 0.5
+
+[node name="Water2" type="GPUParticles2D" parent="Task/Fire"]
+position = Vector2(-1, -267)
+process_material = SubResource("ParticleProcessMaterial_462a8")
+texture = SubResource("NoiseTexture2D_pc4xj")
+lifetime = 0.5
+preprocess = 0.5
 
 [node name="Senjafuda" type="Node2D" parent="Task"]
 visible = false
