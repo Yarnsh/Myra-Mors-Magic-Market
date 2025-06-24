@@ -35,6 +35,8 @@ func _on_button_pressed() -> void:
 			GameGlobals.money -= last_def.get("price", 0)
 			if last_def.get("callback", null) != null:
 				last_def["callback"].call()
+		else:
+			get_parent().poor_response()
 
 func _on_button_mouse_entered() -> void:
 	get_parent().text.item_selected(last_def)

@@ -506,6 +506,21 @@ initial_velocity_max = 200.0
 tangential_accel_min = -30.1
 tangential_accel_max = 27.96
 
+[sub_resource type="Animation" id="Animation_q80nw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -174)]
+}
+
 [sub_resource type="Animation" id="Animation_osw70"]
 resource_name = "sprayed"
 length = 0.2
@@ -522,21 +537,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, -174), Vector2(15, -167), Vector2(-25, -175), Vector2(-22, -169), Vector2(-9, -175), Vector2(31, -174), Vector2(31, -162)]
-}
-
-[sub_resource type="Animation" id="Animation_q80nw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, -174)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qmy88"]

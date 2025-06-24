@@ -20,6 +20,7 @@ func reset_task():
 
 func take_input(sc : String, release = false):
 	if sc == "Enter":
+		GameGlobals.task_manager.report_result({"quality": 0.0})
 		GameGlobals.task_manager.stop_task()
 		return
 	

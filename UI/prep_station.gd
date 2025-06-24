@@ -60,6 +60,7 @@ func take_resource(count):
 	return count
 
 func clear():
+	anim.play("RESET")
 	resource_count = 0
 	resource_label.text = ""
 	button.icon = default_image
