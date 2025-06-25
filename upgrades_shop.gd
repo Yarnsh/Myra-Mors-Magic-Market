@@ -46,6 +46,9 @@ func _ready() -> void:
 		}
 	)
 
+func on_open():
+	hor.set_emotion(0)
+
 func win():
 	print("You would win now")
 

@@ -24,6 +24,7 @@ func open_shop():
 	prep.hide()
 	game.hide()
 	shop.show()
+	shop.on_open()
 
 func close_shop():
 	game.hide()
