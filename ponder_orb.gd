@@ -42,7 +42,8 @@ func take_input(sc : String, release = false):
 		if selected in good_list:
 			q = 1.0
 		GameGlobals.task_manager.report_result({
-			"quality": q
+			"quality": q,
+			"tip_mult": 3.0
 		})
 		GameGlobals.task_manager.stop_task()
 

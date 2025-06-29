@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=124 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://cf6qbu17pfe1r" path="res://Images/nameWrite.png" id="64_b2qdu"]
 [ext_resource type="Texture2D" uid="uid://dyndmbq7qs4ru" path="res://Images/dateWrite.png" id="65_b525v"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
+[ext_resource type="Script" path="res://result_screen.gd" id="74_fnlgr"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -1727,4 +1728,113 @@ libraries = {
 "": SubResource("AnimationLibrary_e4aq7")
 }
 
+[node name="ResultScreen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.831373)
+script = ExtResource("74_fnlgr")
+
+[node name="Label" type="Label" parent="ResultScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.0
+offset_top = 34.0
+offset_right = 257.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 60
+text = "NIGHT COMPLETE"
+
+[node name="Total" type="Label" parent="ResultScreen"]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 386.0
+offset_right = 414.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 30
+text = "Total:"
+horizontal_alignment = 2
+
+[node name="TotalVal" type="Label" parent="ResultScreen"]
+layout_mode = 2
+offset_left = 424.0
+offset_top = 386.0
+offset_right = 814.0
+offset_bottom = 428.0
+theme_override_font_sizes/font_size = 30
+text = "wfewfwfwef"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ResultScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -456.0
+offset_top = 128.0
+offset_right = -66.0
+offset_bottom = 478.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ResultScreen/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Revenue:"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="ResultScreen/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Tips:"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="ResultScreen/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Taxes:"
+horizontal_alignment = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="ResultScreen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 128.0
+offset_right = 334.0
+offset_bottom = 478.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="ResultScreen/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "wfewfwfwef"
+
+[node name="Label2" type="Label" parent="ResultScreen/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "wfewfwfwef"
+
+[node name="Label3" type="Label" parent="ResultScreen/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "wfewfwfwef"
+
+[node name="Button" type="TextureButton" parent="ResultScreen"]
+layout_mode = 0
+offset_left = 767.0
+offset_top = 452.0
+offset_right = 835.0
+offset_bottom = 504.0
+texture_normal = ExtResource("21_wlpc6")
+texture_pressed = ExtResource("20_gbqrd")
+texture_hover = ExtResource("21_docjb")
+
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]
+[connection signal="pressed" from="ResultScreen/Button" to="ResultScreen" method="_on_button_pressed"]

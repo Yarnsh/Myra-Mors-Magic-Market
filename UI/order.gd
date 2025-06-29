@@ -1,5 +1,6 @@
 extends PanelContainer
 
+@onready var game = $"../.."
 @onready var order_image = $COControl/CurrentOrder
 @onready var label = $Number/Label
 @onready var button = $Button
@@ -91,28 +92,13 @@ func complete_order(result):
 	if GameGlobals.task_manager.current_task_owner == self:
 		GameGlobals.task_manager.stop_task()
 	
-	# Figure out how much money we made
-	if not result.get("chore", false) and not result.get("failed", false):
-		var quality = result.get("quality", false)
-		var base_price = 100 # TODO: depend on the recipe
-		var tip = 0.15 # TODO: depend on the recipe and atmosphere
-		var other_mult = 1.0
-		
-		if GameGlobals.prep_stations.check_requirements({"crystal": 1}):
-			GameGlobals.prep_stations.consume({"crystal": 1})
-			other_mult = other_mult * 2.0
-		
-		add_money((base_price + (base_price * tip * quality)) * other_mult)
-	# TODO: negaive effects on failure
+	game.handle_order_result(result)
 	
 	# Cleanup
 	task = null
 	resources_needed = {}
 	was_cooking = false
 	order_image.texture = null
-
-func add_money(m):
-	GameGlobals.money += m
 
 func is_free():
 	return (resources_needed == null or resources_needed == {}) and task == null
