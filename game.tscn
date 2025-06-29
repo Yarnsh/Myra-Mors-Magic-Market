@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=130 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -74,6 +74,9 @@
 [ext_resource type="Texture2D" uid="uid://dyndmbq7qs4ru" path="res://Images/dateWrite.png" id="65_b525v"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
 [ext_resource type="Script" path="res://result_screen.gd" id="74_fnlgr"]
+[ext_resource type="AudioStream" uid="uid://1m446bxvjnn7" path="res://SFX/590363__mrfossy__sfx_stickerripper_foilbooms_04.wav" id="75_q5psf"]
+[ext_resource type="AudioStream" uid="uid://dt7lhj25linun" path="res://SFX/611113__5ro4__bell-ding-1.wav" id="76_nijam"]
+[ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="77_4efa2"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -956,6 +959,43 @@ _data = {
 "StartGame": SubResource("Animation_x407p")
 }
 
+[sub_resource type="Animation" id="Animation_i0oa5"]
+resource_name = "Shake"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shake:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-95, 15), Vector2(132, 17), Vector2(-55, 52), Vector2(127, -2), Vector2(-108, -18), Vector2(54, 40), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_juuxb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shake:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mogj0"]
+_data = {
+"RESET": SubResource("Animation_juuxb"),
+"Shake": SubResource("Animation_i0oa5")
+}
+
 [node name="Game" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -1739,20 +1779,30 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.831373)
 script = ExtResource("74_fnlgr")
 
-[node name="Label" type="Label" parent="ResultScreen"]
+[node name="Anim" type="AnimationPlayer" parent="ResultScreen"]
+libraries = {
+"": SubResource("AnimationLibrary_mogj0")
+}
+
+[node name="Shake" type="Control" parent="ResultScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="ResultScreen/Shake"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -257.0
+offset_left = 203.0
 offset_top = 34.0
-offset_right = 257.0
+offset_right = 717.0
 offset_bottom = 117.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
 text = "NIGHT COMPLETE"
 
-[node name="Total" type="Label" parent="ResultScreen"]
+[node name="Total" type="Label" parent="ResultScreen/Shake"]
 layout_mode = 2
 offset_left = 24.0
 offset_top = 386.0
@@ -1762,7 +1812,7 @@ theme_override_font_sizes/font_size = 30
 text = "Total:"
 horizontal_alignment = 2
 
-[node name="TotalVal" type="Label" parent="ResultScreen"]
+[node name="TotalVal" type="Label" parent="ResultScreen/Shake"]
 layout_mode = 2
 offset_left = 424.0
 offset_top = 386.0
@@ -1771,62 +1821,62 @@ offset_bottom = 428.0
 theme_override_font_sizes/font_size = 30
 text = "wfewfwfwef"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="ResultScreen"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="ResultScreen/Shake"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -456.0
+offset_left = 4.0
 offset_top = 128.0
-offset_right = -66.0
+offset_right = 394.0
 offset_bottom = 478.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="ResultScreen/VBoxContainer2"]
+[node name="Label" type="Label" parent="ResultScreen/Shake/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Revenue:"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="ResultScreen/VBoxContainer2"]
+[node name="Label2" type="Label" parent="ResultScreen/Shake/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Tips:"
 horizontal_alignment = 2
 
-[node name="Label3" type="Label" parent="ResultScreen/VBoxContainer2"]
+[node name="Label3" type="Label" parent="ResultScreen/Shake/VBoxContainer2"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Taxes:"
 horizontal_alignment = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="ResultScreen"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="ResultScreen/Shake"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -56.0
+offset_left = 404.0
 offset_top = 128.0
-offset_right = 334.0
+offset_right = 794.0
 offset_bottom = 478.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="ResultScreen/VBoxContainer3"]
+[node name="Label" type="Label" parent="ResultScreen/Shake/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "wfewfwfwef"
 
-[node name="Label2" type="Label" parent="ResultScreen/VBoxContainer3"]
+[node name="Label2" type="Label" parent="ResultScreen/Shake/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "wfewfwfwef"
 
-[node name="Label3" type="Label" parent="ResultScreen/VBoxContainer3"]
+[node name="Label3" type="Label" parent="ResultScreen/Shake/VBoxContainer3"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "wfewfwfwef"
 
-[node name="Button" type="TextureButton" parent="ResultScreen"]
+[node name="Button" type="TextureButton" parent="ResultScreen/Shake"]
 layout_mode = 0
 offset_left = 767.0
 offset_top = 452.0
@@ -1836,5 +1886,17 @@ texture_normal = ExtResource("21_wlpc6")
 texture_pressed = ExtResource("20_gbqrd")
 texture_hover = ExtResource("21_docjb")
 
+[node name="BoomSFX" type="AudioStreamPlayer" parent="ResultScreen"]
+stream = ExtResource("75_q5psf")
+bus = &"SFX"
+
+[node name="DingSFX" type="AudioStreamPlayer" parent="ResultScreen"]
+stream = ExtResource("76_nijam")
+bus = &"SFX"
+
+[node name="MoneySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("77_4efa2")
+bus = &"SFX"
+
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]
-[connection signal="pressed" from="ResultScreen/Button" to="ResultScreen" method="_on_button_pressed"]
+[connection signal="pressed" from="ResultScreen/Shake/Button" to="ResultScreen" method="_on_button_pressed"]

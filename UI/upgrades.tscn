@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=33 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="9_8gfns"]
 [ext_resource type="Texture2D" uid="uid://cp65qd288pgnw" path="res://Images/slip.png" id="9_guvvf"]
 [ext_resource type="Script" path="res://UI/clicker.gd" id="10_grk31"]
+[ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="17_jfnr3"]
+[ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="18_sk1y1"]
 
 [sub_resource type="Animation" id="Animation_bgaxi"]
 resource_name = "Bounce"
@@ -259,6 +261,14 @@ size_flags_vertical = 1
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="MoneySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_jfnr3")
+bus = &"SFX"
+
+[node name="BadSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_sk1y1")
+bus = &"SFX"
 
 [connection signal="clicked" from="Horatius/Clicker" to="Horatius" method="_on_clicker_clicked"]
 [connection signal="mouse_entered" from="CloseShop" to="CloseShop" method="_on_mouse_entered"]

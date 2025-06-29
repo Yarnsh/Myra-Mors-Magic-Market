@@ -4,6 +4,9 @@ extends Control
 @onready var text = $Text
 @onready var hor = $Horatius
 
+@onready var money_sfx = $MoneySFX
+@onready var bad_sfx = $BadSFX
+
 func _ready() -> void:
 	$WinCondition.set_item(
 		{
@@ -101,8 +104,10 @@ func welcome():
 
 func buy_response():
 	hor.set_emotion(1)
+	money_sfx.play()
 	# TODO: speech bubble
 
 func poor_response():
 	hor.set_emotion(3)
+	bad_sfx.play()
 	# TODO: speech bubble

@@ -9,6 +9,8 @@ var tbo_variation = 5000
 @onready var anim = $AnimationPlayer
 @onready var result_screen = $ResultScreen
 
+@onready var money_sfx = $MoneySFX
+
 var order_list = []
 var recipes_list = []
 
@@ -73,6 +75,8 @@ func _process(delta: float) -> void:
 			trigger_complete()
 
 func add_money(m):
+	if m > 0:
+		money_sfx.play()
 	GameGlobals.money += m
 
 func handle_order_result(result):
