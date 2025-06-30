@@ -1,18 +1,24 @@
 extends Control
 
 var time_between_orders = 2000
+var time_between_chores = 8000
 var tbo_variation = 5000
 @onready var next_order = Time.get_ticks_msec() + 4000
+@onready var next_chore = Time.get_ticks_msec() + 4000 + time_between_chores
 @onready var main = $".."
 @onready var timer = $Time
 @onready var text_popup = $TaskText
 @onready var anim = $AnimationPlayer
 @onready var result_screen = $ResultScreen
 @onready var money = $Money
+@onready var customer_prefab = preload("res://customer.tscn")
+@onready var customer_parent = $IndoorVisuals/Customers
 
 @onready var money_sfx = $MoneySFX
+@onready var entry_sfx = $EntrySFX
 
 var order_list = []
+var chores_list = []
 var recipes_list = []
 
 var complete = true
@@ -23,6 +29,7 @@ var taxes_taken = 0.0
 func reset():
 	complete = false
 	next_order = Time.get_ticks_msec() + 4000
+	next_chore = Time.get_ticks_msec() + 4000 + time_between_chores
 	GameGlobals.task_manager.stop_task()
 	GameGlobals.orders.clear()
 	GameGlobals.controls.clear_controls()
@@ -44,12 +51,11 @@ func stop():
 
 func set_recipes(recipes):
 	recipes_list = recipes
-	recipes_list.append_array(GameGlobals.current_chores) # in case we need prep stations for future chores
 	order_list = []
 	for r in recipes:
 		if "task" in r:
 			order_list.append(r)
-	order_list.append_array(GameGlobals.current_chores)
+	chores_list = GameGlobals.current_chores
 
 func trigger_complete():
 	complete = true
@@ -64,11 +70,23 @@ func trigger_complete():
 func _process(delta: float) -> void:
 	if !complete:
 		var now = Time.get_ticks_msec()
+		
+		while now >= next_chore:
+			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
+				var order_def = chores_list[randi() % order_list.size()]
+				GameGlobals.orders.add_order(order_def, 10000) # TODO: patience determined by game stuff
+			
+			next_chore = next_chore + time_between_chores + ((-tbo_variation/2) + randi_range(0, tbo_variation))
+		
 		while now >= next_order:
-			# TODO: limit this to whatever is relevant for this level
 			if GameGlobals.orders.has_free_space() and len(order_list) > 0:
 				var order_def = order_list[randi() % order_list.size()]
-				GameGlobals.orders.add_order(order_def, 10000) # TODO: patience determined by game stuff
+				var customer = customer_prefab.instantiate()
+				customer_parent.add_child(customer)
+				customer.set_guy("Cloak")
+				GameGlobals.orders.add_order_with_customer(order_def, 10000, customer) # TODO: patience determined by game stuff
+				entry_sfx.stop()
+				entry_sfx.play()
 			
 			next_order = next_order + time_between_orders + ((-tbo_variation/2) + randi_range(0, tbo_variation))
 		

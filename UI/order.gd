@@ -19,6 +19,7 @@ var available_time = 0
 var last_timer_len = 1000
 var was_cooking = false
 var last_result = {}
+var customer = null
 
 const MOVE_PATIENCE = 5000
 var current_patience = 10000
@@ -77,6 +78,9 @@ func set_order(order_def, patience):
 	current_patience = patience
 	patience_done = Time.get_ticks_msec() + patience
 
+func set_customer(c):
+	customer = c
+
 func report_result(result):
 	if "timer" in result:
 		available_time = Time.get_ticks_msec() + result["timer"]
@@ -99,6 +103,9 @@ func complete_order(result):
 	resources_needed = {}
 	was_cooking = false
 	order_image.texture = null
+	if customer != null:
+		customer.leaving = true
+		customer = null
 
 func is_free():
 	return (resources_needed == null or resources_needed == {}) and task == null

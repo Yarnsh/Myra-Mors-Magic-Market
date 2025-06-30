@@ -28,3 +28,10 @@ func add_order(order_def, patience):
 		if c.is_free():
 			c.set_order(order_def, patience)
 			return
+
+func add_order_with_customer(order_def, patience, customer):
+	for c in get_children():
+		if c.is_free():
+			c.set_order(order_def, patience)
+			c.set_customer(customer)
+			return

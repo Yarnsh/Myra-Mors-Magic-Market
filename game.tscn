@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=131 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -77,6 +77,7 @@
 [ext_resource type="AudioStream" uid="uid://1m446bxvjnn7" path="res://SFX/590363__mrfossy__sfx_stickerripper_foilbooms_04.wav" id="75_q5psf"]
 [ext_resource type="AudioStream" uid="uid://dt7lhj25linun" path="res://SFX/611113__5ro4__bell-ding-1.wav" id="76_nijam"]
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="77_4efa2"]
+[ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -1047,6 +1048,8 @@ offset_right = 960.0
 offset_bottom = 540.0
 texture = ExtResource("2_xxfua")
 
+[node name="Customers" type="Node2D" parent="IndoorVisuals"]
+
 [node name="Table" type="TextureRect" parent="IndoorVisuals"]
 layout_mode = 0
 offset_right = 960.0
@@ -1896,6 +1899,10 @@ bus = &"SFX"
 
 [node name="MoneySFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("77_4efa2")
+bus = &"SFX"
+
+[node name="EntrySFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("78_4t68a")
 bus = &"SFX"
 
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]

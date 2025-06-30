@@ -72,13 +72,13 @@ var fire_chore = {
 	"name": "Myra is on fire",
 	"task": "Fire",
 	"requirements": {},
-	"icon": load("res://Images/fire.png")
+	"icon": load("res://Images/HeadOnFireOrder.png")
 }
 var taxes_chore = {
 	"name": "Gotta write off all this inventory",
 	"task": "Taxes",
 	"requirements": {},
-	"icon": load("res://Images/signatureLine.png")
+	"icon": load("res://Images/TaxesOrder.png")
 }
 
 var recipe_definitions = {
