@@ -8,6 +8,7 @@ var tbo_variation = 5000
 @onready var text_popup = $TaskText
 @onready var anim = $AnimationPlayer
 @onready var result_screen = $ResultScreen
+@onready var money = $Money
 
 @onready var money_sfx = $MoneySFX
 
@@ -77,6 +78,7 @@ func _process(delta: float) -> void:
 func add_money(m):
 	if m > 0:
 		money_sfx.play()
+		money.play_effects()
 	GameGlobals.money += m
 
 func handle_order_result(result):

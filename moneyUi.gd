@@ -1,8 +1,13 @@
 extends PanelContainer
 
 @onready var label = $MarginContainer/Label
+@onready var coins = $Coins
 var current = 0
 @export var digits = 4
+
+func play_effects():
+	coins.restart()
+	coins.emitting = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

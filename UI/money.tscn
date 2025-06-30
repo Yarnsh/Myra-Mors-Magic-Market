@@ -1,7 +1,30 @@
-[gd_scene load_steps=3 format=3 uid="uid://0l0fa8uw6m3t"]
+[gd_scene load_steps=7 format=3 uid="uid://0l0fa8uw6m3t"]
 
 [ext_resource type="Script" path="res://moneyUi.gd" id="1_s7uuy"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="2_8ow1w"]
+[ext_resource type="Texture2D" uid="uid://dy8vxhjki73hv" path="res://Images/coin.png" id="3_1buc3"]
+
+[sub_resource type="Curve" id="Curve_nn5po"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.233333, 1), 0.0, 0.0, 0, 0, Vector2(0.64, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_4nhp1"]
+curve = SubResource("Curve_nn5po")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ly5ok"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(100, 25, 1)
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 50.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 400, 0)
+scale_min = 0.1
+scale_max = 0.1
+alpha_curve = SubResource("CurveTexture_4nhp1")
 
 [node name="Money" type="PanelContainer"]
 custom_minimum_size = Vector2(300, 100)
@@ -12,6 +35,18 @@ offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
 script = ExtResource("1_s7uuy")
+
+[node name="MetalBorder" parent="." instance=ExtResource("2_8ow1w")]
+layout_mode = 2
+
+[node name="Coins" type="GPUParticles2D" parent="."]
+position = Vector2(144, 48)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_ly5ok")
+texture = ExtResource("3_1buc3")
+one_shot = true
+explosiveness = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -24,6 +59,3 @@ theme_override_font_sizes/font_size = 50
 text = "$0.00"
 horizontal_alignment = 2
 clip_text = true
-
-[node name="MetalBorder" parent="." instance=ExtResource("2_8ow1w")]
-layout_mode = 2
