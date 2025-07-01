@@ -105,6 +105,10 @@ func complete_order(result):
 	order_image.texture = null
 	if customer != null:
 		customer.leaving = true
+		if result.get("quality",0.5) == 1.0:
+			customer.set_emote(1)
+		elif result.get("quality",0.5) < 0.25:
+			customer.set_emote(2)
 		customer = null
 
 func is_free():

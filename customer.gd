@@ -21,6 +21,10 @@ func set_guy(guyname):
 	guys[2] = load("res://Images/Guy" + guyname + "3.png")
 	sprite.texture = guys[emote]
 
+func set_emote(e):
+	emote = e
+	sprite.texture = guys[emote]
+
 func pick_random_target():
 	target_x = minwidth + randi_range(0, (maxwidth-minwidth))
 	next_target_time = Time.get_ticks_msec() + randi_range(0, target_time_variation)
