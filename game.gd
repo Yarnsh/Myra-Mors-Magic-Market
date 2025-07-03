@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 		
 		while now >= next_chore:
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
-				var order_def = chores_list[randi() % order_list.size()]
+				var order_def = chores_list[randi() % chores_list.size()]
 				GameGlobals.orders.add_order(order_def, 10000) # TODO: patience determined by game stuff
 			
 			next_chore = next_chore + time_between_chores + ((-tbo_variation/2) + randi_range(0, tbo_variation))

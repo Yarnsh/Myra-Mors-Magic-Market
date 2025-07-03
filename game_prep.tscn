@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=37 format=3 uid="uid://d21scinhqdak3"]
 
 [ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
 [ext_resource type="Texture2D" uid="uid://cv81c1ftch37c" path="res://Images/chalkboard.png" id="2_kdbt2"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="5_aaasl"]
 [ext_resource type="Script" path="res://shop_button.gd" id="7_1jt6v"]
 [ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="7_lyyna"]
+[ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="13_8ygy2"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckwu0"]
 
@@ -282,6 +283,10 @@ offset_right = 100.0
 offset_bottom = 221.0
 grow_horizontal = 2
 expand_mode = 2
+
+[node name="ExitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8ygy2")
+bus = &"SFX"
 
 [connection signal="mouse_entered" from="StartButton" to="StartButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="StartButton" to="StartButton" method="_on_mouse_exited"]

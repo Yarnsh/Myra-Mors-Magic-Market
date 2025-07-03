@@ -4,6 +4,8 @@ extends Control
 @onready var recipe_list_ui = $RecipeListPanel
 @onready var selections = $Selections
 
+@onready var exit_sfx = $ExitSFX
+
 func populate_recipes():
 	recipe_list_ui.populate_recipes()
 
@@ -20,6 +22,7 @@ func open_recipe_list(rb, recipe):
 	recipe_list_ui.show()
 
 func _on_start_button_pressed() -> void:
+	exit_sfx.play()
 	var recipes = []
 	for c in selections.get_children():
 		if c.selected_recipe != null:

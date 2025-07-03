@@ -3,6 +3,7 @@ extends Button
 @onready var game_prep = $"../.."
 @export var default_icon : Texture2D
 @onready var label = $Label
+@onready var sfx = $SFX
 
 var selected_recipe = null
 
@@ -17,3 +18,4 @@ func set_recipe(recipe):
 	else:
 		icon = recipe.get("icon", default_icon)
 		label.text = recipe.get("name", "Something :P")
+		sfx.play()

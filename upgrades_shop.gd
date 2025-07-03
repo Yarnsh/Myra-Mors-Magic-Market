@@ -3,9 +3,12 @@ extends Control
 @onready var main = $".."
 @onready var text = $Text
 @onready var hor = $Horatius
+@onready var speech_bubble = $SpeechBubble
 
 @onready var money_sfx = $MoneySFX
 @onready var bad_sfx = $BadSFX
+@onready var enter_sfx = $EnterSFX
+@onready var exit_sfx = $ExitSFX
 
 func _ready() -> void:
 	$WinCondition.set_item(
@@ -48,9 +51,6 @@ func _ready() -> void:
 			"description": "Draw paper charms for customers\nPeople love these cheap soveneirs, selling this will attract a lot of customers"
 		}
 	)
-
-func on_open():
-	hor.set_emotion(0)
 
 func win():
 	print("You would win now")
@@ -95,19 +95,24 @@ func buy_paint_set():
 	buy_response()
 
 func _on_close_shop_pressed() -> void:
+	# TODO: fadeout
 	main.close_shop()
 	text.hide()
-
-func welcome():
-	hor.set_emotion(0)
-	# TODO: speech bubble
+	exit_sfx.play()
+	speech_bubble.say("See ya")
 
 func buy_response():
 	hor.set_emotion(1)
 	money_sfx.play()
-	# TODO: speech bubble
+	# TODO: random selection of things to say
+	speech_bubble.say("Smart purchase, buying more stuff would be even smarter")
 
 func poor_response():
 	hor.set_emotion(3)
 	bad_sfx.play()
-	# TODO: speech bubble
+	speech_bubble.say("Sorry, I don't give credit")
+
+func on_open():
+	hor.set_emotion(0)
+	enter_sfx.play()
+	speech_bubble.say("Welcome in, what are you looking for today?")

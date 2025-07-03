@@ -6,12 +6,14 @@ extends ColorRect
 @onready var anim = $Anim
 @onready var boom_sfx = $BoomSFX
 @onready var ding_sfx = $DingSFX
+@onready var done_sfx = $DoneSFX
 
 var t = 0.0
 const show_time = 0.35
 var shown = 0
 
 func finish(base, tips, taxes):
+	boom_sfx.play()
 	button.hide()
 	for l in labels:
 		l.hide()
@@ -22,7 +24,7 @@ func finish(base, tips, taxes):
 	values[2].text = "-$" + str(float(taxes) / 100.0).pad_decimals(2)
 	values[3].text = "$" + str(float(base+tips-taxes) / 100.0).pad_decimals(2)
 	shown = 0
-	t = 0
+	t = -(show_time * 2.0)
 	
 	show()
 
@@ -42,5 +44,6 @@ func _process(delta: float) -> void:
 			shown += 1
 
 func _on_button_pressed() -> void:
+	done_sfx.play()
 	hide()
 	get_parent().main.complete_game()
