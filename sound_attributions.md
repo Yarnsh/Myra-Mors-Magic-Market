@@ -10,3 +10,7 @@ Cash Register Purchase by Zott820 -- https://freesound.org/s/209578/ -- License:
 Incorrect_Buzz by BaggoNotes -- https://freesound.org/s/720893/ -- License: Creative Commons 0
 
 Entrance Bell by Zott820 -- https://freesound.org/s/209580/ -- License: Creative Commons 0
+
+Pencil - Writing and Taps by JelloApocalypse -- https://freesound.org/s/802604/ -- License: Creative Commons 0
+
+DoorCloseHard.wav by wobesound -- https://freesound.org/s/488374/ -- License: Creative Commons 0
