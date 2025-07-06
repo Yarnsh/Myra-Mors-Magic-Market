@@ -4,6 +4,7 @@ extends Control
 @onready var text = $Text
 @onready var hor = $Horatius
 @onready var speech_bubble = $SpeechBubble
+@onready var backroom_entry = $BackRoom
 
 @onready var money_sfx = $MoneySFX
 @onready var bad_sfx = $BadSFX
@@ -60,7 +61,7 @@ func buy_prep_station():
 	if GameGlobals.prep_station_count >= 1:
 		$PrepStation.set_item({"sold_out": true})
 		text.hide()
-		# TODO: play a cutscene, and enable access to the back room
+		# TODO: play a cutscene
 	buy_response()
 
 func buy_shop_space():

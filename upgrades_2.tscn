@@ -1,0 +1,226 @@
+[gd_scene load_steps=27 format=3 uid="uid://bmoxwb8d6mrt0"]
+
+[ext_resource type="Script" path="res://upgrades_2.gd" id="1_ivrpe"]
+[ext_resource type="Texture2D" uid="uid://ce47ltvj1fec7" path="res://Images/BackroomBG1.png" id="2_pqvcg"]
+[ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="3_3ppwm"]
+[ext_resource type="Texture2D" uid="uid://x5i1py27xrfn" path="res://Images/Accountant.png" id="4_dm6jj"]
+[ext_resource type="Texture2D" uid="uid://batgj8ma43bna" path="res://Images/BackroomBG2.png" id="5_03sq4"]
+[ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="6_ojrt2"]
+[ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="7_hdafr"]
+[ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="8_mkw7d"]
+[ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="9_i0iws"]
+[ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="10_ewf5b"]
+[ext_resource type="Script" path="res://shop_button.gd" id="11_nb5kd"]
+[ext_resource type="Script" path="res://UI/upgrade_text.gd" id="12_r872w"]
+
+[sub_resource type="Animation" id="Animation_7axkb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upgrades2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mwxqw"]
+resource_name = "default"
+length = 13.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Upgrades2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.1998, 0.2664, 0.3663, 0.433333, 1.0989, 12.9537),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.268734, 0.222575, 0.0792942, 1), Color(1, 1, 1, 1), Color(0.268734, 0.222575, 0.0792942, 1), Color(1, 1, 1, 1), Color(0.268734, 0.222575, 0.0792942, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jyyd1"]
+_data = {
+"RESET": SubResource("Animation_7axkb"),
+"default": SubResource("Animation_mwxqw")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68e1s"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gbg04"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7pf18"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tccln"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bkc7f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_30n74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwl05"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8jna"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rolls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oks7c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1fnrr"]
+
+[node name="Upgrades2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ivrpe")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pqvcg")
+
+[node name="BG2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_03sq4")
+
+[node name="Accountant" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 516.0
+offset_top = 252.0
+offset_right = 516.0
+offset_bottom = 252.0
+
+[node name="Button" parent="Accountant" index="0"]
+icon = ExtResource("4_dm6jj")
+
+[node name="Crystals" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 89.0
+offset_top = 425.0
+offset_right = 89.0
+offset_bottom = 425.0
+
+[node name="Button" parent="Crystals" index="0"]
+icon = ExtResource("6_ojrt2")
+
+[node name="Incense" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 792.0
+offset_top = 167.0
+offset_right = 792.0
+offset_bottom = 167.0
+
+[node name="Button" parent="Incense" index="0"]
+icon = ExtResource("7_hdafr")
+
+[node name="Cauldron" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 301.0
+offset_top = 272.0
+offset_right = 301.0
+offset_bottom = 272.0
+
+[node name="Button" parent="Cauldron" index="0"]
+icon = ExtResource("8_mkw7d")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jyyd1")
+}
+autoplay = "default"
+
+[node name="ShopSign" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 675.0
+offset_top = 436.0
+offset_right = 1040.0
+offset_bottom = 673.0
+scale = Vector2(0.937655, 0.937655)
+texture = ExtResource("9_i0iws")
+expand_mode = 1
+
+[node name="BackButton" type="Button" parent="." node_paths=PackedStringArray("bg")]
+layout_mode = 0
+offset_left = 723.0
+offset_top = 448.0
+offset_right = 992.0
+offset_bottom = 519.0
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.295867, 0.295866, 0.295866, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("10_ewf5b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_68e1s")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gbg04")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_7pf18")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_tccln")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_bkc7f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_30n74")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hwl05")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_k8jna")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_rolls")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_oks7c")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1fnrr")
+text = "Front
+Room"
+expand_icon = true
+script = ExtResource("11_nb5kd")
+bg = NodePath("../ShopSign")
+
+[node name="Text" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 179.0
+offset_right = 219.0
+offset_bottom = 40.0
+script = ExtResource("12_r872w")
+
+[node name="ItemExplainer" type="PanelContainer" parent="Text"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 414.0
+offset_right = 539.0
+offset_bottom = 534.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 30
+
+[node name="Label" type="Label" parent="Text/ItemExplainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="BackButton" to="BackButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="BackButton" to="BackButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="Accountant"]
+[editable path="Crystals"]
+[editable path="Incense"]
+[editable path="Cauldron"]

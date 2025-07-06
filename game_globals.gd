@@ -10,6 +10,7 @@ var money = 50
 var vibe = 1.0
 var prep_station_count = 0
 var orders_count = 2
+var tax_free = false
 
 var unlocked_recipes = []
 
@@ -92,8 +93,7 @@ var recipe_definitions = {
 
 var current_chores = [
 	goblin_chore,
-	fire_chore,
-	taxes_chore
+	fire_chore
 ]
 
 func _input(event: InputEvent) -> void:

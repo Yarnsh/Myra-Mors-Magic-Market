@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr3kg1k2pgvli"]
+[gd_scene load_steps=6 format=3 uid="uid://dr3kg1k2pgvli"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
 [ext_resource type="PackedScene" uid="uid://d21scinhqdak3" path="res://game_prep.tscn" id="3_itfp7"]
 [ext_resource type="PackedScene" uid="uid://b4a1ay8nyjqtr" path="res://UI/upgrades.tscn" id="4_3x4v4"]
+[ext_resource type="PackedScene" uid="uid://bmoxwb8d6mrt0" path="res://upgrades_2.tscn" id="5_gfihx"]
 
 [node name="Main" type="Control"]
 texture_filter = 1
@@ -23,5 +24,9 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="Upgrades" parent="." instance=ExtResource("4_3x4v4")]
+visible = false
+layout_mode = 1
+
+[node name="Upgrades2" parent="." instance=ExtResource("5_gfihx")]
 visible = false
 layout_mode = 1

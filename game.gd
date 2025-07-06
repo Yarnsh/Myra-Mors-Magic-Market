@@ -71,7 +71,7 @@ func _process(delta: float) -> void:
 	if !complete:
 		var now = Time.get_ticks_msec()
 		
-		while now >= next_chore:
+		while now >= next_chore: # TODO: increase speed of these as more chores are added
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
 				GameGlobals.orders.add_order(order_def, 10000) # TODO: patience determined by game stuff
@@ -105,7 +105,7 @@ func handle_order_result(result):
 		if not result.get("chore", false) and not result.get("failed", false):
 			var quality = result.get("quality", 0.0)
 			var base_price = result.get("base_price", 100)
-			var tip = 0.15 * GameGlobals.vibe * result.get("tip_mult", 1.0)
+			var tip = ceil(0.15 * GameGlobals.vibe * result.get("tip_mult", 1.0))
 			var other_mult = 1.0
 			
 			if GameGlobals.prep_stations.check_requirements({"crystal": 1}):
@@ -120,9 +120,10 @@ func handle_order_result(result):
 			var final_money = base_price + (base_price * tip * quality)
 			
 			# Taxes
-			var taxes = final_money / 2
-			final_money -= taxes
-			taxes_taken += taxes
+			if not GameGlobals.tax_free:
+				var taxes = floor(final_money / 2)
+				final_money -= taxes
+				taxes_taken += taxes
 			
 			add_money(final_money)
 		# TODO: negaive effects on failure

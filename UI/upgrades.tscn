@@ -1,8 +1,10 @@
-[gd_scene load_steps=40 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=45 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="2_kmo21"]
+[ext_resource type="Texture2D" uid="uid://ba6jhxfo1k1v0" path="res://Images/SpeechBubble.png" id="2_s60dg"]
+[ext_resource type="Script" path="res://UI/back_room_entry.gd" id="3_8u6qa"]
 [ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="3_ftk5n"]
 [ext_resource type="Texture2D" uid="uid://c1ucdb83635ju" path="res://Images/upgrade_table.png" id="3_vrta6"]
 [ext_resource type="Texture2D" uid="uid://dxpsnwu166is2" path="res://Images/horatius-1.png" id="3_yi5rd"]
@@ -22,6 +24,43 @@
 [ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="18_sk1y1"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="19_p3i5y"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="20_cmeww"]
+
+[sub_resource type="Animation" id="Animation_2bygw"]
+resource_name = "MouseOver"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackRoom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.1332, 0.2, 0.233333, 0.566667, 0.7, 0.76885, 0.8, 0.866667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.848678, 0.715772, 0.32158, 1), Color(0.198123, 0.157779, 0.0341596, 1), Color(0.848678, 0.715772, 0.32158, 1), Color(0.198123, 0.157779, 0.0341596, 1), Color(0.848678, 0.715772, 0.32158, 1), Color(0.848678, 0.715772, 0.32158, 1), Color(0.198123, 0.157779, 0.0341596, 1), Color(0.848678, 0.715772, 0.32158, 1), Color(0.198123, 0.157779, 0.0341596, 1), Color(0.848678, 0.715772, 0.32158, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_212ct"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BackRoom:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0807833, 0.0807833, 0.0807833, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayrt7"]
+_data = {
+"MouseOver": SubResource("Animation_2bygw"),
+"RESET": SubResource("Animation_212ct")
+}
 
 [sub_resource type="Animation" id="Animation_bgaxi"]
 resource_name = "Bounce"
@@ -60,6 +99,21 @@ _data = {
 "RESET": SubResource("Animation_juyuh")
 }
 
+[sub_resource type="Animation" id="Animation_x6ksv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="Animation" id="Animation_2euik"]
 resource_name = "Say"
 length = 2.5
@@ -74,21 +128,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2), Vector2(1, 1), Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1e-05, 1e-05)]
-}
-
-[sub_resource type="Animation" id="Animation_x6ksv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yb7a5"]
@@ -127,6 +166,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lwpen")
+
+[node name="BackRoom" type="Sprite2D" parent="."]
+modulate = Color(0.0807833, 0.0807833, 0.0807833, 1)
+position = Vector2(846.5, 312)
+scale = Vector2(2.00781, 3.76563)
+texture = ExtResource("2_s60dg")
+script = ExtResource("3_8u6qa")
+
+[node name="Anim" type="AnimationPlayer" parent="BackRoom"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_ayrt7")
+}
+
+[node name="BackRoomClicker" type="Area2D" parent="BackRoom"]
+position = Vector2(-421.603, -82.8548)
+scale = Vector2(0.498054, 0.26556)
+script = ExtResource("10_grk31")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BackRoom/BackRoomClicker"]
+polygon = PackedVector2Array(731, 461, 976, 462, 970, 86, 730, 91)
 
 [node name="BG" type="TextureRect" parent="."]
 modulate = Color(0.796243, 0.796243, 0.796243, 1)
@@ -366,6 +426,7 @@ bus = &"SFX"
 stream = ExtResource("20_cmeww")
 bus = &"SFX"
 
+[connection signal="clicked" from="BackRoom/BackRoomClicker" to="BackRoom" method="_on_back_room_clicker_clicked"]
 [connection signal="clicked" from="Horatius/Clicker" to="Horatius" method="_on_clicker_clicked"]
 [connection signal="mouse_entered" from="CloseShop" to="CloseShop" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CloseShop" to="CloseShop" method="_on_mouse_exited"]
