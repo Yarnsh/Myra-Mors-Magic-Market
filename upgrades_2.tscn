@@ -1,17 +1,21 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmoxwb8d6mrt0"]
+[gd_scene load_steps=31 format=3 uid="uid://bmoxwb8d6mrt0"]
 
 [ext_resource type="Script" path="res://upgrades_2.gd" id="1_ivrpe"]
 [ext_resource type="Texture2D" uid="uid://ce47ltvj1fec7" path="res://Images/BackroomBG1.png" id="2_pqvcg"]
 [ext_resource type="PackedScene" uid="uid://cap511ut66dq6" path="res://UI/shop_item.tscn" id="3_3ppwm"]
 [ext_resource type="Texture2D" uid="uid://x5i1py27xrfn" path="res://Images/Accountant.png" id="4_dm6jj"]
+[ext_resource type="Texture2D" uid="uid://dm82pvf4ellf6" path="res://Images/sign.png" id="4_rdato"]
 [ext_resource type="Texture2D" uid="uid://batgj8ma43bna" path="res://Images/BackroomBG2.png" id="5_03sq4"]
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="6_ojrt2"]
 [ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="7_hdafr"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="8_mkw7d"]
 [ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="9_i0iws"]
 [ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="10_ewf5b"]
+[ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="10_tcjs0"]
 [ext_resource type="Script" path="res://shop_button.gd" id="11_nb5kd"]
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="12_r872w"]
+[ext_resource type="Texture2D" uid="uid://bs8nlumpj20n2" path="res://Images/prepstation.png" id="15_7vt85"]
+[ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="16_d3mih"]
 
 [sub_resource type="Animation" id="Animation_7axkb"]
 length = 0.001
@@ -100,6 +104,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_03sq4")
 
+[node name="Shelf" type="Sprite2D" parent="."]
+position = Vector2(890, 145)
+scale = Vector2(0.991372, 0.117491)
+texture = ExtResource("4_rdato")
+
+[node name="Shelf2" type="Sprite2D" parent="."]
+position = Vector2(866, 353)
+scale = Vector2(0.991372, 0.117491)
+texture = ExtResource("4_rdato")
+
 [node name="Accountant" parent="." instance=ExtResource("3_3ppwm")]
 offset_left = 516.0
 offset_top = 252.0
@@ -120,9 +134,9 @@ icon = ExtResource("6_ojrt2")
 
 [node name="Incense" parent="." instance=ExtResource("3_3ppwm")]
 offset_left = 792.0
-offset_top = 167.0
+offset_top = 119.0
 offset_right = 792.0
-offset_bottom = 167.0
+offset_bottom = 119.0
 
 [node name="Button" parent="Incense" index="0"]
 icon = ExtResource("7_hdafr")
@@ -135,6 +149,17 @@ offset_bottom = 272.0
 
 [node name="Button" parent="Cauldron" index="0"]
 icon = ExtResource("8_mkw7d")
+
+[node name="Gong" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 703.0
+offset_top = 336.0
+offset_right = 703.0
+offset_bottom = 336.0
+
+[node name="Button" parent="Gong" index="0"]
+offset_top = -111.0
+offset_bottom = 25.0
+icon = ExtResource("10_tcjs0")
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -216,6 +241,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="PrepStation" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 903.0
+offset_top = 285.0
+offset_right = 903.0
+offset_bottom = 285.0
+
+[node name="Button" parent="PrepStation" index="0"]
+offset_left = -70.0
+offset_top = -58.0
+offset_right = 66.0
+offset_bottom = 78.0
+icon = ExtResource("15_7vt85")
+
+[node name="Sold" parent="PrepStation" index="3"]
+offset_top = -28.0
+offset_bottom = 32.0
+
+[node name="Money" parent="." instance=ExtResource("16_d3mih")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 300.0
+offset_bottom = 100.0
+grow_horizontal = 1
+
 [connection signal="mouse_entered" from="BackButton" to="BackButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="BackButton" to="BackButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
@@ -224,3 +276,5 @@ autowrap_mode = 2
 [editable path="Crystals"]
 [editable path="Incense"]
 [editable path="Cauldron"]
+[editable path="Gong"]
+[editable path="PrepStation"]

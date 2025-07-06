@@ -222,6 +222,10 @@ offset_right = 66.0
 offset_bottom = 67.0
 icon = ExtResource("7_v8lvu")
 
+[node name="Sold" parent="ShopSpace" index="3"]
+offset_top = -30.0
+offset_bottom = 30.0
+
 [node name="PrepStation" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 480.0
 offset_top = 280.0
@@ -235,6 +239,10 @@ offset_right = 66.0
 offset_bottom = 78.0
 icon = ExtResource("8_5y7n3")
 
+[node name="Sold" parent="PrepStation" index="3"]
+offset_top = -28.0
+offset_bottom = 32.0
+
 [node name="PaintSet" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 268.0
 offset_top = 280.0
@@ -247,6 +255,10 @@ offset_top = -58.0
 offset_right = 66.0
 offset_bottom = 78.0
 icon = ExtResource("9_guvvf")
+
+[node name="Sold" parent="PaintSet" index="3"]
+offset_top = -29.0
+offset_bottom = 31.0
 
 [node name="Horatius" type="Sprite2D" parent="."]
 position = Vector2(847, 463)
@@ -281,6 +293,7 @@ offset_left = -40.0
 offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
+size_flags_vertical = 8
 
 [node name="NinePatchRect" type="NinePatchRect" parent="SpeechBubble/MarginContainer"]
 texture_filter = 1
