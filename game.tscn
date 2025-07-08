@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=143 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://potion_prep_task.gd" id="6_pprsc"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="6_t60w7"]
 [ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="7_bdkoj"]
+[ext_resource type="Texture2D" uid="uid://dcdl51p1s0gqy" path="res://Images/Vibe1.png" id="8_nrwvw"]
+[ext_resource type="Script" path="res://vibe.gd" id="9_ew70i"]
 [ext_resource type="Texture2D" uid="uid://bv43qfkcurnx8" path="res://Images/ControlButtonRed.png" id="10_idcwj"]
 [ext_resource type="Texture2D" uid="uid://bsalmnd1fenco" path="res://Images/ControlButtonGreen.png" id="11_sqpd8"]
 [ext_resource type="Texture2D" uid="uid://6ui0wov5lcgo" path="res://Images/ControlButtonBlue.png" id="12_55yik"]
@@ -79,6 +81,112 @@
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="77_4efa2"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="77_8q7at"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
+
+[sub_resource type="Animation" id="Animation_o6c5f"]
+resource_name = "default"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.5, 0.9, 1, 1.1, 1.46667, 1.8981, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(755, 91), Vector2(755, 91), Vector2(775, 59), Vector2(795, 91), Vector2(795, 91), Vector2(795, 91), Vector2(776.333, 59), Vector2(755, 91), Vector2(755, 91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.8324, 0.9324, 1.0324, 1.8648, 1.9314),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.075), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(0.1, 0.075), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(0.1, 0.075)]
+}
+
+[sub_resource type="Animation" id="Animation_xeomp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(755, 91)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf6tu"]
+_data = {
+"RESET": SubResource("Animation_xeomp"),
+"default": SubResource("Animation_o6c5f")
+}
+
+[sub_resource type="Curve" id="Curve_ry3xf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.133333, 1), 0.0, 0.0, 0, 0, Vector2(0.553333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_3lr8e"]
+curve = SubResource("Curve_ry3xf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qoxgd"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16, 0)
+emission_shape_scale = Vector3(20, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.02
+alpha_curve = SubResource("CurveTexture_3lr8e")
+
+[sub_resource type="Curve" id="Curve_jwlaa"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.133333, 1), 0.0, 0.0, 0, 0, Vector2(0.553333, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_6v446"]
+curve = SubResource("Curve_jwlaa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e3b5x"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -16, 0)
+emission_shape_scale = Vector3(20, 20, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.02
+scale_max = 0.02
+alpha_curve = SubResource("CurveTexture_6v446")
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -1062,6 +1170,42 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 offset_left = -200.0
 offset_bottom = 100.0
+
+[node name="Vibe" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(755, 91)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_nrwvw")
+offset = Vector2(0, -175)
+script = ExtResource("9_ew70i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Vibe"]
+libraries = {
+"": SubResource("AnimationLibrary_pf6tu")
+}
+autoplay = "default"
+
+[node name="Gain" type="GPUParticles2D" parent="Vibe"]
+modulate = Color(0, 1, 0, 1)
+scale = Vector2(10, 13.3333)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_qoxgd")
+texture = ExtResource("40_sprrn")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.5
+local_coords = true
+
+[node name="Loss" type="GPUParticles2D" parent="Vibe"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(10, 13.3333)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_e3b5x")
+texture = ExtResource("40_sprrn")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.5
+local_coords = true
 
 [node name="Time" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(200, 50)

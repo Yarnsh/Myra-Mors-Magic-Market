@@ -1,6 +1,6 @@
 extends Control
 
-var time_between_orders = 2000
+var base_time_between_orders = 2000
 var time_between_chores = 8000
 var tbo_variation = 5000
 @onready var next_order = Time.get_ticks_msec() + 4000
@@ -13,6 +13,7 @@ var tbo_variation = 5000
 @onready var money = $Money
 @onready var customer_prefab = preload("res://customer.tscn")
 @onready var customer_parent = $IndoorVisuals/Customers
+@onready var vibe_indicator = $Vibe
 
 @onready var money_sfx = $MoneySFX
 @onready var entry_sfx = $EntrySFX
@@ -20,6 +21,9 @@ var tbo_variation = 5000
 var order_list = []
 var chores_list = []
 var recipes_list = []
+
+var vibe = 1.0
+var max_vibe = 2.0
 
 var complete = true
 var tips_earned = 0.0
@@ -36,6 +40,8 @@ func reset():
 	GameGlobals.prep_stations.clear()
 	GameGlobals.current_task = null
 	timer.t = 0.0
+	vibe = 1.0
+	max_vibe = 1.5 + (0.25 * GameGlobals.orders_count)
 	
 	tips_earned = 0.0
 	base_earned = 0.0
@@ -88,7 +94,9 @@ func _process(delta: float) -> void:
 				entry_sfx.stop()
 				entry_sfx.play()
 			
-			next_order = next_order + time_between_orders + ((-tbo_variation/2) + randi_range(0, tbo_variation))
+			var time_between_orders = 6000 / max(0.1, vibe)
+			var variation = time_between_orders * 2.5
+			next_order = next_order + time_between_orders + ((-variation/2) + randi_range(0, variation))
 		
 		if timer.t >= 360.0:
 			trigger_complete()
@@ -105,12 +113,19 @@ func handle_order_result(result):
 		if not result.get("chore", false) and not result.get("failed", false):
 			var quality = result.get("quality", 0.0)
 			var base_price = result.get("base_price", 100)
-			var tip = ceil(0.15 * GameGlobals.vibe * result.get("tip_mult", 1.0))
+			var tip = ceil(0.15 * vibe * result.get("tip_mult", 1.0))
 			var other_mult = 1.0
 			
 			if GameGlobals.prep_stations.check_requirements({"crystal": 1}):
 				GameGlobals.prep_stations.consume({"crystal": 1})
 				other_mult = other_mult * 2.0
+			
+			if quality >= 0.5:
+				vibe = max(0.0, min(max_vibe, vibe + (0.15 * quality)))
+				vibe_indicator.gain()
+			else:
+				vibe = max(0.0, min(max_vibe, vibe * (0.5 + (0.8 * quality))))
+				vibe_indicator.lose()
 			
 			base_price *= other_mult
 			
@@ -126,4 +141,16 @@ func handle_order_result(result):
 				taxes_taken += taxes
 			
 			add_money(final_money)
-		# TODO: negaive effects on failure
+		elif not result.get("chore", false) and result.get("failed", false):
+			vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+			vibe_indicator.lose()
+		elif result.get("chore", false) and result.get("failed", false):
+			if vibe < 1.0:
+				vibe = max(0.0, min(max_vibe, vibe + (0.25)))
+				vibe_indicator.gain()
+			else:
+				vibe = max(0.0, min(max_vibe, vibe + (0.05)))
+				vibe_indicator.gain()
+		elif result.get("chore", false) and not result.get("failed", false):
+			pass
+			# TODO: negaive effects on failure of chores

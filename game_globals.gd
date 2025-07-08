@@ -9,7 +9,6 @@ var orders = null
 var prep_stations = null
 
 var money = 50
-var vibe = 1.0
 var prep_station_count = 0
 var orders_count = 2
 var tax_free = false
