@@ -14,3 +14,9 @@ Entrance Bell by Zott820 -- https://freesound.org/s/209580/ -- License: Creative
 Pencil - Writing and Taps by JelloApocalypse -- https://freesound.org/s/802604/ -- License: Creative Commons 0
 
 DoorCloseHard.wav by wobesound -- https://freesound.org/s/488374/ -- License: Creative Commons 0
+
+Rain Stick - Slow.wav by PsychoPancake -- https://freesound.org/s/325210/ -- License: Attribution NonCommercial 3.0
+
+130312 florescent light buzz room tone by TRP -- https://freesound.org/s/715632/ -- License: Creative Commons 0
+
+magnets crackling together by gecop -- https://freesound.org/s/522116/ -- License: Creative Commons 0
