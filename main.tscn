@@ -1,10 +1,87 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr3kg1k2pgvli"]
+[gd_scene load_steps=11 format=3 uid="uid://dr3kg1k2pgvli"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
 [ext_resource type="PackedScene" uid="uid://d21scinhqdak3" path="res://game_prep.tscn" id="3_itfp7"]
 [ext_resource type="PackedScene" uid="uid://b4a1ay8nyjqtr" path="res://UI/upgrades.tscn" id="4_3x4v4"]
 [ext_resource type="PackedScene" uid="uid://bmoxwb8d6mrt0" path="res://upgrades_2.tscn" id="5_gfihx"]
+[ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="6_gqo16"]
+[ext_resource type="Script" path="res://fade.gd" id="7_7vkoe"]
+
+[sub_resource type="Animation" id="Animation_rv5ww"]
+resource_name = "Fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.0941176, 0.0941176, 0.0941176, 0), Color(0.0941176, 0.0941176, 0.0941176, 1), Color(0.0941176, 0.0941176, 0.0941176, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2664),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fade_callback"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_82v3k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0941176, 0.0941176, 0.0941176, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Fade:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7pbhw"]
+_data = {
+"Fade": SubResource("Animation_rv5ww"),
+"RESET": SubResource("Animation_82v3k")
+}
 
 [node name="Main" type="Control"]
 texture_filter = 1
@@ -30,3 +107,23 @@ layout_mode = 1
 [node name="Upgrades2" parent="." instance=ExtResource("5_gfihx")]
 visible = false
 layout_mode = 1
+
+[node name="Fade" type="TextureRect" parent="."]
+modulate = Color(0.0941176, 0.0941176, 0.0941176, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_gqo16")
+script = ExtResource("7_7vkoe")
+
+[node name="Anim" type="AnimationPlayer" parent="Fade"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_7pbhw")
+}
+
+[connection signal="animation_finished" from="Fade/Anim" to="Fade" method="_on_anim_animation_finished"]

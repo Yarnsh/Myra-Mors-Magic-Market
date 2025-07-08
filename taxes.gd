@@ -10,7 +10,7 @@ extends Node2D
 @export var write2 : Texture2D
 @export var write3 : Texture2D
 
-@onready var anim = $Anim
+#@onready var anim = $Anim
 @onready var s1 = $Paper/S1
 @onready var s2 = $Paper/S2
 @onready var s3 = $Paper/S3

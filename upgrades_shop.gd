@@ -9,6 +9,7 @@ extends Control
 @onready var money_sfx = $MoneySFX
 @onready var bad_sfx = $BadSFX
 @onready var enter_sfx = $EnterSFX
+@onready var back_enter_sfx = $BackEnterSFX
 @onready var exit_sfx = $ExitSFX
 
 func _ready() -> void:
@@ -117,3 +118,8 @@ func on_open():
 	hor.set_emotion(0)
 	enter_sfx.play()
 	speech_bubble.say("Welcome in, what are you looking for today?")
+
+func on_open_from_back():
+	hor.set_emotion(0)
+	back_enter_sfx.play()
+	speech_bubble.say("Find anything good back there?")

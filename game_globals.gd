@@ -1,5 +1,7 @@
 extends Node
 
+var allow_area_clicks = true
+
 var task_manager = null
 var current_task = null
 var controls = null

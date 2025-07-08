@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=46 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -24,6 +24,7 @@
 [ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="18_sk1y1"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="19_p3i5y"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="20_cmeww"]
+[ext_resource type="AudioStream" uid="uid://dlvu3hiiohy2k" path="res://SFX/325210__psychopancake__rain-stick-slow.wav" id="24_4r8gt"]
 
 [sub_resource type="Animation" id="Animation_2bygw"]
 resource_name = "MouseOver"
@@ -433,6 +434,11 @@ bus = &"SFX"
 
 [node name="EnterSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_p3i5y")
+bus = &"SFX"
+
+[node name="BackEnterSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_4r8gt")
+volume_db = 5.0
 bus = &"SFX"
 
 [node name="ExitSFX" type="AudioStreamPlayer" parent="."]
