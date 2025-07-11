@@ -13,7 +13,7 @@ var tbo_variation = 5000
 @onready var money = $Money
 @onready var customer_prefab = preload("res://customer.tscn")
 @onready var customer_parent = $IndoorVisuals/Customers
-@onready var vibe_indicator = $Vibe
+@onready var vibe_indicator = $Money/Vibe
 
 @onready var money_sfx = $MoneySFX
 @onready var entry_sfx = $EntrySFX
@@ -105,6 +105,8 @@ func add_money(m):
 	if m > 0:
 		money_sfx.play()
 		money.play_effects()
+	else:
+		pass # TODO: money loss effects
 	GameGlobals.money += m
 
 func handle_order_result(result):
@@ -144,13 +146,18 @@ func handle_order_result(result):
 		elif not result.get("chore", false) and result.get("failed", false):
 			vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 			vibe_indicator.lose()
-		elif result.get("chore", false) and result.get("failed", false):
-			if vibe < 1.0:
-				vibe = max(0.0, min(max_vibe, vibe + (0.25)))
-				vibe_indicator.gain()
+		elif result.get("chore", false):
+			if result.get("quality", 0.0) > 0.5:
+				if vibe < 1.0:
+					vibe = max(0.0, min(max_vibe, vibe + (0.25)))
+					vibe_indicator.gain()
+				else:
+					vibe = max(0.0, min(max_vibe, vibe + (0.05)))
+					vibe_indicator.gain()
 			else:
-				vibe = max(0.0, min(max_vibe, vibe + (0.05)))
-				vibe_indicator.gain()
-		elif result.get("chore", false) and not result.get("failed", false):
-			pass
-			# TODO: negaive effects on failure of chores
+				if result.get("chore_special", "") == "taxes":
+					add_money(-min(GameGlobals.money, 100000))
+					taxes_taken += min(GameGlobals.money, 100000)
+				else:
+					vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+					vibe_indicator.lose()

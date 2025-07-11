@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var par = $".."
+@onready var par = $"../.."
 @onready var anim = $AnimationPlayer
 @onready var gain_particle = $Gain
 @onready var loss_particle = $Loss

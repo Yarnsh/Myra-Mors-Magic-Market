@@ -67,9 +67,17 @@ func buy_prep_station():
 
 func buy_shop_space():
 	GameGlobals.orders_count += 1
-	if GameGlobals.orders_count >= 5:
+	if GameGlobals.orders_count >= 10:
 		$ShopSpace.set_item({"sold_out": true})
 		text.hide()
+	else:
+		var oc = GameGlobals.orders_count - 1
+		$ShopSpace.set_item({
+			"title": "Space Upgrade " + str(oc),
+			"price": 1000 * (oc * oc),
+			"callback": Callable.create(self, "buy_shop_space"),
+			"description": "Increase the size of your store, allowing more customers at once"
+		})
 	buy_response()
 
 func buy_crystal_ball():

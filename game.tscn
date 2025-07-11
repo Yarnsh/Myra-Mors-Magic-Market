@@ -82,6 +82,33 @@
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="77_8q7at"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
 
+[sub_resource type="Animation" id="Animation_xeomp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 96)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.1)]
+}
+
 [sub_resource type="Animation" id="Animation_o6c5f"]
 resource_name = "default"
 length = 2.0
@@ -96,7 +123,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.133333, 0.5, 0.9, 1, 1.1, 1.46667, 1.8981, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(755, 91), Vector2(755, 91), Vector2(775, 59), Vector2(795, 91), Vector2(795, 91), Vector2(795, 91), Vector2(776.333, 59), Vector2(755, 91), Vector2(755, 91)]
+"values": [Vector2(-5, 91), Vector2(-5, 91), Vector2(15, 59), Vector2(40, 91), Vector2(40, 91), Vector2(40, 91), Vector2(15, 59), Vector2(-5, 91), Vector2(-5, 91)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -109,33 +136,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0.1, 0.075), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(0.1, 0.075), Vector2(0.1, 0.1), Vector2(0.1, 0.1), Vector2(0.1, 0.075)]
-}
-
-[sub_resource type="Animation" id="Animation_xeomp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(755, 91)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.1, 0.1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pf6tu"]
@@ -997,7 +997,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(760, 0)]
+"values": [Vector2(1051, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_x407p"]
@@ -1054,13 +1054,13 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("Money:position")
-tracks/4/interp = 2
+tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.4662, 0.7992),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(968, 0), Vector2(760, 0)]
+"values": [Vector2(1051, 0), Vector2(1051, 0), Vector2(760, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e4aq7"]
@@ -1171,21 +1171,20 @@ layout_mode = 1
 offset_left = -200.0
 offset_bottom = 100.0
 
-[node name="Vibe" type="Sprite2D" parent="."]
+[node name="Vibe" type="Sprite2D" parent="Money"]
 texture_filter = 1
-position = Vector2(755, 91)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("8_nrwvw")
 offset = Vector2(0, -175)
 script = ExtResource("9_ew70i")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Vibe"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Money/Vibe"]
 libraries = {
 "": SubResource("AnimationLibrary_pf6tu")
 }
 autoplay = "default"
 
-[node name="Gain" type="GPUParticles2D" parent="Vibe"]
+[node name="Gain" type="GPUParticles2D" parent="Money/Vibe"]
 modulate = Color(0, 1, 0, 1)
 scale = Vector2(10, 13.3333)
 emitting = false
@@ -1196,7 +1195,7 @@ one_shot = true
 explosiveness = 0.5
 local_coords = true
 
-[node name="Loss" type="GPUParticles2D" parent="Vibe"]
+[node name="Loss" type="GPUParticles2D" parent="Money/Vibe"]
 modulate = Color(1, 0, 0, 1)
 scale = Vector2(10, 13.3333)
 emitting = false

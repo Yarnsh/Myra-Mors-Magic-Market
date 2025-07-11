@@ -21,6 +21,7 @@ var k_to_idx = {"N":0,"D":1,"S":2}
 @onready var lines = [line1, line2, line3]
 @onready var writes = [write1, write2, write3]
 var strokes = 0
+var q = 1.0
 
 func apply_controls():
 	GameGlobals.controls.clear_controls()
@@ -32,6 +33,7 @@ func apply_controls():
 
 func reset_task():
 	#anim.play("RESET")
+	q = 1.0
 	strokes = 0
 	lines.shuffle()
 	sprites[0].texture = lines[0]
@@ -45,15 +47,17 @@ func take_input(sc : String, release = false):
 	if strokes < 3 and (sc == "N" or sc == "D" or sc == "S"):
 		sprites[strokes].get_child(0).texture = writes[k_to_idx[sc]]
 		if sprites[strokes].texture != lines_unshuffled[k_to_idx[sc]]:
-			print("BAD TAXES")
+			q = 0.0
 		strokes += 1
 		#anim.stop()
 		#anim.play("write")
 	elif sc == "Enter":
-		var q = strokes * 0.34
+		if strokes < 3:
+			q = 0.0
 		GameGlobals.task_manager.report_result({
 			"quality": q,
-			"chore": true
+			"chore": true,
+			"chore_special": "taxes"
 		})
 		GameGlobals.task_manager.stop_task()
 

@@ -50,7 +50,7 @@ func _ready() -> void:
 	)
 	$PrepStation.set_item(
 		{
-			"title": "Prep Station",
+			"title": "Prep Station 2",
 			"price": 25000,
 			"callback": Callable.create(self, "buy_prep_station"),
 			"description": "A station to prepare orders ahead of time\nRequired for some recipes"
@@ -97,6 +97,13 @@ func buy_prep_station():
 	if GameGlobals.prep_station_count >= 6:
 		$PrepStation.set_item({"sold_out": true})
 		text.hide()
+	else:
+		$PrepStation.set_item({
+			"title": "Prep Station " + str(GameGlobals.prep_station_count + 1),
+			"price": 20000 * (GameGlobals.prep_station_count * GameGlobals.prep_station_count),
+			"callback": Callable.create(self, "buy_prep_station"),
+			"description": "A station to prepare orders ahead of time\nRequired for some recipes"
+		})
 	buy_response()
 
 func _on_back_button_pressed() -> void:

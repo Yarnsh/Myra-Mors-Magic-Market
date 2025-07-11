@@ -123,6 +123,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_pqvcg")
 
+[node name="Accountant" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 516.0
+offset_top = 252.0
+offset_right = 516.0
+offset_bottom = 252.0
+
+[node name="Button" parent="Accountant" index="0"]
+icon = ExtResource("4_dm6jj")
+
 [node name="BG2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -130,6 +139,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("5_03sq4")
 
 [node name="Shelf" type="Sprite2D" parent="."]
@@ -141,15 +151,6 @@ texture = ExtResource("4_rdato")
 position = Vector2(866, 353)
 scale = Vector2(0.991372, 0.117491)
 texture = ExtResource("4_rdato")
-
-[node name="Accountant" parent="." instance=ExtResource("3_3ppwm")]
-offset_left = 516.0
-offset_top = 252.0
-offset_right = 516.0
-offset_bottom = 252.0
-
-[node name="Button" parent="Accountant" index="0"]
-icon = ExtResource("4_dm6jj")
 
 [node name="Crystals" parent="." instance=ExtResource("3_3ppwm")]
 offset_left = 89.0
@@ -179,15 +180,23 @@ offset_bottom = 272.0
 icon = ExtResource("8_mkw7d")
 
 [node name="Gong" parent="." instance=ExtResource("3_3ppwm")]
-offset_left = 703.0
+offset_left = 903.0
 offset_top = 336.0
-offset_right = 703.0
+offset_right = 903.0
 offset_bottom = 336.0
 
 [node name="Button" parent="Gong" index="0"]
 offset_top = -111.0
 offset_bottom = 25.0
 icon = ExtResource("10_tcjs0")
+
+[node name="Label" parent="Gong" index="1"]
+offset_top = 23.0
+offset_bottom = 66.0
+
+[node name="Label2" parent="Gong" index="2"]
+offset_top = 60.0
+offset_bottom = 103.0
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
@@ -269,10 +278,10 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="PrepStation" parent="." instance=ExtResource("3_3ppwm")]
-offset_left = 903.0
-offset_top = 285.0
-offset_right = 903.0
-offset_bottom = 285.0
+offset_left = 690.0
+offset_top = 293.0
+offset_right = 690.0
+offset_bottom = 293.0
 
 [node name="Button" parent="PrepStation" index="0"]
 offset_left = -70.0
@@ -280,6 +289,14 @@ offset_top = -58.0
 offset_right = 66.0
 offset_bottom = 78.0
 icon = ExtResource("15_7vt85")
+
+[node name="Label" parent="PrepStation" index="1"]
+offset_top = 68.0
+offset_bottom = 111.0
+
+[node name="Label2" parent="PrepStation" index="2"]
+offset_top = 105.0
+offset_bottom = 148.0
 
 [node name="Sold" parent="PrepStation" index="3"]
 offset_top = -28.0
