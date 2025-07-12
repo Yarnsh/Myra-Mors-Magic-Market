@@ -18,8 +18,18 @@ func set_recipe(recipe):
 	if recipe == null:
 		label.text = "Nothing"
 		texture.texture = null
+		disabled = false
 		return
 	
 	label.text = recipe.get("name", "")
 	# TODO: use a square recipe icon of some kind
 	texture.texture = recipe.get("icon", null)
+
+func _process(delta: float) -> void:
+	# having this in process is so wrong man...
+	if disabled:
+		label.modulate = Color.DIM_GRAY
+		texture.modulate = Color.DIM_GRAY
+	else:
+		label.modulate = Color.WHITE
+		texture.modulate = Color.WHITE

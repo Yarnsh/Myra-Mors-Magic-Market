@@ -5,6 +5,7 @@
 
 [node name="Recipe" type="Button"]
 custom_minimum_size = Vector2(500, 64)
+disabled = true
 script = ExtResource("1_3b2bj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
