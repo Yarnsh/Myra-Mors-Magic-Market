@@ -30,6 +30,8 @@ var tips_earned = 0.0
 var base_earned = 0.0
 var taxes_taken = 0.0
 
+var next_incense_check = 0
+
 func reset():
 	complete = false
 	next_order = Time.get_ticks_msec() + 4000
@@ -77,6 +79,11 @@ func _process(delta: float) -> void:
 	if !complete:
 		var now = Time.get_ticks_msec()
 		
+		if now > next_incense_check:
+			if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+				GameGlobals.prep_stations.consume({"incense": 1})
+				next_incense_check = now + 20000
+		
 		while now >= next_chore: # TODO: increase speed of these as more chores are added
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
@@ -123,10 +130,16 @@ func handle_order_result(result):
 				other_mult = other_mult * 2.0
 			
 			if quality >= 0.5:
-				vibe = max(0.0, min(max_vibe, vibe + (0.15 * quality)))
+				if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+					vibe = max(0.0, min(max_vibe, vibe + (0.35 * quality)))
+				else:
+					vibe = max(0.0, min(max_vibe, vibe + (0.15 * quality)))
 				vibe_indicator.gain()
 			else:
-				vibe = max(0.0, min(max_vibe, vibe * (0.5 + (0.8 * quality))))
+				if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+					vibe = max(0.0, min(max_vibe, vibe * (0.75 + (0.8 * quality))))
+				else:
+					vibe = max(0.0, min(max_vibe, vibe * (0.5 + (0.8 * quality))))
 				vibe_indicator.lose()
 			
 			base_price *= other_mult
@@ -144,20 +157,32 @@ func handle_order_result(result):
 			
 			add_money(final_money)
 		elif not result.get("chore", false) and result.get("failed", false):
-			vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+			if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+				vibe = max(0.0, min(max_vibe, vibe * (0.75)))
+			else:
+				vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 			vibe_indicator.lose()
 		elif result.get("chore", false):
 			if result.get("quality", 0.0) > 0.5:
 				if vibe < 1.0:
-					vibe = max(0.0, min(max_vibe, vibe + (0.25)))
+					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+						vibe = max(0.0, min(max_vibe, vibe + (0.55)))
+					else:
+						vibe = max(0.0, min(max_vibe, vibe + (0.25)))
 					vibe_indicator.gain()
 				else:
-					vibe = max(0.0, min(max_vibe, vibe + (0.05)))
+					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+						vibe = max(0.0, min(max_vibe, vibe + (0.15)))
+					else:
+						vibe = max(0.0, min(max_vibe, vibe + (0.05)))
 					vibe_indicator.gain()
 			else:
 				if result.get("chore_special", "") == "taxes":
 					add_money(-min(GameGlobals.money, 100000))
 					taxes_taken += min(GameGlobals.money, 100000)
 				else:
-					vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+						vibe = max(0.0, min(max_vibe, vibe * (0.75)))
+					else:
+						vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 					vibe_indicator.lose()

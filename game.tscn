@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=150 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -75,10 +75,17 @@
 [ext_resource type="Texture2D" uid="uid://cf6qbu17pfe1r" path="res://Images/nameWrite.png" id="64_b2qdu"]
 [ext_resource type="Texture2D" uid="uid://dyndmbq7qs4ru" path="res://Images/dateWrite.png" id="65_b525v"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
+[ext_resource type="Texture2D" uid="uid://blpnslqtktp4g" path="res://Images/IncenseControl1.png" id="72_fq6rl"]
+[ext_resource type="Texture2D" uid="uid://cdcx02sbgeker" path="res://Images/PrepIncense.png" id="72_iyokx"]
+[ext_resource type="Texture2D" uid="uid://bodqb14p3hv0i" path="res://Images/IncenseControl2.png" id="73_slvmj"]
 [ext_resource type="Script" path="res://result_screen.gd" id="74_fnlgr"]
+[ext_resource type="Texture2D" uid="uid://cjlv2vocrblv" path="res://Images/IncenseControl3.png" id="74_my2ig"]
+[ext_resource type="Texture2D" uid="uid://c4hvbjlhtrc57" path="res://Images/IncenseControl1b.png" id="75_eiktu"]
 [ext_resource type="AudioStream" uid="uid://1m446bxvjnn7" path="res://SFX/590363__mrfossy__sfx_stickerripper_foilbooms_04.wav" id="75_q5psf"]
+[ext_resource type="Texture2D" uid="uid://c0io3p42nbdgf" path="res://Images/IncenseControl2b.png" id="76_hr813"]
 [ext_resource type="AudioStream" uid="uid://dt7lhj25linun" path="res://SFX/611113__5ro4__bell-ding-1.wav" id="76_nijam"]
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="77_4efa2"]
+[ext_resource type="Texture2D" uid="uid://doqvehoroinun" path="res://Images/IncenseControl3b.png" id="77_6x1ub"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="77_8q7at"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
 
@@ -1168,7 +1175,8 @@ texture = ExtResource("3_r7l8o")
 [node name="Money" parent="." instance=ExtResource("2_chaep")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
-offset_left = -200.0
+offset_left = 91.0
+offset_right = 291.0
 offset_bottom = 100.0
 
 [node name="Vibe" type="Sprite2D" parent="Money"]
@@ -1818,6 +1826,14 @@ texture = ExtResource("56_eobwl")
 [node name="Incense" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("57_y2b27")
+control_texture1 = ExtResource("72_fq6rl")
+control_texture2 = ExtResource("73_slvmj")
+control_texture3 = ExtResource("74_my2ig")
+control_texture1b = ExtResource("75_eiktu")
+control_texture2b = ExtResource("76_hr813")
+control_texture3b = ExtResource("77_6x1ub")
+done_texture = ExtResource("21_wlpc6")
+prepped_icon = ExtResource("72_iyokx")
 
 [node name="Pot" type="Sprite2D" parent="Task/Incense"]
 position = Vector2(4, -162)

@@ -1,6 +1,12 @@
 extends Node2D
 
-@export var control_texture : Texture2D
+@export var control_texture1 : Texture2D
+@export var control_texture2 : Texture2D
+@export var control_texture3 : Texture2D
+@export var control_texture1b : Texture2D
+@export var control_texture2b : Texture2D
+@export var control_texture3b : Texture2D
+
 @export var done_texture : Texture2D
 @export var prepped_icon : Texture2D
 
@@ -17,9 +23,9 @@ extends Node2D
 func apply_controls():
 	GameGlobals.controls.clear_controls()
 	GameGlobals.controls.set_nice_name("Light some Incense")
-	GameGlobals.controls.apply_control(3, "I", control_texture)
-	GameGlobals.controls.apply_control(4, "N", control_texture)
-	GameGlobals.controls.apply_control(5, "C", control_texture)
+	GameGlobals.controls.apply_control(3, "I", control_texture1)
+	GameGlobals.controls.apply_control(4, "N", control_texture2)
+	GameGlobals.controls.apply_control(5, "C", control_texture3)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
 
 func reset_task():
@@ -37,18 +43,21 @@ func take_input(sc : String, release = false):
 			b1.show()
 		else:
 			i1.show()
+			GameGlobals.controls.apply_control(3, "I", control_texture1b)
 	elif sc == "N":
 		if i2.visible:
 			p2.restart()
 			b2.show()
 		else:
 			i2.show()
+			GameGlobals.controls.apply_control(4, "N", control_texture2b)
 	elif sc == "C":
 		if i3.visible:
 			p3.restart()
 			b3.show()
 		else:
 			i3.show()
+			GameGlobals.controls.apply_control(5, "C", control_texture3b)
 	elif sc == "Enter":
 		var q = 0.0
 		if b1.visible and b2.visible and b3.visible:
