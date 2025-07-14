@@ -1,6 +1,9 @@
 extends Node
 
-var allow_area_clicks = true
+var fade_happening = false
+var menu_up = false
+func allow_area_clicks():
+	return !menu_up and !fade_happening
 
 var task_manager = null
 var current_task = null

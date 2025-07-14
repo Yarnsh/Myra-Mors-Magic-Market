@@ -22,7 +22,6 @@ func set_recipe(recipe):
 		return
 	
 	label.text = recipe.get("name", "")
-	# TODO: use a square recipe icon of some kind
 	texture.texture = recipe.get("icon", null)
 
 func _process(delta: float) -> void:
