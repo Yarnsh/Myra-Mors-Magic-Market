@@ -69,3 +69,10 @@ func close_shop2_h():
 	game.hide()
 	shop2.hide()
 	shop.show()
+
+func first_start():
+	game.hide()
+	shop.hide()
+	shop2.hide()
+	prep.show()
+	prep.populate_recipes()

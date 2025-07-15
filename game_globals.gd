@@ -57,14 +57,14 @@ var gong_order = {
 	"name": "Scare Spirits",
 	"task": "Gong",
 	"requirements": {},
-	"icon": load("res://Images/PonderOrbOrder.png"),
+	"icon": load("res://Images/GongOrder.png"),
 	"description": "BONG!!!"
 }
 var slip_order = {
 	"name": "Draw Senjafuda",
 	"task": "Senjafuda",
 	"requirements": {},
-	"icon": load("res://Images/PonderOrbOrder.png"),
+	"icon": load("res://Images/SenjafudaOrder.png"),
 	"description": "Draw the weeb paper, get the weeb money"
 }
 var goblin_chore = {
