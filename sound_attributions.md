@@ -20,3 +20,7 @@ Rain Stick - Slow.wav by PsychoPancake -- https://freesound.org/s/325210/ -- Lic
 130312 florescent light buzz room tone by TRP -- https://freesound.org/s/715632/ -- License: Creative Commons 0
 
 magnets crackling together by gecop -- https://freesound.org/s/522116/ -- License: Creative Commons 0
+
+Kung-Fu Whooshes .wav by Nic3_one -- https://freesound.org/s/434871/ -- License: Creative Commons 0
+
+wet thwack by adviseme333 -- https://freesound.org/s/679391/ -- License: Creative Commons 0
