@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1yb3lcbys7tc"]
+[gd_scene load_steps=11 format=3 uid="uid://c1yb3lcbys7tc"]
 
 [ext_resource type="Script" path="res://punch_effect.gd" id="1_hbddo"]
 [ext_resource type="Texture2D" uid="uid://bb5haolphqf2c" path="res://Images/punchhand.png" id="2_vvowl"]
+[ext_resource type="AudioStream" uid="uid://rfev2oycnjbb" path="res://SFX/434871__nic3_one__kung-fu-whooshes.wav" id="3_10625"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_id1fx"]
 atlas = ExtResource("2_vvowl")
@@ -107,3 +108,7 @@ centered = false
 libraries = {
 "": SubResource("AnimationLibrary_11bqm")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_10625")
+bus = &"SFX"

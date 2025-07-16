@@ -3,6 +3,8 @@ extends Node2D
 @export var blast_texture : Texture2D
 @export var done_texture : Texture2D
 
+@onready var smack = $Smack
+
 @onready var anim1 = $G1/G/Anim
 @onready var punch1 = $G1/Punch
 @onready var anim2 = $G2/G/Anim
@@ -74,26 +76,38 @@ func take_input(sc : String, release = false):
 		anim1.play("Die")
 		g1 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "O" and !g2:
 		anim2.play("Die")
 		g2 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "B" and !g3:
 		anim3.play("Die")
 		g3 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "L" and !g4:
 		anim4.play("Die")
 		g4 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "I" and !g5:
 		anim5.play("Die")
 		g5 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "N" and !g6:
 		anim6.play("Die")
 		g6 = true
 		gobs_kill += 1
+		smack.stop()
+		smack.play()
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
 			"quality": float(gobs_kill)/6.0,
