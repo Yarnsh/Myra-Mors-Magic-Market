@@ -131,9 +131,9 @@ func handle_order_result(result):
 			
 			if quality >= 0.5:
 				if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-					vibe = max(0.0, min(max_vibe, vibe + (0.35 * quality)))
+					vibe = max(0.0, min(max_vibe, vibe + ((0.35 * quality) * result.get("vibe_gain_mult", 1.0))))
 				else:
-					vibe = max(0.0, min(max_vibe, vibe + (0.15 * quality)))
+					vibe = max(0.0, min(max_vibe, vibe + ((0.15 * quality) * result.get("vibe_gain_mult", 1.0))))
 				vibe_indicator.gain()
 			else:
 				if GameGlobals.prep_stations.check_requirements({"incense": 1}):

@@ -1,0 +1,109 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1yb3lcbys7tc"]
+
+[ext_resource type="Script" path="res://punch_effect.gd" id="1_hbddo"]
+[ext_resource type="Texture2D" uid="uid://bb5haolphqf2c" path="res://Images/punchhand.png" id="2_vvowl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id1fx"]
+atlas = ExtResource("2_vvowl")
+region = Rect2(0, 0, 386, 725)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpmum"]
+atlas = ExtResource("2_vvowl")
+region = Rect2(386, 0, 386, 725)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7wie"]
+atlas = ExtResource("2_vvowl")
+region = Rect2(772, 0, 386, 725)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl5ao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id1fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpmum")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7wie")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_ggm4y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-98, -46)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gxy4v"]
+resource_name = "punch"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.2664),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-50, 304), Vector2(-110, -42), Vector2(-34, 42)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.2, 0.2664),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_11bqm"]
+_data = {
+"RESET": SubResource("Animation_ggm4y"),
+"punch": SubResource("Animation_gxy4v")
+}
+
+[node name="Punch" type="Node2D"]
+position = Vector2(200, -224)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hbddo")
+
+[node name="Punch" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-98, -46)
+sprite_frames = SubResource("SpriteFrames_cl5ao")
+centered = false
+
+[node name="Anim" type="AnimationPlayer" parent="Punch"]
+libraries = {
+"": SubResource("AnimationLibrary_11bqm")
+}

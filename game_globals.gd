@@ -26,14 +26,15 @@ var potion_order = {
 	"icon": load("res://Images/PotionOrder.png"),
 	"prep_icon": load("res://Images/Cauldron.png"),
 	"prep_key": "P",
-	"prep_task": "PotionPrep"
+	"prep_task": "PotionPrep",
+	"description": "Ready made potions with no specific benefit, but having them ready leads to quick sales!"
 }
 var ponder_order = {
-	"name": "Future Reading",
+	"name": "Fortune Reading",
 	"task": "PonderOrb",
 	"requirements": {},
 	"icon": load("res://Images/PonderOrbOrder.png"),
-	"description": "Predict their future, aim for some good news for a big tip!"
+	"description": "Predict their future, aim for some good news for a big tip! Bad news will greatly reduce vibe however..."
 }
 var crystal_recipe = {
 	"name": "Pre-charged Crystals",
@@ -42,7 +43,7 @@ var crystal_recipe = {
 	"prep_icon": load("res://Images/crystal.png"),
 	"prep_key": "C",
 	"prep_task": "ChargeCrystals",
-	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever order they came in for!"
+	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever they buy!"
 }
 var incense_recipe = {
 	"name": "Incense Burning",
@@ -54,18 +55,18 @@ var incense_recipe = {
 	"description": "Light incense to make the store smell nice. While it is burning successful sales greatly increase vibe!"
 }
 var gong_order = {
-	"name": "Scare Spirits",
+	"name": "Spirit Scaring Gong",
 	"task": "Gong",
 	"requirements": {},
 	"icon": load("res://Images/GongOrder.png"),
-	"description": "BONG!!!"
+	"description": "Bong the big gong to scare away vile spirits. Raises the vibe of the store more than other orders!"
 }
 var slip_order = {
 	"name": "Draw Senjafuda",
 	"task": "Senjafuda",
 	"requirements": {},
 	"icon": load("res://Images/SenjafudaOrder.png"),
-	"description": "Draw the weeb paper, get the weeb money"
+	"description": "Quick and simple paper charms. The sale of these brings no specific benefit, but it is fast."
 }
 var goblin_chore = {
 	"name": "Goblins are about",

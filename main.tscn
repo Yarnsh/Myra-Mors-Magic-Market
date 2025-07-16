@@ -290,7 +290,7 @@ bus = &"SFX"
 [connection signal="pressed" from="Menu/Main/MarginContainer/VBoxContainer/Settings" to="Menu" method="_on_settings_pressed"]
 [connection signal="toggled" from="Menu/Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Menu/Settings" method="_on_change"]
 [connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/Master" to="Menu/Settings" method="_on_change"]
-[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/SFX" to="Menu/Settings" method="_on_change"]
 [connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/SFX" to="Menu/Settings" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/SFX" to="Menu/Settings" method="_on_change"]
 [connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/Music" to="Menu/Settings" method="_on_change"]
 [connection signal="pressed" from="Menu/Settings/MarginContainer/All/Button" to="Menu/Settings" method="_on_done_pressed"]

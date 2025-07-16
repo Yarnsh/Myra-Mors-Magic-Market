@@ -38,7 +38,7 @@ func take_input(sc : String, release = false):
 	elif sc == "Enter":
 		var q = 0.0
 		if selected >= 0:
-			q = 0.5
+			q = 0.1
 		if selected in good_list:
 			q = 1.0
 		GameGlobals.task_manager.report_result({

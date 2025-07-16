@@ -4,11 +4,17 @@ extends Node2D
 @export var done_texture : Texture2D
 
 @onready var anim1 = $G1/G/Anim
+@onready var punch1 = $G1/Punch
 @onready var anim2 = $G2/G/Anim
+@onready var punch2 = $G2/Punch
 @onready var anim3 = $G3/G/Anim
+@onready var punch3 = $G3/Punch
 @onready var anim4 = $G4/G/Anim
+@onready var punch4 = $G4/Punch
 @onready var anim5 = $G5/G/Anim
+@onready var punch5 = $G5/Punch
 @onready var anim6 = $G6/G/Anim
+@onready var punch6 = $G6/Punch
 
 var gobs_kill = 0
 var g1 = false
@@ -51,6 +57,19 @@ func reset_task():
 	gobs_kill = 0
 
 func take_input(sc : String, release = false):
+	if sc == "G":
+		punch1.play()
+	elif sc == "O":
+		punch2.play()
+	elif sc == "B":
+		punch3.play()
+	elif sc == "L":
+		punch4.play()
+	elif sc == "I":
+		punch5.play()
+	elif sc == "N":
+		punch6.play()
+	
 	if sc == "G" and !g1:
 		anim1.play("Die")
 		g1 = true

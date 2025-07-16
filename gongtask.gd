@@ -27,7 +27,8 @@ func take_input(sc : String):
 		holding = true
 	elif sc == "Enter":
 		GameGlobals.task_manager.report_result({
-			"quality": q
+			"quality": q,
+			"vibe_gain_mult": 5.0 * q
 		})
 		GameGlobals.task_manager.stop_task()
 

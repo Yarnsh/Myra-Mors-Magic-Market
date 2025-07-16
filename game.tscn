@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=151 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" path="res://gongtask.gd" id="46_4y0rq"]
 [ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="46_v7jpx"]
 [ext_resource type="Texture2D" uid="uid://c5kg2he80ghyo" path="res://Images/gonghammer.png" id="47_aw74y"]
+[ext_resource type="PackedScene" uid="uid://c1yb3lcbys7tc" path="res://punch.tscn" id="47_tlmwk"]
 [ext_resource type="Script" path="res://senjafuda.gd" id="49_6l8ws"]
 [ext_resource type="Texture2D" uid="uid://bq7w0nphpvugc" path="res://Images/fire.png" id="49_8cp8x"]
 [ext_resource type="Script" path="res://fire.gd" id="49_58ph3"]
@@ -1175,7 +1176,8 @@ texture = ExtResource("3_r7l8o")
 [node name="Money" parent="." instance=ExtResource("2_chaep")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
-offset_left = -200.0
+offset_left = 91.0
+offset_right = 291.0
 offset_bottom = 100.0
 
 [node name="Vibe" type="Sprite2D" parent="Money"]
@@ -1580,6 +1582,11 @@ libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
 
+[node name="Punch" parent="Task/GoblinChore/G1" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = 1.97934
+scale = Vector2(0.5, 0.5)
+
 [node name="G2" type="Node2D" parent="Task/GoblinChore"]
 position = Vector2(206, -190)
 
@@ -1592,6 +1599,11 @@ texture = ExtResource("20_d4r1p")
 libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
+
+[node name="Punch" parent="Task/GoblinChore/G2" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = -0.612111
+scale = Vector2(0.5, 0.5)
 
 [node name="G3" type="Node2D" parent="Task/GoblinChore"]
 position = Vector2(216, -455)
@@ -1606,6 +1618,11 @@ libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
 
+[node name="Punch" parent="Task/GoblinChore/G3" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = 4.41919
+scale = Vector2(0.5, 0.5)
+
 [node name="G4" type="Node2D" parent="Task/GoblinChore"]
 position = Vector2(-312, -203)
 
@@ -1618,6 +1635,11 @@ texture = ExtResource("20_d4r1p")
 libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
+
+[node name="Punch" parent="Task/GoblinChore/G4" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = 0.879805
+scale = Vector2(0.5, 0.5)
 
 [node name="G5" type="Node2D" parent="Task/GoblinChore"]
 position = Vector2(-71, -243)
@@ -1632,6 +1654,11 @@ libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
 
+[node name="Punch" parent="Task/GoblinChore/G5" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = 0.0191488
+scale = Vector2(0.5, 0.5)
+
 [node name="G6" type="Node2D" parent="Task/GoblinChore"]
 position = Vector2(28, -493)
 
@@ -1644,6 +1671,11 @@ texture = ExtResource("20_d4r1p")
 libraries = {
 "": SubResource("AnimationLibrary_6c74w")
 }
+
+[node name="Punch" parent="Task/GoblinChore/G6" instance=ExtResource("47_tlmwk")]
+position = Vector2(-1, -34)
+rotation = 3.57442
+scale = Vector2(0.5, 0.5)
 
 [node name="PrepStationTask" type="Node2D" parent="Task"]
 visible = false
