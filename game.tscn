@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=155 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -84,6 +84,7 @@
 [ext_resource type="Texture2D" uid="uid://bodqb14p3hv0i" path="res://Images/IncenseControl2.png" id="73_slvmj"]
 [ext_resource type="Script" path="res://result_screen.gd" id="74_fnlgr"]
 [ext_resource type="Texture2D" uid="uid://cjlv2vocrblv" path="res://Images/IncenseControl3.png" id="74_my2ig"]
+[ext_resource type="AudioStream" uid="uid://dhrlenffs7lld" path="res://SFX/802604__jelloapocalypse__pencil-writing-and-taps.wav" id="75_26mi4"]
 [ext_resource type="Texture2D" uid="uid://c4hvbjlhtrc57" path="res://Images/IncenseControl1b.png" id="75_eiktu"]
 [ext_resource type="AudioStream" uid="uid://1m446bxvjnn7" path="res://SFX/590363__mrfossy__sfx_stickerripper_foilbooms_04.wav" id="75_q5psf"]
 [ext_resource type="Texture2D" uid="uid://c0io3p42nbdgf" path="res://Images/IncenseControl2b.png" id="76_hr813"]
@@ -1868,6 +1869,11 @@ position = Vector2(-169, -582)
 rotation = -0.193994
 scale = Vector2(0.63961, 0.63961)
 texture = ExtResource("56_eobwl")
+
+[node name="Writing" type="AudioStreamPlayer" parent="Task/Taxes"]
+stream = ExtResource("75_26mi4")
+pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="Incense" type="Node2D" parent="Task"]
 visible = false

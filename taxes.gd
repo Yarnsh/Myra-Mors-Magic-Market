@@ -3,6 +3,8 @@ extends Node2D
 @export var control_texture : Texture2D
 @export var done_texture : Texture2D
 
+@onready var write_sfx = $Writing
+
 @export var line1 : Texture2D
 @export var line2 : Texture2D
 @export var line3 : Texture2D
@@ -49,6 +51,8 @@ func take_input(sc : String, release = false):
 		if sprites[strokes].texture != lines_unshuffled[k_to_idx[sc]]:
 			q = 0.0
 		strokes += 1
+		write_sfx.stop()
+		write_sfx.play()
 		#anim.stop()
 		#anim.play("write")
 	elif sc == "Enter":
