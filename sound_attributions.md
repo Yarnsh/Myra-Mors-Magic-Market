@@ -24,3 +24,7 @@ magnets crackling together by gecop -- https://freesound.org/s/522116/ -- Licens
 Kung-Fu Whooshes .wav by Nic3_one -- https://freesound.org/s/434871/ -- License: Creative Commons 0
 
 wet thwack by adviseme333 -- https://freesound.org/s/679391/ -- License: Creative Commons 0
+
+French gong 2 by Logicogonist -- https://freesound.org/s/735855/ -- License: Creative Commons 0
+
+Gong 3.wav by juskiddink -- https://freesound.org/s/122681/ -- License: Attribution 4.0
