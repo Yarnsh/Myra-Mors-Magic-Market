@@ -6,6 +6,7 @@ extends Node2D
 @onready var swipe = $Swipe
 
 @onready var anim = $Anim
+@onready var wanim = $WrongAnim
 @onready var s1 = $Slip/S1
 @onready var s2 = $Slip/S2
 @onready var s3 = $Slip/S3
@@ -40,8 +41,8 @@ func take_input(sc : String, release = false):
 			swipe.stop()
 			swipe.play()
 		else:
-			anim.stop()
-			anim.play("Wrong")
+			wanim.stop()
+			wanim.play("Wrong")
 	elif sc == "L":
 		if strokes % 2 == 0 and strokes < 5:
 			strokes += 1
@@ -51,8 +52,8 @@ func take_input(sc : String, release = false):
 			swipe.stop()
 			swipe.play()
 		else:
-			anim.stop()
-			anim.play("Wrong")
+			wanim.stop()
+			wanim.play("Wrong")
 	elif sc == "Enter":
 		var q = strokes * 0.2
 		GameGlobals.task_manager.report_result({
