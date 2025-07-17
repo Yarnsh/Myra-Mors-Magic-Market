@@ -1,4 +1,4 @@
-[gd_scene load_steps=152 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=154 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -61,7 +61,9 @@
 [ext_resource type="Texture2D" uid="uid://bvpeut3yfk37k" path="res://Images/slip_1_1.png" id="51_k2l0l"]
 [ext_resource type="Texture2D" uid="uid://vt5pd2304d06" path="res://Images/slip_1_2.png" id="52_lbei2"]
 [ext_resource type="Texture2D" uid="uid://blxgl3plsguth" path="res://Images/slip_1_3.png" id="53_7bwkw"]
+[ext_resource type="AudioStream" uid="uid://c1v7albu3eycb" path="res://SFX/122681__juskiddink__gong-3.wav" id="53_elv2i"]
 [ext_resource type="Texture2D" uid="uid://bjs2snra0pgiv" path="res://Images/slip_1_4.png" id="54_hs7b0"]
+[ext_resource type="AudioStream" uid="uid://crwob3jq7fli8" path="res://SFX/735855__logicogonist__french-gong-2.wav" id="54_y0b27"]
 [ext_resource type="Texture2D" uid="uid://dwhw423oiox7x" path="res://Images/slip_1_5.png" id="55_wcxvk"]
 [ext_resource type="Texture2D" uid="uid://ct1ertpg0t8y3" path="res://Images/brush.png" id="56_eobwl"]
 [ext_resource type="Script" path="res://incense.gd" id="57_y2b27"]
@@ -1727,6 +1729,14 @@ offset = Vector2(-306.667, 248.889)
 libraries = {
 "": SubResource("AnimationLibrary_7rfro")
 }
+
+[node name="Hit" type="AudioStreamPlayer" parent="Task/Gong"]
+stream = ExtResource("53_elv2i")
+bus = &"SFX"
+
+[node name="Success" type="AudioStreamPlayer" parent="Task/Gong"]
+stream = ExtResource("54_y0b27")
+bus = &"SFX"
 
 [node name="Fire" type="Node2D" parent="Task"]
 visible = false
