@@ -28,3 +28,9 @@ wet thwack by adviseme333 -- https://freesound.org/s/679391/ -- License: Creativ
 French gong 2 by Logicogonist -- https://freesound.org/s/735855/ -- License: Creative Commons 0
 
 Gong 3.wav by juskiddink -- https://freesound.org/s/122681/ -- License: Attribution 4.0
+
+Lighter_lightRelease.aif by kbnevel -- https://freesound.org/s/119841/ -- License: Creative Commons 0
+
+bubble by Ranner -- https://freesound.org/s/487531/ -- License: Creative Commons 0
+
+brush_strokes by KenneysGarage -- https://freesound.org/s/754324/ -- License: Creative Commons 0
