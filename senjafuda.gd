@@ -3,6 +3,8 @@ extends Node2D
 @export var control_texture : Texture2D
 @export var done_texture : Texture2D
 
+@onready var swipe = $Swipe
+
 @onready var anim = $Anim
 @onready var s1 = $Slip/S1
 @onready var s2 = $Slip/S2
@@ -35,6 +37,8 @@ func take_input(sc : String, release = false):
 			sl[strokes-1].show()
 			anim.stop()
 			anim.play(str(strokes))
+			swipe.stop()
+			swipe.play()
 		else:
 			anim.stop()
 			anim.play("Wrong")
@@ -44,6 +48,8 @@ func take_input(sc : String, release = false):
 			sl[strokes-1].show()
 			anim.stop()
 			anim.play(str(strokes))
+			swipe.stop()
+			swipe.play()
 		else:
 			anim.stop()
 			anim.play("Wrong")

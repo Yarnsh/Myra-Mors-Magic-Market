@@ -10,6 +10,9 @@ extends Node2D
 @export var done_texture : Texture2D
 @export var prepped_icon : Texture2D
 
+@onready var lighter = $Lighter
+@onready var put_thing = $PutThing
+
 @onready var i1 = $I1
 @onready var i2 = $I2
 @onready var i3 = $I3
@@ -41,22 +44,34 @@ func take_input(sc : String, release = false):
 		if i1.visible:
 			p1.restart()
 			b1.show()
+			lighter.stop()
+			lighter.play()
 		else:
 			i1.show()
+			put_thing.stop()
+			put_thing.play()
 			GameGlobals.controls.apply_control(3, "I", control_texture1b)
 	elif sc == "N":
 		if i2.visible:
 			p2.restart()
 			b2.show()
+			lighter.stop()
+			lighter.play()
 		else:
 			i2.show()
+			put_thing.stop()
+			put_thing.play()
 			GameGlobals.controls.apply_control(4, "N", control_texture2b)
 	elif sc == "C":
 		if i3.visible:
 			p3.restart()
 			b3.show()
+			lighter.stop()
+			lighter.play()
 		else:
 			i3.show()
+			put_thing.stop()
+			put_thing.play()
 			GameGlobals.controls.apply_control(5, "C", control_texture3b)
 	elif sc == "Enter":
 		var q = 0.0

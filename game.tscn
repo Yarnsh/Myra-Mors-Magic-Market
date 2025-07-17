@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=158 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -78,6 +78,7 @@
 [ext_resource type="Texture2D" uid="uid://0cax1n2legox" path="res://Images/signatureLine.png" id="63_gypxw"]
 [ext_resource type="Texture2D" uid="uid://cf6qbu17pfe1r" path="res://Images/nameWrite.png" id="64_b2qdu"]
 [ext_resource type="Texture2D" uid="uid://dyndmbq7qs4ru" path="res://Images/dateWrite.png" id="65_b525v"]
+[ext_resource type="AudioStream" uid="uid://b8kbq3wjtghgb" path="res://SFX/754324__kenneysgarage__brush_strokes.wav" id="66_k4ny6"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
 [ext_resource type="Texture2D" uid="uid://blpnslqtktp4g" path="res://Images/IncenseControl1.png" id="72_fq6rl"]
 [ext_resource type="Texture2D" uid="uid://cdcx02sbgeker" path="res://Images/PrepIncense.png" id="72_iyokx"]
@@ -93,6 +94,8 @@
 [ext_resource type="Texture2D" uid="uid://doqvehoroinun" path="res://Images/IncenseControl3b.png" id="77_6x1ub"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="77_8q7at"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
+[ext_resource type="AudioStream" uid="uid://rhrpmq4tq8da" path="res://SFX/119841__kbnevel__lighter_lightrelease.wav" id="87_o1iya"]
+[ext_resource type="AudioStream" uid="uid://vrxvbj4dc81u" path="res://SFX/487531__ranner__bubble.wav" id="88_yw12j"]
 
 [sub_resource type="Animation" id="Animation_xeomp"]
 length = 0.001
@@ -1824,6 +1827,10 @@ libraries = {
 "": SubResource("AnimationLibrary_coilb")
 }
 
+[node name="Swipe" type="AudioStreamPlayer" parent="Task/Senjafuda"]
+stream = ExtResource("66_k4ny6")
+bus = &"SFX"
+
 [node name="Taxes" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("60_3qutf")
@@ -1954,6 +1961,14 @@ scale = Vector2(1.20076, 0.894188)
 skew = 0.37269
 process_material = SubResource("ParticleProcessMaterial_nlpgg")
 texture = SubResource("NoiseTexture2D_gro4u")
+
+[node name="Lighter" type="AudioStreamPlayer" parent="Task/Incense"]
+stream = ExtResource("87_o1iya")
+bus = &"SFX"
+
+[node name="PutThing" type="AudioStreamPlayer" parent="Task/Incense"]
+stream = ExtResource("88_yw12j")
+bus = &"SFX"
 
 [node name="TaskText" type="PanelContainer" parent="."]
 visible = false

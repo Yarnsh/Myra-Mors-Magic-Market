@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dr3kg1k2pgvli"]
+[gd_scene load_steps=12 format=3 uid="uid://dr3kg1k2pgvli"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
@@ -7,10 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bmoxwb8d6mrt0" path="res://upgrades_2.tscn" id="5_gfihx"]
 [ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="6_gqo16"]
 [ext_resource type="Script" path="res://fade.gd" id="7_7vkoe"]
-[ext_resource type="Script" path="res://menu.gd" id="8_ae4ah"]
-[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="8_mmh20"]
-[ext_resource type="Script" path="res://settings.gd" id="10_cimcr"]
-[ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="11_4j6yw"]
+[ext_resource type="PackedScene" uid="uid://6yvdwoh8ctr4" path="res://menu.tscn" id="8_kcu1f"]
 
 [sub_resource type="Animation" id="Animation_rv5ww"]
 resource_name = "Fade"
@@ -131,166 +128,7 @@ libraries = {
 "": SubResource("AnimationLibrary_7pbhw")
 }
 
-[node name="Menu" type="Control" parent="."]
-texture_filter = 1
+[node name="Menu" parent="." instance=ExtResource("8_kcu1f")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("8_ae4ah")
-
-[node name="TextureRect" type="TextureRect" parent="Menu"]
-modulate = Color(0.0588235, 0.0588235, 0.0588235, 0.694118)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -72.0
-offset_bottom = 72.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("6_gqo16")
-
-[node name="Main" type="PanelContainer" parent="Menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -33.0
-offset_right = 44.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MetalBorder" parent="Menu/Main" instance=ExtResource("8_mmh20")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Main"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/Main/MarginContainer"]
-layout_mode = 2
-
-[node name="Continue" type="Button" parent="Menu/Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play!"
-
-[node name="Settings" type="Button" parent="Menu/Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Settings"
-
-[node name="Exit" type="Button" parent="Menu/Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit Game"
-
-[node name="Settings" type="PanelContainer" parent="Menu"]
-visible = false
-layout_mode = 2
-offset_left = 417.5
-offset_top = 186.0
-offset_right = 542.5
-offset_bottom = 354.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("10_cimcr")
-
-[node name="MetalBorder" parent="Menu/Settings" instance=ExtResource("8_mmh20")]
-layout_mode = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu/Settings"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="All" type="VBoxContainer" parent="Menu/Settings/MarginContainer"]
-layout_mode = 2
-
-[node name="Options" type="HBoxContainer" parent="Menu/Settings/MarginContainer/All"]
-layout_mode = 2
-alignment = 1
-
-[node name="Labels" type="VBoxContainer" parent="Menu/Settings/MarginContainer/All/Options"]
-layout_mode = 2
-
-[node name="Fullscreen" type="Label" parent="Menu/Settings/MarginContainer/All/Options/Labels"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-text = "Fullscreen"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Master" type="Label" parent="Menu/Settings/MarginContainer/All/Options/Labels"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-text = "Master"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="SFX" type="Label" parent="Menu/Settings/MarginContainer/All/Options/Labels"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-text = "SFX"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="Music" type="Label" parent="Menu/Settings/MarginContainer/All/Options/Labels"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-text = "Music"
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="VSeparator" type="VSeparator" parent="Menu/Settings/MarginContainer/All/Options"]
-layout_mode = 2
-
-[node name="Controls" type="VBoxContainer" parent="Menu/Settings/MarginContainer/All/Options"]
-layout_mode = 2
-alignment = 1
-
-[node name="Fullscreen" type="CheckButton" parent="Menu/Settings/MarginContainer/All/Options/Controls"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-
-[node name="Master" type="HSlider" parent="Menu/Settings/MarginContainer/All/Options/Controls"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-
-[node name="SFX" type="HSlider" parent="Menu/Settings/MarginContainer/All/Options/Controls"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-
-[node name="Music" type="HSlider" parent="Menu/Settings/MarginContainer/All/Options/Controls"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="Menu/Settings/MarginContainer/All"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Done"
-
-[node name="TestSFX" type="AudioStreamPlayer" parent="Menu/Settings"]
-stream = ExtResource("11_4j6yw")
-bus = &"SFX"
 
 [connection signal="animation_finished" from="Fade/Anim" to="Fade" method="_on_anim_animation_finished"]
-[connection signal="pressed" from="Menu/Main/MarginContainer/VBoxContainer/Continue" to="Menu" method="_on_continue_pressed"]
-[connection signal="pressed" from="Menu/Main/MarginContainer/VBoxContainer/Settings" to="Menu" method="_on_settings_pressed"]
-[connection signal="toggled" from="Menu/Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Menu/Settings" method="_on_change"]
-[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/Master" to="Menu/Settings" method="_on_change"]
-[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/SFX" to="Menu/Settings" method="_on_sfx_value_changed"]
-[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/SFX" to="Menu/Settings" method="_on_change"]
-[connection signal="value_changed" from="Menu/Settings/MarginContainer/All/Options/Controls/Music" to="Menu/Settings" method="_on_change"]
-[connection signal="pressed" from="Menu/Settings/MarginContainer/All/Button" to="Menu/Settings" method="_on_done_pressed"]

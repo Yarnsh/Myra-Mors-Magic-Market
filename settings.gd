@@ -9,11 +9,13 @@ extends PanelContainer
 @onready var test_sfx = $TestSFX
 
 var last_settings = {}
+var ready_done = false
 
 func _ready():
 	set_settings_from_dict(read_from_file())
 	apply_current_settings()
 	last_settings = get_current_settings_dict()
+	ready_done = true
 
 func get_current_settings_dict():
 	return {
@@ -48,7 +50,8 @@ func _on_change(value):
 	apply_current_settings()
 
 func _on_sfx_value_changed(value: float) -> void:
-	test_sfx.play()
+	if ready_done:
+		test_sfx.play()
 
 func write_to_file(settings):
 	var text = JSON.stringify(settings)

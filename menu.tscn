@@ -1,0 +1,170 @@
+[gd_scene load_steps=6 format=3 uid="uid://6yvdwoh8ctr4"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_fvh8s"]
+[ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="2_jnx5c"]
+[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="3_inaj7"]
+[ext_resource type="Script" path="res://settings.gd" id="4_8sjyc"]
+[ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="5_bdawe"]
+
+[node name="Menu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fvh8s")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.0588235, 0.0588235, 0.0588235, 0.694118)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jnx5c")
+
+[node name="Main" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -33.0
+offset_right = 44.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MetalBorder" parent="Main" instance=ExtResource("3_inaj7")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Main"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play!"
+
+[node name="Settings" type="Button" parent="Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="Main/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[node name="Settings" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 417.5
+offset_top = 186.0
+offset_right = 542.5
+offset_bottom = 354.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_8sjyc")
+
+[node name="MetalBorder" parent="Settings" instance=ExtResource("3_inaj7")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="All" type="VBoxContainer" parent="Settings/MarginContainer"]
+layout_mode = 2
+
+[node name="Options" type="HBoxContainer" parent="Settings/MarginContainer/All"]
+layout_mode = 2
+alignment = 1
+
+[node name="Labels" type="VBoxContainer" parent="Settings/MarginContainer/All/Options"]
+layout_mode = 2
+
+[node name="Fullscreen" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Fullscreen"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Master" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Master"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="SFX" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "SFX"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Music" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Settings/MarginContainer/All/Options"]
+layout_mode = 2
+
+[node name="Controls" type="VBoxContainer" parent="Settings/MarginContainer/All/Options"]
+layout_mode = 2
+alignment = 1
+
+[node name="Fullscreen" type="CheckButton" parent="Settings/MarginContainer/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="Master" type="HSlider" parent="Settings/MarginContainer/All/Options/Controls"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+
+[node name="SFX" type="HSlider" parent="Settings/MarginContainer/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Music" type="HSlider" parent="Settings/MarginContainer/All/Options/Controls"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Settings/MarginContainer/All"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Done"
+
+[node name="TestSFX" type="AudioStreamPlayer" parent="Settings"]
+stream = ExtResource("5_bdawe")
+bus = &"SFX"
+
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Master" to="Settings" method="_on_change"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Music" to="Settings" method="_on_change"]
+[connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
