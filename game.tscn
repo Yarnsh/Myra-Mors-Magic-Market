@@ -1,4 +1,4 @@
-[gd_scene load_steps=160 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=170 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://q38t4ooy37di" path="res://Images/ControlButtonPonder.png" id="21_docjb"]
 [ext_resource type="Texture2D" uid="uid://dg3ctaidh8pxt" path="res://Images/ControlButtonDone.png" id="21_wlpc6"]
 [ext_resource type="Script" path="res://task_text.gd" id="30_lnv00"]
+[ext_resource type="AudioStream" uid="uid://bj04oinabgxgy" path="res://SFX/539763__garuda1982__water-plop-splash-falling-sound-effect.wav" id="31_tl1xe"]
 [ext_resource type="Texture2D" uid="uid://bk0yc8e5euijw" path="res://Images/skeleton.png" id="32_clslq"]
 [ext_resource type="Texture2D" uid="uid://bhsw4t4r6a6om" path="res://Images/mudkip.png" id="33_6sdsg"]
 [ext_resource type="Texture2D" uid="uid://coh2v41ujrocw" path="res://Images/myradying.png" id="33_s623n"]
@@ -48,6 +49,9 @@
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="39_000hw"]
 [ext_resource type="Texture2D" uid="uid://ossjbfqaoaf" path="res://Images/CrystalPrep.png" id="39_uwol7"]
 [ext_resource type="Texture2D" uid="uid://8wvs8u06wey4" path="res://Images/shine.png" id="40_sprrn"]
+[ext_resource type="AudioStream" uid="uid://bkjwk4m7feq3j" path="res://SFX/699008__kanyonwyvern__hmm2.wav" id="41_naqe0"]
+[ext_resource type="AudioStream" uid="uid://drib8s2b0ebxr" path="res://SFX/heavens_short.wav" id="44_ct1lq"]
+[ext_resource type="AudioStream" uid="uid://cjd6hdbg6or67" path="res://SFX/581166__magnuswaker__heavens-reprise.wav" id="45_jqlfd"]
 [ext_resource type="Script" path="res://gongtask.gd" id="46_4y0rq"]
 [ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="46_v7jpx"]
 [ext_resource type="Texture2D" uid="uid://c5kg2he80ghyo" path="res://Images/gonghammer.png" id="47_aw74y"]
@@ -68,8 +72,11 @@
 [ext_resource type="Texture2D" uid="uid://ct1ertpg0t8y3" path="res://Images/brush.png" id="56_eobwl"]
 [ext_resource type="Script" path="res://incense.gd" id="57_y2b27"]
 [ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="58_gr2lp"]
+[ext_resource type="AudioStream" uid="uid://btrjr62a3n7ew" path="res://SFX/439232__sonicquinn__rushing-through-canal-lock_03_stereoxy_192000.wav" id="58_h6h6y"]
+[ext_resource type="AudioStream" uid="uid://crirm8rxki7ju" path="res://SFX/483309__craigsmith__r09-65-kindling-fire.wav" id="59_k2tcx"]
 [ext_resource type="Texture2D" uid="uid://dopd18r7apwvg" path="res://Images/Incense.png" id="59_l3qfl"]
 [ext_resource type="Script" path="res://taxes.gd" id="60_3qutf"]
+[ext_resource type="AudioStream" uid="uid://bmeg8vs1138qk" path="res://SFX/155660__the_semen_incident__cig_extinguish.wav" id="60_65ifd"]
 [ext_resource type="Texture2D" uid="uid://csxn6t1r347u3" path="res://Images/IncenseBurning.png" id="60_qcdxv"]
 [ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="61_dxrcy"]
 [ext_resource type="Texture2D" uid="uid://d0ennqfh0oldk" path="res://Images/nameLine.png" id="61_k6kxt"]
@@ -960,6 +967,67 @@ _data = {
 "Wrong": SubResource("Animation_ndqdl")
 }
 
+[sub_resource type="Animation" id="Animation_xlvqj"]
+resource_name = "Write"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush/Brush:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.1998),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-108, -219), Vector2(-86, -265), Vector2(-63, -183), Vector2(-13, -269), Vector2(11, -188), Vector2(95, -273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0363539, -0.0586435, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yysuw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Brush/Brush:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-108, -219)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Paper:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1eor0"]
+_data = {
+"RESET": SubResource("Animation_yysuw"),
+"Write": SubResource("Animation_xlvqj")
+}
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nlpgg"]
 particle_flag_disable_z = true
 gravity = Vector3(0, -98, 0)
@@ -1496,6 +1564,9 @@ libraries = {
 "": SubResource("AnimationLibrary_8al16")
 }
 
+[node name="Plop" type="AudioStreamPlayer" parent="Task/PotionPrep"]
+stream = ExtResource("31_tl1xe")
+
 [node name="PonderOrb" type="Node2D" parent="Task"]
 visible = false
 position = Vector2(-5, 89)
@@ -1561,6 +1632,9 @@ libraries = {
 "": SubResource("AnimationLibrary_m01s7")
 }
 
+[node name="Hmm" type="AudioStreamPlayer" parent="Task/PonderOrb"]
+stream = ExtResource("41_naqe0")
+
 [node name="ChargeCrystals" type="Node2D" parent="Task"]
 visible = false
 position = Vector2(-5, 89)
@@ -1588,6 +1662,16 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_ckc58")
 }
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="Task/ChargeCrystals"]
+stream = ExtResource("44_ct1lq")
+pitch_scale = 2.0
+bus = &"SFX"
+
+[node name="DoneSFX" type="AudioStreamPlayer" parent="Task/ChargeCrystals"]
+stream = ExtResource("45_jqlfd")
+pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="GoblinChore" type="Node2D" parent="Task"]
 visible = false
@@ -1800,6 +1884,18 @@ libraries = {
 "": SubResource("AnimationLibrary_qmy88")
 }
 
+[node name="WaterSFX" type="AudioStreamPlayer" parent="Task/Fire"]
+stream = ExtResource("58_h6h6y")
+bus = &"SFX"
+
+[node name="FireSFX" type="AudioStreamPlayer" parent="Task/Fire"]
+stream = ExtResource("59_k2tcx")
+bus = &"SFX"
+
+[node name="ExtinguishSFX" type="AudioStreamPlayer" parent="Task/Fire"]
+stream = ExtResource("60_65ifd")
+bus = &"SFX"
+
 [node name="Senjafuda" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("49_6l8ws")
@@ -1890,8 +1986,11 @@ position = Vector2(43.3334, -18.3333)
 position = Vector2(-3.33331, 0)
 texture = ExtResource("63_7g5bk")
 
-[node name="Brush" type="Sprite2D" parent="Task/Taxes"]
-position = Vector2(-169, -582)
+[node name="Brush" type="Node2D" parent="Task/Taxes"]
+position = Vector2(24, -168)
+
+[node name="Brush" type="Sprite2D" parent="Task/Taxes/Brush"]
+position = Vector2(-108, -219)
 rotation = -0.193994
 scale = Vector2(0.63961, 0.63961)
 texture = ExtResource("56_eobwl")
@@ -1900,6 +1999,11 @@ texture = ExtResource("56_eobwl")
 stream = ExtResource("75_26mi4")
 pitch_scale = 1.5
 bus = &"SFX"
+
+[node name="Anim" type="AnimationPlayer" parent="Task/Taxes"]
+libraries = {
+"": SubResource("AnimationLibrary_1eor0")
+}
 
 [node name="Incense" type="Node2D" parent="Task"]
 visible = false

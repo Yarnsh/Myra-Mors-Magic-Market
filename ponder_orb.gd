@@ -3,6 +3,8 @@ extends Node2D
 @export var control_texture : Texture2D
 @export var done_texture : Texture2D
 
+@onready var hmm = $Hmm
+
 @onready var anim = $Anim
 @onready var sprites_parent = $C1
 var selected = -1
@@ -24,6 +26,8 @@ func take_input(sc : String, release = false):
 	if sc == "P":
 		anim.stop()
 		anim.play("Ponder")
+		hmm.stop()
+		hmm.play()
 		if selected < 0:
 			selected = randi_range(0, len(sprites_parent.get_children())-1)
 		else:

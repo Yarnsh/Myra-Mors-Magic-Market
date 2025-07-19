@@ -7,6 +7,8 @@ extends Node2D
 @export var done_texture : Texture2D
 @export var prepped_icon : Texture2D
 
+@onready var plop = $Plop
+
 @onready var c_anim = $CauldronAnim
 @onready var pr = $PotionRed
 @onready var pb = $PotionBlue
@@ -34,21 +36,29 @@ func take_input(sc : String, release = false):
 		if pb.visible:
 			c_anim.stop()
 			c_anim.play("ItemAdded")
+			plop.stop()
+			plop.play()
 		pb.hide()
 	elif sc == "Y":
 		if py.visible:
 			c_anim.stop()
 			c_anim.play("ItemAdded")
+			plop.stop()
+			plop.play()
 		py.hide()
 	elif sc == "R":
 		if pr.visible:
 			c_anim.stop()
 			c_anim.play("ItemAdded")
+			plop.stop()
+			plop.play()
 		pr.hide()
 	elif sc == "G":
 		if pg.visible:
 			c_anim.stop()
 			c_anim.play("ItemAdded")
+			plop.stop()
+			plop.play()
 		pg.hide()
 	elif sc == "Enter":
 		var quality = 0.0
