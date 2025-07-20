@@ -59,8 +59,6 @@ func take_input(sc : String, release = false):
 		strokes += 1
 		write_sfx.stop()
 		write_sfx.play()
-		#anim.stop()
-		#anim.play("write")
 	elif sc == "Enter":
 		if strokes < 3:
 			q = 0.0

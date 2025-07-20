@@ -1,4 +1,4 @@
-[gd_scene load_steps=170 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=184 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://codm0ho1ll80k" path="res://Images/moon.png" id="4_h47rm"]
 [ext_resource type="Script" path="res://task_manager.gd" id="5_25e1r"]
 [ext_resource type="Script" path="res://prep_stations.gd" id="5_fkrxk"]
-[ext_resource type="Texture2D" uid="uid://j0psqbhxj1rb" path="res://Images/PotionBottle.png" id="5_ra1w1"]
-[ext_resource type="Texture2D" uid="uid://dwgx2f1bwqvqu" path="res://Images/PotionBottleInner.png" id="6_kd4c3"]
 [ext_resource type="Script" path="res://potion_prep_task.gd" id="6_pprsc"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="6_t60w7"]
 [ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="7_bdkoj"]
@@ -37,7 +35,11 @@
 [ext_resource type="Texture2D" uid="uid://dmt6hgadhlapf" path="res://Images/ControlButtonBlast.png" id="20_gbqrd"]
 [ext_resource type="Texture2D" uid="uid://q38t4ooy37di" path="res://Images/ControlButtonPonder.png" id="21_docjb"]
 [ext_resource type="Texture2D" uid="uid://dg3ctaidh8pxt" path="res://Images/ControlButtonDone.png" id="21_wlpc6"]
+[ext_resource type="Texture2D" uid="uid://cg0nxbaqehsq2" path="res://Images/ruby.png" id="28_2hb4d"]
+[ext_resource type="Texture2D" uid="uid://y3kkn54lmpp3" path="res://Images/breakfastSandwich.png" id="29_5ndcw"]
+[ext_resource type="Texture2D" uid="uid://dmx0nhkq5jktu" path="res://Images/lemon.png" id="30_5mphm"]
 [ext_resource type="Script" path="res://task_text.gd" id="30_lnv00"]
+[ext_resource type="Texture2D" uid="uid://1k2wgy4alxya" path="res://Images/herbs.png" id="31_i7ie4"]
 [ext_resource type="AudioStream" uid="uid://bj04oinabgxgy" path="res://SFX/539763__garuda1982__water-plop-splash-falling-sound-effect.wav" id="31_tl1xe"]
 [ext_resource type="Texture2D" uid="uid://bk0yc8e5euijw" path="res://Images/skeleton.png" id="32_clslq"]
 [ext_resource type="Texture2D" uid="uid://bhsw4t4r6a6om" path="res://Images/mudkip.png" id="33_6sdsg"]
@@ -209,6 +211,250 @@ gravity = Vector3(0, 0, 0)
 scale_min = 0.02
 scale_max = 0.02
 alpha_curve = SubResource("CurveTexture_6v446")
+
+[sub_resource type="Animation" id="Animation_tq4jl"]
+resource_name = "Dunk"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(368, -208), Vector2(492, 428)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -2.4487, 6.2413]
+}
+
+[sub_resource type="Animation" id="Animation_3l4ah"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tp7kr"]
+_data = {
+"Dunk": SubResource("Animation_tq4jl"),
+"RESET": SubResource("Animation_3l4ah")
+}
+
+[sub_resource type="Animation" id="Animation_ylxrm"]
+resource_name = "Dunk"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(184, 18), Vector2(258, 674)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.79594, 2.89725]
+}
+
+[sub_resource type="Animation" id="Animation_seth5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bhw7"]
+_data = {
+"Dunk": SubResource("Animation_ylxrm"),
+"RESET": SubResource("Animation_seth5")
+}
+
+[sub_resource type="Animation" id="Animation_vqopf"]
+resource_name = "Dunk"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-192, -24), Vector2(-150, 694)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.63188, -1.46957]
+}
+
+[sub_resource type="Animation" id="Animation_ug16r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iypyr"]
+_data = {
+"Dunk": SubResource("Animation_vqopf"),
+"RESET": SubResource("Animation_ug16r")
+}
+
+[sub_resource type="Animation" id="Animation_ua7gl"]
+resource_name = "Dunk"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-410, -164), Vector2(-432, 374)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.63188, -0.97913]
+}
+
+[sub_resource type="Animation" id="Animation_401dw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1rc4"]
+_data = {
+"Dunk": SubResource("Animation_ua7gl"),
+"RESET": SubResource("Animation_401dw")
+}
 
 [sub_resource type="Animation" id="Animation_857yp"]
 resource_name = "ItemAdded"
@@ -1516,44 +1762,51 @@ position = Vector2(-237, -346)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionRed"]
-texture = ExtResource("5_ra1w1")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("28_2hb4d")
 
-[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionRed"]
-modulate = Color(1, 0.287307, 0.225237, 1)
-texture = ExtResource("6_kd4c3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Task/PotionPrep/PotionRed"]
+libraries = {
+"": SubResource("AnimationLibrary_tp7kr")
+}
 
 [node name="PotionBlue" type="Node2D" parent="Task/PotionPrep"]
 position = Vector2(-121, -480)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionBlue"]
-texture = ExtResource("5_ra1w1")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("29_5ndcw")
 
-[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionBlue"]
-modulate = Color(2.88785e-06, 0.624564, 0.88871, 1)
-texture = ExtResource("6_kd4c3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Task/PotionPrep/PotionBlue"]
+libraries = {
+"": SubResource("AnimationLibrary_7bhw7")
+}
 
 [node name="PotionYellow" type="Node2D" parent="Task/PotionPrep"]
 position = Vector2(92, -476)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionYellow"]
-texture = ExtResource("5_ra1w1")
+texture = ExtResource("30_5mphm")
 
-[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionYellow"]
-modulate = Color(0.936942, 0.745894, 1.15514e-06, 1)
-texture = ExtResource("6_kd4c3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Task/PotionPrep/PotionYellow"]
+libraries = {
+"": SubResource("AnimationLibrary_iypyr")
+}
 
 [node name="PotionGreen" type="Node2D" parent="Task/PotionPrep"]
 position = Vector2(232, -337)
 scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Task/PotionPrep/PotionGreen"]
-texture = ExtResource("5_ra1w1")
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("31_i7ie4")
 
-[node name="Sprite2D" type="Sprite2D" parent="Task/PotionPrep/PotionGreen"]
-modulate = Color(0.314395, 0.683018, 0, 1)
-texture = ExtResource("6_kd4c3")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Task/PotionPrep/PotionGreen"]
+libraries = {
+"": SubResource("AnimationLibrary_l1rc4")
+}
 
 [node name="C2" type="Sprite2D" parent="Task/PotionPrep"]
 position = Vector2(7, -145)
