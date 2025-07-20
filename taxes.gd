@@ -4,6 +4,7 @@ extends Node2D
 @export var done_texture : Texture2D
 
 @onready var write_sfx = $Writing
+@onready var anim = $Anim
 
 @export var line1 : Texture2D
 @export var line2 : Texture2D
@@ -17,6 +18,7 @@ extends Node2D
 @onready var s2 = $Paper/S2
 @onready var s3 = $Paper/S3
 @onready var sprites = [s1, s2, s3]
+@onready var brush = $Brush
 
 var k_to_idx = {"N":0,"D":1,"S":2}
 @onready var lines_unshuffled = [line1, line2, line3]
@@ -44,12 +46,16 @@ func reset_task():
 	sprites[0].get_child(0).texture = null
 	sprites[1].get_child(0).texture = null
 	sprites[2].get_child(0).texture = null
+	brush.global_position = s1.global_position
+	anim.play("RESET")
 
 func take_input(sc : String, release = false):
 	if strokes < 3 and (sc == "N" or sc == "D" or sc == "S"):
 		sprites[strokes].get_child(0).texture = writes[k_to_idx[sc]]
 		if sprites[strokes].texture != lines_unshuffled[k_to_idx[sc]]:
 			q = 0.0
+		brush.global_position = sprites[strokes].global_position
+		anim.play("Write")
 		strokes += 1
 		write_sfx.stop()
 		write_sfx.play()
