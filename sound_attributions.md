@@ -34,3 +34,15 @@ Lighter_lightRelease.aif by kbnevel -- https://freesound.org/s/119841/ -- Licens
 bubble by Ranner -- https://freesound.org/s/487531/ -- License: Creative Commons 0
 
 brush_strokes by KenneysGarage -- https://freesound.org/s/754324/ -- License: Creative Commons 0
+
+Rushing-Through-Canal-Lock_03_StereoXY_192000.wav by Sonicquinn -- https://freesound.org/s/439232/ -- License: Creative Commons 0
+
+R09-65-Kindling Fire.wav by craigsmith -- https://freesound.org/s/483309/ -- License: Creative Commons 0
+
+cig_extinguish.wav by the_semen_incident -- https://freesound.org/s/155660/ -- License: Creative Commons 0
+
+Heavens Reprise by magnuswaker -- https://freesound.org/s/581166/ -- License: Creative Commons 0
+
+hmm2.wav by kanyonwyvern -- https://freesound.org/s/699008/ -- License: Creative Commons 0
+
+water plop splash falling sound effect by Garuda1982 -- https://freesound.org/s/539763/ -- License: Attribution 4.0
