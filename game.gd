@@ -32,6 +32,9 @@ var taxes_taken = 0.0
 
 var next_incense_check = 0
 
+func _ready() -> void:
+	GameGlobals.game = self
+
 func reset():
 	complete = false
 	next_order = Time.get_ticks_msec() + 4000
@@ -56,6 +59,11 @@ func start():
 
 func stop():
 	set_process(false)
+
+func set_popup_text(text):
+	text_popup.display(text)
+func hide_popup_text():
+	text_popup.remove()
 
 func set_recipes(recipes):
 	recipes_list = recipes

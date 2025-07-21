@@ -22,6 +22,7 @@ func apply_controls():
 	GameGlobals.controls.set_nice_name("Put out the fire!!!")
 	GameGlobals.controls.apply_control(4, "W", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Spray [b][color=red][font_size=30]W[/font_size][/color][/b]ater until you aren't on fire anymore.[/center]")
 	fire_sfx.play()
 
 func reset_task():

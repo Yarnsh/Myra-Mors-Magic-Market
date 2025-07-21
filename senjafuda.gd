@@ -18,9 +18,10 @@ var strokes = 0
 func apply_controls():
 	GameGlobals.controls.clear_controls()
 	GameGlobals.controls.set_nice_name("Draw the Senjafuda")
-	GameGlobals.controls.apply_control(3, "A", control_texture)
-	GameGlobals.controls.apply_control(5, "L", control_texture)
+	GameGlobals.controls.apply_control(3, "L", control_texture)
+	GameGlobals.controls.apply_control(5, "R", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Repeat [b][color=red][font_size=30]R[/font_size][/color][/b]ight and [b][color=red][font_size=30]L[/font_size][/color][/b]eft strokes until it's drawn.[/center]")
 
 func reset_task():
 	anim.play("RESET")
@@ -32,7 +33,7 @@ func reset_task():
 	s5.hide()
 
 func take_input(sc : String, release = false):
-	if sc == "A":
+	if sc == "L":
 		if strokes % 2 == 1 and strokes < 5:
 			strokes += 1
 			sl[strokes-1].show()
@@ -43,7 +44,7 @@ func take_input(sc : String, release = false):
 		else:
 			wanim.stop()
 			wanim.play("Wrong")
-	elif sc == "L":
+	elif sc == "R":
 		if strokes % 2 == 0 and strokes < 5:
 			strokes += 1
 			sl[strokes-1].show()

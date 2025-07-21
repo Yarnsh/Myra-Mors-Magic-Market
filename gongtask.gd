@@ -18,6 +18,7 @@ func apply_controls():
 	GameGlobals.controls.set_nice_name("Bong the Gong")
 	GameGlobals.controls.apply_control(4, "G", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Charge your [b][color=red][font_size=30]G[/font_size][/color][/b]ong hit, and release at max power.[/center]")
 
 func reset_task():
 	anim.play("RESET")

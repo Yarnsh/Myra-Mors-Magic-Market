@@ -36,6 +36,7 @@ func apply_controls():
 	GameGlobals.controls.apply_control(4, "I", blast_texture)
 	GameGlobals.controls.apply_control(5, "N", blast_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Beat up the [b][color=red][font_size=30]GOBLIN[/font_size][/color][/b]s.[/center]")
 
 func reset_task():
 	anim1.stop()

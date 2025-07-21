@@ -1,4 +1,4 @@
-[gd_scene load_steps=184 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=185 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://potion_prep_task.gd" id="6_pprsc"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="6_t60w7"]
 [ext_resource type="Texture2D" uid="uid://b1jdxajmorau2" path="res://Images/CauldronOpen.png" id="7_bdkoj"]
+[ext_resource type="Texture2D" uid="uid://cd8h8uj2u7buy" path="res://Images/Frog-1.png" id="7_vkg5f"]
 [ext_resource type="Texture2D" uid="uid://dcdl51p1s0gqy" path="res://Images/Vibe1.png" id="8_nrwvw"]
 [ext_resource type="Script" path="res://vibe.gd" id="9_ew70i"]
 [ext_resource type="Texture2D" uid="uid://bv43qfkcurnx8" path="res://Images/ControlButtonRed.png" id="10_idcwj"]
@@ -1514,6 +1515,12 @@ offset_right = 960.0
 offset_bottom = 540.0
 texture = ExtResource("3_r7l8o")
 
+[node name="Frog" type="Sprite2D" parent="IndoorVisuals"]
+visible = false
+position = Vector2(157, 387)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_vkg5f")
+
 [node name="Money" parent="." instance=ExtResource("2_chaep")]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
@@ -2043,26 +2050,6 @@ bus = &"SFX"
 visible = false
 script = ExtResource("14_tj0ai")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Task/PrepStationTask"]
-visible = false
-
-[node name="CenterContainer" type="CenterContainer" parent="Task/PrepStationTask/CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="Task/PrepStationTask/CanvasLayer/CenterContainer"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Task/PrepStationTask/CanvasLayer/CenterContainer/PanelContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "Please choose what ingredients
-you want to prepare"
-horizontal_alignment = 1
-
 [node name="Gong" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("46_4y0rq")
@@ -2348,25 +2335,25 @@ bus = &"SFX"
 
 [node name="TaskText" type="PanelContainer" parent="."]
 visible = false
-custom_minimum_size = Vector2(571, 141)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -285.5
-offset_top = -141.0
-offset_right = 285.5
+offset_left = -285.0
+offset_top = -117.0
+offset_right = 249.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("30_lnv00")
 
-[node name="Label" type="Label" parent="TaskText"]
+[node name="Label" type="RichTextLabel" parent="TaskText"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
-text = "Test"
-horizontal_alignment = 1
+bbcode_enabled = true
+text = "[center]
+test
+[/center]"
 autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

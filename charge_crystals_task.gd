@@ -16,6 +16,7 @@ func apply_controls():
 	GameGlobals.controls.set_nice_name("Charge the Crystal")
 	GameGlobals.controls.apply_control(0, "C", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center][b][color=red][font_size=30]C[/font_size][/color][/b]arge the crystal until it is full.[/center]")
 
 func reset_task():
 	anim.play("RESET")

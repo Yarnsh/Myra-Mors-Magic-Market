@@ -15,6 +15,7 @@ func apply_controls():
 	GameGlobals.controls.set_nice_name("Ponder the Orb")
 	GameGlobals.controls.apply_control(0, "P", control_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center][b][color=red][font_size=30]P[/font_size][/color][/b]onder until you land on a good result.[/center]")
 
 func reset_task():
 	anim.play("RESET")

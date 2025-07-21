@@ -31,6 +31,3 @@ func take_input(sc : String, release = false):
 
 func release_input(sc : String):
 	pass
-
-func _on_visibility_changed() -> void:
-	$CanvasLayer.visible = visible

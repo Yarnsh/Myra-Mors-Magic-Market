@@ -27,6 +27,7 @@ func apply_controls():
 	GameGlobals.controls.apply_control(6, "B", b_texture)
 	GameGlobals.controls.apply_control(8, "L", y_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Drop in a [b][color=red][font_size=30]R[/font_size][/color][/b]uby, [b][color=red][font_size=30]H[/font_size][/color][/b]erbs, a [b][color=red][font_size=30]L[/font_size][/color][/b]emon, and a [b][color=red][font_size=30]B[/font_size][/color][/b]reakfast sandwich.[/center]")
 
 func reset_task():
 	c_anim.play("RESET")

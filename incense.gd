@@ -30,6 +30,7 @@ func apply_controls():
 	GameGlobals.controls.apply_control(4, "N", control_texture2)
 	GameGlobals.controls.apply_control(5, "C", control_texture3)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
+	GameGlobals.game.set_popup_text("[center]Place and light each stick of [b][color=red][font_size=30]INC[/font_size][/color][/b]ense.[/center]")
 
 func reset_task():
 	i1.hide()

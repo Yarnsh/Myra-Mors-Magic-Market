@@ -1,5 +1,7 @@
 extends Node
 
+var game = null
+
 var fade_happening = false
 var menu_up = false
 func allow_area_clicks():
