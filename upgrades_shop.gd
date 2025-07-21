@@ -2,8 +2,9 @@ extends Control
 
 @onready var main = $".."
 @onready var text = $Text
-@onready var hor = $Horatius
-@onready var speech_bubble = $SpeechBubble
+@onready var hor = $Horatius/Horatius
+@onready var horanim = $Horatius/Anim
+@onready var speech_bubble = $Horatius/SpeechBubble
 @onready var backroom_entry = $BackRoom
 
 @onready var money_sfx = $MoneySFX
@@ -26,7 +27,7 @@ func _ready() -> void:
 			"title": "Space Upgrade",
 			"price": 1000,
 			"callback": Callable.create(self, "buy_shop_space"),
-			"description": "Increase the size of your store, allowing more customers at once"
+			"description": "Increase the size of your store, allowing more customers at once. \nAlso increases the maximum vibe."
 		}
 	)
 	$PrepStation.set_item(
@@ -34,7 +35,7 @@ func _ready() -> void:
 			"title": "Prep Station",
 			"price": 25000,
 			"callback": Callable.create(self, "buy_prep_station"),
-			"description": "A station to prepare orders ahead of time\nRequired for some recipes"
+			"description": "A station to prepare orders ahead of time.\nRequired for some recipes."
 		}
 	)
 	$CrystalBall.set_item(
@@ -62,8 +63,10 @@ func buy_prep_station():
 	if GameGlobals.prep_station_count >= 1:
 		$PrepStation.set_item({"sold_out": true})
 		text.hide()
-		# TODO: play a cutscene
-	buy_response()
+	if GameGlobals.prep_station_count == 1:
+		horanim.play("Move")
+	else:
+		buy_response()
 
 func buy_shop_space():
 	GameGlobals.orders_count += 1
@@ -76,7 +79,7 @@ func buy_shop_space():
 			"title": "Space Upgrade " + str(oc),
 			"price": 1000 * (oc * oc),
 			"callback": Callable.create(self, "buy_shop_space"),
-			"description": "Increase the size of your store, allowing more customers at once"
+			"description": "Increase the size of your store, allowing more customers at once. \nAlso increases the maximum vibe."
 		})
 	buy_response()
 
@@ -105,7 +108,6 @@ func buy_paint_set():
 	buy_response()
 
 func _on_close_shop_pressed() -> void:
-	# TODO: fadeout
 	main.close_shop()
 	text.hide()
 	exit_sfx.play()
@@ -131,3 +133,17 @@ func on_open_from_back():
 	hor.set_emotion(0)
 	back_enter_sfx.play()
 	speech_bubble.say("Find anything good back there?")
+
+func hor_anim_1():
+	GameGlobals.fade_happening = true
+	main.fade.mouse_filter = MOUSE_FILTER_STOP
+	hor.set_emotion(0)
+	speech_bubble.say("Now you're running a real shop.")
+func hor_anim_2():
+	hor.set_emotion(1)
+	speech_bubble.say("Maybe you could use some of my special stock.")
+func hor_anim_3():
+	GameGlobals.fade_happening = false
+	main.fade.mouse_filter = MOUSE_FILTER_IGNORE
+	hor.set_emotion(0)
+	speech_bubble.say("Feel free to look at the stuff in the back.")

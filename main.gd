@@ -29,6 +29,7 @@ func complete_game_h():
 	game.reset()
 	prep.show()
 	prep.populate_recipes()
+	prep.manim.play("Returning")
 
 func open_shop():
 	shop.on_open()
@@ -59,6 +60,7 @@ func close_shop_h():
 	shop2.hide()
 	prep.show()
 	prep.populate_recipes()
+	prep.manim.play("Returning")
 
 func close_shop2():
 	shop.on_open_from_back()

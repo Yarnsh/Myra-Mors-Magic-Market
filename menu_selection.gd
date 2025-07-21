@@ -16,6 +16,6 @@ func set_recipe(recipe):
 		icon = default_icon
 		label.text = ""
 	else:
-		icon = recipe.get("icon", default_icon)
+		icon = recipe.get("chalk_icon", default_icon)
 		label.text = recipe.get("name", "Something :P")
 		sfx.play()

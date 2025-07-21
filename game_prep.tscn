@@ -1,10 +1,12 @@
-[gd_scene load_steps=37 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=44 format=3 uid="uid://d21scinhqdak3"]
 
 [ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
+[ext_resource type="Texture2D" uid="uid://88w61o4pmgfn" path="res://Images/Myra1.png" id="2_g3pgi"]
 [ext_resource type="Texture2D" uid="uid://cv81c1ftch37c" path="res://Images/chalkboard.png" id="2_kdbt2"]
 [ext_resource type="PackedScene" uid="uid://ba33jng1wkjf7" path="res://UI/menu_selection.tscn" id="2_viyhe"]
 [ext_resource type="Script" path="res://recipe_list.gd" id="3_k1xhs"]
 [ext_resource type="FontFile" uid="uid://s2f6gbid3fis" path="res://Fonts/Chalk-Regular.ttf" id="3_n17j6"]
+[ext_resource type="Texture2D" uid="uid://bt7wuqutdijoq" path="res://Images/Myra2.png" id="3_sorig"]
 [ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="3_y5kkl"]
 [ext_resource type="PackedScene" uid="uid://cwd4b1prnpuol" path="res://UI/recipe.tscn" id="4_3jlwk"]
 [ext_resource type="Texture2D" uid="uid://bcy3ufd6bvnh5" path="res://Images/open.png" id="4_t1sie"]
@@ -13,6 +15,210 @@
 [ext_resource type="Script" path="res://shop_button.gd" id="7_1jt6v"]
 [ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="7_lyyna"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="13_8ygy2"]
+
+[sub_resource type="Animation" id="Animation_hwf3t"]
+resource_name = "Thinking"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Myra2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Myra1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.333333, 1, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(742, 357), Vector2(718, 357), Vector2(718, 357), Vector2(742, 357)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Myra1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0159882, 0.166667, 0.333333, 1, 1.15068, 1.31735),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.359542, 0.359542), Vector2(0.36, 0.38), Vector2(0.359542, 0.359542), Vector2(0.359542, 0.359542), Vector2(0.36, 0.38), Vector2(0.359542, 0.359542)]
+}
+
+[sub_resource type="Animation" id="Animation_sacsu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Myra2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Myra1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(742, 357)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Myra1:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.359542, 0.359542)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Myra2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(758, 373)]
+}
+
+[sub_resource type="Animation" id="Animation_1cm0l"]
+resource_name = "Leaving"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Myra2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Myra2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.333333, 0.433333, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(758, 373), Vector2(819.867, 357), Vector2(866.267, 377.364), Vector2(912.667, 359.727), Vector2(959.067, 351.691), Vector2(990, 373)]
+}
+
+[sub_resource type="Animation" id="Animation_1ywey"]
+resource_name = "Returning"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra1:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Myra2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Myra1:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(950, 357), Vector2(894.533, 373), Vector2(839.067, 357), Vector2(783.6, 373), Vector2(742, 357)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_clslp"]
+_data = {
+"Leaving": SubResource("Animation_1cm0l"),
+"RESET": SubResource("Animation_sacsu"),
+"Returning": SubResource("Animation_1ywey"),
+"Thinking": SubResource("Animation_hwf3t")
+}
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ckwu0"]
 
@@ -74,34 +280,64 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Anim" type="AnimationPlayer" parent="Visuals"]
+libraries = {
+"": SubResource("AnimationLibrary_clslp")
+}
+autoplay = "Thinking"
+
+[node name="Myra1" type="Sprite2D" parent="Visuals"]
+position = Vector2(742, 357)
+scale = Vector2(0.359542, 0.359542)
+texture = ExtResource("2_g3pgi")
+
+[node name="Myra2" type="Sprite2D" parent="Visuals"]
+visible = false
+position = Vector2(758, 373)
+scale = Vector2(0.359542, 0.359542)
+texture = ExtResource("3_sorig")
+
 [node name="Chalkboard" type="TextureRect" parent="Visuals"]
 layout_mode = 0
 offset_left = 38.0
 offset_top = 25.0
 offset_right = 786.0
 offset_bottom = 471.0
-scale = Vector2(0.937655, 0.937655)
+scale = Vector2(0.937655, 1.13765)
 texture = ExtResource("2_kdbt2")
 
 [node name="Label" type="Label" parent="Visuals/Chalkboard"]
 layout_mode = 0
-offset_left = 68.2554
-offset_top = 29.8617
-offset_right = 314.255
-offset_bottom = 84.8617
+offset_left = 50.1251
+offset_top = 23.733
+offset_right = 296.125
+offset_bottom = 78.733
+scale = Vector2(1, 0.753879)
 theme_override_fonts/font = ExtResource("3_n17j6")
 theme_override_font_sizes/font_size = 40
 text = "Today's Menu"
 
 [node name="ShopSign" type="TextureRect" parent="Visuals"]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 397.0
-offset_right = 374.0
-offset_bottom = 634.0
-scale = Vector2(0.937655, 0.937655)
+offset_left = 971.0
+offset_top = 437.0
+offset_right = 1336.0
+offset_bottom = 674.0
+scale = Vector2(-0.938, 0.938)
 texture = ExtResource("3_y5kkl")
 expand_mode = 1
+
+[node name="Chores" type="Label" parent="Visuals"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 448.0
+offset_right = 594.0
+offset_bottom = 534.0
+scale = Vector2(1, 0.753879)
+theme_override_fonts/font = ExtResource("3_n17j6")
+theme_override_font_sizes/font_size = 25
+text = "Watch out for:
+Stuff"
 
 [node name="Selections" type="Control" parent="."]
 anchors_preset = 0
@@ -132,23 +368,23 @@ offset_bottom = 206.0
 [node name="MenuSelection4" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
 offset_left = 149.0
-offset_top = 273.0
+offset_top = 284.0
 offset_right = 249.0
-offset_bottom = 373.0
+offset_bottom = 384.0
 
 [node name="MenuSelection5" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
 offset_left = 351.0
-offset_top = 272.0
+offset_top = 283.0
 offset_right = 451.0
-offset_bottom = 372.0
+offset_bottom = 383.0
 
 [node name="MenuSelection6" parent="Selections" instance=ExtResource("2_viyhe")]
 layout_mode = 0
 offset_left = 548.0
-offset_top = 273.0
+offset_top = 284.0
 offset_right = 648.0
-offset_bottom = 373.0
+offset_bottom = 384.0
 
 [node name="StartButton" type="Button" parent="."]
 layout_mode = 0
@@ -172,10 +408,10 @@ script = ExtResource("5_70gco")
 
 [node name="ShopButton" type="Button" parent="." node_paths=PackedStringArray("bg")]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 409.0
-offset_right = 326.0
-offset_bottom = 480.0
+offset_left = 657.0
+offset_top = 451.0
+offset_right = 926.0
+offset_bottom = 522.0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -288,6 +524,7 @@ expand_mode = 2
 stream = ExtResource("13_8ygy2")
 bus = &"SFX"
 
+[connection signal="animation_finished" from="Visuals/Anim" to="." method="_on_anim_animation_finished"]
 [connection signal="mouse_entered" from="StartButton" to="StartButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="StartButton" to="StartButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

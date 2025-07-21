@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba33jng1wkjf7"]
+[gd_scene load_steps=6 format=3 uid="uid://ba33jng1wkjf7"]
 
 [ext_resource type="Texture2D" uid="uid://be0i4g088voi7" path="res://Images/EmptyMenuSelection.png" id="1_rj8ha"]
 [ext_resource type="Script" path="res://menu_selection.gd" id="2_heusj"]
 [ext_resource type="FontFile" uid="uid://s2f6gbid3fis" path="res://Fonts/Chalk-Regular.ttf" id="3_nc8we"]
 [ext_resource type="AudioStream" uid="uid://dhrlenffs7lld" path="res://SFX/802604__jelloapocalypse__pencil-writing-and-taps.wav" id="4_gqxns"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdmhe"]
+
 [node name="MenuSelection" type="Button"]
 custom_minimum_size = Vector2(100, 100)
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wdmhe")
 icon = ExtResource("1_rj8ha")
 icon_alignment = 1
 expand_icon = true
@@ -16,15 +19,16 @@ script = ExtResource("2_heusj")
 default_icon = ExtResource("1_rj8ha")
 
 [node name="Label" type="Label" parent="."]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 0
-offset_left = -100.0
+offset_left = -49.0
 offset_top = 104.0
-offset_right = 200.0
-offset_bottom = 131.0
+offset_right = 151.0
+offset_bottom = 127.0
 theme_override_fonts/font = ExtResource("3_nc8we")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gqxns")

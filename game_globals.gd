@@ -27,6 +27,7 @@ var potion_order = {
 	"requirements": {"potion": 1},
 	"icon": load("res://Images/PotionOrder.png"),
 	"prep_icon": load("res://Images/Cauldron.png"),
+	"chalk_icon": load("res://Images/ChalkCauldron.png"),
 	"prep_key": "P",
 	"prep_task": "PotionPrep",
 	"description": "Ready made potions with no specific benefit, but having them ready leads to quick sales!"
@@ -36,6 +37,7 @@ var ponder_order = {
 	"task": "PonderOrb",
 	"requirements": {},
 	"icon": load("res://Images/PonderOrbOrder.png"),
+	"chalk_icon": load("res://Images/ChalkCrystalBall.png"),
 	"description": "Predict their future, aim for some good news for a big tip! Bad news will greatly reduce vibe however..."
 }
 var crystal_recipe = {
@@ -43,6 +45,7 @@ var crystal_recipe = {
 	"requirements": {},
 	"icon": load("res://Images/crystal.png"),
 	"prep_icon": load("res://Images/crystal.png"),
+	"chalk_icon": load("res://Images/ChalkCrystal.png"),
 	"prep_key": "C",
 	"prep_task": "ChargeCrystals",
 	"description": "Customers will buy a crystal with every order if you prepare them. They will pay DOUBLE for whatever they buy!"
@@ -52,6 +55,7 @@ var incense_recipe = {
 	"requirements": {},
 	"icon": load("res://Images/IncensePot.png"),
 	"prep_icon": load("res://Images/IncensePot.png"),
+	"chalk_icon": load("res://Images/ChalkIncense.png"),
 	"prep_key": "I",
 	"prep_task": "Incense",
 	"description": "Light incense to make the store smell nice. While it is burning successful sales greatly increase vibe!"
@@ -61,6 +65,7 @@ var gong_order = {
 	"task": "Gong",
 	"requirements": {},
 	"icon": load("res://Images/GongOrder.png"),
+	"chalk_icon": load("res://Images/ChalkGong.png"),
 	"description": "Bong the big gong to scare away vile spirits. Raises the vibe of the store more than other orders!"
 }
 var slip_order = {
@@ -68,22 +73,23 @@ var slip_order = {
 	"task": "Senjafuda",
 	"requirements": {},
 	"icon": load("res://Images/SenjafudaOrder.png"),
+	"chalk_icon": load("res://Images/ChalkSlip.png"),
 	"description": "Quick and simple paper charms. The sale of these brings no specific benefit, but it is fast."
 }
 var goblin_chore = {
-	"name": "Goblins are about",
+	"name": "Goblins",
 	"task": "GoblinChore",
 	"requirements": {},
 	"icon": load("res://Images/GoblinChoreOrder.png")
 }
 var fire_chore = {
-	"name": "Myra is on fire",
+	"name": "Fire",
 	"task": "Fire",
 	"requirements": {},
 	"icon": load("res://Images/HeadOnFireOrder.png")
 }
 var taxes_chore = {
-	"name": "Gotta write off all this inventory",
+	"name": "Paperwork",
 	"task": "Taxes",
 	"requirements": {},
 	"icon": load("res://Images/TaxesOrder.png")
