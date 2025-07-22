@@ -11,7 +11,7 @@ func _ready() -> void:
 	$Accountant.set_item(
 		{
 			"title": "Accountant",
-			"price": 25000,
+			"price": 20000,
 			"callback": Callable.create(self, "buy_accountant"),
 			"description": "With his help you won't pay ANY taxes on your revenue! But you will have to fill out some annoying forms sometimes."
 		}
@@ -27,7 +27,7 @@ func _ready() -> void:
 	$Incense.set_item(
 		{
 			"title": "Incense",
-			"price": 25000,
+			"price": 3000,
 			"callback": Callable.create(self, "buy_incense"),
 			"description": "Light some incense in the store to create a nice ambiance and increase the vibes as long as it's burning."
 		}
@@ -35,7 +35,7 @@ func _ready() -> void:
 	$Cauldron.set_item(
 		{
 			"title": "Cauldron",
-			"price": 25000,
+			"price": 15000,
 			"callback": Callable.create(self, "buy_cauldron"),
 			"description": "Cauldron to prepare potions for sale. This staple of any magic shop sells for a good price and loved by all."
 		}
@@ -43,7 +43,7 @@ func _ready() -> void:
 	$Gong.set_item(
 		{
 			"title": "Gong",
-			"price": 25000,
+			"price": 30000,
 			"callback": Callable.create(self, "buy_gong"),
 			"description": "A gong who's ring will dispell evil spirits. Gives a boost to vibe when used successfully."
 		}

@@ -24,6 +24,7 @@ var chores_list = []
 var recipes_list = []
 
 var vibe = 1.0
+var vibe_mult = 1.0
 var max_vibe = 2.0
 
 var complete = true
@@ -93,11 +94,15 @@ func _process(delta: float) -> void:
 			if GameGlobals.prep_stations.check_requirements({"incense": 1}):
 				GameGlobals.prep_stations.consume({"incense": 1})
 				next_incense_check = now + 20000
+		if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+			vibe_mult = 4.0
+		else:
+			vibe_mult = 1.0
 		
 		while now >= next_chore: # TODO: increase speed of these as more chores are added
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
-				GameGlobals.orders.add_order(order_def, 10000)
+				GameGlobals.orders.add_order(order_def, 6000 + (GameGlobals.orders_count * 2000))
 			
 			next_chore = next_chore + time_between_chores + ((-tbo_variation/2) + randi_range(0, tbo_variation))
 		
@@ -107,11 +112,11 @@ func _process(delta: float) -> void:
 				var customer = customer_prefab.instantiate()
 				customer_parent.add_child(customer)
 				customer.set_guy("Cloak")
-				GameGlobals.orders.add_order_with_customer(order_def, 10000, customer)
+				GameGlobals.orders.add_order_with_customer(order_def, 6000 + (GameGlobals.orders_count * 2000), customer)
 				entry_sfx.stop()
 				entry_sfx.play()
 			
-			var time_between_orders = 6000 / max(0.1, vibe)
+			var time_between_orders = 6000 / max(0.1, vibe*vibe_mult)
 			var variation = time_between_orders * 2.5
 			next_order = next_order + time_between_orders + ((-variation/2) + randi_range(0, variation))
 		
@@ -132,7 +137,7 @@ func handle_order_result(result):
 		if not result.get("chore", false) and not result.get("failed", false):
 			var quality = result.get("quality", 0.0)
 			var base_price = result.get("base_price", 100)
-			var tip = 0.15 * vibe * result.get("tip_mult", 1.0)
+			var tip = 0.15 * vibe * vibe_mult * result.get("tip_mult", 1.0)
 			var other_mult = 1.0
 			
 			if GameGlobals.prep_stations.check_requirements({"crystal": 1}):
@@ -140,23 +145,16 @@ func handle_order_result(result):
 				other_mult = other_mult * 2.0
 			
 			if quality >= 0.5:
-				if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-					vibe = max(0.0, min(max_vibe, vibe + ((0.35 * quality) * result.get("vibe_gain_mult", 1.0))))
-				else:
-					vibe = max(0.0, min(max_vibe, vibe + ((0.15 * quality) * result.get("vibe_gain_mult", 1.0))))
+				vibe = max(0.0, min(max_vibe, vibe + ((0.15 * quality) * result.get("vibe_gain_mult", 1.0))))
 				vibe_indicator.gain()
 			else:
-				if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-					vibe = max(0.0, min(max_vibe, vibe * (0.75 + (0.8 * quality))))
-				else:
-					vibe = max(0.0, min(max_vibe, vibe * (0.5 + (0.8 * quality))))
+				vibe = max(0.0, min(max_vibe, vibe * (0.5 + (0.8 * quality))))
 				vibe_indicator.lose()
 			
 			base_price *= other_mult
 			
 			base_earned += base_price
 			tips_earned += ceil(base_price * tip * quality)
-			print("B:",base_price, " Tp:", tip, " Q:", quality, " TIP:", ceil(base_price * tip * quality))
 			
 			var final_money = base_price + ceil(base_price * tip * quality)
 			
@@ -168,32 +166,20 @@ func handle_order_result(result):
 			
 			add_money(final_money)
 		elif not result.get("chore", false) and result.get("failed", false):
-			if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-				vibe = max(0.0, min(max_vibe, vibe * (0.75)))
-			else:
-				vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+			vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 			vibe_indicator.lose()
 		elif result.get("chore", false):
 			if result.get("quality", 0.0) > 0.5:
 				if vibe < 1.0:
-					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-						vibe = max(0.0, min(max_vibe, vibe + (0.55)))
-					else:
-						vibe = max(0.0, min(max_vibe, vibe + (0.25)))
+					vibe = max(0.0, min(max_vibe, vibe + (0.25)))
 					vibe_indicator.gain()
 				else:
-					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-						vibe = max(0.0, min(max_vibe, vibe + (0.15)))
-					else:
-						vibe = max(0.0, min(max_vibe, vibe + (0.05)))
+					vibe = max(0.0, min(max_vibe, vibe + (0.05)))
 					vibe_indicator.gain()
 			else:
 				if result.get("chore_special", "") == "taxes":
 					add_money(-min(GameGlobals.money, 100000))
 					taxes_taken += min(GameGlobals.money, 100000)
 				else:
-					if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-						vibe = max(0.0, min(max_vibe, vibe * (0.75)))
-					else:
-						vibe = max(0.0, min(max_vibe, vibe * (0.5)))
+					vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 					vibe_indicator.lose()

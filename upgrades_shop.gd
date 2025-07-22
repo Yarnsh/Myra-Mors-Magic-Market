@@ -29,7 +29,7 @@ func _ready() -> void:
 			"title": "Space Upgrade",
 			"price": 500,
 			"callback": Callable.create(self, "buy_shop_space"),
-			"description": "Increase the size of your store, allowing more customers. \nAlso increases the maximum vibe. \nIntroduces a bit of a fire hazard..."
+			"description": "Increase the size of your store, allowing more customers.\nAlso increases the maximum vibe. \nIntroduces a bit of a fire hazard..."
 		}
 	)
 	$PrepStation.set_item(
@@ -45,7 +45,7 @@ func _ready() -> void:
 			"title": "Crystal Ball",
 			"price": 1499,
 			"callback": Callable.create(self, "buy_crystal_ball"),
-			"description": "Read people's fortunes for money\nCustomers will leave hefty tips for good news"
+			"description": "Read people's fortunes for money.\nCustomers will leave hefty tips for good news!"
 		}
 	)
 	$PaintSet.set_item(
@@ -53,7 +53,7 @@ func _ready() -> void:
 			"title": "Paint Set",
 			"price": 10,
 			"callback": Callable.create(self, "buy_paint_set"),
-			"description": "Draw paper charms for customers\nPeople love these cheap soveneirs, selling this will attract a lot of customers"
+			"description": "Draw paper charms for customers.\nNothing special, but very quick to make."
 		}
 	)
 
@@ -81,7 +81,7 @@ func buy_shop_space():
 			"title": "Space Upgrade " + str(oc),
 			"price": 500 * (oc * oc),
 			"callback": Callable.create(self, "buy_shop_space"),
-			"description": "Increase the size of your store, allowing more customers at once. \nAlso increases the maximum vibe."
+			"description": "Increase the size of your store. \nIncreases max customers, vibe, and customer patience."
 		})
 	if GameGlobals.orders_count == 3:
 		GameGlobals.current_chores.append(GameGlobals.fire_chore)
@@ -141,6 +141,7 @@ func on_open_from_back():
 	speech_bubble.say("Find anything good back there?")
 
 func hor_anim_1():
+	money_sfx.play()
 	GameGlobals.fade_happening = true
 	main.fade.mouse_filter = MOUSE_FILTER_STOP
 	hor.set_emotion(1)

@@ -33,7 +33,8 @@ func take_input(sc : String):
 		hit_loop.stop()
 		GameGlobals.task_manager.report_result({
 			"quality": q,
-			"vibe_gain_mult": 5.0 * q
+			"vibe_gain_mult": 5.0 * q,
+			"base_price": 6000
 		})
 		GameGlobals.task_manager.stop_task()
 

@@ -25,12 +25,13 @@ var potion_order = {
 	"name": "Potion",
 	"task": "",
 	"requirements": {"potion": 1},
+	"base_price": 12000,
 	"icon": load("res://Images/PotionOrder.png"),
 	"prep_icon": load("res://Images/Cauldron.png"),
 	"chalk_icon": load("res://Images/ChalkCauldron.png"),
 	"prep_key": "P",
 	"prep_task": "PotionPrep",
-	"description": "Ready made potions with no specific benefit, but having them ready leads to quick sales!"
+	"description": "Expensive potions that must be prepared beforehand, really bring in the big bucks!"
 }
 var ponder_order = {
 	"name": "Fortune Reading",
@@ -58,7 +59,7 @@ var incense_recipe = {
 	"chalk_icon": load("res://Images/ChalkIncense.png"),
 	"prep_key": "I",
 	"prep_task": "Incense",
-	"description": "Light incense to make the store smell nice. While it is burning successful sales greatly increase vibe!"
+	"description": "Light incense to make the store smell nice. While it is burning the vibes are greatly enhanced!"
 }
 var gong_order = {
 	"name": "Spirit Scaring Gong",
@@ -66,7 +67,7 @@ var gong_order = {
 	"requirements": {},
 	"icon": load("res://Images/GongOrder.png"),
 	"chalk_icon": load("res://Images/ChalkGong.png"),
-	"description": "Bong the big gong to scare away vile spirits. Raises the vibe of the store more than other orders!"
+	"description": "Bong the big gong to scare away vile spirits. Raises the vibe of the store more than other orders, and pays well!"
 }
 var slip_order = {
 	"name": "Draw Senjafuda",

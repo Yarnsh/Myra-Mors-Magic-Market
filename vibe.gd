@@ -16,6 +16,6 @@ func lose():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var v = floor(min(par.vibe * 2.0, 3.0))
+	var v = floor(min(par.vibe * par.vibe_mult * 2.0, 3.0))
 	texture = vibes[v]
-	anim.play("default", -1, par.vibe)
+	anim.play("default", -1, par.vibe * par.vibe_mult)

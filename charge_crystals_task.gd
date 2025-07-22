@@ -20,6 +20,7 @@ func apply_controls():
 
 func reset_task():
 	anim.play("RESET")
+	anim2.play("RESET")
 	charge = 0
 	done.stop()
 

@@ -15,6 +15,7 @@ extends PanelContainer
 
 var task = null
 var resources_needed = {}
+var resource_price = 100
 var available_time = 0
 var last_timer_len = 1000
 var was_cooking = false
@@ -65,7 +66,7 @@ func _on_button_pressed() -> void:
 	elif resources_needed != null and resources_needed != {}:
 		if GameGlobals.prep_stations.check_requirements(resources_needed):
 			GameGlobals.prep_stations.consume(resources_needed)
-			complete_order({"quality": 1.0})
+			complete_order({"quality": 1.0, "base_price": resource_price})
 
 func is_cooking():
 	return Time.get_ticks_msec() < available_time
@@ -74,6 +75,7 @@ func set_order(order_def, patience):
 	order_image.texture = order_def.get("icon", null)
 	task = GameGlobals.task_manager.task_map.get(order_def.get("task", ""), null)
 	resources_needed = order_def.get("requirements", {})
+	resource_price = order_def.get("base_price", 100)
 	order_image.position = Vector2.ZERO
 	current_patience = patience
 	patience_done = Time.get_ticks_msec() + patience
