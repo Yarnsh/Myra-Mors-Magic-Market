@@ -13,6 +13,8 @@ extends Control
 @onready var back_enter_sfx = $BackEnterSFX
 @onready var exit_sfx = $ExitSFX
 
+@onready var myra_anim = $Myras/Anim
+
 func _ready() -> void:
 	$WinCondition.set_item(
 		{
@@ -25,15 +27,15 @@ func _ready() -> void:
 	$ShopSpace.set_item(
 		{
 			"title": "Space Upgrade",
-			"price": 1000,
+			"price": 500,
 			"callback": Callable.create(self, "buy_shop_space"),
-			"description": "Increase the size of your store, allowing more customers at once. \nAlso increases the maximum vibe."
+			"description": "Increase the size of your store, allowing more customers. \nAlso increases the maximum vibe. \nIntroduces a bit of a fire hazard..."
 		}
 	)
 	$PrepStation.set_item(
 		{
 			"title": "Prep Station",
-			"price": 25000,
+			"price": 4000,
 			"callback": Callable.create(self, "buy_prep_station"),
 			"description": "A station to prepare orders ahead of time.\nRequired for some recipes."
 		}
@@ -41,7 +43,7 @@ func _ready() -> void:
 	$CrystalBall.set_item(
 		{
 			"title": "Crystal Ball",
-			"price": 10,
+			"price": 1499,
 			"callback": Callable.create(self, "buy_crystal_ball"),
 			"description": "Read people's fortunes for money\nCustomers will leave hefty tips for good news"
 		}
@@ -77,10 +79,12 @@ func buy_shop_space():
 		var oc = GameGlobals.orders_count - 1
 		$ShopSpace.set_item({
 			"title": "Space Upgrade " + str(oc),
-			"price": 1000 * (oc * oc),
+			"price": 500 * (oc * oc),
 			"callback": Callable.create(self, "buy_shop_space"),
 			"description": "Increase the size of your store, allowing more customers at once. \nAlso increases the maximum vibe."
 		})
+	if GameGlobals.orders_count == 3:
+		GameGlobals.current_chores.append(GameGlobals.fire_chore)
 	buy_response()
 
 func buy_crystal_ball():
@@ -112,6 +116,7 @@ func _on_close_shop_pressed() -> void:
 	text.hide()
 	exit_sfx.play()
 	speech_bubble.say("See ya")
+	myra_anim.play("Exit")
 
 func buy_response():
 	hor.set_emotion(1)
@@ -128,6 +133,7 @@ func on_open():
 	hor.set_emotion(0)
 	enter_sfx.play()
 	speech_bubble.say("Welcome in, what are you looking for today?")
+	myra_anim.play("Enter")
 
 func on_open_from_back():
 	hor.set_emotion(0)
@@ -137,10 +143,10 @@ func on_open_from_back():
 func hor_anim_1():
 	GameGlobals.fade_happening = true
 	main.fade.mouse_filter = MOUSE_FILTER_STOP
-	hor.set_emotion(0)
-	speech_bubble.say("Now you're running a real shop.")
-func hor_anim_2():
 	hor.set_emotion(1)
+	speech_bubble.say("Now you're running a real shop!")
+func hor_anim_2():
+	hor.set_emotion(0)
 	speech_bubble.say("Maybe you could use some of my special stock.")
 func hor_anim_3():
 	GameGlobals.fade_happening = false

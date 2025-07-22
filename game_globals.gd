@@ -105,8 +105,7 @@ var recipe_definitions = {
 }
 
 var current_chores = [
-	goblin_chore,
-	fire_chore
+	goblin_chore
 ]
 
 func _input(event: InputEvent) -> void:

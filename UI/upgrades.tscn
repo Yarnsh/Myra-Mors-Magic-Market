@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=55 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://c1ucdb83635ju" path="res://Images/upgrade_table.png" id="3_vrta6"]
 [ext_resource type="Texture2D" uid="uid://dxpsnwu166is2" path="res://Images/horatius-1.png" id="3_yi5rd"]
 [ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="6_3ipyr"]
+[ext_resource type="Texture2D" uid="uid://djxib3lv1ja5x" path="res://Images/MyraStore1.png" id="6_m1cll"]
 [ext_resource type="Texture2D" uid="uid://cogca7oy2gk7p" path="res://Images/trophy.png" id="6_m82dd"]
+[ext_resource type="Texture2D" uid="uid://cf54cvr7mcfpu" path="res://Images/MyraStore2.png" id="7_bm35q"]
 [ext_resource type="Texture2D" uid="uid://b4ms8fxa11p8s" path="res://Images/shopspace.png" id="7_v8lvu"]
 [ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
 [ext_resource type="Texture2D" uid="uid://bs8nlumpj20n2" path="res://Images/prepstation.png" id="8_5y7n3"]
@@ -61,6 +63,144 @@ tracks/0/keys = {
 _data = {
 "MouseOver": SubResource("Animation_2bygw"),
 "RESET": SubResource("Animation_212ct")
+}
+
+[sub_resource type="Animation" id="Animation_eyl0w"]
+resource_name = "Enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.2664, 0.4, 0.4995),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-135, 430), Vector2(-68.8005, 398), Vector2(-19.1508, 430.739), Vector2(56.5907, 398.316), Vector2(113, 430)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Myra2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_24rwf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-135, 430)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Myra2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Myra2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(113, 430)]
+}
+
+[sub_resource type="Animation" id="Animation_bq5jh"]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Myra2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Myra2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(113, 430), Vector2(46.8667, 398), Vector2(-19.2667, 430), Vector2(-85.4, 398), Vector2(-135, 430)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhe1o"]
+_data = {
+"Enter": SubResource("Animation_eyl0w"),
+"Exit": SubResource("Animation_bq5jh"),
+"RESET": SubResource("Animation_24rwf")
 }
 
 [sub_resource type="Animation" id="Animation_bgaxi"]
@@ -252,6 +392,25 @@ layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
 texture = ExtResource("2_71xr7")
+
+[node name="Myras" type="Node2D" parent="."]
+
+[node name="Myra1" type="Sprite2D" parent="Myras"]
+position = Vector2(-135, 430)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_m1cll")
+
+[node name="Myra2" type="Sprite2D" parent="Myras"]
+visible = false
+position = Vector2(113, 430)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_bm35q")
+
+[node name="Anim" type="AnimationPlayer" parent="Myras"]
+root_node = NodePath("../Myra1")
+libraries = {
+"": SubResource("AnimationLibrary_mhe1o")
+}
 
 [node name="WinCondition" parent="." instance=ExtResource("3_ftk5n")]
 offset_left = 218.0

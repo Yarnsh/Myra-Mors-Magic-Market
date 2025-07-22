@@ -3,7 +3,7 @@ extends PanelContainer
 @onready var label = $Label
 
 var t = 0.0
-var time_speed = 2.0
+var time_speed = 3.0
 
 func pause():
 	set_process(false)

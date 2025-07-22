@@ -48,7 +48,7 @@ func take_input(sc : String, release = false):
 			q = 1.0
 		GameGlobals.task_manager.report_result({
 			"quality": q,
-			"tip_mult": 3.0
+			"tip_mult": 6.0
 		})
 		GameGlobals.task_manager.stop_task()
 

@@ -19,7 +19,7 @@ func _ready() -> void:
 	$Crystals.set_item(
 		{
 			"title": "Crystals",
-			"price": 25000,
+			"price": 1984,
 			"callback": Callable.create(self, "buy_crystals"),
 			"description": "Prepare some pre-charged crystals that customers will buy along with their order. Will DOUBLE what they pay!"
 		}
@@ -51,7 +51,7 @@ func _ready() -> void:
 	$PrepStation.set_item(
 		{
 			"title": "Prep Station 2",
-			"price": 25000,
+			"price": 4000,
 			"callback": Callable.create(self, "buy_prep_station"),
 			"description": "A station to prepare orders ahead of time\nRequired for some recipes"
 		}
@@ -100,7 +100,7 @@ func buy_prep_station():
 	else:
 		$PrepStation.set_item({
 			"title": "Prep Station " + str(GameGlobals.prep_station_count + 1),
-			"price": 20000 * (GameGlobals.prep_station_count * GameGlobals.prep_station_count),
+			"price": 4000 * (GameGlobals.prep_station_count * GameGlobals.prep_station_count),
 			"callback": Callable.create(self, "buy_prep_station"),
 			"description": "A station to prepare orders ahead of time\nRequired for some recipes"
 		})

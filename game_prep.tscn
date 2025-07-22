@@ -319,19 +319,19 @@ text = "Today's Menu"
 
 [node name="ShopSign" type="TextureRect" parent="Visuals"]
 layout_mode = 0
-offset_left = 971.0
+offset_left = 3.00013
 offset_top = 437.0
-offset_right = 1336.0
+offset_right = 368.0
 offset_bottom = 674.0
-scale = Vector2(-0.938, 0.938)
+scale = Vector2(0.938, 0.938)
 texture = ExtResource("3_y5kkl")
 expand_mode = 1
 
 [node name="Chores" type="Label" parent="Visuals"]
 layout_mode = 0
-offset_left = 92.0
+offset_left = 364.0
 offset_top = 448.0
-offset_right = 594.0
+offset_right = 698.0
 offset_bottom = 534.0
 scale = Vector2(1, 0.753879)
 theme_override_fonts/font = ExtResource("3_n17j6")
@@ -408,9 +408,9 @@ script = ExtResource("5_70gco")
 
 [node name="ShopButton" type="Button" parent="." node_paths=PackedStringArray("bg")]
 layout_mode = 0
-offset_left = 657.0
+offset_left = 49.0
 offset_top = 451.0
-offset_right = 926.0
+offset_right = 318.0
 offset_bottom = 522.0
 theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)

@@ -9,6 +9,7 @@ var tbo_variation = 5000
 @onready var timer = $Time
 @onready var text_popup = $TaskText
 @onready var anim = $AnimationPlayer
+@onready var fanim = $FunAnim
 @onready var result_screen = $ResultScreen
 @onready var money = $Money
 @onready var customer_prefab = preload("res://customer.tscn")
@@ -55,6 +56,7 @@ func reset():
 func start():
 	set_process(true)
 	timer.unpause()
+	fanim.play("StartGame")
 	anim.play("StartGame")
 
 func stop():
@@ -95,7 +97,7 @@ func _process(delta: float) -> void:
 		while now >= next_chore: # TODO: increase speed of these as more chores are added
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
-				GameGlobals.orders.add_order(order_def, 10000) # TODO: patience determined by game stuff
+				GameGlobals.orders.add_order(order_def, 10000)
 			
 			next_chore = next_chore + time_between_chores + ((-tbo_variation/2) + randi_range(0, tbo_variation))
 		
@@ -105,7 +107,7 @@ func _process(delta: float) -> void:
 				var customer = customer_prefab.instantiate()
 				customer_parent.add_child(customer)
 				customer.set_guy("Cloak")
-				GameGlobals.orders.add_order_with_customer(order_def, 10000, customer) # TODO: patience determined by game stuff
+				GameGlobals.orders.add_order_with_customer(order_def, 10000, customer)
 				entry_sfx.stop()
 				entry_sfx.play()
 			
@@ -130,7 +132,7 @@ func handle_order_result(result):
 		if not result.get("chore", false) and not result.get("failed", false):
 			var quality = result.get("quality", 0.0)
 			var base_price = result.get("base_price", 100)
-			var tip = ceil(0.15 * vibe * result.get("tip_mult", 1.0))
+			var tip = 0.15 * vibe * result.get("tip_mult", 1.0)
 			var other_mult = 1.0
 			
 			if GameGlobals.prep_stations.check_requirements({"crystal": 1}):
@@ -153,9 +155,10 @@ func handle_order_result(result):
 			base_price *= other_mult
 			
 			base_earned += base_price
-			tips_earned += (base_price * tip * quality)
+			tips_earned += ceil(base_price * tip * quality)
+			print("B:",base_price, " Tp:", tip, " Q:", quality, " TIP:", ceil(base_price * tip * quality))
 			
-			var final_money = base_price + (base_price * tip * quality)
+			var final_money = base_price + ceil(base_price * tip * quality)
 			
 			# Taxes
 			if not GameGlobals.tax_free:
