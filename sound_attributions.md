@@ -46,3 +46,13 @@ Heavens Reprise by magnuswaker -- https://freesound.org/s/581166/ -- License: Cr
 hmm2.wav by kanyonwyvern -- https://freesound.org/s/699008/ -- License: Creative Commons 0
 
 water plop splash falling sound effect by Garuda1982 -- https://freesound.org/s/539763/ -- License: Attribution 4.0
+
+Wooden Frog "Croaks" by astriferal -- https://freesound.org/s/515862/ -- License: Creative Commons 0
+
+Office stamp by whammy -- https://freesound.org/s/514486/ -- License: Creative Commons 0
+
+God Yelling.mp3 by L7_the_Sound_Hunter -- https://freesound.org/s/261082/ -- License: Attribution 4.0
+
+Goblin_Various Laughs and Giggles.mp3 by SnowFightStudios -- https://freesound.org/s/643664/ -- License: Creative Commons 0
+
+01 Ohm 3 voices.wav by ellenmentor -- https://freesound.org/s/395402/ -- License: Attribution 4.0
