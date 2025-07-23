@@ -4,6 +4,7 @@ extends Node2D
 @export var done_texture : Texture2D
 
 @onready var smack = $Smack
+@onready var failure_sfx = $Failure
 
 @onready var anim1 = $G1/G/Anim
 @onready var punch1 = $G1/Punch
@@ -118,3 +119,6 @@ func take_input(sc : String, release = false):
 
 func release_input(sc : String):
 	pass
+
+func failure():
+	failure_sfx.play()

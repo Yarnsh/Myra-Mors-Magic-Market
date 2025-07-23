@@ -8,7 +8,7 @@ func _ready() -> void:
 func clear():
 	for c in get_children():
 		if !c.is_free():
-			c.complete_order({"quality": 0.0})
+			c.complete_order({"game_end": true})
 		remove_child(c)
 		c.queue_free()
 	

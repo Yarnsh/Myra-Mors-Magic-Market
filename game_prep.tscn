@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://d21scinhqdak3"]
+[gd_scene load_steps=45 format=3 uid="uid://d21scinhqdak3"]
 
 [ext_resource type="Script" path="res://game_prep.gd" id="1_ms05v"]
+[ext_resource type="Texture2D" uid="uid://dqwfmbagikixv" path="res://Images/store_back.png" id="2_1ssdp"]
 [ext_resource type="Texture2D" uid="uid://88w61o4pmgfn" path="res://Images/Myra1.png" id="2_g3pgi"]
 [ext_resource type="Texture2D" uid="uid://cv81c1ftch37c" path="res://Images/chalkboard.png" id="2_kdbt2"]
 [ext_resource type="PackedScene" uid="uid://ba33jng1wkjf7" path="res://UI/menu_selection.tscn" id="2_viyhe"]
@@ -279,6 +280,12 @@ script = ExtResource("1_ms05v")
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="BG" type="TextureRect" parent="Visuals"]
+offset_top = -112.0
+offset_right = 1548.0
+offset_bottom = 759.0
+texture = ExtResource("2_1ssdp")
 
 [node name="Anim" type="AnimationPlayer" parent="Visuals"]
 libraries = {

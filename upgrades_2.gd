@@ -5,6 +5,7 @@ extends Control
 @onready var money_sfx = $MoneySFX
 @onready var bad_sfx = $BadSFX
 @onready var anim = $Anim
+@onready var manim = $MyraAnim
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -109,9 +110,11 @@ func buy_prep_station():
 func _on_back_button_pressed() -> void:
 	room_noise.stop()
 	anim.pause()
+	manim.play("Exit")
 	get_parent().close_shop2()
 
 func on_open():
+	manim.play("Enter")
 	room_noise.play()
 	anim.play("default")
 

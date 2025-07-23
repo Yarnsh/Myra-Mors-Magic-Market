@@ -33,8 +33,7 @@ func _on_start_button_pressed() -> void:
 	exit_sfx.play()
 	var recipes = []
 	for c in selections.get_children():
-		if c.selected_recipe != null:
-			recipes.append(c.selected_recipe)
+		recipes.append(c.selected_recipe)
 	main.start_game(recipes)
 
 func _on_shop_button_pressed() -> void:

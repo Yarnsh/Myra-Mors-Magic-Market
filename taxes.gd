@@ -4,6 +4,8 @@ extends Node2D
 @export var done_texture : Texture2D
 
 @onready var write_sfx = $Writing
+@onready var success_sfx = $Success
+@onready var failure_sfx = $Failure
 @onready var anim = $Anim
 
 @export var line1 : Texture2D
@@ -69,6 +71,8 @@ func take_input(sc : String, release = false):
 	elif sc == "Enter":
 		if strokes < 3:
 			q = 0.0
+		else:
+			success()
 		GameGlobals.task_manager.report_result({
 			"quality": q,
 			"chore": true,
@@ -78,3 +82,9 @@ func take_input(sc : String, release = false):
 
 func release_input(sc : String):
 	pass
+
+func success():
+	success_sfx.play()
+
+func failure():
+	failure_sfx.play()

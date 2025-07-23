@@ -12,6 +12,7 @@ extends Node2D
 
 @onready var lighter = $Lighter
 @onready var put_thing = $PutThing
+@onready var done_sfx = $Done
 
 @onready var i1 = $I1
 @onready var i2 = $I2
@@ -78,6 +79,7 @@ func take_input(sc : String, release = false):
 		var q = 0.0
 		if b1.visible and b2.visible and b3.visible:
 			q = 1.0
+			done_sfx.play()
 		GameGlobals.task_manager.report_result({
 			"resource_name": "incense",
 			"resource_count": 3,

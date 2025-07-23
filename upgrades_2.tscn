@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bmoxwb8d6mrt0"]
+[gd_scene load_steps=40 format=3 uid="uid://bmoxwb8d6mrt0"]
 
 [ext_resource type="Script" path="res://upgrades_2.gd" id="1_ivrpe"]
 [ext_resource type="Texture2D" uid="uid://ce47ltvj1fec7" path="res://Images/BackroomBG1.png" id="2_pqvcg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://x5i1py27xrfn" path="res://Images/Accountant.png" id="4_dm6jj"]
 [ext_resource type="Texture2D" uid="uid://dm82pvf4ellf6" path="res://Images/sign.png" id="4_rdato"]
 [ext_resource type="Texture2D" uid="uid://batgj8ma43bna" path="res://Images/BackroomBG2.png" id="5_03sq4"]
+[ext_resource type="Texture2D" uid="uid://dundpb32tl51i" path="res://Images/MyraStoreBack.png" id="6_e3t26"]
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="6_ojrt2"]
 [ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="7_hdafr"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="8_mkw7d"]
@@ -20,6 +21,60 @@
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="18_vfge4"]
 [ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="19_11pr3"]
 [ext_resource type="AudioStream" uid="uid://dgkeyu1om4q4e" path="res://SFX/522116__gecop__magnets-crackling-together.wav" id="20_f3us5"]
+
+[sub_resource type="Animation" id="Animation_t8rxp"]
+resource_name = "Enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, 225), Vector2(108, 225)]
+}
+
+[sub_resource type="Animation" id="Animation_qeg0i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 225)]
+}
+
+[sub_resource type="Animation" id="Animation_gepv0"]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4995),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(108, 225), Vector2(12, 225)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tqqhj"]
+_data = {
+"Enter": SubResource("Animation_t8rxp"),
+"Exit": SubResource("Animation_gepv0"),
+"RESET": SubResource("Animation_qeg0i")
+}
 
 [sub_resource type="Animation" id="Animation_7axkb"]
 length = 0.001
@@ -132,6 +187,27 @@ offset_bottom = 252.0
 [node name="Button" parent="Accountant" index="0"]
 icon = ExtResource("4_dm6jj")
 
+[node name="Cauldron" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 301.0
+offset_top = 272.0
+offset_right = 301.0
+offset_bottom = 272.0
+
+[node name="Button" parent="Cauldron" index="0"]
+icon = ExtResource("8_mkw7d")
+
+[node name="MyraAnim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_tqqhj")
+}
+
+[node name="Myra" type="Sprite2D" parent="."]
+position = Vector2(12, 225)
+rotation = 0.920534
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_e3t26")
+offset = Vector2(0, -400)
+
 [node name="BG2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -169,15 +245,6 @@ offset_bottom = 119.0
 
 [node name="Button" parent="Incense" index="0"]
 icon = ExtResource("7_hdafr")
-
-[node name="Cauldron" parent="." instance=ExtResource("3_3ppwm")]
-offset_left = 301.0
-offset_top = 272.0
-offset_right = 301.0
-offset_bottom = 272.0
-
-[node name="Button" parent="Cauldron" index="0"]
-icon = ExtResource("8_mkw7d")
 
 [node name="Gong" parent="." instance=ExtResource("3_3ppwm")]
 offset_left = 903.0
@@ -333,8 +400,8 @@ bus = &"SFX"
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
 
 [editable path="Accountant"]
+[editable path="Cauldron"]
 [editable path="Crystals"]
 [editable path="Incense"]
-[editable path="Cauldron"]
 [editable path="Gong"]
 [editable path="PrepStation"]

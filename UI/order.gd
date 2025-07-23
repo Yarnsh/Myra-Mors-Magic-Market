@@ -100,6 +100,10 @@ func complete_order(result):
 	
 	game.handle_order_result(result)
 	
+	if result.get("failed", false) or result.get("quality", 1.0) < 0.5:
+		if task != null and task.has_method("failure"):
+			task.failure()
+	
 	# Cleanup
 	task = null
 	resources_needed = {}

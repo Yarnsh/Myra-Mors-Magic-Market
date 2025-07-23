@@ -15,6 +15,8 @@ var tbo_variation = 5000
 @onready var customer_prefab = preload("res://customer.tscn")
 @onready var customer_parent = $IndoorVisuals/Customers
 @onready var vibe_indicator = $Money/Vibe
+@onready var board = $IndoorVisuals/Board
+@onready var smoke_anim = $IndoorVisuals/Smoke/Anim
 
 @onready var money_sfx = $MoneySFX
 @onready var entry_sfx = $EntrySFX
@@ -53,6 +55,8 @@ func reset():
 	tips_earned = 0.0
 	base_earned = 0.0
 	taxes_taken = 0.0
+	
+	smoke_anim.play("RESET")
 
 func start():
 	set_process(true)
@@ -69,12 +73,15 @@ func hide_popup_text():
 	text_popup.remove()
 
 func set_recipes(recipes):
-	recipes_list = recipes
+	recipes_list = []
 	order_list = []
 	for r in recipes:
-		if "task" in r:
-			order_list.append(r)
+		if r != null:
+			recipes_list.append(r)
+			if "task" in r:
+				order_list.append(r)
 	chores_list = GameGlobals.current_chores
+	board.populate(recipes)
 
 func trigger_complete():
 	complete = true
@@ -95,14 +102,18 @@ func _process(delta: float) -> void:
 				GameGlobals.prep_stations.consume({"incense": 1})
 				next_incense_check = now + 20000
 		if GameGlobals.prep_stations.check_requirements({"incense": 1}):
+			if vibe_mult != 4.0:
+				smoke_anim.play("Show")
 			vibe_mult = 4.0
 		else:
+			if vibe_mult != 1.0:
+				smoke_anim.play("Hide")
 			vibe_mult = 1.0
 		
 		while now >= next_chore: # TODO: increase speed of these as more chores are added
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
-				GameGlobals.orders.add_order(order_def, 6000 + (GameGlobals.orders_count * 2000))
+				GameGlobals.orders.add_order(order_def, 6000 + (GameGlobals.orders_count * 4000))
 			
 			next_chore = next_chore + time_between_chores + ((-tbo_variation/2) + randi_range(0, tbo_variation))
 		
@@ -112,7 +123,7 @@ func _process(delta: float) -> void:
 				var customer = customer_prefab.instantiate()
 				customer_parent.add_child(customer)
 				customer.set_guy("Cloak")
-				GameGlobals.orders.add_order_with_customer(order_def, 6000 + (GameGlobals.orders_count * 2000), customer)
+				GameGlobals.orders.add_order_with_customer(order_def, 6000 + (GameGlobals.orders_count * 4000), customer)
 				entry_sfx.stop()
 				entry_sfx.play()
 			

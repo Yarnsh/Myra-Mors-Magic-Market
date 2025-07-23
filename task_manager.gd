@@ -31,3 +31,4 @@ func stop_task():
 		GameGlobals.current_task.reset_task()
 		GameGlobals.current_task.hide()
 		GameGlobals.current_task = null
+		current_task_owner = null
