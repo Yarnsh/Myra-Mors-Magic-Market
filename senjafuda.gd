@@ -1,6 +1,7 @@
 extends Node2D
 
-@export var control_texture : Texture2D
+@export var right_texture : Texture2D
+@export var left_texture : Texture2D
 @export var done_texture : Texture2D
 
 @onready var swipe = $Swipe
@@ -18,8 +19,8 @@ var strokes = 0
 func apply_controls():
 	GameGlobals.controls.clear_controls()
 	GameGlobals.controls.set_nice_name("Draw the Senjafuda")
-	GameGlobals.controls.apply_control(3, "L", control_texture)
-	GameGlobals.controls.apply_control(5, "R", control_texture)
+	GameGlobals.controls.apply_control(3, "L", left_texture)
+	GameGlobals.controls.apply_control(5, "R", right_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
 	GameGlobals.game.set_popup_text("[center]Repeat [b][color=red][font_size=30]R[/font_size][/color][/b]ight and [b][color=red][font_size=30]L[/font_size][/color][/b]eft strokes until it's drawn.[/center]")
 

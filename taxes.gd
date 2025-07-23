@@ -1,6 +1,8 @@
 extends Node2D
 
-@export var control_texture : Texture2D
+@export var name_texture : Texture2D
+@export var date_texture : Texture2D
+@export var sign_texture : Texture2D
 @export var done_texture : Texture2D
 
 @onready var write_sfx = $Writing
@@ -38,9 +40,9 @@ var q = 1.0
 func apply_controls():
 	GameGlobals.controls.clear_controls()
 	GameGlobals.controls.set_nice_name("Fill out your Taxes")
-	GameGlobals.controls.apply_control(0, "N", control_texture)
-	GameGlobals.controls.apply_control(3, "D", control_texture)
-	GameGlobals.controls.apply_control(6, "S", control_texture)
+	GameGlobals.controls.apply_control(0, "N", name_texture)
+	GameGlobals.controls.apply_control(3, "D", date_texture)
+	GameGlobals.controls.apply_control(6, "S", sign_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
 	GameGlobals.game.set_popup_text("[center][b]In order, "+lines_to_exp[lines[0]]+", "+lines_to_exp[lines[1]]+", and "+lines_to_exp[lines[2]]+".[/center]")
 
@@ -64,6 +66,7 @@ func take_input(sc : String, release = false):
 		if sprites[strokes].texture != lines_unshuffled[k_to_idx[sc]]:
 			q = 0.0
 		brush.global_position = sprites[strokes].global_position
+		anim.stop()
 		anim.play("Write")
 		strokes += 1
 		write_sfx.stop()

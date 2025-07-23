@@ -282,6 +282,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="BG" type="TextureRect" parent="Visuals"]
+layout_mode = 0
 offset_top = -112.0
 offset_right = 1548.0
 offset_bottom = 759.0

@@ -40,3 +40,6 @@ func _on_button_pressed() -> void:
 
 func _on_button_mouse_entered() -> void:
 	get_parent().text.item_selected(last_def)
+
+func _on_button_mouse_exited() -> void:
+	get_parent().text.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=56 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -26,6 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="18_sk1y1"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="19_p3i5y"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="20_cmeww"]
+[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="23_ibwr5"]
 [ext_resource type="AudioStream" uid="uid://dlvu3hiiohy2k" path="res://SFX/325210__psychopancake__rain-stick-slow.wav" id="24_4r8gt"]
 
 [sub_resource type="Animation" id="Animation_2bygw"]
@@ -633,16 +634,23 @@ offset_top = 414.0
 offset_right = 539.0
 offset_bottom = 534.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer"]
+[node name="MetalBorder" parent="Text/ItemExplainer" instance=ExtResource("23_ibwr5")]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer/MetalBorder"]
+layout_mode = 2
+offset_right = 532.0
+offset_bottom = 120.0
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
-[node name="Label" type="Label" parent="Text/ItemExplainer/MarginContainer"]
+[node name="Label" type="Label" parent="Text/ItemExplainer/MetalBorder/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

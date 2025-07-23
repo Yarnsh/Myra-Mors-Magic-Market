@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=214 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -29,14 +29,10 @@
 [ext_resource type="Script" path="res://frog.gd" id="9_e23ea"]
 [ext_resource type="Script" path="res://vibe.gd" id="9_ew70i"]
 [ext_resource type="Script" path="res://UI/clicker.gd" id="9_h36jf"]
-[ext_resource type="Texture2D" uid="uid://bv43qfkcurnx8" path="res://Images/ControlButtonRed.png" id="10_idcwj"]
 [ext_resource type="Texture2D" uid="uid://gfv6o3jhah14" path="res://Images/candle.png" id="10_lkr3i"]
 [ext_resource type="Shader" path="res://smoke.gdshader" id="11_5kocx"]
 [ext_resource type="AudioStream" uid="uid://45ckn5oj54o4" path="res://SFX/515862__astriferal__wooden-frog-croaks.wav" id="11_lx8op"]
-[ext_resource type="Texture2D" uid="uid://bsalmnd1fenco" path="res://Images/ControlButtonGreen.png" id="11_sqpd8"]
-[ext_resource type="Texture2D" uid="uid://6ui0wov5lcgo" path="res://Images/ControlButtonBlue.png" id="12_55yik"]
 [ext_resource type="Texture2D" uid="uid://dl3pob3gyc7eu" path="res://Images/smoke.png" id="12_pboym"]
-[ext_resource type="Texture2D" uid="uid://5i7g5soeherj" path="res://Images/ControlButtonYellow.png" id="13_wn1xy"]
 [ext_resource type="Script" path="res://pick_prep_station_task.gd" id="14_tj0ai"]
 [ext_resource type="Texture2D" uid="uid://mhxphfn5ksik" path="res://Images/PrepPotion.png" id="15_pjbpi"]
 [ext_resource type="Script" path="res://ponder_orb.gd" id="16_fc1b3"]
@@ -102,6 +98,7 @@
 [ext_resource type="AudioStream" uid="uid://dswq1nsaqx32r" path="res://SFX/643664__snowfightstudios__goblin_various-laughs-and-giggles.wav" id="66_4uaqd"]
 [ext_resource type="AudioStream" uid="uid://b8kbq3wjtghgb" path="res://SFX/754324__kenneysgarage__brush_strokes.wav" id="66_k4ny6"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
+[ext_resource type="Texture2D" uid="uid://dseybabv6hepd" path="res://Images/ControlGong.png" id="67_u0l32"]
 [ext_resource type="Texture2D" uid="uid://blpnslqtktp4g" path="res://Images/IncenseControl1.png" id="72_fq6rl"]
 [ext_resource type="Texture2D" uid="uid://cdcx02sbgeker" path="res://Images/PrepIncense.png" id="72_iyokx"]
 [ext_resource type="Texture2D" uid="uid://bodqb14p3hv0i" path="res://Images/IncenseControl2.png" id="73_slvmj"]
@@ -115,18 +112,24 @@
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="77_4efa2"]
 [ext_resource type="Texture2D" uid="uid://doqvehoroinun" path="res://Images/IncenseControl3b.png" id="77_6x1ub"]
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="77_8q7at"]
+[ext_resource type="Texture2D" uid="uid://w2i8vc0td1p1" path="res://Images/ControlButtonBrushRight.png" id="77_rdtcj"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
+[ext_resource type="Texture2D" uid="uid://dryxp2yd23wct" path="res://Images/ControlButtonBrushLeft.png" id="78_slg54"]
+[ext_resource type="Texture2D" uid="uid://bdgag0beuc5rk" path="res://Images/ControlButtonName.png" id="86_ryqjo"]
+[ext_resource type="Texture2D" uid="uid://c17xuakk5p0u1" path="res://Images/ControlButtonDate.png" id="87_lfy3g"]
 [ext_resource type="AudioStream" uid="uid://rhrpmq4tq8da" path="res://SFX/119841__kbnevel__lighter_lightrelease.wav" id="87_o1iya"]
+[ext_resource type="Texture2D" uid="uid://boojgvrim0tde" path="res://Images/ControlButtonSign.png" id="88_i71rm"]
 [ext_resource type="AudioStream" uid="uid://vrxvbj4dc81u" path="res://SFX/487531__ranner__bubble.wav" id="88_yw12j"]
 [ext_resource type="AudioStream" uid="uid://doy657rgn2kxq" path="res://SFX/514486__whammy__office-stamp.wav" id="96_lgnbm"]
 [ext_resource type="AudioStream" uid="uid://yafjrfeigffd" path="res://SFX/261082__l7_the_sound_hunter__god-yelling.wav" id="97_papac"]
 [ext_resource type="AudioStream" uid="uid://b3438tfxex7hv" path="res://SFX/395402__ellenmentor__01-ohm-3-voices.wav" id="112_30nhq"]
+[ext_resource type="AudioStream" uid="uid://jj86u5646qc1" path="res://SFX/242867__reitanna__blowing-out-candle.wav" id="122_3ca43"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_61376"]
 shader = ExtResource("11_5kocx")
 
-[sub_resource type="Animation" id="Animation_mv7h7"]
-resource_name = "Show"
+[sub_resource type="Animation" id="Animation_2hl28"]
+resource_name = "Hide"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -137,7 +140,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gajd8"]
@@ -155,8 +158,8 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_2hl28"]
-resource_name = "Hide"
+[sub_resource type="Animation" id="Animation_mv7h7"]
+resource_name = "Show"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -167,7 +170,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0mbrm"]
@@ -1577,6 +1580,18 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CandleSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_35vnc"]
 resource_name = "StartGame"
@@ -1628,6 +1643,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(2, 2), Vector2(1e-05, 3)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CandleSFX:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.7982),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ghxs5"]
@@ -2112,10 +2139,10 @@ script = ExtResource("5_25e1r")
 [node name="PotionPrep" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("6_pprsc")
-r_texture = ExtResource("10_idcwj")
-g_texture = ExtResource("11_sqpd8")
-b_texture = ExtResource("12_55yik")
-y_texture = ExtResource("13_wn1xy")
+r_texture = ExtResource("28_2hb4d")
+g_texture = ExtResource("31_i7ie4")
+b_texture = ExtResource("29_5ndcw")
+y_texture = ExtResource("30_5mphm")
 done_texture = ExtResource("21_wlpc6")
 prepped_icon = ExtResource("15_pjbpi")
 
@@ -2256,7 +2283,7 @@ stream = ExtResource("41_naqe0")
 
 [node name="ChargeCrystals" type="Node2D" parent="Task"]
 visible = false
-position = Vector2(-5, 89)
+position = Vector2(-13, 33)
 script = ExtResource("38_qmax6")
 control_texture = ExtResource("39_uwol7")
 done_texture = ExtResource("21_wlpc6")
@@ -2294,7 +2321,7 @@ bus = &"SFX"
 
 [node name="GoblinChore" type="Node2D" parent="Task"]
 visible = false
-position = Vector2(43, 83)
+position = Vector2(43, 27)
 script = ExtResource("19_8nm8a")
 blast_texture = ExtResource("20_gbqrd")
 done_texture = ExtResource("21_wlpc6")
@@ -2416,6 +2443,7 @@ script = ExtResource("14_tj0ai")
 [node name="Gong" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("46_4y0rq")
+control_texture = ExtResource("67_u0l32")
 done_texture = ExtResource("21_wlpc6")
 
 [node name="Gong" type="Sprite2D" parent="Task/Gong"]
@@ -2446,6 +2474,7 @@ bus = &"SFX"
 [node name="Fire" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("49_58ph3")
+done_texture = ExtResource("21_wlpc6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Task/Fire"]
 position = Vector2(1, -174)
@@ -2502,6 +2531,8 @@ bus = &"SFX"
 [node name="Senjafuda" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("49_6l8ws")
+right_texture = ExtResource("77_rdtcj")
+left_texture = ExtResource("78_slg54")
 done_texture = ExtResource("21_wlpc6")
 
 [node name="Slip" type="Sprite2D" parent="Task/Senjafuda"]
@@ -2551,7 +2582,12 @@ bus = &"SFX"
 
 [node name="Taxes" type="Node2D" parent="Task"]
 visible = false
+position = Vector2(0, -80)
 script = ExtResource("60_3qutf")
+name_texture = ExtResource("86_ryqjo")
+date_texture = ExtResource("87_lfy3g")
+sign_texture = ExtResource("88_i71rm")
+done_texture = ExtResource("21_wlpc6")
 line1 = ExtResource("61_k6kxt")
 line2 = ExtResource("62_68iwj")
 line3 = ExtResource("63_gypxw")
@@ -2618,6 +2654,7 @@ bus = &"SFX"
 
 [node name="Incense" type="Node2D" parent="Task"]
 visible = false
+position = Vector2(0, -16)
 script = ExtResource("57_y2b27")
 control_texture1 = ExtResource("72_fq6rl")
 control_texture2 = ExtResource("73_slvmj")
@@ -2723,12 +2760,22 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("30_lnv00")
 
-[node name="Label" type="RichTextLabel" parent="TaskText"]
+[node name="MetalBorder" parent="TaskText" instance=ExtResource("6_t60w7")]
 layout_mode = 2
+
+[node name="Label" type="RichTextLabel" parent="TaskText/MetalBorder"]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 534.0
+offset_bottom = 81.0
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 bbcode_enabled = true
 text = "[center]
 test
 [/center]"
+fit_content = true
 autowrap_mode = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -2878,6 +2925,9 @@ bus = &"SFX"
 [node name="EntrySFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("78_4t68a")
 bus = &"SFX"
+
+[node name="CandleSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("122_3ca43")
 
 [connection signal="clicked" from="IndoorVisuals/Frog/FrogClicker" to="IndoorVisuals/Frog" method="_on_frog_clicker_clicked"]
 [connection signal="visibility_changed" from="Task/PrepStationTask" to="Task/PrepStationTask" method="_on_visibility_changed"]

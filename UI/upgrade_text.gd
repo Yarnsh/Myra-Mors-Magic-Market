@@ -1,6 +1,6 @@
 extends Control
 
-@onready var label = $ItemExplainer/MarginContainer/Label
+@onready var label = $ItemExplainer/MetalBorder/MarginContainer/Label
 
 var last_def = null
 

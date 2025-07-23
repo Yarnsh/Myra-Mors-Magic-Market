@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bmoxwb8d6mrt0"]
+[gd_scene load_steps=41 format=3 uid="uid://bmoxwb8d6mrt0"]
 
 [ext_resource type="Script" path="res://upgrades_2.gd" id="1_ivrpe"]
 [ext_resource type="Texture2D" uid="uid://ce47ltvj1fec7" path="res://Images/BackroomBG1.png" id="2_pqvcg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="12_r872w"]
 [ext_resource type="Texture2D" uid="uid://bs8nlumpj20n2" path="res://Images/prepstation.png" id="15_7vt85"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="16_d3mih"]
+[ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="16_g462p"]
 [ext_resource type="AudioStream" uid="uid://dqsm2rtxeafio" path="res://SFX/715632__trp__130312-florescent-light-buzz-room-tone.mp3" id="17_6kd20"]
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="18_vfge4"]
 [ext_resource type="AudioStream" uid="uid://2ybxl28xvh0b" path="res://SFX/720893__baggonotes__incorrect_buzz.wav" id="19_11pr3"]
@@ -38,21 +39,6 @@ tracks/0/keys = {
 "values": [Vector2(12, 225), Vector2(108, 225)]
 }
 
-[sub_resource type="Animation" id="Animation_qeg0i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Myra:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(12, 225)]
-}
-
 [sub_resource type="Animation" id="Animation_gepv0"]
 resource_name = "Exit"
 length = 0.5
@@ -67,6 +53,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(108, 225), Vector2(12, 225)]
+}
+
+[sub_resource type="Animation" id="Animation_qeg0i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Myra:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 225)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tqqhj"]
@@ -265,6 +266,31 @@ offset_bottom = 66.0
 offset_top = 60.0
 offset_bottom = 103.0
 
+[node name="PrepStation" parent="." instance=ExtResource("3_3ppwm")]
+offset_left = 690.0
+offset_top = 293.0
+offset_right = 690.0
+offset_bottom = 293.0
+
+[node name="Button" parent="PrepStation" index="0"]
+offset_left = -70.0
+offset_top = -58.0
+offset_right = 66.0
+offset_bottom = 78.0
+icon = ExtResource("15_7vt85")
+
+[node name="Label" parent="PrepStation" index="1"]
+offset_top = 68.0
+offset_bottom = 111.0
+
+[node name="Label2" parent="PrepStation" index="2"]
+offset_top = 105.0
+offset_bottom = 148.0
+
+[node name="Sold" parent="PrepStation" index="3"]
+offset_top = -28.0
+offset_bottom = 32.0
+
 [node name="Anim" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 libraries = {
@@ -330,44 +356,29 @@ offset_top = 414.0
 offset_right = 539.0
 offset_bottom = 534.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer"]
+[node name="MetalBorder" parent="Text/ItemExplainer" instance=ExtResource("16_g462p")]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Text/ItemExplainer/MetalBorder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 30
 
-[node name="Label" type="Label" parent="Text/ItemExplainer/MarginContainer"]
+[node name="Label" type="Label" parent="Text/ItemExplainer/MetalBorder/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
-
-[node name="PrepStation" parent="." instance=ExtResource("3_3ppwm")]
-offset_left = 690.0
-offset_top = 293.0
-offset_right = 690.0
-offset_bottom = 293.0
-
-[node name="Button" parent="PrepStation" index="0"]
-offset_left = -70.0
-offset_top = -58.0
-offset_right = 66.0
-offset_bottom = 78.0
-icon = ExtResource("15_7vt85")
-
-[node name="Label" parent="PrepStation" index="1"]
-offset_top = 68.0
-offset_bottom = 111.0
-
-[node name="Label2" parent="PrepStation" index="2"]
-offset_top = 105.0
-offset_bottom = 148.0
-
-[node name="Sold" parent="PrepStation" index="3"]
-offset_top = -28.0
-offset_bottom = 32.0
 
 [node name="Money" parent="." instance=ExtResource("16_d3mih")]
 layout_mode = 1

@@ -1,6 +1,6 @@
 extends PanelContainer
 
-@onready var label = $Label
+@onready var label = $MetalBorder/Label
 
 func display(text):
 	label.text = text
