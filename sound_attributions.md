@@ -56,3 +56,5 @@ God Yelling.mp3 by L7_the_Sound_Hunter -- https://freesound.org/s/261082/ -- Lic
 Goblin_Various Laughs and Giggles.mp3 by SnowFightStudios -- https://freesound.org/s/643664/ -- License: Creative Commons 0
 
 01 Ohm 3 voices.wav by ellenmentor -- https://freesound.org/s/395402/ -- License: Attribution 4.0
+
+blowing out candle.wav by Reitanna -- https://freesound.org/s/242867/ -- License: Creative Commons 0
