@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=61 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="20_cmeww"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="23_ibwr5"]
 [ext_resource type="AudioStream" uid="uid://dlvu3hiiohy2k" path="res://SFX/325210__psychopancake__rain-stick-slow.wav" id="24_4r8gt"]
+[ext_resource type="Texture2D" uid="uid://cdvp4e8bokiwr" path="res://Images/vingneteeelrerere.png" id="24_k1tiv"]
 [ext_resource type="AudioStream" uid="uid://bk4i6oqhdt5wb" path="res://SFX/Mumble1.wav" id="29_li8sw"]
 [ext_resource type="AudioStream" uid="uid://lwvs8mksprhl" path="res://SFX/Mumble2.wav" id="30_4mj7l"]
 [ext_resource type="AudioStream" uid="uid://ci3le0bs5i2b8" path="res://SFX/Mumble3.wav" id="31_r10tj"]
@@ -658,6 +659,17 @@ theme_override_constants/outline_size = 12
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Talkin" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.682353)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("24_k1tiv")
 
 [node name="MoneySFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_jfnr3")

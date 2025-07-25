@@ -6,6 +6,7 @@ extends Control
 @onready var horanim = $Horatius/Anim
 @onready var speech_bubble = $Horatius/SpeechBubble
 @onready var backroom_entry = $BackRoom
+@onready var talkin = $Talkin
 
 @onready var money_sfx = $MoneySFX
 @onready var bad_sfx = $BadSFX
@@ -151,6 +152,7 @@ func on_open_from_back():
 	speech_bubble.say("Find anything good back there?")
 
 func hor_anim_1():
+	talkin.show()
 	mumble4.play()
 	money_sfx.play()
 	GameGlobals.fade_happening = true
@@ -162,6 +164,7 @@ func hor_anim_2():
 	hor.set_emotion(0)
 	speech_bubble.say("Maybe you could use some of my special stock.")
 func hor_anim_3():
+	talkin.hide()
 	mumble4.play()
 	GameGlobals.fade_happening = false
 	main.fade.mouse_filter = MOUSE_FILTER_IGNORE
