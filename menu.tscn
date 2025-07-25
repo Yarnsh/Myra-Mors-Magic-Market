@@ -11,6 +11,21 @@
 [ext_resource type="PackedScene" uid="uid://o40cfwh5pcke" path="res://UI/coin.tscn" id="8_s5agp"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="13_j1h6b"]
 
+[sub_resource type="Animation" id="Animation_6pe6h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 464)]
+}
+
 [sub_resource type="Animation" id="Animation_ft3pi"]
 resource_name = "new_animation"
 length = 2.0
@@ -28,7 +43,13 @@ tracks/0/keys = {
 "values": [Vector2(464, 464), Vector2(864, 464), Vector2(464, 464)]
 }
 
-[sub_resource type="Animation" id="Animation_6pe6h"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orl2w"]
+_data = {
+"RESET": SubResource("Animation_6pe6h"),
+"new_animation": SubResource("Animation_ft3pi")
+}
+
+[sub_resource type="Animation" id="Animation_e1my8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -40,13 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(464, 464)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_orl2w"]
-_data = {
-"RESET": SubResource("Animation_6pe6h"),
-"new_animation": SubResource("Animation_ft3pi")
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_kxfk5"]
@@ -64,21 +79,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -24), Vector2(0, 0), Vector2(0, -24)]
-}
-
-[sub_resource type="Animation" id="Animation_e1my8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpxg1"]
@@ -274,8 +274,8 @@ bus = &"SFX"
 [connection signal="pressed" from="Main/EndDayButton/Continue" to="." method="_on_end_day_pressed"]
 [connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Master" to="Settings" method="_on_change"]
-[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Music" to="Settings" method="_on_change"]
 [connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
 

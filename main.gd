@@ -35,10 +35,10 @@ func complete_game_h():
 	prep.manim.play("Returning")
 
 func open_shop():
-	shop.on_open()
 	fade.fade_call(open_shop_h)
 
 func open_shop_h():
+	shop.on_open()
 	prep.hide()
 	game.hide()
 	shop2.hide()
@@ -66,10 +66,10 @@ func close_shop_h():
 	prep.manim.play("Returning")
 
 func close_shop2():
-	shop.on_open_from_back()
 	fade.fade_call(close_shop2_h)
 
 func close_shop2_h():
+	shop.on_open_from_back()
 	prep.hide()
 	game.hide()
 	shop2.hide()

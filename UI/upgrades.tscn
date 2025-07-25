@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=60 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -28,6 +28,10 @@
 [ext_resource type="AudioStream" uid="uid://cbq2b2qvmrapn" path="res://SFX/488374__wobesound__doorclosehard.wav" id="20_cmeww"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="23_ibwr5"]
 [ext_resource type="AudioStream" uid="uid://dlvu3hiiohy2k" path="res://SFX/325210__psychopancake__rain-stick-slow.wav" id="24_4r8gt"]
+[ext_resource type="AudioStream" uid="uid://bk4i6oqhdt5wb" path="res://SFX/Mumble1.wav" id="29_li8sw"]
+[ext_resource type="AudioStream" uid="uid://lwvs8mksprhl" path="res://SFX/Mumble2.wav" id="30_4mj7l"]
+[ext_resource type="AudioStream" uid="uid://ci3le0bs5i2b8" path="res://SFX/Mumble3.wav" id="31_r10tj"]
+[ext_resource type="AudioStream" uid="uid://cbsm01qftxh7k" path="res://SFX/Mumble4.wav" id="32_dxx2w"]
 
 [sub_resource type="Animation" id="Animation_2bygw"]
 resource_name = "MouseOver"
@@ -674,6 +678,26 @@ bus = &"SFX"
 
 [node name="ExitSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_cmeww")
+bus = &"SFX"
+
+[node name="Mumble1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_li8sw")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Mumble2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_4mj7l")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Mumble3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("31_r10tj")
+volume_db = 5.0
+bus = &"SFX"
+
+[node name="Mumble4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_dxx2w")
+volume_db = 5.0
 bus = &"SFX"
 
 [connection signal="clicked" from="BackRoom/BackRoomClicker" to="BackRoom" method="_on_back_room_clicker_clicked"]

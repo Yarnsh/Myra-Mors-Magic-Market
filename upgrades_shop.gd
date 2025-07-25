@@ -15,6 +15,11 @@ extends Control
 
 @onready var myra_anim = $Myras/Anim
 
+@onready var mumble1 = $Mumble1
+@onready var mumble2 = $Mumble2
+@onready var mumble3 = $Mumble3
+@onready var mumble4 = $Mumble4
+
 func _ready() -> void:
 	$WinCondition.set_item(
 		{
@@ -112,6 +117,7 @@ func buy_paint_set():
 	buy_response()
 
 func _on_close_shop_pressed() -> void:
+	mumble1.play()
 	main.close_shop()
 	text.hide()
 	exit_sfx.play()
@@ -119,37 +125,44 @@ func _on_close_shop_pressed() -> void:
 	myra_anim.play("Exit")
 
 func buy_response():
+	mumble1.play()
 	hor.set_emotion(1)
 	money_sfx.play()
 	# TODO: random selection of things to say
 	speech_bubble.say("Smart purchase, buying more stuff would be even smarter")
 
 func poor_response():
+	mumble2.play()
 	hor.set_emotion(3)
 	bad_sfx.play()
 	speech_bubble.say("Sorry, I don't give credit")
 
 func on_open():
+	mumble3.play()
 	hor.set_emotion(0)
 	enter_sfx.play()
 	speech_bubble.say("Welcome in, what are you looking for today?")
 	myra_anim.play("Enter")
 
 func on_open_from_back():
+	mumble3.play()
 	hor.set_emotion(0)
 	back_enter_sfx.play()
 	speech_bubble.say("Find anything good back there?")
 
 func hor_anim_1():
+	mumble4.play()
 	money_sfx.play()
 	GameGlobals.fade_happening = true
 	main.fade.mouse_filter = MOUSE_FILTER_STOP
 	hor.set_emotion(1)
 	speech_bubble.say("Now you're running a real shop!")
 func hor_anim_2():
+	mumble2.play()
 	hor.set_emotion(0)
 	speech_bubble.say("Maybe you could use some of my special stock.")
 func hor_anim_3():
+	mumble4.play()
 	GameGlobals.fade_happening = false
 	main.fade.mouse_filter = MOUSE_FILTER_IGNORE
 	hor.set_emotion(0)
