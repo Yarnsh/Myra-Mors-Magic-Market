@@ -58,3 +58,5 @@ Goblin_Various Laughs and Giggles.mp3 by SnowFightStudios -- https://freesound.o
 01 Ohm 3 voices.wav by ellenmentor -- https://freesound.org/s/395402/ -- License: Attribution 4.0
 
 blowing out candle.wav by Reitanna -- https://freesound.org/s/242867/ -- License: Creative Commons 0
+
+CHAINHndl_Chain Metal Rattle 01_KVV AUDIO_FREE by KVV_Audio -- https://freesound.org/s/798137/ -- License: Attribution 4.0
