@@ -5,8 +5,10 @@ extends Control
 @onready var prep = $GamePrep
 @onready var shop = $Upgrades
 @onready var shop2 = $Upgrades2
+@onready var menu = $Menu
 
 func start_game(recipes):
+	menu.day_going(true)
 	game.set_recipes(recipes)
 	fade.fade_call(start_game_h)
 
@@ -20,6 +22,7 @@ func start_game_h():
 
 func complete_game():
 	fade.fade_call(complete_game_h)
+	menu.day_going(false)
 
 func complete_game_h():
 	game.hide()
@@ -73,6 +76,7 @@ func close_shop2_h():
 	shop.show()
 
 func first_start():
+	menu.day_going(false)
 	game.hide()
 	shop.hide()
 	shop2.hide()

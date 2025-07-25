@@ -1,0 +1,193 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0uq6tek33lut"]
+
+[ext_resource type="Texture2D" uid="uid://cgatp3hd8mng2" path="res://Images/MenuButton.png" id="1_0i5wg"]
+[ext_resource type="Script" path="res://UI/menu_button.gd" id="1_h8vg0"]
+[ext_resource type="Texture2D" uid="uid://cmkh5n61dlhsn" path="res://Images/Chain.png" id="2_ocjwx"]
+[ext_resource type="Texture2D" uid="uid://m7gq3nikfxcv" path="res://Images/ChainBack.png" id="3_1qe0c"]
+[ext_resource type="AudioStream" uid="uid://d11jujxcfdrlw" path="res://SFX/798137__kvv_audio__chainhndl_chain-metal-rattle-01_kvv-audio_free.wav" id="5_akkbb"]
+
+[sub_resource type="Animation" id="Animation_soqsy"]
+resource_name = "Extend"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-280, 0), Vector2(-136, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChainFront:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, 0.698132, -0.610865, 0.349066, -0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChainBack:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.349066, 0.698132, -0.610865, 0.349066, -0.174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_alayk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-280, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChainFront:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChainBack:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mc062"]
+resource_name = "Retract"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-136, 0), Vector2(-280, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChainFront:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.3996, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, -0.698132, 0.610865, -0.349066, 0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChainBack:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2, 0.3996, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.349066, -0.698132, 0.610865, -0.349066, 0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7is80"]
+_data = {
+"Extend": SubResource("Animation_soqsy"),
+"RESET": SubResource("Animation_alayk"),
+"Retract": SubResource("Animation_mc062")
+}
+
+[node name="MenuButton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_h8vg0")
+
+[node name="Continue" type="TextureButton" parent="."]
+layout_mode = 1
+offset_left = -280.0
+offset_right = 320.0
+offset_bottom = 48.0
+texture_normal = ExtResource("1_0i5wg")
+texture_pressed = ExtResource("1_0i5wg")
+texture_hover = ExtResource("1_0i5wg")
+texture_disabled = ExtResource("1_0i5wg")
+texture_focused = ExtResource("1_0i5wg")
+
+[node name="Label" type="Label" parent="Continue"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -89.0
+offset_top = -5.0
+offset_right = -2.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 26
+text = "Play!"
+
+[node name="ChainFront" type="Sprite2D" parent="Continue"]
+texture_filter = 1
+position = Vector2(589, 41)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_ocjwx")
+offset = Vector2(0, 46)
+
+[node name="ChainBack" type="Sprite2D" parent="Continue"]
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(589, 41)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_1qe0c")
+offset = Vector2(0, 46)
+
+[node name="Anim" type="AnimationPlayer" parent="Continue"]
+libraries = {
+"": SubResource("AnimationLibrary_7is80")
+}
+autoplay = "RESET"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_akkbb")
+bus = &"SFX"
+
+[connection signal="mouse_entered" from="Continue" to="." method="_on_continue_mouse_entered"]
+[connection signal="mouse_exited" from="Continue" to="." method="_on_continue_mouse_exited"]

@@ -194,3 +194,6 @@ func handle_order_result(result):
 				else:
 					vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 					vibe_indicator.lose()
+
+func end_early():
+	trigger_complete()

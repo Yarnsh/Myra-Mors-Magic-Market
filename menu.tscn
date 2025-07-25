@@ -1,10 +1,91 @@
-[gd_scene load_steps=6 format=3 uid="uid://6yvdwoh8ctr4"]
+[gd_scene load_steps=17 format=3 uid="uid://6yvdwoh8ctr4"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_fvh8s"]
 [ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="2_jnx5c"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="3_inaj7"]
+[ext_resource type="PackedScene" uid="uid://b0uq6tek33lut" path="res://UI/menu_button.tscn" id="3_xbpeo"]
 [ext_resource type="Script" path="res://settings.gd" id="4_8sjyc"]
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="5_bdawe"]
+[ext_resource type="Texture2D" uid="uid://ciue7lndayivr" path="res://Images/StarEyeMyra.png" id="6_6rw50"]
+[ext_resource type="Script" path="res://coins.gd" id="7_2xn7n"]
+[ext_resource type="PackedScene" uid="uid://o40cfwh5pcke" path="res://UI/coin.tscn" id="8_s5agp"]
+[ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="13_j1h6b"]
+
+[sub_resource type="Animation" id="Animation_ft3pi"]
+resource_name = "new_animation"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(464, 464), Vector2(864, 464), Vector2(464, 464)]
+}
+
+[sub_resource type="Animation" id="Animation_6pe6h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(464, 464)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orl2w"]
+_data = {
+"RESET": SubResource("Animation_6pe6h"),
+"new_animation": SubResource("Animation_ft3pi")
+}
+
+[sub_resource type="Animation" id="Animation_kxfk5"]
+resource_name = "new_animation"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666, 0.1332, 0.1998),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -24), Vector2(0, 0), Vector2(0, -24)]
+}
+
+[sub_resource type="Animation" id="Animation_e1my8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wpxg1"]
+_data = {
+"RESET": SubResource("Animation_e1my8"),
+"new_animation": SubResource("Animation_kxfk5")
+}
 
 [node name="Menu" type="Control"]
 texture_filter = 1
@@ -28,44 +109,72 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jnx5c")
 
-[node name="Main" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = -33.0
-offset_right = 44.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Main" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="MetalBorder" parent="Main" instance=ExtResource("3_inaj7")]
-layout_mode = 2
+[node name="ContinueButton" parent="Main" instance=ExtResource("3_xbpeo")]
+offset_left = -136.0
+offset_top = 216.0
+offset_right = -96.0
+offset_bottom = 256.0
 
-[node name="MarginContainer" type="MarginContainer" parent="Main"]
-layout_mode = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
+[node name="SettingsButton" parent="Main" instance=ExtResource("3_xbpeo")]
+offset_left = -115.0
+offset_top = 296.0
+offset_right = -75.0
+offset_bottom = 336.0
+scale = Vector2(0.8, 0.8)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Main/MarginContainer"]
-layout_mode = 2
-
-[node name="Continue" type="Button" parent="Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Play!"
-
-[node name="Settings" type="Button" parent="Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Label" parent="Main/SettingsButton/Continue" index="0"]
+offset_left = -127.0
+offset_right = -26.0
 text = "Settings"
 
-[node name="Exit" type="Button" parent="Main/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit Game"
+[node name="EndDayButton" parent="Main" instance=ExtResource("3_xbpeo")]
+visible = false
+offset_left = -147.0
+offset_top = 368.0
+offset_right = -107.0
+offset_bottom = 408.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Label" parent="Main/EndDayButton/Continue" index="0"]
+offset_left = -127.0
+offset_right = -26.0
+text = "End day"
+
+[node name="Myra" type="Node2D" parent="Main"]
+
+[node name="Myra" type="Sprite2D" parent="Main/Myra"]
+texture_filter = 1
+position = Vector2(464, 464)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_6rw50")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Myra/Myra"]
+libraries = {
+"": SubResource("AnimationLibrary_orl2w")
+}
+autoplay = "new_animation"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Myra"]
+libraries = {
+"": SubResource("AnimationLibrary_wpxg1")
+}
+autoplay = "new_animation"
+
+[node name="Money" parent="Main" instance=ExtResource("13_j1h6b")]
+layout_mode = 1
+offset_left = 620.0
+offset_right = 920.0
+offset_bottom = 100.0
+
+[node name="Coins" type="Node2D" parent="Main"]
+position = Vector2(0, 640)
+script = ExtResource("7_2xn7n")
+coin_scene = ExtResource("8_s5agp")
 
 [node name="Settings" type="PanelContainer" parent="."]
 visible = false
@@ -160,11 +269,16 @@ text = "Done"
 stream = ExtResource("5_bdawe")
 bus = &"SFX"
 
-[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Main/MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main/ContinueButton/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Main/SettingsButton/Continue" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Main/EndDayButton/Continue" to="." method="_on_end_day_pressed"]
 [connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Master" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Music" to="Settings" method="_on_change"]
 [connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
+
+[editable path="Main/ContinueButton"]
+[editable path="Main/SettingsButton"]
+[editable path="Main/EndDayButton"]

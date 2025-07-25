@@ -2,6 +2,8 @@ extends Control
 
 @onready var main = $Main
 @onready var settings = $Settings
+@onready var myra_sprite = $Main/Myra/Myra
+@onready var endday = $Main/EndDayButton
 var started = false
 
 func _input(event: InputEvent) -> void:
@@ -23,6 +25,7 @@ func _on_settings_pressed() -> void:
 	settings.show()
 
 func _on_continue_pressed() -> void:
+	myra_sprite.hide()
 	if !started:
 		get_parent().first_start()
 	if visible:
@@ -30,3 +33,12 @@ func _on_continue_pressed() -> void:
 			GameGlobals.menu_up = false
 			hide()
 	started = true
+
+func _on_end_day_pressed() -> void:
+	GameGlobals.menu_up = false
+	hide()
+	day_going(false)
+	GameGlobals.game.end_early()
+
+func day_going(going):
+	endday.visible = going
