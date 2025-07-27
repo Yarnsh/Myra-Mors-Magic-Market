@@ -7,10 +7,14 @@ extends Control
 @onready var shop2 = $Upgrades2
 @onready var menu = $Menu
 
+@onready var prep_music = $Music/PrepMusic
+
 func start_game(recipes):
 	menu.day_going(true)
 	game.set_recipes(recipes)
 	fade.fade_call(start_game_h)
+	
+	prep_music.stop() # TODO: fade this out
 
 func start_game_h():
 	prep.hide()
@@ -33,6 +37,8 @@ func complete_game_h():
 	prep.show()
 	prep.populate_recipes()
 	prep.manim.play("Returning")
+	
+	prep_music.play()
 
 func open_shop():
 	fade.fade_call(open_shop_h)
@@ -82,3 +88,4 @@ func first_start():
 	shop2.hide()
 	prep.show()
 	prep.populate_recipes()
+	prep_music.play()

@@ -694,22 +694,22 @@ bus = &"SFX"
 
 [node name="Mumble1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_li8sw")
-volume_db = 5.0
+volume_db = 16.0
 bus = &"SFX"
 
 [node name="Mumble2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("30_4mj7l")
-volume_db = 5.0
+volume_db = 16.0
 bus = &"SFX"
 
 [node name="Mumble3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("31_r10tj")
-volume_db = 5.0
+volume_db = 16.0
 bus = &"SFX"
 
 [node name="Mumble4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_dxx2w")
-volume_db = 5.0
+volume_db = 16.0
 bus = &"SFX"
 
 [connection signal="clicked" from="BackRoom/BackRoomClicker" to="BackRoom" method="_on_back_room_clicker_clicked"]
