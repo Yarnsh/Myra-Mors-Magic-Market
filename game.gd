@@ -41,8 +41,8 @@ func _ready() -> void:
 
 func reset():
 	complete = false
-	next_order = Time.get_ticks_msec() + 4000
-	next_chore = Time.get_ticks_msec() + 4000 + time_between_chores
+	next_order = Time.get_ticks_msec() + 10000
+	next_chore = Time.get_ticks_msec() + 9000 + time_between_chores
 	GameGlobals.task_manager.stop_task()
 	GameGlobals.orders.clear()
 	GameGlobals.controls.clear_controls()
@@ -110,7 +110,7 @@ func _process(delta: float) -> void:
 				smoke_anim.play("Hide")
 			vibe_mult = 1.0
 		
-		while now >= next_chore: # TODO: increase speed of these as more chores are added
+		while now >= next_chore:
 			if GameGlobals.orders.has_free_space() and len(chores_list) > 0:
 				var order_def = chores_list[randi() % chores_list.size()]
 				GameGlobals.orders.add_order(order_def, 6000 + (GameGlobals.orders_count * 4000))

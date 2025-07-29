@@ -92,6 +92,7 @@ func first_start():
 
 func first_start_h():
 	menu.myra_sprite.hide()
+	menu.bg.modulate = Color(1, 1, 1, 0.5)
 	game_music.stop()
 	GameGlobals.menu_up = false
 	menu.hide()

@@ -4,6 +4,7 @@ extends Control
 @onready var settings = $Settings
 @onready var myra_sprite = $Main/Myra/Myra
 @onready var endday = $Main/EndDayButton
+@onready var bg = $BG
 var started = false
 
 func _input(event: InputEvent) -> void:

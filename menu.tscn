@@ -1,15 +1,69 @@
-[gd_scene load_steps=17 format=3 uid="uid://6yvdwoh8ctr4"]
+[gd_scene load_steps=22 format=3 uid="uid://6yvdwoh8ctr4"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_fvh8s"]
-[ext_resource type="Texture2D" uid="uid://ww2q42d1dmgt" path="res://Images/paper.png" id="2_jnx5c"]
+[ext_resource type="Shader" path="res://menuBG.gdshader" id="2_2c5hm"]
 [ext_resource type="PackedScene" uid="uid://cp8u1k11qmcbo" path="res://UI/metal_border.tscn" id="3_inaj7"]
 [ext_resource type="PackedScene" uid="uid://b0uq6tek33lut" path="res://UI/menu_button.tscn" id="3_xbpeo"]
 [ext_resource type="Script" path="res://settings.gd" id="4_8sjyc"]
+[ext_resource type="Texture2D" uid="uid://boxn21by1xgq3" path="res://Images/Logo.png" id="4_lic6a"]
 [ext_resource type="AudioStream" uid="uid://dmyx23t0n7ea0" path="res://SFX/209578__zott820__cash-register-purchase.wav" id="5_bdawe"]
 [ext_resource type="Texture2D" uid="uid://ciue7lndayivr" path="res://Images/StarEyeMyra.png" id="6_6rw50"]
 [ext_resource type="Script" path="res://coins.gd" id="7_2xn7n"]
 [ext_resource type="PackedScene" uid="uid://o40cfwh5pcke" path="res://UI/coin.tscn" id="8_s5agp"]
 [ext_resource type="PackedScene" uid="uid://0l0fa8uw6m3t" path="res://UI/money.tscn" id="13_j1h6b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aagux"]
+shader = ExtResource("2_2c5hm")
+shader_parameter/polar_coordinates = false
+shader_parameter/polar_center = Vector2(0.5, 0.5)
+shader_parameter/polar_zoom = 1.0
+shader_parameter/polar_repeat = 1.0
+shader_parameter/spin_rotation = null
+shader_parameter/spin_speed = 1.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.356863, 0, 0.803922, 1)
+shader_parameter/colour_2 = Color(0, 1, 0.537255, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = 3.0
+shader_parameter/spin_amount = 0.4
+shader_parameter/pixel_filter = 1000.0
+
+[sub_resource type="Animation" id="Animation_avmxv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(326, 109)]
+}
+
+[sub_resource type="Animation" id="Animation_snft0"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.333, 0.9657),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(326, 109), Vector2(326, 101), Vector2(326, 110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3edtg"]
+_data = {
+"RESET": SubResource("Animation_avmxv"),
+"default": SubResource("Animation_snft0")
+}
 
 [sub_resource type="Animation" id="Animation_6pe6h"]
 length = 0.001
@@ -97,17 +151,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fvh8s")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.0588235, 0.0588235, 0.0588235, 0.694118)
+[node name="BG" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_aagux")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -72.0
-offset_bottom = 72.0
+offset_top = -168.0
+offset_bottom = 252.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_jnx5c")
 
 [node name="Main" type="Control" parent="."]
 anchors_preset = 0
@@ -144,6 +197,18 @@ scale = Vector2(0.8, 0.8)
 offset_left = -127.0
 offset_right = -26.0
 text = "End day"
+
+[node name="Logo" type="Sprite2D" parent="Main"]
+texture_filter = 1
+position = Vector2(326, 109)
+scale = Vector2(2, 2)
+texture = ExtResource("4_lic6a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Logo"]
+libraries = {
+"": SubResource("AnimationLibrary_3edtg")
+}
+autoplay = "default"
 
 [node name="Myra" type="Node2D" parent="Main"]
 
@@ -210,6 +275,7 @@ layout_mode = 2
 [node name="Fullscreen" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "Fullscreen"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -217,6 +283,7 @@ vertical_alignment = 1
 [node name="Master" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "Master"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -224,6 +291,7 @@ vertical_alignment = 1
 [node name="SFX" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "SFX"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -231,6 +299,7 @@ vertical_alignment = 1
 [node name="Music" type="Label" parent="Settings/MarginContainer/All/Options/Labels"]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "Music"
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -274,8 +343,8 @@ bus = &"SFX"
 [connection signal="pressed" from="Main/EndDayButton/Continue" to="." method="_on_end_day_pressed"]
 [connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Master" to="Settings" method="_on_change"]
-[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Music" to="Settings" method="_on_change"]
 [connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
 
