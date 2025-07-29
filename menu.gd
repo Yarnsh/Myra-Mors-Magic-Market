@@ -25,7 +25,6 @@ func _on_settings_pressed() -> void:
 	settings.show()
 
 func _on_continue_pressed() -> void:
-	myra_sprite.hide()
 	if !started:
 		get_parent().first_start()
 	elif visible:

@@ -9,6 +9,7 @@ extends Control
 @onready var credits = $Credits
 
 @onready var prep_music = $Music/PrepMusic
+@onready var game_music = $Music/GameMusic
 
 func start_game(recipes):
 	menu.day_going(true)
@@ -24,9 +25,11 @@ func start_game_h():
 	game.reset()
 	game.start()
 	game.show()
+	game_music.play()
 
 func complete_game():
 	fade.fade_call(complete_game_h, 0.5)
+	game_music.stop()
 	menu.day_going(false)
 
 func complete_game_h():
@@ -88,6 +91,8 @@ func first_start():
 	fade.fade_call(first_start_h)
 
 func first_start_h():
+	menu.myra_sprite.hide()
+	game_music.stop()
 	GameGlobals.menu_up = false
 	menu.hide()
 	game.hide()

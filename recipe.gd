@@ -22,7 +22,7 @@ func set_recipe(recipe):
 		return
 	
 	label.text = recipe.get("name", "")
-	texture.texture = recipe.get("icon", null)
+	texture.texture = recipe.get("chalk_icon", null)
 
 func _process(delta: float) -> void:
 	# having this in process is so wrong man...

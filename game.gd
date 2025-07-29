@@ -102,9 +102,9 @@ func _process(delta: float) -> void:
 				GameGlobals.prep_stations.consume({"incense": 1})
 				next_incense_check = now + 20000
 		if GameGlobals.prep_stations.check_requirements({"incense": 1}):
-			if vibe_mult != 4.0:
+			if vibe_mult != 2.0:
 				smoke_anim.play("Show")
-			vibe_mult = 4.0
+			vibe_mult = 2.0
 		else:
 			if vibe_mult != 1.0:
 				smoke_anim.play("Hide")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dr3kg1k2pgvli"]
+[gd_scene load_steps=21 format=3 uid="uid://dr3kg1k2pgvli"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mr2kt"]
 [ext_resource type="PackedScene" uid="uid://b72aodvsrkkov" path="res://game.tscn" id="2_bltpj"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6yvdwoh8ctr4" path="res://menu.tscn" id="8_kcu1f"]
 [ext_resource type="AudioStream" uid="uid://v21hqgvohgaf" path="res://SFX/276581__arnaud-coutancier__beach.mp3" id="9_8hg2d"]
 [ext_resource type="AudioStream" uid="uid://butk6u2honut6" path="res://Music/m1m1.mp3" id="9_uf2ce"]
+[ext_resource type="AudioStream" uid="uid://28tddh64hyne" path="res://Music/m1m2.mp3" id="14_qvmw2"]
 
 [sub_resource type="Animation" id="Animation_4ai7x"]
 resource_name = "Credits"
@@ -239,8 +240,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -75.4119
-offset_bottom = 2603.41
+offset_top = -75.4285
+offset_bottom = 2603.39
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_3uang")
@@ -348,7 +349,13 @@ layout_mode = 1
 
 [node name="PrepMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("9_uf2ce")
-volume_db = 16.0
+volume_db = 14.0
+bus = &"Music"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("14_qvmw2")
+volume_db = 12.0
+autoplay = true
 bus = &"Music"
 
 [connection signal="animation_finished" from="Credits/AnimationPlayer" to="Credits" method="_on_animation_player_animation_finished"]

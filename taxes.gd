@@ -28,9 +28,9 @@ var k_to_idx = {"N":0,"D":1,"S":2}
 @onready var lines_unshuffled = [line1, line2, line3]
 @onready var lines = [line1, line2, line3]
 @onready var lines_to_exp = {
-	line1: "fill out your [color=red][font_size=30]N[/font_size][/color][/b]name",
-	line2: "fill out the [color=red][font_size=30]D[/font_size][/color][/b]ate",
-	line3: "[color=red][font_size=30]S[/font_size][/color][/b]ign it"
+	line1: "fill out your [b][color=red][font_size=30]N[/font_size][/color][/b]name",
+	line2: "fill out the [b][color=red][font_size=30]D[/font_size][/color][/b]ate",
+	line3: "[b][color=red][font_size=30]S[/font_size][/color][/b]ign it"
 }
 @onready var writes = [write1, write2, write3]
 var strokes = 0
@@ -44,10 +44,9 @@ func apply_controls():
 	GameGlobals.controls.apply_control(3, "D", date_texture)
 	GameGlobals.controls.apply_control(6, "S", sign_texture)
 	GameGlobals.controls.apply_control(10, "Enter", done_texture)
-	GameGlobals.game.set_popup_text("[center][b]In order, "+lines_to_exp[lines[0]]+", "+lines_to_exp[lines[1]]+", and "+lines_to_exp[lines[2]]+".[/center]")
+	GameGlobals.game.set_popup_text("[center]In order, "+lines_to_exp[lines[0]]+", "+lines_to_exp[lines[1]]+", and "+lines_to_exp[lines[2]]+".[/center]")
 
 func reset_task():
-	#anim.play("RESET")
 	q = 1.0
 	strokes = 0
 	lines.shuffle()

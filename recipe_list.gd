@@ -41,7 +41,7 @@ func recipe_selected(recipe):
 		desc_image.texture = null
 	else:
 		desc_label.text = recipe.get("description", "Pick what you want to sell today")
-		desc_image.texture = recipe.get("icon", null)
+		desc_image.texture = recipe.get("chalk_icon", null)
 
 func select_pressed() -> void:
 	if last_button != null:
