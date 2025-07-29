@@ -1,4 +1,4 @@
-[gd_scene load_steps=215 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=216 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -98,6 +98,7 @@
 [ext_resource type="AudioStream" uid="uid://dswq1nsaqx32r" path="res://SFX/643664__snowfightstudios__goblin_various-laughs-and-giggles.wav" id="66_4uaqd"]
 [ext_resource type="AudioStream" uid="uid://b8kbq3wjtghgb" path="res://SFX/754324__kenneysgarage__brush_strokes.wav" id="66_k4ny6"]
 [ext_resource type="Texture2D" uid="uid://cl71bxmbahjg6" path="res://Images/signatureWrite.png" id="66_sv5dc"]
+[ext_resource type="Texture2D" uid="uid://dj86twvmdanmv" path="res://Images/CancelPrepStation.png" id="66_t02v1"]
 [ext_resource type="Texture2D" uid="uid://dseybabv6hepd" path="res://Images/ControlGong.png" id="67_u0l32"]
 [ext_resource type="Texture2D" uid="uid://blpnslqtktp4g" path="res://Images/IncenseControl1.png" id="72_fq6rl"]
 [ext_resource type="Texture2D" uid="uid://cdcx02sbgeker" path="res://Images/PrepIncense.png" id="72_iyokx"]
@@ -2440,6 +2441,7 @@ bus = &"SFX"
 [node name="PrepStationTask" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("14_tj0ai")
+control_texture = ExtResource("66_t02v1")
 
 [node name="Gong" type="Node2D" parent="Task"]
 visible = false

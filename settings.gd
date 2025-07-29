@@ -27,9 +27,9 @@ func get_current_settings_dict():
 
 func set_settings_from_dict(settings):
 	fullscreen.button_pressed = settings.get("fullscreen", false)
-	master_volume.value = settings.get("master_volume", 66)
-	sfx_volume.value = settings.get("sfx_volume", 66)
-	music_volume.value = settings.get("music_volume", 66)
+	master_volume.value = settings.get("master_volume", 50)
+	sfx_volume.value = settings.get("sfx_volume", 50)
+	music_volume.value = settings.get("music_volume", 50)
 
 func apply_current_settings():
 	if fullscreen.button_pressed:

@@ -73,6 +73,9 @@ _data = {
 }
 
 [node name="PrepStation" type="VBoxContainer"]
+offset_right = 81.0
+offset_bottom = 25.0
+size_flags_vertical = 0
 alignment = 1
 script = ExtResource("1_6l65l")
 default_image = ExtResource("2_axp88")
@@ -91,7 +94,7 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 20
 text = "1"
 horizontal_alignment = 1
@@ -180,5 +183,19 @@ expand_mode = 4
 libraries = {
 "": SubResource("AnimationLibrary_lu2bn")
 }
+
+[node name="tab" type="Control" parent="."]
+layout_mode = 2
+
+[node name="tab2" type="Label" parent="tab"]
+layout_mode = 2
+offset_left = -13.0
+offset_top = -29.0
+offset_right = 43.0
+offset_bottom = -1.0
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 16
+text = "TAB + "
+clip_text = true
 
 [connection signal="pressed" from="Wiggler/Wiggler/Button" to="." method="_on_button_pressed"]

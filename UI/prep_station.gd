@@ -9,6 +9,7 @@ extends VBoxContainer
 @onready var timer = $Wiggler/Wiggler/Button/Timer
 @onready var timer_rot = $Wiggler/Wiggler/Button/Timer/Rotator
 @onready var anim = $AnimationPlayer
+@onready var tab = $tab
 
 var resource_name = ""
 var resource_count = 0
@@ -17,6 +18,8 @@ var last_timer_len = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if idx == 1:
+		tab.show()
 	label.text = str(idx)
 	button.icon = default_image
 	resource_label.text = ""

@@ -41,8 +41,8 @@ func _ready() -> void:
 
 func reset():
 	complete = false
-	next_order = Time.get_ticks_msec() + 10000
-	next_chore = Time.get_ticks_msec() + 9000 + time_between_chores
+	next_order = Time.get_ticks_msec() + 8000
+	next_chore = Time.get_ticks_msec() + 7000 + time_between_chores
 	GameGlobals.task_manager.stop_task()
 	GameGlobals.orders.clear()
 	GameGlobals.controls.clear_controls()
