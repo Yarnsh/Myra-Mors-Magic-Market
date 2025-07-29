@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dxpsnwu166is2" path="res://Images/horatius-1.png" id="3_yi5rd"]
 [ext_resource type="Texture2D" uid="uid://cvgvb44eqtcak" path="res://Images/CrystalBall.png" id="6_3ipyr"]
 [ext_resource type="Texture2D" uid="uid://djxib3lv1ja5x" path="res://Images/MyraStore1.png" id="6_m1cll"]
-[ext_resource type="Texture2D" uid="uid://cogca7oy2gk7p" path="res://Images/trophy.png" id="6_m82dd"]
 [ext_resource type="Texture2D" uid="uid://cf54cvr7mcfpu" path="res://Images/MyraStore2.png" id="7_bm35q"]
 [ext_resource type="Texture2D" uid="uid://b4ms8fxa11p8s" path="res://Images/shopspace.png" id="7_v8lvu"]
 [ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
@@ -19,6 +18,7 @@
 [ext_resource type="Script" path="res://UI/horatius.gd" id="9_3bo5s"]
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="9_8gfns"]
 [ext_resource type="Texture2D" uid="uid://cp65qd288pgnw" path="res://Images/slip.png" id="9_guvvf"]
+[ext_resource type="Texture2D" uid="uid://demquggi3gxi1" path="res://Images/tickets.png" id="9_pp5em"]
 [ext_resource type="Script" path="res://UI/clicker.gd" id="10_grk31"]
 [ext_resource type="Script" path="res://UI/speech_bubble.gd" id="11_xb0bs"]
 [ext_resource type="Texture2D" uid="uid://cwai56l4pqy6c" path="res://Images/SpeechBubbleFlipped.png" id="12_6ac5v"]
@@ -425,9 +425,9 @@ offset_right = 218.0
 offset_bottom = 112.0
 
 [node name="Button" parent="WinCondition" index="0"]
-offset_top = -92.0
-offset_bottom = 44.0
-icon = ExtResource("6_m82dd")
+offset_top = -68.0
+offset_bottom = 68.0
+icon = ExtResource("9_pp5em")
 
 [node name="Label" parent="WinCondition" index="1"]
 text = "Win"

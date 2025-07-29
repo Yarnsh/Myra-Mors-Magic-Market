@@ -6,6 +6,7 @@ extends Control
 @onready var shop = $Upgrades
 @onready var shop2 = $Upgrades2
 @onready var menu = $Menu
+@onready var credits = $Credits
 
 @onready var prep_music = $Music/PrepMusic
 
@@ -25,7 +26,7 @@ func start_game_h():
 	game.show()
 
 func complete_game():
-	fade.fade_call(complete_game_h)
+	fade.fade_call(complete_game_h, 0.5)
 	menu.day_going(false)
 
 func complete_game_h():
@@ -35,6 +36,7 @@ func complete_game_h():
 	game.stop()
 	game.reset()
 	prep.show()
+	credits.hide()
 	prep.populate_recipes()
 	prep.manim.play("Returning")
 	
@@ -83,9 +85,25 @@ func close_shop2_h():
 
 func first_start():
 	menu.day_going(false)
+	fade.fade_call(first_start_h)
+
+func first_start_h():
+	GameGlobals.menu_up = false
+	menu.hide()
 	game.hide()
 	shop.hide()
 	shop2.hide()
 	prep.show()
 	prep.populate_recipes()
 	prep_music.play()
+
+func show_credits():
+	fade.fade_call(show_credits_h, 0.2)
+
+func show_credits_h():
+	prep_music.stop()
+	game.hide()
+	shop.hide()
+	shop2.hide()
+	prep.hide()
+	credits.start()

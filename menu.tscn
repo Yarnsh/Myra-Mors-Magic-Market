@@ -274,8 +274,8 @@ bus = &"SFX"
 [connection signal="pressed" from="Main/EndDayButton/Continue" to="." method="_on_end_day_pressed"]
 [connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Master" to="Settings" method="_on_change"]
-[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/SFX" to="Settings" method="_on_change"]
 [connection signal="value_changed" from="Settings/MarginContainer/All/Options/Controls/Music" to="Settings" method="_on_change"]
 [connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
 

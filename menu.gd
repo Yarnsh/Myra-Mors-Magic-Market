@@ -28,7 +28,7 @@ func _on_continue_pressed() -> void:
 	myra_sprite.hide()
 	if !started:
 		get_parent().first_start()
-	if visible:
+	elif visible:
 		if main.visible:
 			GameGlobals.menu_up = false
 			hide()

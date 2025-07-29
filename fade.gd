@@ -3,10 +3,10 @@ extends TextureRect
 @onready var anim = $Anim
 var callable = null
 
-func fade_call(method: Callable):
+func fade_call(method: Callable, speed = 1.0):
 	GameGlobals.fade_happening = true
 	callable = method
-	anim.play("Fade")
+	anim.play("Fade", -1, speed)
 
 func fade_callback():
 	if callable != null:

@@ -24,10 +24,10 @@ extends Control
 func _ready() -> void:
 	$WinCondition.set_item(
 		{
-			"title": "WIN!",
+			"title": "Vacation",
 			"price": 1000000,
 			"callback": Callable.create(self, "win"),
-			"description": "It's everything you've ever wanted..."
+			"description": "You could really use a break..."
 		}
 	)
 	$ShopSpace.set_item(
@@ -64,7 +64,13 @@ func _ready() -> void:
 	)
 
 func win():
-	print("You would win now")
+	main.show_credits()
+	$WinCondition.set_item({
+			"title": "Vacation",
+			"price": 0,
+			"callback": Callable.create(self, "win"),
+			"description": "You could really use a break..."
+		})
 
 func buy_prep_station():
 	GameGlobals.prep_station_count += 1
