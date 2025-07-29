@@ -1,4 +1,4 @@
-[gd_scene load_steps=214 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=215 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -101,6 +101,7 @@
 [ext_resource type="Texture2D" uid="uid://dseybabv6hepd" path="res://Images/ControlGong.png" id="67_u0l32"]
 [ext_resource type="Texture2D" uid="uid://blpnslqtktp4g" path="res://Images/IncenseControl1.png" id="72_fq6rl"]
 [ext_resource type="Texture2D" uid="uid://cdcx02sbgeker" path="res://Images/PrepIncense.png" id="72_iyokx"]
+[ext_resource type="Texture2D" uid="uid://dwcqe0u5ktm0c" path="res://Images/ControlButtonWater.png" id="73_ci2kr"]
 [ext_resource type="Texture2D" uid="uid://bodqb14p3hv0i" path="res://Images/IncenseControl2.png" id="73_slvmj"]
 [ext_resource type="Script" path="res://result_screen.gd" id="74_fnlgr"]
 [ext_resource type="Texture2D" uid="uid://cjlv2vocrblv" path="res://Images/IncenseControl3.png" id="74_my2ig"]
@@ -2474,6 +2475,7 @@ bus = &"SFX"
 [node name="Fire" type="Node2D" parent="Task"]
 visible = false
 script = ExtResource("49_58ph3")
+control_texture = ExtResource("73_ci2kr")
 done_texture = ExtResource("21_wlpc6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Task/Fire"]
