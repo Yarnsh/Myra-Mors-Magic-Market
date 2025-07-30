@@ -44,7 +44,7 @@ func take_input(sc : String, release = false):
 			q = 1.0
 		GameGlobals.task_manager.report_result({
 			"resource_name": "crystal",
-			"resource_count": 8,
+			"resource_count": 32,
 			"icon": prepped_icon,
 			"quality": q
 		})

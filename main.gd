@@ -108,6 +108,7 @@ func show_credits():
 	fade.fade_call(show_credits_h, 0.2)
 
 func show_credits_h():
+	GameGlobals.sunburned.emit()
 	prep_music.stop()
 	game.hide()
 	shop.hide()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=216 format=3 uid="uid://b72aodvsrkkov"]
+[gd_scene load_steps=219 format=3 uid="uid://b72aodvsrkkov"]
 
 [ext_resource type="PackedScene" uid="uid://3u78vhk3a1gd" path="res://UI/order.tscn" id="1_2ls0w"]
 [ext_resource type="Script" path="res://game.gd" id="1_pkw1q"]
@@ -32,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://gfv6o3jhah14" path="res://Images/candle.png" id="10_lkr3i"]
 [ext_resource type="Shader" path="res://smoke.gdshader" id="11_5kocx"]
 [ext_resource type="AudioStream" uid="uid://45ckn5oj54o4" path="res://SFX/515862__astriferal__wooden-frog-croaks.wav" id="11_lx8op"]
+[ext_resource type="Script" path="res://myra_sunburner.gd" id="11_uguxl"]
+[ext_resource type="Texture2D" uid="uid://rwc0s8d1e6lr" path="res://Images/WorkingMyraBurned.png" id="12_ituit"]
 [ext_resource type="Texture2D" uid="uid://dl3pob3gyc7eu" path="res://Images/smoke.png" id="12_pboym"]
 [ext_resource type="Script" path="res://pick_prep_station_task.gd" id="14_tj0ai"]
 [ext_resource type="Texture2D" uid="uid://mhxphfn5ksik" path="res://Images/PrepPotion.png" id="15_pjbpi"]
@@ -117,6 +119,7 @@
 [ext_resource type="Texture2D" uid="uid://w2i8vc0td1p1" path="res://Images/ControlButtonBrushRight.png" id="77_rdtcj"]
 [ext_resource type="AudioStream" uid="uid://c4ls0r4dpafsv" path="res://SFX/209580__zott820__entrance-bell.wav" id="78_4t68a"]
 [ext_resource type="Texture2D" uid="uid://dryxp2yd23wct" path="res://Images/ControlButtonBrushLeft.png" id="78_slg54"]
+[ext_resource type="Texture2D" uid="uid://xesoricsv5y5" path="res://Images/myra_burned.png" id="78_syges"]
 [ext_resource type="Texture2D" uid="uid://bdgag0beuc5rk" path="res://Images/ControlButtonName.png" id="86_ryqjo"]
 [ext_resource type="Texture2D" uid="uid://c17xuakk5p0u1" path="res://Images/ControlButtonDate.png" id="87_lfy3g"]
 [ext_resource type="AudioStream" uid="uid://rhrpmq4tq8da" path="res://SFX/119841__kbnevel__lighter_lightrelease.wav" id="87_o1iya"]
@@ -1858,6 +1861,8 @@ offset_bottom = 384.0
 position = Vector2(-140, 331)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_jsqy2")
+script = ExtResource("11_uguxl")
+replacement_sprite = ExtResource("12_ituit")
 
 [node name="Smoke" type="Sprite2D" parent="IndoorVisuals"]
 modulate = Color(1, 1, 1, 0)
@@ -2495,6 +2500,8 @@ done_texture = ExtResource("21_wlpc6")
 position = Vector2(1, -174)
 scale = Vector2(0.733184, 0.733184)
 texture = ExtResource("50_fibly")
+script = ExtResource("11_uguxl")
+replacement_sprite = ExtResource("78_syges")
 
 [node name="S1" type="AnimatedSprite2D" parent="Task/Fire"]
 texture_filter = 1

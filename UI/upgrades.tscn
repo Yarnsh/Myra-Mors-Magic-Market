@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://b4a1ay8nyjqtr"]
+[gd_scene load_steps=64 format=3 uid="uid://b4a1ay8nyjqtr"]
 
 [ext_resource type="Script" path="res://upgrades_shop.gd" id="1_lwpen"]
 [ext_resource type="Texture2D" uid="uid://71u4vsyuaaa6" path="res://Images/upgrade_bg.png" id="2_71xr7"]
@@ -12,13 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://djxib3lv1ja5x" path="res://Images/MyraStore1.png" id="6_m1cll"]
 [ext_resource type="Texture2D" uid="uid://cf54cvr7mcfpu" path="res://Images/MyraStore2.png" id="7_bm35q"]
 [ext_resource type="Texture2D" uid="uid://b4ms8fxa11p8s" path="res://Images/shopspace.png" id="7_v8lvu"]
+[ext_resource type="Script" path="res://myra_sunburner.gd" id="7_xqotq"]
 [ext_resource type="Texture2D" uid="uid://5nhhixyq0ju8" path="res://Images/exit.png" id="7_y00v8"]
 [ext_resource type="Texture2D" uid="uid://bs8nlumpj20n2" path="res://Images/prepstation.png" id="8_5y7n3"]
+[ext_resource type="Texture2D" uid="uid://xo4u5qx1hi7n" path="res://Images/MyraStore1burned.png" id="8_ajtwq"]
 [ext_resource type="Script" path="res://start_button.gd" id="8_sumxp"]
 [ext_resource type="Script" path="res://UI/horatius.gd" id="9_3bo5s"]
 [ext_resource type="Script" path="res://UI/upgrade_text.gd" id="9_8gfns"]
 [ext_resource type="Texture2D" uid="uid://cp65qd288pgnw" path="res://Images/slip.png" id="9_guvvf"]
 [ext_resource type="Texture2D" uid="uid://demquggi3gxi1" path="res://Images/tickets.png" id="9_pp5em"]
+[ext_resource type="Texture2D" uid="uid://1tij1lmexdis" path="res://Images/MyraStore2burned.png" id="10_au3qp"]
 [ext_resource type="Script" path="res://UI/clicker.gd" id="10_grk31"]
 [ext_resource type="Script" path="res://UI/speech_bubble.gd" id="11_xb0bs"]
 [ext_resource type="Texture2D" uid="uid://cwai56l4pqy6c" path="res://Images/SpeechBubbleFlipped.png" id="12_6ac5v"]
@@ -405,12 +408,16 @@ texture = ExtResource("2_71xr7")
 position = Vector2(-135, 430)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("6_m1cll")
+script = ExtResource("7_xqotq")
+replacement_sprite = ExtResource("8_ajtwq")
 
 [node name="Myra2" type="Sprite2D" parent="Myras"]
 visible = false
 position = Vector2(113, 430)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("7_bm35q")
+script = ExtResource("7_xqotq")
+replacement_sprite = ExtResource("10_au3qp")
 
 [node name="Anim" type="AnimationPlayer" parent="Myras"]
 root_node = NodePath("../Myra1")

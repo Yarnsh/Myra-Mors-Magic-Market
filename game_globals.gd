@@ -1,5 +1,7 @@
 extends Node
 
+signal sunburned
+
 var game = null
 
 var fade_happening = false
@@ -25,7 +27,7 @@ var potion_order = {
 	"name": "Potion",
 	"task": "",
 	"requirements": {"potion": 1},
-	"base_price": 12000,
+	"base_price": 1200,
 	"icon": load("res://Images/PotionOrder.png"),
 	"prep_icon": load("res://Images/Cauldron.png"),
 	"chalk_icon": load("res://Images/ChalkCauldron.png"),
@@ -112,7 +114,7 @@ var current_chores = [
 func _input(event: InputEvent) -> void:
 	pass
 	#if event.is_action("DEV_MONEY"):
-	#	money += 10000
+	#	money += 1000000
 	#if event.is_action("DEV_UNLOCK"):
 	#	prep_station_count = 6
 	#	orders_count = 10

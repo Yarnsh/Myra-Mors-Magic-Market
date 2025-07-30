@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bmoxwb8d6mrt0"]
+[gd_scene load_steps=43 format=3 uid="uid://bmoxwb8d6mrt0"]
 
 [ext_resource type="Script" path="res://upgrades_2.gd" id="1_ivrpe"]
 [ext_resource type="Texture2D" uid="uid://ce47ltvj1fec7" path="res://Images/BackroomBG1.png" id="2_pqvcg"]
@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://dundpb32tl51i" path="res://Images/MyraStoreBack.png" id="6_e3t26"]
 [ext_resource type="Texture2D" uid="uid://ciwbit4i7k1ac" path="res://Images/crystal.png" id="6_ojrt2"]
 [ext_resource type="Texture2D" uid="uid://dribewdaosusk" path="res://Images/IncensePot.png" id="7_hdafr"]
+[ext_resource type="Script" path="res://myra_sunburner.gd" id="7_pcspp"]
 [ext_resource type="Texture2D" uid="uid://dvnpiv1t75eo5" path="res://Images/Cauldron.png" id="8_mkw7d"]
+[ext_resource type="Texture2D" uid="uid://cum2vowg62nv0" path="res://Images/MyraStoreBackburned.png" id="8_mt1jl"]
 [ext_resource type="Texture2D" uid="uid://dfi6yb3a0iexn" path="res://Images/signarrow.png" id="9_i0iws"]
 [ext_resource type="FontFile" uid="uid://bhgg6vojkdyww" path="res://Fonts/WOODCUT.TTF" id="10_ewf5b"]
 [ext_resource type="Texture2D" uid="uid://clks1mguyfsf5" path="res://Images/gong.png" id="10_tcjs0"]
@@ -208,6 +210,8 @@ rotation = 0.920534
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("6_e3t26")
 offset = Vector2(0, -400)
+script = ExtResource("7_pcspp")
+replacement_sprite = ExtResource("8_mt1jl")
 
 [node name="BG2" type="TextureRect" parent="."]
 layout_mode = 1
