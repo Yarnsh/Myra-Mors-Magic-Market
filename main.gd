@@ -7,6 +7,7 @@ extends Control
 @onready var shop2 = $Upgrades2
 @onready var menu = $Menu
 @onready var credits = $Credits
+@onready var tutorial = $Tutorial
 
 @onready var prep_music = $Music/PrepMusic
 @onready var game_music = $Music/GameMusic
@@ -113,3 +114,10 @@ func show_credits_h():
 	shop2.hide()
 	prep.hide()
 	credits.start()
+
+func start_tutorial():
+	menu.hide()
+	tutorial.start()
+
+func stop_tutorial():
+	menu.show()

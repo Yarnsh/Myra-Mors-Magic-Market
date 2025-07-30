@@ -185,6 +185,7 @@ libraries = {
 }
 
 [node name="tab" type="Control" parent="."]
+visible = false
 layout_mode = 2
 
 [node name="tab2" type="Label" parent="tab"]

@@ -317,13 +317,13 @@ texture = ExtResource("2_kdbt2")
 [node name="Label" type="Label" parent="Visuals/Chalkboard"]
 layout_mode = 0
 offset_left = 50.1251
-offset_top = 23.733
+offset_top = 40.4341
 offset_right = 296.125
-offset_bottom = 78.733
+offset_bottom = 95.4341
 scale = Vector2(1, 0.753879)
 theme_override_fonts/font = ExtResource("3_n17j6")
 theme_override_font_sizes/font_size = 40
-text = "Today's Menu"
+text = "Todays Menu"
 
 [node name="ShopSign" type="TextureRect" parent="Visuals"]
 layout_mode = 0
@@ -335,17 +335,29 @@ scale = Vector2(0.938, 0.938)
 texture = ExtResource("3_y5kkl")
 expand_mode = 1
 
-[node name="Chores" type="Label" parent="Visuals"]
+[node name="Chores3" type="Label" parent="Visuals"]
 layout_mode = 0
 offset_left = 364.0
 offset_top = 448.0
 offset_right = 698.0
 offset_bottom = 534.0
 scale = Vector2(1, 0.753879)
+theme_override_constants/line_spacing = -5
 theme_override_fonts/font = ExtResource("3_n17j6")
 theme_override_font_sizes/font_size = 25
-text = "Watch out for:
-Stuff"
+text = "Watch out for"
+
+[node name="Chores" type="Label" parent="Visuals"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 471.0
+offset_right = 698.0
+offset_bottom = 557.0
+scale = Vector2(1, 0.753879)
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("3_n17j6")
+theme_override_font_sizes/font_size = 25
+text = "Stuff"
 
 [node name="Selections" type="Control" parent="."]
 anchors_preset = 0

@@ -1780,9 +1780,20 @@ offset_bottom = 78.733
 scale = Vector2(1, 0.753879)
 theme_override_fonts/font = ExtResource("8_yyyir")
 theme_override_font_sizes/font_size = 40
-text = "Today's Menu"
+text = "Todays Menu"
 
 [node name="Chores" type="Label" parent="IndoorVisuals/Board"]
+layout_mode = 0
+offset_left = 364.0
+offset_top = 470.857
+offset_right = 698.0
+offset_bottom = 556.857
+scale = Vector2(1, 0.753879)
+theme_override_fonts/font = ExtResource("8_yyyir")
+theme_override_font_sizes/font_size = 25
+text = "Stuff"
+
+[node name="Chores2" type="Label" parent="IndoorVisuals/Board"]
 layout_mode = 0
 offset_left = 364.0
 offset_top = 448.0
@@ -1791,8 +1802,7 @@ offset_bottom = 534.0
 scale = Vector2(1, 0.753879)
 theme_override_fonts/font = ExtResource("8_yyyir")
 theme_override_font_sizes/font_size = 25
-text = "Watch out for:
-Stuff"
+text = "Watch out for"
 
 [node name="Selections" type="Control" parent="IndoorVisuals/Board"]
 layout_mode = 3
@@ -2046,6 +2056,7 @@ script = ExtResource("2_64ujj")
 
 [node name="Label" type="Label" parent="Controls/MarginContainer/Controls"]
 layout_mode = 2
+theme_override_constants/outline_size = 8
 text = "Potion of Green"
 
 [node name="ItemList" type="GridContainer" parent="Controls/MarginContainer/Controls"]

@@ -173,6 +173,18 @@ offset_top = 216.0
 offset_right = -96.0
 offset_bottom = 256.0
 
+[node name="Instructions" parent="Main" instance=ExtResource("3_xbpeo")]
+offset_left = -86.0
+offset_top = 486.0
+offset_right = -46.0
+offset_bottom = 526.0
+scale = Vector2(0.7, 0.7)
+
+[node name="Label" parent="Main/Instructions/Continue" index="0"]
+offset_left = -176.0
+offset_right = -26.0
+text = "Instructions"
+
 [node name="SettingsButton" parent="Main" instance=ExtResource("3_xbpeo")]
 offset_left = -115.0
 offset_top = 296.0
@@ -339,6 +351,7 @@ stream = ExtResource("5_bdawe")
 bus = &"SFX"
 
 [connection signal="pressed" from="Main/ContinueButton/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Main/Instructions/Continue" to="." method="_on_instructions_pressed"]
 [connection signal="pressed" from="Main/SettingsButton/Continue" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Main/EndDayButton/Continue" to="." method="_on_end_day_pressed"]
 [connection signal="toggled" from="Settings/MarginContainer/All/Options/Controls/Fullscreen" to="Settings" method="_on_change"]
@@ -349,5 +362,6 @@ bus = &"SFX"
 [connection signal="pressed" from="Settings/MarginContainer/All/Button" to="Settings" method="_on_done_pressed"]
 
 [editable path="Main/ContinueButton"]
+[editable path="Main/Instructions"]
 [editable path="Main/SettingsButton"]
 [editable path="Main/EndDayButton"]

@@ -42,3 +42,6 @@ func _on_end_day_pressed() -> void:
 
 func day_going(going):
 	endday.visible = going
+
+func _on_instructions_pressed() -> void:
+	get_parent().start_tutorial()

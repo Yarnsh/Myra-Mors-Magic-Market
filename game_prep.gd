@@ -10,7 +10,7 @@ extends Control
 
 func populate_recipes():
 	recipe_list_ui.populate_recipes()
-	chores_label.text = "Watch out for:\n"
+	chores_label.text = ""
 	for c in GameGlobals.current_chores:
 		chores_label.text += c["name"]
 		if c != GameGlobals.current_chores[-1]:

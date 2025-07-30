@@ -110,11 +110,12 @@ var current_chores = [
 ]
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("DEV_MONEY"):
-		money += 10000
-	if event.is_action("DEV_UNLOCK"):
-		prep_station_count = 6
-		orders_count = 10
-		for r in recipe_definitions.keys():
-			if r not in unlocked_recipes:
-				unlocked_recipes.append(r)
+	pass
+	#if event.is_action("DEV_MONEY"):
+	#	money += 10000
+	#if event.is_action("DEV_UNLOCK"):
+	#	prep_station_count = 6
+	#	orders_count = 10
+	#	for r in recipe_definitions.keys():
+	#		if r not in unlocked_recipes:
+	#			unlocked_recipes.append(r)
