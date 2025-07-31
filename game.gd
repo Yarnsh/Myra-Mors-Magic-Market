@@ -33,6 +33,7 @@ var complete = true
 var tips_earned = 0.0
 var base_earned = 0.0
 var taxes_taken = 0.0
+var irs_taken = 0.0
 
 var next_incense_check = 0
 
@@ -55,6 +56,7 @@ func reset():
 	tips_earned = 0.0
 	base_earned = 0.0
 	taxes_taken = 0.0
+	irs_taken = 0.0
 	
 	smoke_anim.play("RESET")
 
@@ -91,7 +93,7 @@ func trigger_complete():
 	GameGlobals.prep_stations.clear()
 	GameGlobals.current_task = null
 	timer.pause()
-	result_screen.finish(base_earned, tips_earned, taxes_taken)
+	result_screen.finish(base_earned, tips_earned, taxes_taken, irs_taken)
 
 func _process(delta: float) -> void:
 	if !complete:
@@ -190,7 +192,7 @@ func handle_order_result(result):
 			else:
 				if result.get("chore_special", "") == "taxes":
 					add_money(-min(GameGlobals.money, 100000))
-					taxes_taken += min(GameGlobals.money, 100000)
+					irs_taken += min(GameGlobals.money, 100000)
 				else:
 					vibe = max(0.0, min(max_vibe, vibe * (0.5)))
 					vibe_indicator.lose()

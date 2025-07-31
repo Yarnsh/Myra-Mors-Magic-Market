@@ -44,7 +44,7 @@ func _ready() -> void:
 	$Gong.set_item(
 		{
 			"title": "Gong",
-			"price": 30000,
+			"price": 15000,
 			"callback": Callable.create(self, "buy_gong"),
 			"description": "A gong who's ring will dispell evil spirits. Gives a boost to vibe when used successfully."
 		}

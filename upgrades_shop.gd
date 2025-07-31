@@ -25,7 +25,7 @@ func _ready() -> void:
 	$WinCondition.set_item(
 		{
 			"title": "Vacation",
-			"price": 500000,
+			"price": 200000,
 			"callback": Callable.create(self, "win"),
 			"description": "You could really use a break..."
 		}

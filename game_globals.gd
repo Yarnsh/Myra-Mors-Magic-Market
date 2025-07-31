@@ -44,7 +44,7 @@ var ponder_order = {
 	"description": "Predict their future, aim for some good news for a big tip! Bad news will greatly reduce vibe however..."
 }
 var crystal_recipe = {
-	"name": "Pre-charged Crystals",
+	"name": "Pre Charged Crystals",
 	"requirements": {},
 	"icon": load("res://Images/crystal.png"),
 	"prep_icon": load("res://Images/crystal.png"),

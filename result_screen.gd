@@ -12,7 +12,7 @@ var t = 0.0
 const show_time = 0.35
 var shown = 0
 
-func finish(base, tips, taxes):
+func finish(base, tips, taxes, irs):
 	boom_sfx.play()
 	button.hide()
 	for l in labels:
@@ -21,8 +21,8 @@ func finish(base, tips, taxes):
 		l.hide()
 	values[0].text = "$" + str(float(base) / 100.0).pad_decimals(2)
 	values[1].text = "$" + str(float(tips) / 100.0).pad_decimals(2)
-	values[2].text = "-$" + str(float(taxes) / 100.0).pad_decimals(2)
-	values[3].text = "$" + str(float(base+tips-taxes) / 100.0).pad_decimals(2)
+	values[2].text = "-$" + str(float(taxes+irs) / 100.0).pad_decimals(2)
+	values[3].text = "$" + str(float(base+tips-(taxes+irs)) / 100.0).pad_decimals(2)
 	shown = 0
 	t = -(show_time * 2.0)
 	
